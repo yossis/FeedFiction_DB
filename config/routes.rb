@@ -1,4 +1,24 @@
 FeedFiction::Application.routes.draw do
+  resources :categories
+
+  get "import_images/facebook"
+
+  get "import_images/instagram"
+
+  get "import_images/upload"
+
+  root to: 'static_pages#index'
+  match '/help',    to: 'static_pages#help'
+  match '/about',   to: 'static_pages#about'
+  match '/privacy', to: 'static_pages#privacy'  
+  match '/terms', to: 'static_pages#terms' 
+
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+
+  match '/facebook', to: 'import_images#facebook' 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,59 @@
+<h1>Please choose image and start your story</h1>
+<div id="story-container">
+	<ul id="tiles" class="unstyled">
+		<% @images.each do |image|%>
+			<li class="story-box">
+				<% ratio = aspect_ratio(image['src_big_width'], image['src_big_height'], 190) %>
+				<%=  image_tag(image['src_big'] , width: ratio['new_width'].to_s+'px' , height: ratio['new_height'].to_s+'px')  %>
+				<div class="tiels-items-container">
+					<a class="btn btn-small"><i class="icon-edit"></i>Start Story</a>		
+				</div>
+
+			</li>
+
+		<% end %>
+	</ul>
+</div>
+<div id="modal-upload">
+
+</div>
+<div class="modal hide" id="start-story">
+  <div class="modal-header lg">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h2>Start A Story</h2>
+  </div>
+  <div class="modal-body">
+    <form class="form-horizontal">
+	  <ul>
+		<li><h3></h3></li>
+		<li>
+			<div>
+				<div class="ss-image"></div>
+				<div class="ss-feed-form">
+				 <ul>
+				 	<li><%= collection_select(:category, :id, @categories, :id, :name) %></li>
+				 	<li><div class="ss-canvas"></div></li>
+				 	<li><textarea></textarea></li>
+
+
+
+				 </ul>		
+
+
+				</div>
+
+
+			</div>
+
+		</li>	
+	  </ul>
+	</form>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <a href="#" class="btn btn-primary">Save changes</a>
+  </div>
+</div>
+	
+</div>
+

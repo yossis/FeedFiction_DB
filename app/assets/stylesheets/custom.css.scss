@@ -1,0 +1,137 @@
+$navbarLinkColor : #fff;
+$navbarLinkColorHover : #009DFF;
+
+
+@import "bootstrap";
+
+
+$white : #fff;
+$grayLight : #eee;
+
+body { padding-top: 60px; } 
+
+ol,ul { list-style: none;}
+
+textarea ,input[type=text] {
+	-moz-box-sizing: border-box;
+    -moz-transition: all 0.08s ease-in-out 0s;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #AD9C9C;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px rgba(34, 25, 25, 0.15) inset, 0 1px #FFFFFF;
+    color: #221919;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4;
+    padding: 6px 12px;
+}
+
+/* override bootstrap*/
+.navbar .dropdown .caret{ 
+	color: $white;
+	opacity:1;
+	filter: alpha(opacity=100);
+}
+
+.modal-backdrop { 
+	background-color: #fff;
+}
+ 
+.modal h2 {
+	color:#8C7E7E;
+}
+/* End overide bootstrap */
+
+/* Linear Gradient */
+.lg {  
+	background-color: #f0eded;
+	background: -moz-linear-gradient(top,#fffcfc, #f0eded);
+	background: -o-linear-gradient(#fffcfc, #f0eded);
+	background: -webkit-linear-gradient(#fffcfc, #f0eded);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcfc', endColorstr='#f0eded');
+}
+
+
+.image_header_avatar {width:23px;height:23px;}
+
+#logo { font-style: normal;
+		color: #009DFF;
+		font-weight: bold;
+
+	&span{
+		font-style:italic;
+		color: #1FFF00;
+	}
+}
+
+/* Modal Start a story */
+
+#StartStoryModal {
+	&.modal-body div.row{
+	margin:0 auto;
+	}
+
+	.logo-images {
+
+		&div.span{
+			border: solid 1px $grayLight;
+			padding:12px;
+			margin:0;
+
+			&:hover{
+				background-color: $grayLight;
+			}
+		}
+
+		img{ 
+			width:150;height:150px;
+		}
+	}
+}
+
+/* Modal start a story from facebook or Insta*/
+
+#start-story{
+
+	.ss-image, .ss-feed-form {
+		float:left;
+		border:solid 3px #eee;
+	}
+
+textarea {
+		width: 380px;
+		max-height: 150px;
+	}
+}
+
+
+/* Story item, Feed and containers*/
+
+#story-container { position:relative;}
+
+.story-box {
+	border:solid 1px;
+	padding:5px; margin: 5px;
+
+	&:hover div.tiels-items-container {
+		display: block;
+	}
+
+	div.tiels-items-container {
+		position:absolute;
+		top:0; left: 0;
+		padding:10px;
+		display:none;
+
+		&div {
+			float:left;
+			
+		}
+	}
+
+}
+
+
+	
+	
