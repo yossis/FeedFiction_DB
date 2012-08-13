@@ -31,7 +31,7 @@
     {
       $('#start-story .ss-image').append('<img width="200" src="'+image+'"/>');
     }
-    $('#start-story .ss-feed-form input[type=hidden].ss-image').attr('value', image)
+    $('#start-story .ss-feed-form input[type=hidden].ss-image').attr('value', image);
     $('#start-story textarea').textareaCounter({title: '#start-story h3'});
 
     $('#start-story').modal('toggle');
