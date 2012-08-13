@@ -1,0 +1,33 @@
+<%= simple_form_for @story do |f| %>
+  <%= f.error_notification %>
+ <div class="modal-body">
+	  <ul>
+		<li><h3></h3></li>
+		<li>
+			<div>
+				<div class="ss-image"></div>
+				<div class="ss-feed-form">
+				 <ul>
+				 	<li><%= collection_select(:story, :category_id, @categories, :id, :name) %></li>
+				 	<li><div class="ss-canvas"></div></li>
+				 	<textarea name='line'></textarea>
+				 	<%=f.hidden_field :image_url , :class => 'ss-image' %>
+
+
+
+				 </ul>		
+				</div>
+
+
+			</div>
+
+		</li>	
+	  </ul>
+	
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+    <%=f.submit %>
+    
+  </div>
+<% end %>

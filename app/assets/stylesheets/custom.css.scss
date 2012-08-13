@@ -41,6 +41,10 @@ textarea ,input[type=text] {
 .modal h2 {
 	color:#8C7E7E;
 }
+
+.container{
+	width:auto;
+}
 /* End overide bootstrap */
 
 /* Linear Gradient */
@@ -113,6 +117,7 @@ textarea {
 .story-box {
 	border:solid 1px;
 	padding:5px; margin: 5px;
+	width: 240px;
 
 	&:hover div.tiels-items-container {
 		display: block;

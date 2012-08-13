@@ -9,6 +9,8 @@ gem 'pg'
 gem 'omniauth-facebook'
 gem 'koala'
 gem 'instagram'
+gem 'foreigner'
+gem 'simple_form'
 
 
 group :development, :test do

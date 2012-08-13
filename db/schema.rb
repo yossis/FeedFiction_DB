@@ -11,10 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809233759) do
+ActiveRecord::Schema.define(:version => 20120812205139) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "stories", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "image_url"
+    t.boolean  "is_compleate"
+    t.integer  "inappropreate"
+    t.integer  "quality"
+    t.integer  "story_source_id"
+    t.integer  "category_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "story_lines", :force => true do |t|
+    t.integer  "story_id"
+    t.integer  "user_id"
+    t.integer  "order_id"
+    t.string   "line"
+    t.boolean  "is_flagged"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -29,8 +51,14 @@ ActiveRecord::Schema.define(:version => 20120809233759) do
     t.string   "gender"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "login_count",      :default => 0
   end
+
+  add_foreign_key "stories", "categories", :name => "stories_category_id_fk"
+  add_foreign_key "stories", "users", :name => "stories_user_id_fk"
+
+  add_foreign_key "story_lines", "stories", :name => "story_lines_story_id_fk"
 
 end

@@ -1,2 +1,28 @@
 <h1>StaticPages#index</h1>
 <p>Find me in app/views/static_pages/index.html.erb</p>
+
+<div id="story-container">
+	<ul id="tiles" class="unstyled">
+		<% @stories.each do |story| %>
+			<li class="story-box continue-story">
+				<%=  image_tag(story.image_url , width: '240px')  %>
+				<div class="tiels-items-container">
+					<a class="btn btn-small like-story"><i class="icon-thumbs-up"></i>Like</a>
+					<a class="btn btn-small continue-story"><i class="icon-edit"></i>Continue</a>		
+				</div>
+				<div>
+				<% story.story_lines.each do |line| %>
+				  		<span><%=line.line %></span>
+				<% end %>
+				<span class="cs-canvas"></span>
+				</div>
+				<div>
+					<textarea story-id="<%= story.id%>" last-oid="<%= story.story_lines.last.order_id if story.story_lines.present?%>"></textarea>
+					<input type="button" name="submit-story" value="submit"/>
+				</div>	
+
+			</li>
+
+		<% end %>
+	</ul>
+</div>

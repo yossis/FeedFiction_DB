@@ -9,6 +9,7 @@ class ImportImagesController < ApplicationController
 		 @images = current_user.facebook.fql_query(fql_query)
 		 #raise @images.to_yaml
 		 @categories = Category.all
+		 @story = Story.new
 	end
 
 

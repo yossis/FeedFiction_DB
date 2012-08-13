@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid
+  attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count
 
   def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 	    user.gender = auth.extra.raw_info.gender
 	    user.oauth_token = auth.credentials.token
 	    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+	    user.login_count +=1
 	    user.save!
 	    user
 	 end

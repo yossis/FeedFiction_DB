@@ -1,0 +1,31 @@
+<h1>Listing story_lines</h1>
+
+<table>
+  <tr>
+    <th>Story</th>
+    <th>User</th>
+    <th>Order</th>
+    <th>Line</th>
+    <th>Is flagged</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @story_lines.each do |story_line| %>
+  <tr>
+    <td><%= story_line.story_id %></td>
+    <td><%= story_line.user_id %></td>
+    <td><%= story_line.order_id %></td>
+    <td><%= story_line.line %></td>
+    <td><%= story_line.is_flagged %></td>
+    <td><%= link_to 'Show', story_line %></td>
+    <td><%= link_to 'Edit', edit_story_line_path(story_line) %></td>
+    <td><%= link_to 'Destroy', story_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Story line', new_story_line_path %>

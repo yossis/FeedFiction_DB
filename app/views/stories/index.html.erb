@@ -1,0 +1,35 @@
+<h1>Listing stories</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Image url</th>
+    <th>Is compleate</th>
+    <th>Inappropreate</th>
+    <th>Quality</th>
+    <th>Story source</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stories.each do |story| %>
+  <tr>
+    <td><%= story.user_id %></td>
+    <td><%= story.image_url %></td>
+    <td><%= story.is_compleate %></td>
+    <td><%= story.inappropreate %></td>
+    <td><%= story.quality %></td>
+    <td><%= story.story_source_id %></td>
+    <td><%= story.category_id %></td>
+    <td><%= link_to 'Show', story %></td>
+    <td><%= link_to 'Edit', edit_story_path(story) %></td>
+    <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Story', new_story_path %>

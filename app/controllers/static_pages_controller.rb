@@ -9,5 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def index
+  	 @stories = Story.all
+  	 @story_line = StoryLine.new()
   end
 end

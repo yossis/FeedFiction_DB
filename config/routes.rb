@@ -1,4 +1,8 @@
 FeedFiction::Application.routes.draw do
+  resources :story_lines
+
+  resources :stories
+
   resources :categories
 
   get "import_images/facebook"
