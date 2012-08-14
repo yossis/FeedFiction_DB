@@ -32,7 +32,7 @@
       $('#start-story .ss-image').append('<img width="200" src="'+image+'"/>');
     }
     $('#start-story .ss-feed-form input[type=hidden].ss-image').attr('value', image);
-    $('#start-story textarea').textareaCounter({title: '#start-story h3'});
+    $('#start-story textarea').textareaCounter({title: '#start-story h3',submit:'#start-story .modal-footer input[type=submit]', enableSubmitAfterNumWords:10});
 
     $('#start-story').modal('toggle');
 
@@ -41,14 +41,21 @@
   var continueStoryClick = $('');
   $(document).on("click", '#tiles li.continue-story div.tiels-items-container a.btn', function(e){
     var textarea = $(this).closest('li').find('textarea');
-   if ($(this).hasClass('continue-story')){
-    $(textarea).focus();
-   }
+   //if ($(this).hasClass('continue-story')){
+   // $(textarea).focus();
+  // }
   }); 
 
   $(document).on("click", '#tiles li.continue-story textarea', function(e){
+    if ($(this).attr('unlogged') && $(this).attr('unlogged').length>0){
+      alert("You must sign in to complete the story!");
+      $(this).blur();
+      return;
+    }
+
      var canvas = $(this).closest('li').find('.cs-canvas');
-    $(this).textareaCounter({container: canvas});
+     var limit = $(this).attr('limit');
+    $(this).textareaCounter({container: canvas, limit:limit});
    
   }); 
 

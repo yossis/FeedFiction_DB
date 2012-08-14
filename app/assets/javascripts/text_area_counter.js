@@ -12,7 +12,10 @@
 		var defaults = {
 			limit: 55,
 			container : null,
-			title:null
+			title:null,
+			enableSubmitAfterNumWords:null,
+			submit:null
+
 		};	
 		var options = $.extend(defaults, options);
  
@@ -40,6 +43,16 @@
 				if (wordcount < 5 &options.title !=null)
 				{
 					$(options.title).html(obj.val());
+				}
+
+				// Set submit button
+				if (options.enableSubmitAfterNumWords!=null && options.submit!=null){
+					if (wordcount >=10){
+
+						$(options.submit).addClass('btn-primary').removeAttr("disabled"); 
+					}
+					else
+						$(options.submit).removeClass('btn-primary').attr('disabled','disabled');
 				}
 
 			    if(wordcount > options.limit) {

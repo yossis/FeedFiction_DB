@@ -1,5 +1,3 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
 
 <div id="story-container">
 	<ul id="tiles" class="unstyled">
@@ -16,10 +14,21 @@
 				<% end %>
 				<span class="cs-canvas"></span>
 				</div>
-				<div>
-					<textarea story-id="<%= story.id%>" last-oid="<%= story.story_lines.last.order_id if story.story_lines.present?%>"></textarea>
-					<input type="button" name="submit-story" value="submit"/>
-				</div>	
+				<% unless story.is_compleate%>
+					<div>
+						<div class="avatar-writers">
+							<% story.story_lines.each do |line| %>
+								<%= image_tag(line.user.avatar,:class => 'border-image-small')  %>
+							<% end%>
+						</div>
+						<hr/>
+						<div class="continue-story-text">
+							<%= image_tag(current_user.avatar,:class => 'border-image-small image_continue_avatar') if current_user %>
+							<textarea story-id="<%= story.id%>" last-oid="<%= story.story_lines.last.order_id if story.story_lines.present?%>" limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%>   placeholder='Add more <%= add_how_many_words story.story_lines%> words..'></textarea>
+							<input type="button" name="submit-story" class="btn" value="submit"/>
+						</div>
+					</div>
+				<%end%>	
 
 			</li>
 

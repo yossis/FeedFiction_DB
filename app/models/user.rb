@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count
 
+  has_many :stories
+  has_many :story_lines
+
   def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
 	  	#logger.debug { "user: #{user}" }

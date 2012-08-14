@@ -58,6 +58,10 @@ textarea ,input[type=text] {
 
 
 .image_header_avatar {width:23px;height:23px;}
+.image_continue_avatar {width:26px;height:26px;}
+
+
+.border-image-small {border:solid 3px #eee;}
 
 #logo { font-style: normal;
 		color: #009DFF;
@@ -97,10 +101,13 @@ textarea ,input[type=text] {
 /* Modal start a story from facebook or Insta*/
 
 #start-story{
+	width:765px;
 
 	.ss-image, .ss-feed-form {
 		float:left;
-		border:solid 3px #eee;
+		&img {
+			border:solid 3px #eee;
+		}
 	}
 
 textarea {
@@ -133,6 +140,14 @@ textarea {
 			float:left;
 			
 		}
+	}
+
+	div.continue-story-text {
+		textarea{
+			width:195px; height: 30px;
+			font-size:13px;
+		}
+
 	}
 
 }

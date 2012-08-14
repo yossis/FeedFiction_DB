@@ -19,6 +19,8 @@ class StoriesController < ApplicationController
   # POST /stories
   
   def create
+    #TODO:validation - how to do?
+    
     @story = Story.new(params[:story])
     @story.user_id = current_user.id
     if @story.save

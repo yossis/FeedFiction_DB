@@ -10,8 +10,12 @@
 				 <ul>
 				 	<li><%= collection_select(:story, :category_id, @categories, :id, :name) %></li>
 				 	<li><div class="ss-canvas"></div></li>
-				 	<textarea name='line'></textarea>
+				 	<li>Please start your story (minimum 10 words) and give other to complete your story</li>
+				 	<li><%= image_tag(current_user.avatar,:class => 'border-image-small')  %>
+				 		<textarea name='line'></textarea>
 				 	<%=f.hidden_field :image_url , :class => 'ss-image' %>
+				 	</li>
+				 	
 
 
 
@@ -26,8 +30,8 @@
 	
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn" data-dismiss="modal">Close</a>
-    <%=f.submit %>
+    <a href="#" class="btn btn-large" data-dismiss="modal">Close</a>
+    <input type="submit" class="btn btn-large" value="Create Story" name="commit" disabled/>
     
   </div>
 <% end %>
