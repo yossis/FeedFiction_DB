@@ -3,8 +3,8 @@
   var options = {
     autoResize: true, // This will auto-update the layout when the browser window is resized.
     container: $('#story-container'),// Optional, used for some extra CSS styling
-    offset: 5, // Optional, the distance between grid items
-    itemWidth: 250 // Optional, the width of a grid item
+    offset: 15, // Optional, the distance between grid items
+    itemWidth: 370 // Optional, the width of a grid item
   };
   
   // Get a reference to your grid items.
@@ -55,10 +55,17 @@
 
      var canvas = $(this).closest('li').find('.cs-canvas');
      var limit = $(this).attr('limit');
-    $(this).textareaCounter({container: canvas, limit:limit});
+     var button = $(this).closest('li').find('div.continue-story-text input[type=submit]');
+    $(this).textareaCounter({container: canvas, limit:limit, callback: function(e){
+        if(e>0){
+            $(button).addClass('btn-primary').removeAttr("disabled"); 
+          }
+          else{
+            $(button).removeClass('btn-primary').attr('disabled','disabled');
+          }
+      }
+    });
    
   }); 
-
-
 
 });

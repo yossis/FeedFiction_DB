@@ -40,17 +40,27 @@ class StoryLinesController < ApplicationController
   # POST /story_lines
   # POST /story_lines.json
   def create
-    @story_line = StoryLine.new(params[:story_line])
+    #raise params[:story_line].to_yaml
 
-    respond_to do |format|
-      if @story_line.save
-        format.html { redirect_to @story_line, notice: 'Story line was successfully created.' }
-        format.json { render json: @story_line, status: :created, location: @story_line }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @story_line.errors, status: :unprocessable_entity }
-      end
+    @story_line = StoryLine.new(params[:story_line])
+    @story_line.user_id = current_user.id
+    last_line = StoryLine.last_by_order(params[:story_line][:story_id])
+
+    #logger.debug "last_line: #{params[:story_line].attributes.inspect}"
+    #logger.debug "Post should be valid: #{@post.valid?}"
+    if (last_line.story_id==last_line.story_id)
+        @story_line.order_id +=1
+        @story_line.save!
+        
+    else
+      #duplicate story
     end
+    @story = @story_line.story
+    @story_line = StoryLine.new()
+    respond_to do |format|
+      format.js
+    end
+    #render json: @story_line, status: :created, location: @story_line
   end
 
   # PUT /story_lines/1

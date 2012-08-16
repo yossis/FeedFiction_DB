@@ -3,7 +3,7 @@ class CreateStoryLines < ActiveRecord::Migration
     create_table :story_lines do |t|
       t.integer :story_id
       t.integer :user_id
-      t.integer :order_id, :default =>0
+      t.integer :order_id, :default =>1
       t.string :line
       t.boolean :is_flagged
 

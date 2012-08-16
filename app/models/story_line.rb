@@ -4,4 +4,9 @@ class StoryLine < ActiveRecord::Base
   belongs_to :user 
   
   validates :line, presence: true
+  validates :user_id, presence: true
+
+  def self.last_by_order(story_id)
+    where(:story_id => story_id).last
+  end
 end

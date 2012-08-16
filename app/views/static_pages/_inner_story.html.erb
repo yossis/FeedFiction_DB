@@ -1,0 +1,32 @@
+				<%=  image_tag(story.image_url , width: '365px')  %>
+				<div class="tiels-items-container">
+					<a class="btn btn-small like-story"><i class="icon-thumbs-up"></i>Like</a>
+					<a class="btn btn-small continue-story"><i class="icon-edit"></i>Continue</a>		
+				</div>
+				<div>
+				<% story.story_lines.each do |line| %>
+				  		<span><%=line.line %></span>
+				<% end %>
+				<span class="cs-canvas"></span>
+				</div>
+				<% unless story.is_compleate%>
+					<div>
+						<div class="avatar-writers">
+							<% story.story_lines.each do |line| %>
+								<%= image_tag(line.user.avatar,:class => 'border-image-small')  %>
+							<% end%>
+						</div>
+						<hr/>
+						<div class="continue-story-text">
+							<%= simple_form_for @story_line ,:remote => true,:html => { :class => 'form-horizontal' } do |f| %>
+							<%= image_tag(current_user.avatar,:class => 'border-image-small image_continue_avatar') if current_user %>
+							
+							<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
+							<%= f.hidden_field :story_id, value: story.id %>
+							<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Add more <%= add_how_many_words story.story_lines%> words..'></textarea>
+							<span id="continue-error" class="error-message"></span>
+							<input type="submit" name="submit-story" value="submit" class="btn" disabled/>
+							<%end%>
+						</div>
+					</div>
+				<%end%>	

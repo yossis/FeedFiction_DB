@@ -4,5 +4,7 @@ class Story < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  validates :image_url, presence: true 
+
 
 end

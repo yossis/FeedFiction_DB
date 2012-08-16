@@ -14,14 +14,15 @@
 			container : null,
 			title:null,
 			enableSubmitAfterNumWords:null,
-			submit:null
+			submit:null,
+			callback:null
 
 		};	
 		var options = $.extend(defaults, options);
  
 		// and the plugin begins
 		return this.each(function() {
-			var obj, text, wordcount, limited;
+			var obj, text, wordcount, limited ,charCount;
  
 			obj = $(this);
 			var counterText = $(obj).parent().children('.counter-text');
@@ -32,7 +33,7 @@
 
 			obj.keyup(function() {
 			    text = obj.val();
-
+			    charCount = $.trim(text).length;
 			    if(text === "") {
 			    	wordcount = 0;
 			    } else {
@@ -66,7 +67,11 @@
 						$(options.container).html(obj.val());
 					}
 			        $(counterText).html((options.limit - wordcount)+' words left');
-			    } 
+			    }
+			    if (options.callback!=null){
+			    	//callback
+			    	options.callback(charCount);
+			    }
 			});
 		});
 	};
