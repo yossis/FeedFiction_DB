@@ -8,7 +8,9 @@ $navbarLinkColorHover : #009DFF;
 $white : #fff;
 $grayLight : #eee;
 
-body { padding-top: 60px; } 
+body { padding-top: 60px; 
+	background-color: #EDEDEB;
+} 
 
 ol,ul { list-style: none;}
 
@@ -26,6 +28,7 @@ textarea ,input[type=text] {
     line-height: 1.4;
     padding: 6px 12px;
 }
+
 
 /* override bootstrap*/
 .navbar .dropdown .caret{ 
@@ -122,10 +125,11 @@ textarea {
 #story-container { position:relative;}
 
 .story-box {
-	border:solid 1px;
 	padding:0px; margin: 5px;
 	width: 365px;
-
+	background-color: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	color:#5E5C5C;
 	&:hover div.tiels-items-container {
 		display: block;
 	}
@@ -142,13 +146,37 @@ textarea {
 		}
 	}
 
-	div.continue-story-text {
+	div.story-item {
+		padding: 5px;
+
+		&div.writer-legend {
+			position: relative;
+			border-top: solid 1px;
+			color:#60BF73;
+			padding-top: 10px; margin-top: 10px;
+			font-family: lucida;
+			letter-spacing: 3px;
+
+			div {
+				position: absolute;
+				top:-10px;
+				background: #fff;
+				left:20px;
+			}
+		}
+
+		&div.continue-story-text {
 		textarea{
 			width:195px; height: 30px;
 			font-size:13px;
 		}
 
 	}
+
+}
+
+	
+
 
 }
 
