@@ -170,6 +170,10 @@ textarea {
 		font-size:22px;
 		line-height: 30px;
 
+		.story-area{
+			overflow:hidden;
+		}
+
 		&div.writer-legend {
 			position: relative;
 			border-top: solid 1px;
