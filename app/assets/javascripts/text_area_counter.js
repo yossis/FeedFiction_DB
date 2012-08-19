@@ -70,7 +70,7 @@
 			    }
 			    if (options.callback!=null){
 			    	//callback
-			    	options.callback(charCount);
+			    	options.callback(charCount,(options.limit - wordcount));
 			    }
 			});
 		});

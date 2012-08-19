@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 	    #logger.debug { "user.provider: #{auth.provider}" }
 	    user.uid = auth.uid
 	    user.name = auth.info.name
-	    user.nick_name = auth.info.nick_name
+	    user.nick_name = auth.info.nickname
 	    user.avatar = auth.info.image
 	    user.email = auth.info.email
 	    user.gender = auth.extra.raw_info.gender

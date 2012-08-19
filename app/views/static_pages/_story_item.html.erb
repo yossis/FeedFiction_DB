@@ -1,4 +1,4 @@
-			<div class="story-item">
+			<div class="story-item" id="story-item-<%=story.id%>">
 					<div class="story-area">
 						<% story.story_lines.each_with_index do |line,index| %>
 						  		<span><%= index==0 ? line.line.capitalize : sanitize(line.line.gsub(/\n/, '<br />'), :tags => %w(br)) %></span>
@@ -10,7 +10,7 @@
 							<div class="writer-legend ">
 								<div>Feeders</div>
 								<% story.story_lines.each do |line| %>
-									<%= image_tag(line.user.avatar,:class => 'border-image-small')  %>
+									<%=link_to image_tag(line.user.avatar,:class => 'border-image-small') ,'#', :title => line.user.name %>
 								<% end%>
 							</div>
 							<hr/>
@@ -30,6 +30,9 @@
 									
 									<%end%>
 								</div>
+							<% else%>
+								<input type="submit" name="like-story" value="Like" class="btn" />
+								<input type="submit" name="coomment-story" value="Comment" class="btn" />
 							<%end%>	
 						</div>
 					

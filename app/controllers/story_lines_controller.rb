@@ -56,6 +56,14 @@ class StoryLinesController < ApplicationController
       #duplicate story
     end
     @story = @story_line.story
+    limit = add_how_many_words @story.story_lines
+    logger.debug "limit: #{limit}"
+    if limit<1
+      logger.debug "inside if limit"
+      @story.is_compleate = true
+      @story.save!
+      
+    end
     @story_line = StoryLine.new()
     respond_to do |format|
       format.js

@@ -38,30 +38,21 @@
 
   });
 
-  var continueStoryClick = $('');
-  $(document).on("click", '#tiles li.continue-story div.tiels-items-container a.btn', function(e){
-    var textarea = $(this).closest('li').find('textarea');
-   //if ($(this).hasClass('continue-story')){
-   // $(textarea).focus();
-  // }
-  }); 
-
  
-  $(document).on("click", '#tiles li.continue-story textarea', function(e){
+ 
+  $(document).on("click", '.continue-story-text-area textarea', function(e){
     if ($(this).attr('unlogged') && $(this).attr('unlogged').length>0){
       alert("You must sign in to complete the story!");
       $(this).blur();
       return;
-
-
-
     }
-     var button = $(this).closest('li').find('div.continue-story-text-area input[type=submit]');
-  $(button).show();
-     var canvas = $(this).closest('li').find('.cs-canvas');
+
+    var button = $(this).closest('div.continue-story-text-area').find('input[type=submit]');
+    $(button).show();
+     var canvas = $(this).closest('.story-item').find('.cs-canvas');
      var limit = $(this).attr('limit');
      
-    $(this).textareaCounter({container: canvas, limit:limit, callback: function(e){
+    $(this).textareaCounter({container: canvas, limit:limit, callback: function(e,limit){
         if(e>0){
             $(button).addClass('btn-primary').removeAttr("disabled"); 
             handler.wookmark();
@@ -69,9 +60,13 @@
           else{
             $(button).removeClass('btn-primary').attr('disabled','disabled');
           }
+        if(limit==0){
+          $(button).attr('value', 'Finish the story and submit');
+        }
       }
     });
    
   }); 
 
+ 
 });
