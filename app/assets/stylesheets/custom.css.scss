@@ -64,7 +64,10 @@ textarea ,input[type=text] {
 .image_continue_avatar {width:26px;height:26px;}
 
 
-.border-image-small {border:solid 3px #eee;}
+.border-image-small {
+	border:solid 3px #eee;
+
+}
 
 #logo { font-style: normal;
 		color: #009DFF;
@@ -134,6 +137,12 @@ textarea {
 		display: block;
 	}
 
+	.story-header {
+		background-color: #434343;
+		color: #fff;
+		padding: 5px 10px;
+	}
+
 	div.tiels-items-container {
 		position:absolute;
 		top:0; left: 0;
@@ -147,29 +156,47 @@ textarea {
 	}
 
 	div.story-item {
-		padding: 5px;
+		padding: 5px 10px;
+		font-size:22px;
+		line-height: 30px;
 
 		&div.writer-legend {
 			position: relative;
 			border-top: solid 1px;
 			color:#60BF73;
-			padding-top: 10px; margin-top: 10px;
+			padding-top: 15px; margin-top: 10px;
 			font-family: lucida;
 			letter-spacing: 3px;
 
 			div {
 				position: absolute;
-				top:-10px;
+				top:-15px;
 				background: #fff;
 				left:20px;
+				padding: 0 10px;
 			}
 		}
 
-		&div.continue-story-text {
-		textarea{
-			width:195px; height: 30px;
-			font-size:13px;
+		&form.new_story_line div {
+			padding-left: 5px;
 		}
+
+
+		&form.new_story_line div ,form.new_story_line img{
+			float:left;
+		}
+
+
+
+		&div.continue-story-text-area {
+			width: 282px;
+			&textarea{
+				width:283px; min-height: 55px;
+				max-height: 70px;
+				font-size:20px;
+			}
+			.counter-text {display: inline-block;}
+			input { float:right; display: none;}	
 
 	}
 

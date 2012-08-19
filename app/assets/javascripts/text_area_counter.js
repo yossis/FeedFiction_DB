@@ -26,10 +26,10 @@
  
 			obj = $(this);
 			var counterText = $(obj).parent().children('.counter-text');
-			if (counterText.length==0)
+			if (counterText.length==0){
 				obj.after('<span style="font-size: 11px; clear: both; margin-top: 3px; display: block;" class="counter-text">Max. '+options.limit+' words</span>');
- 
- 			counterText = $(obj).parent().children('.counter-text');
+				counterText = $(obj).parent().children('.counter-text');
+			}
 
 			obj.keyup(function() {
 			    text = obj.val();
@@ -66,7 +66,7 @@
 			    	if (options.container!=null){
 						$(options.container).html(obj.val());
 					}
-			        $(counterText).html((options.limit - wordcount)+' words left');
+			        $(counterText).html((options.limit - wordcount)+'/55 words left');
 			    }
 			    if (options.callback!=null){
 			    	//callback

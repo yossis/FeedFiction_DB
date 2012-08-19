@@ -46,16 +46,21 @@
   // }
   }); 
 
+ 
   $(document).on("click", '#tiles li.continue-story textarea', function(e){
     if ($(this).attr('unlogged') && $(this).attr('unlogged').length>0){
       alert("You must sign in to complete the story!");
       $(this).blur();
       return;
-    }
 
+
+
+    }
+     var button = $(this).closest('li').find('div.continue-story-text-area input[type=submit]');
+  $(button).show();
      var canvas = $(this).closest('li').find('.cs-canvas');
      var limit = $(this).attr('limit');
-     var button = $(this).closest('li').find('div.continue-story-text input[type=submit]');
+     
     $(this).textareaCounter({container: canvas, limit:limit, callback: function(e){
         if(e>0){
             $(button).addClass('btn-primary').removeAttr("disabled"); 
