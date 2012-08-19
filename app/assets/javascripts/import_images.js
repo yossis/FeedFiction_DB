@@ -64,6 +64,7 @@
     $(this).textareaCounter({container: canvas, limit:limit, callback: function(e){
         if(e>0){
             $(button).addClass('btn-primary').removeAttr("disabled"); 
+            handler.wookmark();
           }
           else{
             $(button).removeClass('btn-primary').attr('disabled','disabled');

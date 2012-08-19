@@ -154,7 +154,11 @@ var feedfiction = {
         });
 
         $('input,textarea').on('blur', feedfiction.validateField);
-
+        //var storyBox = '#tiles li.continue-story';
+        //$(storyBox).on('click', function(e) {
+        //    url = $(this).attr('id').split('-')[1];
+        //    location.href = 'stories/'+url;
+        //});
         //$('select').live('change', feedfiction.validateField);
 
        

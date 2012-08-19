@@ -1,47 +1,13 @@
 				<div class="story-header">
+					<%= link_to (story) do%>
 					<h1><%= story_title(story)%></h1>
-
+					<%=  image_tag(story.image_url , width: '365px')  %>
+					<% end %>
 				</div>
-				<%=  image_tag(story.image_url , width: '365px')  %>
+				
 				
 				<!--<div class="tiels-items-container">
 					<a class="btn btn-small like-story"><i class="icon-thumbs-up"></i>Like</a>
 					<a class="btn btn-small continue-story"><i class="icon-edit"></i>Continue</a>		
 				</div>-->
-				<div class="story-item">
-					<div class="story-area">
-						<% story.story_lines.each do |line,i| %>
-						  		<span><%= i==1 ? line.line.capitalize : line.line %></span>
-						<% end %>
-						<span class="cs-canvas"></span>
-					</div>
-						<div>
-							
-							<div class="writer-legend ">
-								<div>Feeders</div>
-								<% story.story_lines.each do |line| %>
-									<%= image_tag(line.user.avatar,:class => 'border-image-small')  %>
-								<% end%>
-							</div>
-							<hr/>
-							<% unless story.is_compleate%>
-								<div>
-									<%= simple_form_for @story_line ,:remote => true  do |f| %>
-									<%= image_tag(current_user.avatar,:class => 'border-image-small') if current_user %>
-									
-									<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
-									<%= f.hidden_field :story_id, value: story.id %>
-									<div class="continue-story-text-area">
-										<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue story..'></textarea>
-										<span class="counter-text"><%= add_how_many_words story.story_lines%>/55 words left</span>
-										<input type="submit" name="submit-story" value="submit" class="btn" disabled/>
-									</div>
-									<span id="continue-error" class="error-message"></span>
-									
-									<%end%>
-								</div>
-							<%end%>	
-						</div>
-					
-					
-				</div>
+				<%= render 'static_pages/story_item' , :story => story%>	

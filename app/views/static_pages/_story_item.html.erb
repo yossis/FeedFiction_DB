@@ -1,0 +1,37 @@
+			<div class="story-item">
+					<div class="story-area">
+						<% story.story_lines.each_with_index do |line,index| %>
+						  		<span><%= index==0 ? line.line.capitalize : sanitize(line.line.gsub(/\n/, '<br />'), :tags => %w(br)) %></span>
+						<% end %>
+						<span class="cs-canvas"></span>
+					</div>
+						<div>
+							
+							<div class="writer-legend ">
+								<div>Feeders</div>
+								<% story.story_lines.each do |line| %>
+									<%= image_tag(line.user.avatar,:class => 'border-image-small')  %>
+								<% end%>
+							</div>
+							<hr/>
+							<% unless story.is_compleate%>
+								<div>
+									<%= simple_form_for @story_line ,:remote => true  do |f| %>
+									<%= image_tag(current_user.avatar,:class => 'border-image-small') if current_user %>
+									
+									<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
+									<%= f.hidden_field :story_id, value: story.id %>
+									<div class="continue-story-text-area">
+										<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue story..'></textarea>
+										<span class="counter-text"><%= add_how_many_words story.story_lines%>/55 words left</span>
+										<input type="submit" name="submit-story" value="submit" class="btn" disabled/>
+									</div>
+									<span id="continue-error" class="error-message"></span>
+									
+									<%end%>
+								</div>
+							<%end%>	
+						</div>
+					
+					
+				</div>

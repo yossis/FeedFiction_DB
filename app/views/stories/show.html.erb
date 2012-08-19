@@ -1,3 +1,14 @@
+<section class="story-page">
+
+<%=  image_tag(@story.image_url)  %>
+
+
+<h1><%= story_title(@story)%></h1>
+
+<%= render 'static_pages/story_item' , :story => @story%>
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -38,3 +49,4 @@
 
 <%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>
+</section>

@@ -1,0 +1,20 @@
+section.story-page {
+	width:940px;
+	margin:0 auto;
+
+	&img{
+		display: block;
+		margin:0 auto;
+	}
+
+	&h1{
+		font-size:86px;
+		font-weight: 400;
+		padding: 30px 0;
+	}
+
+	.story-area{
+		font-size:30px;
+		line-height: 40px;
+	}
+}
