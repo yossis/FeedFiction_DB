@@ -1,0 +1,18 @@
+<div id="like-<%=story.id%>">
+	<div>
+		<% if story.likes.length>0 %>
+		Likes:
+		<a href="<%=like_path(story.id)%>" data-toggle="modal" data-target="#like-modal" class="userFunction" data-function="likeModal"><%=story.likes.length%></a>
+		
+		<% end %>
+	</div>
+	<% if current_user %>
+		<% if current_user.like?(story.id) %>
+			<%= render 'stories/unlike_form' , story: story%>
+		<%else %>
+			<%= render 'stories/like_form' , story: story %>
+		<% end %>
+	<% else %>
+		<input type="button" class="btn btn-primary unregistered" value="Like"/>
+	<% end %>
+</div>

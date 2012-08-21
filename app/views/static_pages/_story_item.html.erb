@@ -31,7 +31,8 @@
 									<%end%>
 								</div>
 							<% else%>
-								<input type="submit" name="like-story" value="Like" class="btn" />
+							
+								<%= render 'stories/like_actions' , :story => story%>		
 								<input type="submit" name="coomment-story" value="Comment" class="btn" />
 							<%end%>	
 						</div>

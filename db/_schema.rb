@@ -26,10 +26,6 @@ ActiveRecord::Schema.define(:version => 20120820070412) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "likes", ["story_id"], :name => "index_likes_on_story_id"
-  add_index "likes", ["user_id", "story_id"], :name => "index_likes_on_user_id_and_story_id", :unique => true
-  add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
-
   create_table "stories", :force => true do |t|
     t.integer  "user_id"
     t.string   "image_url"
@@ -45,11 +41,11 @@ ActiveRecord::Schema.define(:version => 20120820070412) do
   create_table "story_lines", :force => true do |t|
     t.integer  "story_id"
     t.integer  "user_id"
-    t.integer  "order_id",   :default => 1
+    t.integer  "order_id"
     t.string   "line"
     t.boolean  "is_flagged"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -66,9 +62,6 @@ ActiveRecord::Schema.define(:version => 20120820070412) do
     t.datetime "updated_at",                      :null => false
     t.integer  "login_count",      :default => 0
   end
-
-  add_foreign_key "likes", "stories", :name => "likes_story_id_fk"
-  add_foreign_key "likes", "users", :name => "likes_user_id_fk"
 
   add_foreign_key "stories", "categories", :name => "stories_category_id_fk"
   add_foreign_key "stories", "users", :name => "stories_user_id_fk"

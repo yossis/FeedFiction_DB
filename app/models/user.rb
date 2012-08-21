@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :stories
   has_many :story_lines
+  has_many :likes
+
 
   def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -25,5 +27,17 @@ class User < ActiveRecord::Base
 
   def facebook
 	  @facebook ||= Koala::Facebook::API.new(oauth_token)
+  end
+
+  def like?(story_id)
+  	likes.find_by_story_id(story_id)  		
+  end
+
+  def like!(story_id)
+    likes.create!(story_id: story_id)
+  end
+
+  def unlike!(story_id)
+    likes.find_by_story_id(story_id).destroy
   end
 end

@@ -1,0 +1,5 @@
+<%= form_for(story.likes.find_by_user_id(current_user), remote: true ,
+             html: { method: :delete }) do |f| %>
+             
+  <%= f.submit "Unlike", class: "btn btn-large" %>
+<% end %>

@@ -3,26 +3,7 @@ var feedfiction = {
     constants: {
         messages:{
             required: 'required',
-            requiredGeneral: 'שדה זה ריק! חובה למלא שדה זה!',
-            mustMatch: '%FIELD% must match.',
-            alphaHebNumFix: 'אנגלית, עברית, קו תחתון ומספרים בלבד!',
-            alphaHebFix: 'יש למלא שדה זה בעברית או אנגלית בלבד ו/או קו תחתון',
-            dateInvalid: 'תאריך שגוי',
-            minLength: 'Must be at least %NUM% characters.',
-            maxLength: 'Must be at most %NUM% characters.',
-            emailInvalid: 'כתובת מייל שגויה!',
-            generalError: 'אחד מהשדות שמילאת שגויים - נא תקן',
-            success: 'הודעה נשלחה בהצלחה ',
-            faild: 'שליחה נכשלה!',
-            error : 'הודעה:',
-            validateSendMsg : 'יש להכניס נושא ותוכן!',
-            messageSent : 'ההודעה שנשלחה',
-            validateDeleteMsg : 'הודעה זו תימחק, האם הנך בטוח?',
-            validateCheckDelMsg: 'יש לסמן הודעה או מספר הודעות למחיקה',
-            validateInertSystem: 'בכדי לבצע פעילויות עליך להכנס למערכת באמצעות שם משתמש וסיסמא!',
-            messageDeleted: 'הודעה נמחקה',
-            confirmDeleteEvent: 'האם אתה בטוח שאתה למחוק את הארוע/מודעה?',
-            confirmDeleteArticle: 'האם אתה בטוח שאתה למחוק את הכתבה?'
+            
         }
         
     },
@@ -72,7 +53,18 @@ var feedfiction = {
             else{
                 $(element).removeClass(cssClass);
             }
-        }
+        },
+
+        likeModal: function(){
+            var target, url;
+            target = $('#like-modal');
+            url = $(this).attr('href');
+            $(target).load(url);
+            $(target).modal('toggle');
+            //alert('ll');
+            
+ 
+        },
        
     },
     /*

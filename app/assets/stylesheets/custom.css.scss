@@ -12,7 +12,9 @@ body { padding-top: 60px;
 	background-color: #EDEDEB;
 } 
 
-ol,ul { list-style: none;}
+ol,ul { 
+	list-style: none;
+}
 
 textarea ,input[type=text] {
 	-moz-box-sizing: border-box;
@@ -140,6 +142,7 @@ textarea {
 			background-color: #000;
 		}
 	}
+	
 	&:hover div.tiels-items-container {
 		display: block;
 	}
@@ -212,14 +215,31 @@ textarea {
 			.counter-text {display: inline-block;}
 			input { float:right; display: none;}	
 
+		}
+
+	}
+}
+
+/* Modal Like */
+#like-list {
+	background-color: $white;
+	span {
+		display: inline-block;
+		&.label-name {
+			width: 200px;
+		}
 	}
 
-}
+	li{
+		border-bottom: 1px solid #DDDDDD;
+		&:hover {
+			background-color: $grayLight;
+		}
+	}
+}	
 
-	
 
 
-}
 
 
 	

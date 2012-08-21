@@ -22,7 +22,7 @@ class StoriesController < ApplicationController
   def create
     #TODO:validation - how to do?
     story_line = StoryLine.new(:line => params[:line], :order_id =>1, user_id: current_user.id)
-    story_line.build_story(params[:story], :user_id => current_user.id)
+    story_line.build_story(params[:story].merge :user_id => current_user.id)
     story_line.save!
     redirect_to :controller => 'static_pages' ,:action => 'index'
   end
