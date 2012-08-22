@@ -1,0 +1,9 @@
+<li>
+	<div class="commenter-avatar"><%= basic_avatar(@comment.user) %></div>
+	
+	<div class="comment-body">
+		<%= user_link @comment.user ,:class => 'commenter-avatar'%>
+		<span class="comment-time"><%= time_ago_in_words(@comment.created_at) %></span>
+		<p><%= @comment.comment%></p>
+	</div>
+</li>	

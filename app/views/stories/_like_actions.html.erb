@@ -2,8 +2,8 @@
 	<div>
 		<% if story.likes.length>0 %>
 		Likes:
-		<a href="<%=like_path(story.id)%>" data-toggle="modal" data-target="#like-modal" class="userFunction" data-function="likeModal"><%=story.likes.length%></a>
-		
+		<a href="<%=like_path(story.id)%>" data-toggle="modal" data-target="#like-modal" class="like-link"><%=story.likes.length%></a>
+		<!--class="userFunction" data-function="likeModal"-->
 		<% end %>
 	</div>
 	<% if current_user %>

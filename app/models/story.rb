@@ -3,6 +3,7 @@ class Story < ActiveRecord::Base
   has_many :story_lines, :order => 'order_id ASC'
   has_many :likes , dependent: :destroy
   has_many :users , through: :likes, source: :users
+  has_many :comments
   belongs_to :user
   belongs_to :category
 

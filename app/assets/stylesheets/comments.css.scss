@@ -1,0 +1,36 @@
+$white : #fff;
+$grayLight : #eee;
+
+
+
+ul.comments {
+	li{
+		border-bottom: 1px solid #DDDDDD;
+		overflow: hidden;
+		&:hover {
+			background-color: $grayLight;
+		}
+
+		div.commenter-avatar{
+			float: left;
+		}
+		p.comment-body {
+				padding-left: 10px;
+				a.commenter-avatar,p {
+					display: inline-block;
+					padding: 0 10px;
+				}
+		}
+	}
+
+}
+
+.add-comment {
+	div.commenter-avatar {
+		float:left;
+	}
+	textarea {
+		width:400px;
+		height: 40px;
+	}
+}

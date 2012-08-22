@@ -55,17 +55,28 @@ var feedfiction = {
             }
         },
 
-        likeModal: function(){
-            var target, url;
-            target = $('#like-modal');
-            url = $(this).attr('href');
-            $(target).load(url);
-            $(target).modal('toggle');
-            //alert('ll');
-            
- 
-        },
-       
+        clearCommentText: function(){
+            $('.add-comment textarea').val('');
+         },
+
+        validateComment: function(e){
+            if (!feedfiction.validateLogin.call(this,'You must sign in to add comment'))
+                return;
+
+            var obj = $(this);
+            var button = $(this).closest('div.add-comment').find('input[type=submit]');
+
+            obj.keyup(function() {
+                text = obj.val();
+                charCount = $.trim(text).length;
+                if(charCount > 3) {
+                    $(button).addClass('btn-primary').removeAttr("disabled"); 
+                }
+                else{
+                    $(button).removeClass('btn-primary').attr('disabled','disabled');
+                }
+            });
+        }       
     },
     /*
     *   userFunction - Meant for functions such as blocking users, adding to favorites, etc.
@@ -130,6 +141,16 @@ var feedfiction = {
             }
         }
 
+        return success;
+    },
+
+    validateLogin: function(message){
+        var success = true;
+        if ($(this).attr('unlogged') && $(this).attr('unlogged').length>0){
+          success = false;
+          alert(message);
+          $(this).blur();
+        }
         return success;
     },
     /*

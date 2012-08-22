@@ -1,0 +1,5 @@
+jQuery ->
+	$('a.like-link').click ->
+	  target = ($ @).attr('data-target')
+	  url = ($ @).attr('href')
+	  ($ target).load(url)

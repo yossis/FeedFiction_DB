@@ -1,53 +1,21 @@
 <section class="story-page">
   <% provide(:title, story_title(@story)) %>
+  <%=  image_tag(@story.image_url)  %>
+  <h1><%= story_title(@story)%></h1>
+  <%= render 'static_pages/story_item' , :story => @story%>
 
-<%=  image_tag(@story.image_url)  %>
-
-
-<h1><%= story_title(@story)%></h1>
-
-<%= render 'static_pages/story_item' , :story => @story%>
-
-
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
-  <%= @story.user_id %>
-</p>
-
-<p>
-  <b>Image url:</b>
-  <%= @story.image_url %>
-</p>
-
-<p>
-  <b>Is compleate:</b>
-  <%= @story.is_compleate %>
-</p>
-
-<p>
-  <b>Inappropreate:</b>
-  <%= @story.inappropreate %>
-</p>
-
-<p>
-  <b>Quality:</b>
-  <%= @story.quality %>
-</p>
-
-<p>
-  <b>Story source:</b>
-  <%= @story.story_source_id %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @story.category_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+  
+  <% unless @story.comments.empty? %>
+    <%= render 'comments/show' , :@comments => @story.comments%>
+  <% end  %>
+  <div>
+    <h4>Add Comment:</h4>
+    <div class="add-comment">
+      <% if current_user %>
+        <div class="commenter-avatar"><%= basic_avatar(current_user) %></div>
+      <%end%>
+        <%= render 'comments/new' , :@comment => @new_comment %>
+      
+    </div>
+  </div>
 </section>

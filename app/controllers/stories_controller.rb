@@ -9,11 +9,9 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @story_line = StoryLine.new
+    @new_comment = Comment.new
+    @new_comment.story_id = params[:id]
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @story }
-    end
   end
 
    

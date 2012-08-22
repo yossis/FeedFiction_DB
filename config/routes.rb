@@ -1,16 +1,18 @@
 FeedFiction::Application.routes.draw do
+  get "users/show"
+
+  resources :comments
+
   get "like/create"
 
   get "like/destroy"
 
   resources :story_lines
-
   resources :stories
-
   resources :categories
-
   resources :likes, only: [:create, :destroy, :show]
-
+  resources :users
+  
   get "import_images/facebook"
 
   get "import_images/instagram"

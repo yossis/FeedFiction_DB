@@ -1,13 +1,22 @@
 <div id="like-list">
-	<h1><%= story_title(@story)%></h1>
-	<div>Likes:<%= @story.likes.count%></div>
-	<ul class="like-list">
-	<% @story.likes.collect { |f| f.user}.each do |user| %>
-		<li>
-			<span><%= basic_avatar(user)%></span>
-			<span class="label-name"><%= link_to user.name ,'#'%></span>
-			<span><input type="button" value="follow" class="btn btn-danger btn-large"/></span>
-		</li>
+	<div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal">×</button>
+	    <h1><%= story_title(@story)%></h1>
+	</div>
+	<div class="modal-body">
+		<div>Likes:<%= @story.likes.count%></div>
+		<ul class="like-list">
+		<% @story.likes.collect { |f| f.user}.each do |user| %>
+			<li>
+				<span><%= basic_avatar(user)%></span>
+				<span class="label-name"><%= link_to user.name ,'#'%></span>
+				<span><input type="button" value="follow" class="btn btn-danger btn-large"/></span>
+			</li>
 
-	<% end %>
+		<% end %>
+	</div>
+	<div class="modal-footer">
+	    <a href="#" class="btn" data-dismiss="modal">Close</a>
+	    <!--<a href="#" class="btn btn-primary">Save changes</a>-->
+	</div>
 </div>
