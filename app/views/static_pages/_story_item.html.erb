@@ -10,7 +10,7 @@
 							<div class="writer-legend ">
 								<div>Feeders</div>
 								<% story.story_lines.each do |line| %>
-									<%=link_to image_tag(line.user.avatar,:class => 'border-image-small') ,'#', :title => line.user.name %>
+									<%=basic_avatar(line.user) %>
 								<% end%>
 							</div>
 							<hr/>
