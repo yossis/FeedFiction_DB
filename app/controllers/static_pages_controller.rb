@@ -11,5 +11,6 @@ class StaticPagesController < ApplicationController
   def index
   	 @stories = Story.all
   	 @story_line = StoryLine.new()
+     @new_comment = Comment.new
   end
 end

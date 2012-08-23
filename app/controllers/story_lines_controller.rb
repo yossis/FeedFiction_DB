@@ -60,7 +60,7 @@ class StoryLinesController < ApplicationController
     logger.debug "limit: #{limit}"
     if limit<1
       logger.debug "inside if limit"
-      @story.is_compleate = true
+      @story.is_complete = true
       @story.save!
       
     end

@@ -3,8 +3,8 @@ $grayLight : #eee;
 
 
 
-ul.comments {
-	li{
+div.comments {
+	div.comment{
 		border-bottom: 1px solid #DDDDDD;
 		overflow: hidden;
 		&:hover {

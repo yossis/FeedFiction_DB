@@ -1,6 +1,4 @@
-<h3>Comments:</h3>
-<ul class="comments">
-	<% @comments.each do |comment| %>
-		<%= render 'comments/comment', :@comment => comment%>
-	<% end %>
-</ul>
+<% @comments.each do |comment| %>
+	<%= render 'comments/comment', :@comment => comment%>
+<% end %>
+

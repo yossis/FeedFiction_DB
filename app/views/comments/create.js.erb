@@ -1,2 +1,2 @@
-$("ul.comments").append("<%= escape_javascript(render('comments/comment')) %>");
+$("#comments-<%=@comment.story_id%> div.comments-container").append("<%= escape_javascript(render('comments/comment')) %>");
 feedfiction.actions.clearCommentText();

@@ -10,4 +10,16 @@
 					<a class="btn btn-small like-story"><i class="icon-thumbs-up"></i>Like</a>
 					<a class="btn btn-small continue-story"><i class="icon-edit"></i>Continue</a>		
 				</div>-->
-				<%= render 'static_pages/story_item' , :story => story%>	
+				<%= render 'static_pages/story_item' , :story => story%>
+				 <% if story.is_complete %>
+				    <h3>Comments:
+					<% unless story.comments.empty?%>
+				    	<%= link_to story.comments.count ,story ,{:id => 'comment-total'}%>
+				    <% end %>
+				    </h3>
+				    <div id="comments-<%=story.id%>" class="comments">
+				      <div class="comments-container">
+				      </div>
+				      
+				    </div> 
+  				<% end %>	

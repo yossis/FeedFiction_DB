@@ -14,7 +14,7 @@
 								<% end%>
 							</div>
 							<hr/>
-							<% unless story.is_compleate%>
+							<% unless story.is_complete%>
 								<div>
 									<%= simple_form_for @story_line ,:remote => true  do |f| %>
 									<%= image_tag(current_user.avatar,:class => 'border-image-small') if current_user %>

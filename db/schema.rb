@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20120822094646) do
   create_table "stories", :force => true do |t|
     t.integer  "user_id"
     t.string   "image_url"
-    t.boolean  "is_compleate"
-    t.integer  "inappropreate"
+    t.boolean  "is_complete"
+    t.integer  "inappropriate"
     t.integer  "quality"
     t.integer  "story_source_id"
     t.integer  "category_id"

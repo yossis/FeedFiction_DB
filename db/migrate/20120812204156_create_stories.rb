@@ -3,8 +3,8 @@ class CreateStories < ActiveRecord::Migration
     create_table :stories do |t|
       t.integer :user_id
       t.string :image_url
-      t.boolean :is_compleate
-      t.integer :inappropreate
+      t.boolean :is_complete
+      t.integer :inappropriate
       t.integer :quality
       t.integer :story_source_id
       t.integer :category_id
