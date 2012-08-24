@@ -9,6 +9,6 @@ module UsersHelper
 	end
 
 	def normal_avatar(user, options={})
-		link_to image_tag(user.avatar , user, options.merge(:title => user.name))
+		link_to image_tag(user.avatar) ,user, options.merge(:title => user.name)
 	end
 end
