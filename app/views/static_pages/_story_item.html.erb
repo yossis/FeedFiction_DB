@@ -1,7 +1,7 @@
 			<div class="story-item" id="story-item-<%=story.id%>">
 					<div class="story-area">
 						<% story.story_lines.each_with_index do |line,index| %>
-						  		<span><%= index==0 ? line.line.capitalize : sanitize(line.line.gsub(/\n/, '<br />'), :tags => %w(br)) %></span>
+						  		<span class="writer_<%=line.user.id%>"><%= index==0 ? line.line.capitalize : sanitize(line.line.gsub(/\n/, '<br />'), :tags => %w(br)) %></span>
 						<% end %>
 						<span class="cs-canvas"></span>
 					</div>
@@ -10,7 +10,7 @@
 							<div class="writer-legend ">
 								<div>Feeders</div>
 								<% story.story_lines.each do |line| %>
-									<%=basic_avatar(line.user) %>
+									<span class="writer_<%=line.user.id%>"><%=basic_avatar(line.user) %></span>
 								<% end%>
 							</div>
 							<hr/>
