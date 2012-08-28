@@ -62,7 +62,6 @@ class StoryLinesController < ApplicationController
       logger.debug "inside if limit"
       @story.is_complete = true
       @story.save!
-      
     end
     @story_line = StoryLine.new()
     respond_to do |format|

@@ -8,4 +8,8 @@ module ApplicationHelper
 	      "#{page_title} - FeedFiction.com"
 	    end
 	  end
+
+	  def number_to_pixel(num)
+	  	"#{num}px"
+	  end
 end

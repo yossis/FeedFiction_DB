@@ -33,9 +33,21 @@
 							<% else%>
 							
 								<%= render 'stories/like_actions' , :story => story%>		
-								<input type="submit" name="coomment-story" value="Comment" class="btn" />
+								
 							<%end%>	
 						</div>
 					
-					
-				</div>
+			
+				<% if story.is_complete %>
+				    <h3>Comments:</h3>
+				    <div id="comments-<%=story.id%>" class="comments">
+				      <div class="comments-container">
+				        <% unless story.comments.empty? %>
+				          <%= render 'comments/show' %>
+				        <% end  %>
+				      </div>
+				       <%= render 'comments/new' , :@comment => @new_comment, :story => story %>
+				    </div> 
+			  	<% end %>		
+			</div>
+			

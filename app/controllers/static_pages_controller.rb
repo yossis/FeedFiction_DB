@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def index
-  	 @stories = Story.all
+  	 @stories = Story.all.reverse
   	 @story_line = StoryLine.new()
      @new_comment = Comment.new
   end

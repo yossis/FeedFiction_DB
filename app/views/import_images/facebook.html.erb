@@ -4,8 +4,7 @@
 	<ul id="tiles" class="unstyled">
 		<% @images.each do |image|%>
 			<li class="story-box container-ss">
-				<% ratio = aspect_ratio(image['src_big_width'], image['src_big_height'], 365) %>
-				<%=  image_tag(image['src_big'] , width: ratio['new_width'].to_s+'px' , height: ratio['new_height'].to_s+'px')  %>
+				<%=  image_tag(image.url , width: image.width.to_s+'px' , height: image.height.to_s+'px', id: 'image_'+image.id.to_s)  %>
 				<div class="tiels-items-container">
 					<a class="btn btn-small"><i class="icon-edit"></i>Start Story</a>		
 				</div>

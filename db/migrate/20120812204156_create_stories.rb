@@ -2,7 +2,7 @@ class CreateStories < ActiveRecord::Migration
   def change
     create_table :stories do |t|
       t.integer :user_id
-      t.string :image_url
+      t.integer :image_id
       t.boolean :is_complete
       t.integer :inappropriate
       t.integer :quality

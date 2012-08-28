@@ -69,7 +69,7 @@ var feedfiction = {
             obj.keyup(function() {
                 text = obj.val();
                 charCount = $.trim(text).length;
-                if(charCount > 3) {
+                if(charCount > 1) {
                     $(button).addClass('btn-primary').removeAttr("disabled"); 
                 }
                 else{

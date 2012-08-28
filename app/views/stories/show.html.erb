@@ -1,19 +1,7 @@
 <section class="story-page">
   <% provide(:title, story_title(@story)) %>
-  <%=  image_tag(@story.image_url)  %>
+  <%=  image_tag(@story.image.url)  %>
   <h1><%= story_title(@story)%></h1>
   <%= render 'static_pages/story_item' , :story => @story%>
 
-  <% if @story.is_complete %>
-    <h3>Comments:</h3>
-    <div id="comments-<%=@story.id%>" class="comments">
-      <div class="comments-container">
-        <% unless @story.comments.empty? %>
-          <%= render 'comments/show' , :@comments => @story.comments%>
-        <% end  %>
-      </div>
-       <%= render 'comments/new' , :@comment => @new_comment %>
-    </div> 
-  <% end %>
-   
 </section>

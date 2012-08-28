@@ -1,4 +1,6 @@
 FeedFiction::Application.routes.draw do
+  resources :image_types
+
   get "users/show"
 
   resources :comments

@@ -3,9 +3,11 @@
       <div class="commenter-avatar"><%= basic_avatar(current_user) %></div>
     <%end%>
 	<%= form_for(@comment , remote: true) do |f| %>
-	  
-	  <%= f.hidden_field :story_id%>
-	  
+	  	<%if story.nil? %>
+	  		<%= f.hidden_field :story_id%>
+	  	<% else%>
+	  		<%= f.hidden_field :story_id, :value => story.id%>
+		<% end %>
 	  <textarea <%= 'unlogged=1' unless current_user %> rows="20" name="comment[comment]" id="comment_comment" data-function="validateComment" cols="40" class="userFunction" placeholder="Add your comment here..."></textarea>
 	  
 	  <% if current_user%>

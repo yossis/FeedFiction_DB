@@ -9,6 +9,7 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @story_line = StoryLine.new
+    @comments = @story.comments
     @new_comment = Comment.new
     @new_comment.story_id = params[:id]
 

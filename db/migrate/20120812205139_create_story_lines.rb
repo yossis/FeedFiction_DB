@@ -4,7 +4,7 @@ class CreateStoryLines < ActiveRecord::Migration
       t.integer :story_id
       t.integer :user_id
       t.integer :order_id, :default =>1
-      t.string :line
+      t.text :line
       t.boolean :is_flagged
 
       t.timestamps

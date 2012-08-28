@@ -37,7 +37,7 @@
 			    if(text === "") {
 			    	wordcount = 0;
 			    } else {
-				    wordcount = $.trim(text).split(" ").length;
+				    wordcount = $.trim(text).split(/\s/).length;
 				}
 
 				// Set title
@@ -58,7 +58,7 @@
 
 			    if(wordcount > options.limit) {
 			        $("#counter-text").html('<span style="color: #DD0000;">0 words left</span>');
-					limited = $.trim(text).split(" ", options.limit);
+					limited = $.trim(text).split(/\s/, options.limit);
 					limited = limited.join(" ");
 					$(this).val(limited);
 

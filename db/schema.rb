@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822094646) do
+ActiveRecord::Schema.define(:version => 20120827175050) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,40 @@ ActiveRecord::Schema.define(:version => 20120822094646) do
   add_index "comments", ["story_id"], :name => "index_comments_on_story_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+  create_table "image_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "images", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "source_object_id"
+    t.string   "source_url"
+    t.integer  "source_width"
+    t.integer  "source_height"
+    t.integer  "image_type_id"
+    t.string   "url"
+    t.integer  "width"
+    t.integer  "height"
+    t.boolean  "is_proceed",       :default => false
+    t.boolean  "is_used",          :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  add_index "images", ["source_object_id", "image_type_id"], :name => "index_images_on_source_object_id_and_image_type_id", :unique => true
+  add_index "images", ["user_id"], :name => "index_images_on_user_id"
+
+  create_table "last_imports", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "image_type_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "last_imports", ["user_id", "image_type_id"], :name => "index_last_imports_on_user_id_and_image_type_id", :unique => true
+
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
     t.integer  "story_id"
@@ -43,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20120822094646) do
 
   create_table "stories", :force => true do |t|
     t.integer  "user_id"
-    t.string   "image_url"
+    t.integer  "image_id"
     t.boolean  "is_complete"
     t.integer  "inappropriate"
     t.integer  "quality"
@@ -57,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20120822094646) do
     t.integer  "story_id"
     t.integer  "user_id"
     t.integer  "order_id",   :default => 1
-    t.string   "line"
+    t.text     "line"
     t.boolean  "is_flagged"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
@@ -81,10 +115,17 @@ ActiveRecord::Schema.define(:version => 20120822094646) do
   add_foreign_key "comments", "stories", :name => "comments_story_id_fk"
   add_foreign_key "comments", "users", :name => "comments_user_id_fk"
 
+  add_foreign_key "images", "image_types", :name => "images_image_type_id_fk"
+  add_foreign_key "images", "users", :name => "images_user_id_fk"
+
+  add_foreign_key "last_imports", "image_types", :name => "last_imports_image_type_id_fk"
+  add_foreign_key "last_imports", "users", :name => "last_imports_user_id_fk"
+
   add_foreign_key "likes", "stories", :name => "likes_story_id_fk"
   add_foreign_key "likes", "users", :name => "likes_user_id_fk"
 
   add_foreign_key "stories", "categories", :name => "stories_category_id_fk"
+  add_foreign_key "stories", "images", :name => "stories_image_id_fk"
   add_foreign_key "stories", "users", :name => "stories_user_id_fk"
 
   add_foreign_key "story_lines", "stories", :name => "story_lines_story_id_fk"
