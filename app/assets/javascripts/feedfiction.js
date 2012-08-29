@@ -76,7 +76,23 @@ var feedfiction = {
                     $(button).removeClass('btn-primary').attr('disabled','disabled');
                 }
             });
-        }       
+        },
+
+        boldWriterLine: function(){
+            var className = $(this).attr('class');
+            var elements = $(this).closest('.story-with-owners').find('.'+className);
+
+            $(elements).bind({
+              mouseenter: function() {
+                $(elements).css('background-color','yellow')
+              },
+              mouseleave: function() {
+                $(elements).css('background-color','white')
+              }
+            });
+        }
+
+
     },
     /*
     *   userFunction - Meant for functions such as blocking users, adding to favorites, etc.
@@ -167,6 +183,7 @@ var feedfiction = {
         });
 
         $('input,textarea').on('blur', feedfiction.validateField);
+        $('.story-with-owners span').on('hover', feedfiction.actions.boldWriterLine);
         //var storyBox = '#tiles li.continue-story';
         //$(storyBox).on('click', function(e) {
         //    url = $(this).attr('id').split('-')[1];

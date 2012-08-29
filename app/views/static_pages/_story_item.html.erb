@@ -1,41 +1,44 @@
 			<div class="story-item" id="story-item-<%=story.id%>">
+				<div class="story-with-owners">
 					<div class="story-area">
 						<% story.story_lines.each_with_index do |line,index| %>
 						  		<span class="writer_<%=line.user.id%>"><%= index==0 ? line.line.capitalize : sanitize(line.line.gsub(/\n/, '<br />'), :tags => %w(br)) %></span>
 						<% end %>
 						<span class="cs-canvas"></span>
 					</div>
-						<div>
-							
-							<div class="writer-legend ">
-								<div>Feeders</div>
-								<% story.story_lines.each do |line| %>
-									<span class="writer_<%=line.user.id%>"><%=basic_avatar(line.user) %></span>
-								<% end%>
-							</div>
-							<hr/>
-							<% unless story.is_complete%>
-								<div>
-									<%= simple_form_for @story_line ,:remote => true  do |f| %>
-									<%= image_tag(current_user.avatar,:class => 'border-image-small') if current_user %>
-									
-									<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
-									<%= f.hidden_field :story_id, value: story.id %>
-									<div class="continue-story-text-area">
-										<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue story..'></textarea>
-										<span class="counter-text"><%= add_how_many_words story.story_lines%>/55 words left</span>
-										<input type="submit" name="submit-story" value="submit" class="btn" disabled/>
-									</div>
-									<span id="continue-error" class="error-message"></span>
-									
-									<%end%>
-								</div>
-							<% else%>
-							
-								<%= render 'stories/like_actions' , :story => story%>		
-								
-							<%end%>	
+						
+					
+					<div class="writer-legend ">
+						<div>Feeders</div>
+						<% story.story_lines.map {|l| l.user}.uniq.each do |user| %>
+							<span class="writer_<%=user.id%>"><%=basic_avatar(user) %></span>
+						<% end%>
+					</div>
+				</div>
+				<hr/>
+				<div>
+				<% unless story.is_complete%>
+					<div>
+						<%= simple_form_for @story_line ,:remote => true  do |f| %>
+						<%= image_tag(current_user.avatar,:class => 'border-image-small') if current_user %>
+						
+						<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
+						<%= f.hidden_field :story_id, value: story.id %>
+						<div class="continue-story-text-area">
+							<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue story..'></textarea>
+							<span class="counter-text"><%= add_how_many_words story.story_lines%>/55 words left</span>
+							<input type="submit" name="submit-story" value="submit" class="btn" disabled/>
 						</div>
+						<span id="continue-error" class="error-message"></span>
+						
+						<%end%>
+					</div>
+					<% else%>
+					
+						<%= render 'stories/like_actions' , :story => story%>		
+						
+					<%end%>	
+				</div>
 					
 			
 				<% if story.is_complete %>

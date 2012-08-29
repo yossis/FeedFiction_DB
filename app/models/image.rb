@@ -9,7 +9,7 @@ def self.facebook_images(user)
 		
 		update_or_create(images,type_id,user.id)
 	end
-	Image.all
+	Image.where(image_type_id: type_id, user_id: user.id)
 end
 
 private
