@@ -1,4 +1,6 @@
 jQuery ->
   $(window).scroll ->
-    if $(window).scrollTop() > $(document).height() - $(window).height() - 50
-      $.getScript($('.pagination .next_page').attr('href'))
+    url = $('.pagination .next_page a').attr('href')
+    if url.length>1 &&  $(window).scrollTop() > $(document).height() - $(window).height() - 50
+      $('.pagination').text('Fetching more stories...')
+      $.getScript(url)

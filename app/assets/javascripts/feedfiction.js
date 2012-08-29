@@ -90,6 +90,21 @@ var feedfiction = {
                 $(elements).css('background-color','white')
               }
             });
+        },
+
+        renderBoxes: function(){
+            var options = {
+            autoResize: true, // This will auto-update the layout when the browser window is resized.
+            container: $('#story-container'),// Optional, used for some extra CSS styling
+            offset: 15, // Optional, the distance between grid items
+            itemWidth: 370 // Optional, the width of a grid item
+          };
+          
+          // Get a reference to your grid items.
+          var handler = $('#tiles li');
+  
+          // Call the layout function.
+          handler.wookmark(options);
         }
 
 

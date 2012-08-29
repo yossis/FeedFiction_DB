@@ -22,7 +22,7 @@ FeedFiction::Application.routes.draw do
   get "import_images/upload"
 
   
-  root to: 'static_pages#index'
+  root to: 'feeds#index'
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/privacy', to: 'static_pages#privacy'  
