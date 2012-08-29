@@ -2,4 +2,5 @@
 	<ul id="tiles" class="unstyled">
 		<%= render :partial => 'static_pages/story' ,:collection => @stories%>
 	</ul>
+	<%= will_paginate @stories%>
 </div>

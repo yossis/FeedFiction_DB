@@ -11,7 +11,8 @@ gem 'koala'
 gem 'instagram'
 gem 'foreigner'
 gem 'simple_form'
-
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 
 group :development, :test do
   gem 'rspec-rails', '2.10.0'
