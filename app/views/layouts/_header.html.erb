@@ -43,3 +43,8 @@
     </div>
   </div>
 </header>
+<% unless current_user%>
+  <div class="unlogin-disclaimer hero-unit">
+    <p>Please login</p>
+  </div>
+<% end %>
