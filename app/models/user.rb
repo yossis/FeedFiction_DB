@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count
 
   has_many :stories
+  has_many :liked_stories, through: :likes , source: :story
   has_many :story_lines
   has_many :likes
   has_many :comments
