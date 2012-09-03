@@ -23,8 +23,8 @@ class UsersController < ApplicationController
   def likes
     @title = 'Likes'
     @user = User.find(params[:id])
-    @stories = @user.likes(:include => :story).paginate(page: params[:page]) 
-    @new_comment = Comment.new
+    @stories = @user.likes.paginate(page: params[:page]).map { |e| e.story}
+    @comment = Comment.new
     render 'show_likes'
   end
 end
