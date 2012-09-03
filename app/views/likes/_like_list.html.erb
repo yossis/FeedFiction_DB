@@ -7,11 +7,7 @@
 		<div>Likes:<%= @story.likes.count%></div>
 		<ul class="like-list">
 		<% @story.likes.collect { |f| f.user}.each do |user| %>
-			<li>
-				<span><%= basic_avatar(user)%></span>
-				<span class="label-name"><%= link_to user.name ,'#'%></span>
-				<span><input type="button" value="follow" class="btn btn-danger btn-large"/></span>
-			</li>
+			<%= render @user %>
 
 		<% end %>
 	</div>

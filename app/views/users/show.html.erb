@@ -1,15 +1,12 @@
 <% provide(:title, @user.name) %>
-<div class="user-info">
-  <%= normal_avatar(@user) %>
-  <p><h3><%= @user.name %></h3></p>  
-  <ul>
-  	<li>Like:<%= @user.likes.count%></li>
-  	<li>stories:<%= @user.stories.count%></li>
-  </ul>  
-  <div class="buttons">
-  		<input type="button" value="Follow" class="btn btn-large"/>
-  </div>
- <div>
- 	<%= render 'feeds/feed' ,:@stories => @user.stories%>
+<section>
+  <%= render 'user_header' %>
+</section>
+<section>
+<div>
+  <%= render 'feeds/feed' %>
  </div>
-	
+  
+</section>
+
+ 

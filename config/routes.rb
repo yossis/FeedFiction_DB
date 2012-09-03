@@ -1,5 +1,10 @@
 FeedFiction::Application.routes.draw do
   resources :image_types
+  resources :users do
+    member do
+      get :following, :followers, :likes
+    end
+  end
 
   get "users/show"
 
@@ -13,7 +18,7 @@ FeedFiction::Application.routes.draw do
   resources :stories
   resources :categories
   resources :likes, only: [:create, :destroy, :show]
-  resources :users
+  resources :relationships, only: [:create, :destroy]
   
   get "import_images/facebook"
 
