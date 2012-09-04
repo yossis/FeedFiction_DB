@@ -10,6 +10,8 @@ class Story < ActiveRecord::Base
 
   validates :image_id, presence: true 
 
+  self.per_page = 10
+
   def like?(user_id)
   	likes.find_by_user_id(user_id)  		
   end

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	@story_line = StoryLine.new()
   	@new_comment = Comment.new
-  	@stories = @user.stories.paginate(page: params[:page], per_page: 2)
+  	@stories = @user.stories.paginate(page: params[:page]).order('created_at DESC')
   end
 
   def following
