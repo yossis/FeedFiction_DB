@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <h1>Feedfiction</h1>
+    <div class="container main-body">
+    	<ul class="breadcrumb">
+		  <li class="active"><a href="#">1. Start you story</a> <span class="divider">/</span></li>
+		  <li class="active"><a href="#">2. Follow friends</a></li>
+		  
+		</ul>
+    	<div class='wizard-header'>
+        <h1><%= @title %></h1>
+        <div>
+            <%= link_to @next_step , @next_step_text if @next_step_text.present? %>
+            <a href='<%= @next_step %>'><%= @skip_next_text %></a>
+        </div>
+      </div>
+      <%= yield %>
+      <!-- Start Story Modal -->
+      <%= render 'stories/start_story_modal' %>
+    </div>
+    <div id="like-modal" class="modal hide"></div>
+  </body>
+</html>

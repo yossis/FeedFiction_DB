@@ -23,7 +23,12 @@ class StoriesController < ApplicationController
     story_line = StoryLine.new(:line => params[:line], :order_id =>1, user_id: current_user.id)
     story_line.build_story(params[:story].merge :user_id => current_user.id)
     story_line.save!
-    redirect_to :controller => 'static_pages' ,:action => 'index'
+
+    if in_wizard
+      redirect_to find_friends_wizard_url
+    else
+      redirect_to root_url
+    end
   end
 
   

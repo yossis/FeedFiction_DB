@@ -1,5 +1,5 @@
 <li>
 	<span><%= basic_avatar user %></span>
 	<span class="label-name"><%= link_to user.name ,user %></span>
-	<%= render 'follow_form' , :@user => user if current_user %>
+	<%= render 'users/follow_form' , :@user => user if current_user %>
 </li>

@@ -1,0 +1,8 @@
+	
+<p>Here is a few recommendation on who to follow:</p>
+<%= @users.count %>
+<section>
+   <div class="span8">
+      <%= render 'users/users_to_follow' , :@users => @users %>
+   </div>
+</section>

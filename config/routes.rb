@@ -38,7 +38,10 @@ FeedFiction::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   match '/facebook', to: 'import_images#facebook' 
-
+  match 'register/start-story', to: 'register#start', as: 'start_story_wizard'
+  match 'register/follow-friends', to: 'register#friends' , as: 'find_friends_wizard'
+  match 'register/facebook-images', to: 'register#facebook' , as: 'import_facebook_wizard'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

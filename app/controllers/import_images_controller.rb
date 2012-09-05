@@ -1,5 +1,6 @@
 class ImportImagesController < ApplicationController
   def facebook
+
  	 #SELECT aid, owner, name FROM album WHERE owner='675499110'
 	 #SELECT src,aid FROM photo WHERE aid IN (SELECT aid FROM album WHERE owner='675499110') 
 

@@ -16,4 +16,14 @@ class ApplicationController < ActionController::Base
 		55-words.join(' ').split(' ').count
 	end
 	helper_method :add_how_many_words
+
+	def in_wizard
+	   cookies[:register_wizard]=='1'
+	end
+	helper_method :in_wizard
+
+	def end_wizard
+	  cookies.delete :register_wizard
+	end
+
 end

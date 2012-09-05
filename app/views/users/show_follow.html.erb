@@ -6,14 +6,8 @@
 <div class="row">
   <section>
    <div class="span8">
-      <h3><%= @title %></h3>
-      <% if @users.any? %>
-        <ul class="users">
-          <%= render @users %>
-        </ul>
-        <%= will_paginate %>
-      <% end %>
-    </div>
+      <%= render 'users/users_to_follow' %>
+   </div>
   </section>
   
   

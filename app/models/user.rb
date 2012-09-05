@@ -59,4 +59,10 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by_followed_id(other_user.id).destroy
   end
+
+  def first_time?
+    login_count==1
+  end
+
+  
 end
