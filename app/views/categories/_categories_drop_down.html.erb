@@ -1,0 +1,9 @@
+<div class="btn-group category-dropdown">
+  <a class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown" href="#">
+    Categories
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <%= render :partial => 'categories/category', :collection => @categories%>
+  </ul>
+</div>

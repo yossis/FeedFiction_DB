@@ -26,4 +26,6 @@ class ApplicationController < ActionController::Base
 	  cookies.delete :register_wizard
 	end
 
+	
+
 end

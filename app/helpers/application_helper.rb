@@ -12,4 +12,9 @@ module ApplicationHelper
 	  def number_to_pixel(num)
 	  	"#{num}px"
 	  end
+
+	  def drop_down_categories
+	  	@categories = Category.all
+		render 'categories/categories_drop_down' 
+	  end
 end

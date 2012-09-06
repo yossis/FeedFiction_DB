@@ -5,6 +5,7 @@ class FeedsController < ApplicationController
   	 @stories = Story.paginate(page: params[:page]).order('updated_at DESC')
   	 @story_line = StoryLine.new()
      @new_comment = Comment.new
+     @donot_show_disclaimer = true
   end
 
 
