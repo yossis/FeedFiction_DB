@@ -1,9 +1,6 @@
 class StoriesController < ApplicationController
   
-  def new
-  end
-
-
+  
   # GET /stories/1
   # GET /stories/1.json
   def show
@@ -12,7 +9,19 @@ class StoriesController < ApplicationController
     @comments = @story.comments
     @new_comment = Comment.new
     @new_comment.story_id = params[:id]
+    set_meta_tags_and_title
+    
 
+  end
+
+  def set_meta_tags_and_title
+    set_meta_tags :title => @story.story_title,
+              :author => @story.author,
+              :description => @story.description,
+              :image => @story.image.url,
+              :url => @story_url,
+              :open_graph => { :title => @story.story_title, :url => @story_url, :type => 'text/html' ,
+              :description => @story.description, :image => @story.image.url} 
   end
 
    

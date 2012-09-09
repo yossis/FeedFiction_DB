@@ -1,7 +1,21 @@
+<% content_for :head do %>
+	<script type="text/javascript">var switchTo5x=true;</script>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "2ef12537-8b20-4ac6-926b-15e1351dc861"}); </script>
+<% end%>
+
 <section class="story-page">
-  <% provide(:title, story_title(@story)) %>
+  
+  	<span class='st_sharethis_vcount' displayText='ShareThis'></span>
+	<span class='st_facebook_vcount' displayText='Facebook'></span>
+	<span class='st_googleplus_vcount' displayText='Google +'></span>
+	<span class='st_digg_vcount' displayText='Digg'></span>
+	<span class='st_tumblr_vcount' displayText='Tumblr'></span>
+	<span class='st_twitter_vcount' displayText='Tweet'></span>
+	<span class='st_pinterest_vcount' displayText='Pinterest'></span>
+	<span class='st_email_vcount' displayText='Email'></span>
   <%=  image_tag(@story.image.url)  %>
-  <h1><%= story_title(@story)%></h1>
+  <h1><%= @story.story_title%></h1>
   <%= render 'static_pages/story_item' , :story => @story%>
 
 </section>

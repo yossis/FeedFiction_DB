@@ -12,6 +12,24 @@ class Story < ActiveRecord::Base
 
   self.per_page = 10
 
+  def story_title
+    lines = self.story_lines.first
+    lines.line.split(' ')[0..3].join(' ').capitalize
+  end
+
+  def description
+    lines = self.story_lines
+    lines.map {|i| i.line}.join(' ').split(' ')[0..30].join(' ').capitalize
+  end
+
+  def story_image
+    self.image.url
+  end
+
+  def author
+    self.user.name
+  end
+
   def like?(user_id)
   	likes.find_by_user_id(user_id)  		
   end
