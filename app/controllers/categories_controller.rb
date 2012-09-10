@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @stories = @category.stories.paginate(page: params[:page]).order('created_at DESC')
-    @story_line = StoryLine.new()
+    @story_line = StoryLine.new
     @new_comment = Comment.new
     @categories = Category.all
     

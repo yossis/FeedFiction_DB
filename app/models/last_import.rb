@@ -11,7 +11,7 @@ class LastImport < ActiveRecord::Base
   	end 
   end
 
- def self.UpdateTime(type_id,uid)
+ def self.update_time(type_id,uid)#TODO: change from camel case
  	where(image_type_id: type_id, user_id: uid).first_or_create.touch	
  end
 
