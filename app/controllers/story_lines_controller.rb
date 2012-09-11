@@ -48,7 +48,7 @@ class StoryLinesController < ApplicationController
 
     #logger.debug "last_line: #{params[:story_line].attributes.inspect}"
     #logger.debug "Post should be valid: #{@post.valid?}"
-    debugger
+    
     if (last_line.order_id==params[:story_line][:order_id].to_i)
         @story_line.order_id +=1
         @story_line.save!
