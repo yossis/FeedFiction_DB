@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if user.first_time?
       start_wizard
       redirect_to start_story_wizard_url
+      UserMailer.welcome(@user).deliver
     else
       redirect_to root_url
     end

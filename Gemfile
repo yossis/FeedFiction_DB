@@ -16,8 +16,17 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'meta-tags', :require => 'meta_tags'
 
 group :development, :test do
-  gem 'rspec-rails', '2.10.0'
-  
+  gem 'rspec-rails', '2.11.0'
+  gem 'capybara', '1.1.2'
+  gem 'guard-rspec', '0.5.5'
+  gem 'guard-spork', '0.3.2'
+  gem 'spork', '0.9.0'
+  gem 'debugger'
+end
+
+group :test do
+	gem 'rb-inotify', '0.8.8'
+  gem 'libnotify', '0.5.9'
 end
 
 
