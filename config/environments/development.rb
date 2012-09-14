@@ -16,6 +16,18 @@ FeedFiction::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "feedfiction.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["SMTP_USERNAME"],
+    password: ENV["SMTP_PASSWORD"]
+  }
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -37,4 +49,7 @@ FeedFiction::Application.configure do
 
   ENV['FACEBOOK_APP_ID'] = '256183294497269'
   ENV['FACEBOOK_SECRET'] = 'fb2afb7985f715e7e4a8f08d09439efc'
+  ENV["SMTP_USERNAME"] = 'yossishalem'
+  ENV["SMTP_PASSWORD"] = 'shtoza194*'
+
 end
