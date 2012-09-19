@@ -15,4 +15,7 @@ describe UserMailer do
     end
   end
 
+  describe "continue story" do
+  end
+
 end
