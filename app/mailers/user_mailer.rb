@@ -11,11 +11,14 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: "Welocme to Feedfiction"
   end
 
-  def continue_story(story , current_user)
+  def continue_story(story , user, current_user)
     @story = story
     @current_user = current_user
-    emails = story.writers.map {|i| i.email}.compact
-    emails = emails.delete current_user.email if current_user.email.present?
-    mail to: emails, subject: "#{current_user.name} continued your story"
+    @user  = user
+    mail to: user, subject: "#{current_user.name} continued your story"
+    #emails = story.writers.map {|i| i.email}.compact
+    #emails = emails.delete current_user.email if current_user.email.present?
   end
+    
+    
 end

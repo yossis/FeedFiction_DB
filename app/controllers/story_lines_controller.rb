@@ -53,7 +53,8 @@ class StoryLinesController < ApplicationController
         @story_line.order_id +=1
         @story_line.save!
         #notification
-        UserMailer.continue_story(@story_line.story , current_user).deliver 
+        Notification.notify(@story_line ,current_user)
+        #UserMailer.continue_story(@story_line.story , current_user).deliver 
         
     else
       #duplicate story
