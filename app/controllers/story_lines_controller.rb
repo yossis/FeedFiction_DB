@@ -52,6 +52,7 @@ class StoryLinesController < ApplicationController
     if (last_line.order_id==params[:story_line][:order_id].to_i)
         @story_line.order_id +=1
         @story_line.save!
+        #notification
         UserMailer.continue_story(@story_line.story , current_user).deliver 
         
     else
