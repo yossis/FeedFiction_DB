@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120902213611) do
+ActiveRecord::Schema.define(:version => 20120919112255) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -75,6 +75,27 @@ ActiveRecord::Schema.define(:version => 20120902213611) do
   add_index "likes", ["user_id", "story_id"], :name => "index_likes_on_user_id_and_story_id", :unique => true
   add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
 
+  create_table "notification_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "notifier_user_id"
+    t.integer  "notified_user_id"
+    t.integer  "notification_type_id"
+    t.integer  "story_id"
+    t.string   "object_id"
+    t.datetime "date_read"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "notifications", ["notified_user_id", "story_id"], :name => "index_notifications_on_notified_user_id_and_story_id"
+  add_index "notifications", ["notified_user_id"], :name => "index_notifications_on_notified_user_id"
+  add_index "notifications", ["story_id"], :name => "index_notifications_on_story_id"
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -136,6 +157,11 @@ ActiveRecord::Schema.define(:version => 20120902213611) do
 
   add_foreign_key "likes", "stories", :name => "likes_story_id_fk"
   add_foreign_key "likes", "users", :name => "likes_user_id_fk"
+
+  add_foreign_key "notifications", "notification_types", :name => "notifications_notification_type_id_fk"
+  add_foreign_key "notifications", "stories", :name => "notifications_story_id_fk"
+  add_foreign_key "notifications", "users", :name => "notifications_notified_user_id_fk", :column => "notified_user_id"
+  add_foreign_key "notifications", "users", :name => "notifications_notifier_user_id_fk", :column => "notifier_user_id"
 
   add_foreign_key "stories", "categories", :name => "stories_category_id_fk"
   add_foreign_key "stories", "images", :name => "stories_image_id_fk"
