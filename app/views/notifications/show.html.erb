@@ -6,7 +6,7 @@
 	
 
 	<% @notifications.each do |notify| %>
-	  <div>
+	  <div class="notifications">
 	  	<%=basic_avatar(notify.notifier) %>
 	    <%= link_to notify.notifier.name, user_url(notify.notifier) %> 
 	    	<% if notify.notification_type.name =='Story' %>
@@ -25,3 +25,4 @@
 	<% end %>
 	
 <% end %>
+<%= will_paginate @notifications%>

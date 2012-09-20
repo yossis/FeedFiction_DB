@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   def show
-  	@notifications = Notification.find_all_by_notified_user_id(current_user.id)
+  	@notifications = current_user.notifications.paginate(page: params[:page]).order('created_at DESC')
   end
 
 end
