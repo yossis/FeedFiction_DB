@@ -21,6 +21,6 @@ test:
 
 production:
   email_notifications: true
-  site_url: 'http://feedfiction.com/'
+  site_url: 'http://feedfiction.herokuapp.com'
   smtp_user: 'yossish73'
   smtp_password: 'a1a2a3'
