@@ -14,9 +14,9 @@ private
 	def Notification.notify_story(story_line , current_user)
 		notification_type = NotificationType.find_by_name('Story')
 		users = story_line.story.writers.uniq
-		users.delete current_user
+		users.delete_if {|item| item==current_user} 
 		users.each do |u|
-    		create(:notifed_user_id => u.id, :notification_type_id => notification_type.id, :notifier_user_id => current_user.id , :object_id => "sl-#{story_line.id}", :story_id => story_line.story_id)
+    		self.create(:notifed_user_id => u.id, :notification_type_id => notification_type.id, :notifier_user_id => current_user.id , :object_id => "sl-#{story_line.id}", :story_id => story_line.story_id)
     		UserMailer.continue_story(@story_line.story , u, current_user).deliver
     	end
 		
