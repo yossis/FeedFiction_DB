@@ -5,7 +5,7 @@ class CreateNotifications < ActiveRecord::Migration
       t.integer :notified_user_id
       t.integer :notification_type_id
       t.integer :story_id
-      t.string :object_id
+      t.string :item_id
       t.datetime :date_read
 
       t.timestamps

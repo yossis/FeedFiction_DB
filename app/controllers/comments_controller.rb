@@ -27,7 +27,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment])
     @comment.user_id = current_user.id
-    @comment.save
+    if @comment.save
+      #notification
+        Notification.notify(@comment ,current_user)
+    end
+
     respond_to do |format|
       format.js
     end

@@ -1,23 +1,38 @@
 class Notification < ActiveRecord::Base
-  attr_accessible :date_read, :notifed_user_id, :notification_type_id, :notifier_user_id, :object_id, :story_id
+  attr_accessible :date_read, :notified_user_id, :notification_type_id, :notifier_user_id, :item_id, :story_id
 
-def Notification.notify(story_line, user)
-	case story_line.class.to_s
-	when 'StoryLine'
-		  notify_story story_line, user
+def Notification.notify(item, user)
+	item_name = nil
+
+	case item.class.to_s
+		when 'StoryLine'
+			  notify_story(item,user)
+		when 'Comment'
+			  comment_on_story(item,user)
 	end
-	
+
 end
 
 
 private
-	def Notification.notify_story(story_line , current_user)
+	def Notification.notify_story(item , current_user)
 		notification_type = NotificationType.find_by_name('Story')
-		users = story_line.story.writers.uniq
-		users.delete_if {|item| item==current_user} 
+		users = item.story.writers.uniq
+		users.delete_if {|user| user==current_user} 
 		users.each do |u|
-    		self.create(:notifed_user_id => u.id, :notification_type_id => notification_type.id, :notifier_user_id => current_user.id , :object_id => "sl-#{story_line.id}", :story_id => story_line.story_id)
-    		UserMailer.continue_story(@story_line.story , u, current_user).deliver
+    		self.create(:notified_user_id => u.id, :notification_type_id => notification_type.id, :notifier_user_id => current_user.id , :item_id => "sl-#{item.id}", :story_id => item.story_id)
+    		UserMailer.continue_story(item.story , u, current_user).deliver
+    	end
+		
+	end
+
+	def Notification.comment_on_story(item , current_user)
+		notification_type = NotificationType.find_by_name('Comment')
+		users = (item.story.writers+item.story.commenters).uniq
+		users.delete_if {|user| user==current_user} 
+		users.each do |u|
+    		self.create(:notified_user_id => u.id, :notification_type_id => notification_type.id, :notifier_user_id => current_user.id , :item_id => "co-#{item.id}", :story_id => item.story_id)
+    		UserMailer.comment_on_story(item , u, current_user).deliver
     	end
 		
 	end

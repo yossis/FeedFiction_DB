@@ -4,6 +4,7 @@ class Story < ActiveRecord::Base
   has_many :likes , dependent: :destroy
   has_many :users , through: :likes, source: :users
   has_many :comments
+  has_many :commenters, through: :comments, source: :user
   has_many :writers, through: :story_lines, source: :user
   belongs_to :image
   belongs_to :user

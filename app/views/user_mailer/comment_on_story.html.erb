@@ -1,0 +1,3 @@
+<h2>Hey!</h2>
+<p><%= link_to @current_user.name, user_url(@current_user) %> commented in story <%= link_to @story.story_title ,story_url(@story) %></p>
+<div><%= link_to 'read the comment here' ,story_url(@story) %></div>

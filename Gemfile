@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'meta-tags', :require => 'meta_tags'
+gem 'delayed_job_active_record'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'

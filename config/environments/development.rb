@@ -13,18 +13,21 @@ FeedFiction::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  ENV["SMTP_USERNAME"] = 'yossish73'
+  ENV["SMTP_PASSWORD"] = 'a1a2a3'
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "feedfiction.com",
+    address: "sout.zahav.net.il",
+    domain: 'feedfiction.com',
     authentication: "plain",
-    enable_starttls_auto: true,
+    enable_starttls_auto: false,
     user_name: ENV["SMTP_USERNAME"],
     password: ENV["SMTP_PASSWORD"]
+    #openssl_verify_mode => 'none'
+
   }
   config.action_mailer.default_url_options = { host: "localhost:3000" }
 
@@ -49,7 +52,5 @@ FeedFiction::Application.configure do
 
   ENV['FACEBOOK_APP_ID'] = '256183294497269'
   ENV['FACEBOOK_SECRET'] = 'fb2afb7985f715e7e4a8f08d09439efc'
-  ENV["SMTP_USERNAME"] = 'yossishalem'
-  ENV["SMTP_PASSWORD"] = 'shtoza194*'
-
+  
 end
