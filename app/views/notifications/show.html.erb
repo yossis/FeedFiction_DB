@@ -1,0 +1,27 @@
+<h1>Your notifications</h1>
+<% if @notifications.nil? %>
+		You don't have notification yet!
+<%else%>
+
+	
+
+	<% @notifications.each do |notify| %>
+	  <div>
+	  	<%=basic_avatar(notify.notifier) %>
+	    <%= link_to notify.notifier.name, user_url(notify.notifier) %> 
+	    	<% if notify.notification_type.name =='Story' %>
+	    	continue your story <%= link_to notify.story.story_title, story_url(notify.story) %>
+	    	<% elsif notify.notification_type.name =='Comment'%>
+	    		commented in story <%= link_to notify.story.story_title, story_url(notify.story) %>
+	    	<% end %>
+	    	<% if notify.is_new?	%>
+	    		<span class="label label-info">New</span>
+	    		<% notify.update_view %>
+	    	<%end%>
+	    	<p><%= time_ago_in_words notify.created_at%> ago</p>
+	   
+	  </div>
+
+	<% end %>
+	
+<% end %>

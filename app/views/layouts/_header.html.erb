@@ -7,7 +7,16 @@
         <ul class="nav pull-right">
           
           <% if current_user %>
-              
+              <% if current_user.has_notification? %>
+                <li><a href='<%= notifications_show_url%>'>
+                    <%if current_user.new_notifications_count==0%>
+                      <span class="badge">&nbsp;</span>
+                    <%else%>
+                      <span class="badge badge-warning"><%=current_user.new_notifications_count%></span>
+                    <% end %>
+                    </a>
+                </li>
+              <%end%>
               <li><a  data-toggle="modal" href="#StartStoryModal">Start Story</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">

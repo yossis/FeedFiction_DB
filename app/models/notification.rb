@@ -1,5 +1,10 @@
 class Notification < ActiveRecord::Base
   attr_accessible :date_read, :notified_user_id, :notification_type_id, :notifier_user_id, :item_id, :story_id
+  
+  belongs_to :notifier, class_name: "User" ,foreign_key: 'notifier_user_id'
+  belongs_to :notified, class_name: "User" ,foreign_key: 'notified_user_id'
+  belongs_to :notification_type
+  belongs_to :story
 
 def Notification.notify(item, user)
 	item_name = nil
@@ -11,6 +16,14 @@ def Notification.notify(item, user)
 			  comment_on_story(item,user)
 	end
 
+end
+
+def is_new?
+	date_read.nil?
+end
+
+def update_view
+	update_attributes(date_read: Time.now)
 end
 
 

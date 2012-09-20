@@ -1,4 +1,12 @@
 FeedFiction::Application.routes.draw do
+  get "notifications/show"
+
+  get "notifications/index"
+
+  get "notification/show"
+
+  get "notification/index"
+
   resources :image_types
   resources :users do
     member do
