@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(:version => 20120920130127) do
     t.integer  "notified_user_id"
     t.integer  "notification_type_id"
     t.integer  "story_id"
-    t.string   "item_id"
+    t.string   "object_id"
     t.datetime "date_read"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
