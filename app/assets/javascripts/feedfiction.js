@@ -197,7 +197,7 @@ var feedfiction = {
     *   init - Sets default links for userFunctions
     */
     init: function () {
-        $('.userFunction').on('click', function (e) {
+        $('.userFunction').live('click', function (e) {
             var rel = $(this).attr('data-function');
             if (rel != null) {
                 e.preventDefault();
@@ -206,9 +206,10 @@ var feedfiction = {
             }
         });
 
-        $('input,textarea').on('blur', feedfiction.validateField);
-        $('.story-with-owners span').on('hover', feedfiction.actions.boldWriterLine);
-        $('a.like-link').on('click', function(e) {alert('hh')});
+        $('input,textarea').live('blur', feedfiction.validateField);
+        $('.story-with-owners span').live('hover', feedfiction.actions.boldWriterLine);
+        //$('.story-item').on('hover', '.story-with-owners span', feedfiction.actions.boldWriterLine);
+        //$('a.like-link').on('click', function(e) {alert('hh')});
         //var storyBox = '#tiles li.continue-story';
         //$(storyBox).on('click', function(e) {
         //    url = $(this).attr('id').split('-')[1];

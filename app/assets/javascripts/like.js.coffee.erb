@@ -1,5 +1,5 @@
 jQuery ->
-	$('a.like-link').click ->
+	$('a.like-link').live 'click' , ->
 	  target = ($ @).attr('data-target')
 	  url = ($ @).attr('href')
 	  ($ target).load(url)
