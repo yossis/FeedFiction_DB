@@ -1,13 +1,13 @@
 <div id="like-list">
 	<div class="modal-header">
 	    <button type="button" class="close" data-dismiss="modal">×</button>
-	    <h1><%= story_title(@story)%></h1>
+	    <h1><%= @story.story_title%></h1>
 	</div>
 	<div class="modal-body">
 		<div>Likes:<%= @story.likes.count%></div>
 		<ul class="like-list">
 		<% @story.likes.collect { |f| f.user}.each do |user| %>
-			<%= render @user %>
+			<%= render user %>
 
 		<% end %>
 	</div>
