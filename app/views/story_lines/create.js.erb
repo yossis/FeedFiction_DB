@@ -1,2 +1,2 @@
-$("#story-item-<%=@story.id%>").html("<%= escape_javascript(render('static_pages/story_item' , :story => @story ))%>");
+$("#story-item-<%=@story.id%>").html("<%= escape_javascript(render('stories/story_item' , :story => @story ))%>");
 feedfiction.actions.continueStory("<%=@story.id%>");

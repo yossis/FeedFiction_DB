@@ -1,6 +1,6 @@
 <div id="story-container">
 	<ul id="tiles">
-		<%= render :partial => 'static_pages/story' ,:collection => @stories%>
+		<%= render :partial => 'stories/story' ,:collection => @stories%>
 	</ul>
 </div>
 <%= will_paginate @stories%>

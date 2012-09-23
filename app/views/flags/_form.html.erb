@@ -1,0 +1,27 @@
+<%= form_for(@flag) do |f| %>
+  <% if @flag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@flag.errors.count, "error") %> prohibited this flag from being saved:</h2>
+
+      <ul>
+      <% @flag.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :story_id %>
+  <div class="field">
+    <%= f.label :flag_reason_id %><br />
+    <%= select("flag", "flag_reason_id", FlagReason.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Choose one'})%>
+   
+  </div>
+  <div class="field">
+    <%= f.label :reason %><br />
+    <%= f.text_field :reason %>
+  </div>
+  <div class="actions">
+    <%= f.submit value: 'Send'%>
+  </div>
+<% end %>

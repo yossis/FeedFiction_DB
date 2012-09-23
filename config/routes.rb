@@ -1,4 +1,6 @@
 FeedFiction::Application.routes.draw do
+  resources :flags
+
   get "notifications/show"
 
   get "notifications/index"

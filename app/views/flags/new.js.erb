@@ -1,0 +1,3 @@
+alert("<%=@flag.story_id%>");
+
+$("#story-item-<%=@flag.story_id%> .flag-container").html("<%= escape_javascript(render('flags/new'))%>");

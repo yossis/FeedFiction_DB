@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920130127) do
+ActiveRecord::Schema.define(:version => 20120923061441) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,23 @@ ActiveRecord::Schema.define(:version => 20120920130127) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "flag_reasons", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "flags", :force => true do |t|
+    t.integer  "story_id",         :null => false
+    t.integer  "flag_reason_id"
+    t.string   "reason"
+    t.integer  "reporter_user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "flags", ["story_id"], :name => "index_flags_on_story_id"
 
   create_table "image_types", :force => true do |t|
     t.string   "name"
@@ -164,6 +181,10 @@ ActiveRecord::Schema.define(:version => 20120920130127) do
 
   add_foreign_key "comments", "stories", :name => "comments_story_id_fk"
   add_foreign_key "comments", "users", :name => "comments_user_id_fk"
+
+  add_foreign_key "flags", "flag_reasons", :name => "flags_flag_reason_id_fk"
+  add_foreign_key "flags", "stories", :name => "flags_story_id_fk"
+  add_foreign_key "flags", "users", :name => "flags_reporter_user_id_fk", :column => "reporter_user_id"
 
   add_foreign_key "images", "image_types", :name => "images_image_type_id_fk"
   add_foreign_key "images", "users", :name => "images_user_id_fk"

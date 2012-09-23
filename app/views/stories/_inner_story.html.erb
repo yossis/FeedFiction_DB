@@ -4,12 +4,12 @@
 					<%=  image_tag(story.image.url , width: number_to_pixel(story.image.width) , height: number_to_pixel(story.image.height))  %>
 					<% end %>
 				</div>
-				<%= render 'static_pages/started_by' , :story => story%>
+				<%= render 'stories/started_by' , :story => story%>
 				
 				
 				<!--<div class="tiels-items-container">
 					<a class="btn btn-small like-story"><i class="icon-thumbs-up"></i>Like</a>
 					<a class="btn btn-small continue-story"><i class="icon-edit"></i>Continue</a>		
 				</div>-->
-				<%= render 'static_pages/story_item' , :story => story%>
+				<%= render 'stories/story_item' , :story => story%>
 				
