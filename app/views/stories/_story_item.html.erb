@@ -17,8 +17,11 @@
 				</div>
 				<hr/>
 				<div>
-					<%= link_to "Flag", new_flag_url(:story_id => story.id), :remote => true, :class => "btn btn-danger unregistered" %>
-					<div class="flag-container"></div>
+					<%= link_to_if(current_user, "Flag", new_flag_url(:story_id => story.id), :remote => true, 'data-toggle' => 'modal' ,:class => "btn btn-danger" , 'data-target' => "#flag-#{story.id}") do
+ 						link_to("Flag" ,'#' ,:class => "btn btn-danger unregister")
+ 					end
+ 					%>
+ 					<div id="flag-<%=story.id%>" class="modal hide fade flag-container"></div>
 				<% unless story.is_complete%>
 					<div>
 						<%= simple_form_for @story_line ,:remote => true  do |f| %>

@@ -6,9 +6,11 @@ class FlagsController < ApplicationController
   def new
     @flag = Flag.new
     @flag.story_id = params[:story_id]
+    @story = Story.find params[:story_id]
 
     respond_to do |format|
       format.js
+      format.html  { render :partial => 'new'}# new.html.erb
     end
     #respond_to do |format|
     #  format.html  { render :partial => 'new'}# new.html.erb
@@ -27,6 +29,7 @@ class FlagsController < ApplicationController
       if @flag.save
         format.html { redirect_to @flag, notice: 'This story is flagged by you.' }
         format.json { render json: @flag, status: :created, location: @flag }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @flag.errors, status: :unprocessable_entity }

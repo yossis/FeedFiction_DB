@@ -6,6 +6,7 @@ class Story < ActiveRecord::Base
   has_many :comments
   has_many :commenters, through: :comments, source: :user
   has_many :writers, through: :story_lines, source: :user
+  has_many :flags
   belongs_to :image
   belongs_to :user
   belongs_to :category
