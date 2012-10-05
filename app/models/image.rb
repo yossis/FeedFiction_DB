@@ -27,7 +27,7 @@ class Image < ActiveRecord::Base
   mount_uploader :image_source, ImageUploader
 
   def create_by_upload
-      self.url = "#{ENV["AWS_S3_URL"]}"+self.image_source_url(:thumb)
+      self.url = "#{ENV["AWS_S3_URL"]}/uploads/thumb_"+self.image_source.identifier
       save
   end
 
