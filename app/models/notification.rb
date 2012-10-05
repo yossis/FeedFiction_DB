@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: notifications
+#
+#  id                   :integer          not null, primary key
+#  notifier_user_id     :integer
+#  notified_user_id     :integer
+#  notification_type_id :integer
+#  story_id             :integer
+#  item_id              :string(255)
+#  date_read            :datetime
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
 class Notification < ActiveRecord::Base
   attr_accessible :date_read, :notified_user_id, :notification_type_id, :notifier_user_id, :item_id, :story_id
   

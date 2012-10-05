@@ -14,6 +14,12 @@ gem 'simple_form'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'meta-tags', :require => 'meta_tags'
+gem 'rmagick'
+gem 'carrierwave'
+gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
+
 
 
 group :development, :test do
@@ -24,6 +30,8 @@ group :development, :test do
   gem 'spork', '0.9.0'
   gem 'debugger'
 end
+
+gem 'annotate', '2.5.0', group: :development
 
 group :test do
 	gem 'rb-inotify', '0.8.8'
@@ -42,6 +50,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass', '2.0.4.1'
+  gem 'jquery-fileupload-rails'
 end
 
 gem 'jquery-rails'

@@ -36,3 +36,7 @@ end
 ['Sexually explicit content', 'Graphic violence' , 'Offensive language' ,'Violation of Terms of Use' ,'Other'].each do |f|
 	FlagReason.find_or_create_by_name f
 end 
+
+['Profile Pictures', 'Stories'].each do |t|
+	AlbumType.find_or_create_by_name t
+end 

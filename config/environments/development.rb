@@ -52,5 +52,9 @@ FeedFiction::Application.configure do
 
   ENV['FACEBOOK_APP_ID'] = '256183294497269'
   ENV['FACEBOOK_SECRET'] = 'fb2afb7985f715e7e4a8f08d09439efc'
+  ENV["AWS_ACCESS_KEY_ID"] = 'AKIAIKZTOEKGDO6YLPEQ'
+  ENV["AWS_SECRET_ACCESS_KEY"] = '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'
+  ENV["AWS_S3_BUCKET"] = 'dev-feedfiction-images'
+  ENV["AWS_S3_URL"] = "https://#{ENV["AWS_S3_BUCKET"]}.s3.amazonaws.com"
   
 end

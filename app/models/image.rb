@@ -1,6 +1,49 @@
+# == Schema Information
+#
+# Table name: images
+#
+#  id               :integer          not null, primary key
+#  user_id          :integer
+#  source_object_id :string(255)
+#  image_source       :string(255)
+#  source_width     :integer
+#  source_height    :integer
+#  image_type_id    :integer
+#  url              :string(255)
+#  width            :integer
+#  height           :integer
+#  is_proceed       :boolean          default(FALSE)
+#  in_cdn           :boolean          default(FALSE)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  album_type_id    :integer
+#
+
 class Image < ActiveRecord::Base
-  attr_accessible :height, :source_object_id, :image_type_id, :is_proceed, :is_used, :source_height, :source_url, :source_width, :url, :user_id, :width
+  attr_accessible :height, :source_object_id, :image_type_id, :is_proceed, :in_cdn, :source_height, :image_source, :source_width, :url, :user_id, :width ,:album_type_id 
   has_one :story
+  before_save :saving
+
+  mount_uploader :image_source, ImageUploader
+
+  def create_by_upload
+      self.url = "#{ENV["AWS_S3_URL"]}"+self.image_source_url(:thumb)
+      save
+  end
+
+  def saving
+    geometry = self.image_source.geometry
+    if (! geometry.nil?)
+      self.source_width = geometry[0]
+      self.source_height = geometry[1]
+    end
+
+    geometry = self.image_source.thumb.geometry
+    if (! geometry.nil?)
+      self.width = geometry[0]
+      self.height = geometry[1]
+    end
+  end  
 
   class << Image
 
@@ -29,7 +72,7 @@ class Image < ActiveRecord::Base
           i = Image.new(user_id: user_id, source_object_id: image['object_id'].to_s,
                 image_type_id: type_id ,
                 source_height: image['src_big_height'] ,
-                source_url: image['src_big'] ,
+                image_source: image['src_big'] ,
                 source_width: image['src_big_width'] ,
                 url: image['src_big'] ,
                 width: ratio['new_width'] ,
@@ -40,11 +83,11 @@ class Image < ActiveRecord::Base
       LastImport.update_time(type_id, user_id)
     end
 
-     def aspect_ratio(width,height,new_width)
-      #original height / original width x new width = new height
-      new_height = (height.to_f/width.to_f*new_width).to_i
-      ratio = { "new_height" => new_height, "new_width" => new_width }
-     end
+   def aspect_ratio(width,height,new_width)
+    #original height / original width x new width = new height
+    new_height = (height.to_f/width.to_f*new_width).to_i
+    ratio = { "new_height" => new_height, "new_width" => new_width }
+   end
   end
 
 end

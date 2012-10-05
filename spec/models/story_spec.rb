@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: stories
+#
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  image_id        :integer
+#  is_complete     :boolean
+#  inappropriate   :integer
+#  quality         :integer
+#  story_source_id :integer
+#  category_id     :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Story do 

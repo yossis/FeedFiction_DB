@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: last_imports
+#
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  image_type_id :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 class LastImport < ActiveRecord::Base
   attr_accessible :image_type_id, :user_id, :updated_at
 

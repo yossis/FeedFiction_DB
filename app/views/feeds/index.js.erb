@@ -1,4 +1,4 @@
-$('#tiles').append("<%= escape_javascript(render(:partial => 'static_pages/story' , :collection => @stories))%>")
+$('#tiles').append("<%= escape_javascript(render(:partial => 'stories/story' , :collection => @stories))%>")
 <% if @stories.next_page %>
 $('.pagination').replaceWith('<%= j will_paginate(@stories) %>');
 <% else %>

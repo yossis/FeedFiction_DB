@@ -1,0 +1,6 @@
+<% if @image.new_record? %>
+  feedfiction.alert("Failed to upload image: <%= j @image.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $("#images").html("<%= j render(@image) %>");
+  $('#story_image_id').val('<%=@image.id%>');
+<% end %>

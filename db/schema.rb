@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923061441) do
+ActiveRecord::Schema.define(:version => 20120928110237) do
+
+  create_table "album_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -72,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20120923061441) do
   create_table "images", :force => true do |t|
     t.integer  "user_id"
     t.string   "source_object_id"
-    t.string   "source_url"
+    t.string   "image_source"
     t.integer  "source_width"
     t.integer  "source_height"
     t.integer  "image_type_id"
@@ -80,9 +86,10 @@ ActiveRecord::Schema.define(:version => 20120923061441) do
     t.integer  "width"
     t.integer  "height"
     t.boolean  "is_proceed",       :default => false
-    t.boolean  "is_used",          :default => false
+    t.boolean  "in_cdn",           :default => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.integer  "album_type_id"
   end
 
   add_index "images", ["source_object_id", "image_type_id"], :name => "index_images_on_source_object_id_and_image_type_id", :unique => true
@@ -186,6 +193,7 @@ ActiveRecord::Schema.define(:version => 20120923061441) do
   add_foreign_key "flags", "stories", :name => "flags_story_id_fk"
   add_foreign_key "flags", "users", :name => "flags_reporter_user_id_fk", :column => "reporter_user_id"
 
+  add_foreign_key "images", "album_types", :name => "images_album_type_id_fk"
   add_foreign_key "images", "image_types", :name => "images_image_type_id_fk"
   add_foreign_key "images", "users", :name => "images_user_id_fk"
 

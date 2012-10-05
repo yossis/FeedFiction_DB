@@ -29,12 +29,14 @@ FeedFiction::Application.routes.draw do
   resources :categories
   resources :likes, only: [:create, :destroy, :show]
   resources :relationships, only: [:create, :destroy]
-  
-  get "import_images/facebook"
 
-  get "import_images/instagram"
-
-  get "import_images/upload"
+  resources :images do
+    collection do
+      get :facebook, :instagram, :upload
+    end
+  end
+    
+ 
 
   
   root to: 'feeds#index'
@@ -47,7 +49,7 @@ FeedFiction::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
-  match '/facebook', to: 'import_images#facebook' 
+  match '/facebook', to: 'images#facebook' 
   match 'register/start-story', to: 'register#start', as: 'start_story_wizard'
   match 'register/follow-friends', to: 'register#friends' , as: 'find_friends_wizard'
   match 'register/facebook-images', to: 'register#facebook' , as: 'import_facebook_wizard'

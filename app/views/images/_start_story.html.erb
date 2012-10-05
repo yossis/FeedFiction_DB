@@ -1,14 +1,14 @@
-<%= simple_form_for @story do |f| %>
+<%= simple_form_for Story.new do |f| %>
   <%= f.error_notification %>
- <div class="modal-body">
+ <div class="modal-body" >
 	  <ul>
 		<li><h3></h3></li>
 		<li>
 			<div>
-				<div class="ss-image"></div>
+				<div class="ss-image" id="images">In Process...</div>
 				<div class="ss-feed-form">
 				 <ul>
-				 	<li><%= collection_select(:story, :category_id, @categories, :id, :name) %></li>
+				 	<li><%= collection_select(:story, :category_id, Category.all, :id, :name) %></li>
 				 	<li><div class="ss-canvas"></div></li>
 				 	<li>Please start your story (minimum 10 words) and give other to complete your story</li>
 				 	<li><%= image_tag(current_user.avatar,:class => 'border-image-small')  %>

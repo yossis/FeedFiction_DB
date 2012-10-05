@@ -82,4 +82,8 @@ FeedFiction::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   ENV['FACEBOOK_APP_ID'] = '244160649037860'
   ENV['FACEBOOK_SECRET'] = 'c7974ab01e76c15d62823eca67f51d2d'
+  ENV["AWS_ACCESS_KEY_ID"] = 'AKIAIKZTOEKGDO6YLPEQ'
+  ENV["AWS_SECRET_ACCESS_KEY"] = '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'
+  ENV["AWS_S3_BUCKET"] = 'feefiction-images'
+  ENV["AWS_S3_URL"] = "https://#{ENV["AWS_S3_BUCKET"]}.s3.amazonaws.com"
 end

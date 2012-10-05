@@ -114,6 +114,50 @@ var feedfiction = {
   
           // Call the layout function.
           handler.wookmark(options);
+        },
+
+        displayUpload: function(){
+
+            feedfiction.actions.resetStartStoryForm();
+            feedfiction.actions.implementEvent(null);
+            $('#UploadModal').modal('toggle');
+            $('#start-story-form').hide();
+
+        },
+
+        resetStartStoryForm: function(){
+            $('.ss-feed-form textarea').val('');
+            $('#start-story-form .modal-body h3').html('');
+            $('#images img').attr('src', '');
+        },
+
+        implementEvent: function(e){
+            //Open new LightBox with start story component 
+            
+            // Update the layout.
+            //handler.wookmark();
+            if ($('#start-story-container #start-story-form').length ==0) {
+              $('#start-story-form').appendTo($('#start-story-container'));
+              $('#start-story-form').show();
+            }
+            $('#start-story .ss-image').empty();
+            feedfiction.actions.resetStartStoryForm();
+            if (e!=null){
+                var image = $('img', e).attr('src');
+                var id = $('img', e).attr('id').replace('image_','');
+                if ($('#start-story .ss-image img').length >0) {
+                  $('#start-story .ss-image img').attr('src', image);
+                }
+                else
+                {
+                  $('#start-story .ss-image').append('<img width="200" src="'+image+'"/>');
+                }
+                $('#start-story-form .ss-feed-form input[type=hidden].ss-image').attr('value', id);
+            }
+            $('#start-story-form textarea').textareaCounter({title: '#start-story-form h3',submit:'#start-story-form .modal-footer input[type=submit]', enableSubmitAfterNumWords:10});
+            if (e!=null)
+                $('#start-story').modal('toggle');
+
         }
 
 
@@ -240,6 +284,9 @@ var feedfiction = {
         document.body.appendChild(form);    // Not entirely sure if this is necessary
         form.submit();
     },
+    alert: function(message) {
+        alert(message);
+    }
     
 };
 

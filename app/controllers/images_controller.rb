@@ -1,4 +1,5 @@
-class ImportImagesController < ApplicationController
+class ImagesController < ApplicationController
+
   def facebook
 
  	 #SELECT aid, owner, name FROM album WHERE owner='675499110'
@@ -8,8 +9,7 @@ class ImportImagesController < ApplicationController
 	 #@images = current_user.facebook.fql_query(fql_query)
 	 #raise @images.to_yaml
 	 @images = Image.facebook_images(current_user)
-	 @categories = Category.all
-	 @story = Story.new
+	 
   end
 
 
@@ -17,5 +17,27 @@ class ImportImagesController < ApplicationController
   end
 
   def upload
+    @image = Image.find(params[:id]) if params[:id].present?
+    
+    if @image.nil?
+  	   @image = Image.new
+     end
   end
+
+  def show
+    @image = Image.find(params[:id]) if params[:id].present?
+    if @image.nil?
+      @image = Image.new
+    end
+
+  end
+	
+  def create
+    #@image = Image.create(params[:image])
+    @image = Image.new(params[:image])
+    @image.user_id = current_user.id
+    @image.create_by_upload
+  end
+
+
 end

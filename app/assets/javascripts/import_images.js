@@ -19,28 +19,10 @@
   var startStoryClick = $('#tiles li.container-ss');
   startStoryClick.click(function(e){
     e.stopPropagation();
-    //Open new LightBox with start story component 
-    
-    // Update the layout.
-    //handler.wookmark();
-    var image = $('img', this).attr('src');
-    var id = $('img', this).attr('id').replace('image_','');
-    if ($('#start-story .ss-image img').length >0) {
-      $('#start-story .ss-image img').attr('src', image);
-    }
-    else
-    {
-      $('#start-story .ss-image').append('<img width="200" src="'+image+'"/>');
-    }
-    $('#start-story .ss-feed-form input[type=hidden].ss-image').attr('value', id);
-    $('#start-story textarea').textareaCounter({title: '#start-story h3',submit:'#start-story .modal-footer input[type=submit]', enableSubmitAfterNumWords:10});
-
-    $('#start-story').modal('toggle');
-
+    feedfiction.actions.implementEvent($(this));
   });
 
- 
- 
+   
   $(document).on("click", '.continue-story-text-area textarea', function(e){
     if ($(this).attr('unlogged') && $(this).attr('unlogged').length>0){
       alert("You must sign in to complete the story!");
