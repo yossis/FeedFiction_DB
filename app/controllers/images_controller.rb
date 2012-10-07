@@ -22,6 +22,8 @@ class ImagesController < ApplicationController
     if @image.nil?
   	   @image = Image.new
      end
+    @uploader = Image.new.image_source
+    @uploader.success_action_redirect = new_image_url
   end
 
   def show
@@ -31,12 +33,20 @@ class ImagesController < ApplicationController
     end
 
   end
+
+  def new
+    @image = Image.new(key:params[:key])
+    @image.user_id = current_user.id
+    @image.save
+    #@uploader = Image.new.image_source
+    #@uploader.success_action_redirect = new_image_url
+
+  end
 	
   def create
-    #@image = Image.create(params[:image])
     @image = Image.new(params[:image])
     @image.user_id = current_user.id
-    @image.create_by_upload
+    @image.save
   end
 
 

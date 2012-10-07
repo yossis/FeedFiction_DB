@@ -22,9 +22,9 @@
 class Image < ActiveRecord::Base
   attr_accessible :height, :source_object_id, :image_type_id, :is_proceed, :in_cdn, :source_height, :image_source, :source_width, :url, :user_id, :width ,:album_type_id 
   has_one :story
-  before_save :saving
+  
 
-  mount_uploader :image_source, ImageUploader
+  mount_uploader :url, ImageUploader
 
   def create_by_upload
       self.url = "#{ENV["AWS_S3_URL"]}/uploads/thumb_"+self.image_source.identifier
@@ -32,13 +32,13 @@ class Image < ActiveRecord::Base
   end
 
   def saving
-    geometry = self.image_source.geometry
+    geometry = self.url.geometry
     if (! geometry.nil?)
       self.source_width = geometry[0]
       self.source_height = geometry[1]
     end
 
-    geometry = self.image_source.thumb.geometry
+    geometry = self.url.thumb.geometry
     if (! geometry.nil?)
       self.width = geometry[0]
       self.height = geometry[1]

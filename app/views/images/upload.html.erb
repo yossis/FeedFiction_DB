@@ -1,15 +1,27 @@
+<div id="images">
+  <%= render @image %>
+</div>
+
 <div>
-<%= form_for Image.new do |f| %>
-  
-  <%= f.hidden_field :album_type_id %>
-    <p>
-    <%= f.file_field :image_source %>
+<%# direct_upload_form_for @uploader do |f| %>
+  <p>
+    <%# f.file_field :image_source %>
+  </p>
+  <p>
+  	<%#f.button %>
   </p>
   
-  
-<% end %>
+<%# end %>
 
 </div>
+
+
+<%= s3_uploader_form post: images_url, as: 'image[image_source]' do %>
+  <%= file_field_tag :file %>
+<% end %>
+
+
+
 <script id="template-upload" type="text/x-tmpl">
 <div class="upload">
   {%=o.name%}
