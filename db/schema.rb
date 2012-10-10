@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928110237) do
+ActiveRecord::Schema.define(:version => 20121007081310) do
 
   create_table "album_types", :force => true do |t|
     t.string   "name"
@@ -82,10 +82,10 @@ ActiveRecord::Schema.define(:version => 20120928110237) do
     t.integer  "source_width"
     t.integer  "source_height"
     t.integer  "image_type_id"
-    t.string   "url"
+    t.string   "image_thumb"
     t.integer  "width"
     t.integer  "height"
-    t.boolean  "is_proceed",       :default => false
+    t.boolean  "image_processed",  :default => false
     t.boolean  "in_cdn",           :default => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(:version => 20120928110237) do
     t.integer  "notified_user_id"
     t.integer  "notification_type_id"
     t.integer  "story_id"
-    t.string   "object_id"
+    t.string   "item_id"
     t.datetime "date_read"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false

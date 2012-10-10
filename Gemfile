@@ -31,7 +31,7 @@ group :development, :test do
   gem 'debugger'
 end
 
-gem 'annotate', '2.5.0', group: :development
+gem 'annotate', ">=2.5.0" , group: :development
 
 group :test do
 	gem 'rb-inotify', '0.8.8'

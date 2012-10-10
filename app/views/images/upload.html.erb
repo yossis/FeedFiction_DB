@@ -14,11 +14,14 @@
 <%# end %>
 
 </div>
+<%= form_for Image.new do |f| %>
+ <%= f.file_field :image_source %>
+ <%= f.submit %>
+<%end%>
 
-
-<%= s3_uploader_form post: images_url, as: 'image[image_source]' do %>
-  <%= file_field_tag :file %>
-<% end %>
+<%# s3_uploader_form post: images_url, as: 'image[image_source]' do %>
+  <%# file_field_tag :file %>
+<%# end %>
 
 
 

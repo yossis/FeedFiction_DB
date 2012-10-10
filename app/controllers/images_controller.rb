@@ -21,9 +21,10 @@ class ImagesController < ApplicationController
     
     if @image.nil?
   	   @image = Image.new
-     end
-    @uploader = Image.new.image_source
-    @uploader.success_action_redirect = new_image_url
+    end
+    #@uploader = Image.new.image_source
+    #@uploader.success_action_redirect = new_image_url
+
   end
 
   def show
@@ -44,9 +45,13 @@ class ImagesController < ApplicationController
   end
 	
   def create
+    #get the url from the callbcack
+    #e.g: image[image_source] = https://<BUCKET>.s3.amazonaws.com/uploads/myimage.png
     @image = Image.new(params[:image])
     @image.user_id = current_user.id
     @image.save
+
+    render 'upload'
   end
 
 
