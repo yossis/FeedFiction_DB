@@ -2,7 +2,7 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
 
-  #include CarrierWaveDirect::Uploader
+  include CarrierWaveDirect::Uploader
   
   include CarrierWave::RMagick
 
