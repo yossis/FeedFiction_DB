@@ -1,5 +1,7 @@
 class ImagesController < ApplicationController
 
+  #before_filter :set_upload
+
   def facebook
 
  	 #SELECT aid, owner, name FROM album WHERE owner='675499110'
@@ -22,9 +24,6 @@ class ImagesController < ApplicationController
     if @image.nil?
   	   @image = Image.new
     end
-    #@uploader = Image.new.image_source
-    #@uploader.success_action_redirect = new_image_url
-
   end
 
   def show
@@ -36,12 +35,13 @@ class ImagesController < ApplicationController
   end
 
   def new
+
     @image = Image.new(key:params[:key])
     @image.user_id = current_user.id
     @image.save
-    #@uploader = Image.new.image_source
-    #@uploader.success_action_redirect = new_image_url
-
+    @image.enqueue_image
+    
+    render 'upload'
   end
 	
   def create
@@ -50,9 +50,13 @@ class ImagesController < ApplicationController
     @image = Image.new(params[:image])
     @image.user_id = current_user.id
     @image.save
-
-    render 'upload'
   end
+
+
+  # def set_upload
+  #   @uploader = Image.new.image_source
+  #   @uploader.success_action_redirect = new_image_url
+  # end
 
 
 end

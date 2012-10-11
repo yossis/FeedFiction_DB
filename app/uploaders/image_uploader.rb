@@ -2,8 +2,7 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
 
-  include CarrierWaveDirect::Uploader
-  
+  #include CarrierWaveDirect::Uploader
   include CarrierWave::RMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:

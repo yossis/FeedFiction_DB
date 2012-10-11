@@ -22,8 +22,7 @@
 class Image < ActiveRecord::Base
   attr_accessible :height, :source_object_id, :image_type_id, :image_processed, :in_cdn, :source_height, :image_source, :source_width, :image_thumb, :user_id, :width ,:album_type_id 
   has_one :story
-  #after_save :enqueue_image
-
+  
   mount_uploader :image_source, ImageUploader
 
   def create_by_upload
@@ -45,20 +44,22 @@ class Image < ActiveRecord::Base
     end
   end
 
-  def enqueue_image
-      ImageWorker.perform(id, image_source) if image_source.present?
-  end
+  #def enqueue_image
+    #ImageWorker.perform_async(id, key) if key.present?
+    #ImageWorker.perform(id, key) if key.present?
+  #end
 
-  class ImageWorker
+  #class ImageWorker
     #include Sidekiq::Worker
     
-    def self.perform(id, key)
-      image = Image.find(id)
-      image.remote_image_thumb_url = key
-      image.save!
-      image.update_column(:image_processed, true)
-    end
-  end
+    #def perform(id, key)
+      #image = Image.find(id)
+     # image.key = key
+     # image.remote_image_source_url = image.image_source.direct_fog_url(with_path: true)
+     #image.save!
+     # image.update_column(:image_processed, true)
+    #end
+  #end
   
 
   class << Image
