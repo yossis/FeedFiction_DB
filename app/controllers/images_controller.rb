@@ -36,12 +36,13 @@ class ImagesController < ApplicationController
 
   def new
 
-    @image = Image.new(key:params[:key])
+    # @image = Image.new(key:params[:key])
+    @image = Image.new(params[:image])
     @image.user_id = current_user.id
     @image.save
-    @image.enqueue_image
+    # @image.enqueue_image
     
-    render 'upload'
+    # render 'upload'
   end
 	
   def create
@@ -50,6 +51,8 @@ class ImagesController < ApplicationController
     @image = Image.new(params[:image])
     @image.user_id = current_user.id
     @image.save
+
+    # render 'upload'
   end
 
 

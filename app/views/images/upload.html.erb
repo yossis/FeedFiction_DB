@@ -1,7 +1,3 @@
-<!-- <div id="images">
- 
-</div> -->
-
 <%# direct_upload_form_for @uploader do |f| 
   <p>
     <%= f.file_field :image_source 
@@ -18,6 +14,7 @@
 
 <%= form_for Image.new do |f| %>
  <%= f.file_field :image_source %>
+ <%= f.submit %>
 <%end%>
 
 <script id="template-upload" type="text/x-tmpl">
