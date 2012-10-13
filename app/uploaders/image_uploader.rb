@@ -2,21 +2,21 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
 
-  #include CarrierWaveDirect::Uploader
+  include CarrierWaveDirect::Uploader
   include CarrierWave::RMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   include Sprockets::Helpers::RailsHelper
   include Sprockets::Helpers::IsolatedHelper
 
-  storage :fog
+  #storage :fog
 
   include CarrierWave::MimeTypes
   process :set_content_type
 
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  # def store_dir
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  # end
 
 
   process :get_geometry

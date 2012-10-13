@@ -23,7 +23,9 @@ class Image < ActiveRecord::Base
   attr_accessible :height, :source_object_id, :image_type_id, :image_processed, :in_cdn, :source_height, :image_source, :source_width, :image_thumb, :user_id, :width ,:album_type_id 
   has_one :story
   
-  mount_uploader :image_source, ImageUploader
+  mount_uploader :image_thumb, ImageUploader
+
+  #after_save :enqueue_image
 
   def create_by_upload
       #self.url = "#{ENV["AWS_S3_URL"]}/uploads/thumb_"+self.image_source.identifier
@@ -44,22 +46,23 @@ class Image < ActiveRecord::Base
     end
   end
 
-  #def enqueue_image
-    #ImageWorker.perform_async(id, key) if key.present?
+  def enqueue_image
+    ImageWorker.perform_async(id, key) if key.present?
     #ImageWorker.perform(id, key) if key.present?
-  #end
+  end
 
-  #class ImageWorker
-    #include Sidekiq::Worker
+  class ImageWorker
+    include Sidekiq::Worker
     
-    #def perform(id, key)
-      #image = Image.find(id)
-     # image.key = key
-     # image.remote_image_source_url = image.image_source.direct_fog_url(with_path: true)
-     #image.save!
-     # image.update_column(:image_processed, true)
-    #end
-  #end
+    def perform(id, key)
+     image = Image.find(id)
+     image.key = key
+     #image.remote_image_thumb_url = "#{ENV["AWS_S3_URL"]}"+key
+     image.remote_image_thumb_url = image.image_thumb.direct_fog_url(with_path: true)
+     image.save!
+     image.update_column(:image_processed, true)
+    end
+  end
   
 
   class << Image

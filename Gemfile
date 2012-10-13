@@ -29,6 +29,8 @@ group :development, :test do
   gem 'guard-spork', '0.3.2'
   gem 'spork', '0.9.0'
   gem 'debugger'
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 gem 'annotate', ">=2.5.0" , group: :development

@@ -75,7 +75,7 @@ textarea ,input[type=text] {
 		color: #009DFF;
 		font-weight: bold;
 
-	&span{
+	span{
 		font-style:italic;
 		color: #1FFF00;
 	}
@@ -84,13 +84,13 @@ textarea ,input[type=text] {
 /* Modal Start a story */
 
 #StartStoryModal {
-	&.modal-body div.row{
-	margin:0 auto;
+	.modal-body div.row{
+		margin:0 auto;
 	}
 
 	.logo-images {
 
-		&div.span{
+		div.span{
 			border: solid 1px $grayLight;
 			padding:12px;
 			margin:0;
@@ -117,7 +117,7 @@ textarea ,input[type=text] {
 
 	.ss-image, .ss-feed-form {
 		float:left;
-		&img {
+		img {
 			border:solid 3px #eee;
 		}
 	}
@@ -142,7 +142,7 @@ textarea {
 
 	&:hover {
 		box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-		&div.story-header h1{
+		div.story-header h1{
 			background-color: #000;
 		}
 	}
@@ -152,8 +152,8 @@ textarea {
 	}
 
 	.story-header{
-		&a {text-decoration: none;}
-		&h1{
+		a {text-decoration: none;}
+		h1{
 			background-color: #434343;
 			color: #fff;
 			padding: 5px 10px;
@@ -166,7 +166,7 @@ textarea {
 		padding:10px;
 		display:none;
 
-		&div {
+		div {
 			float:left;
 			
 		}
@@ -181,7 +181,7 @@ textarea {
 			overflow:hidden;
 		}
 
-		&div.writer-legend {
+		div.writer-legend {
 			position: relative;
 			border-top: solid 1px;
 			color:#60BF73;
@@ -198,20 +198,20 @@ textarea {
 			}
 		}
 
-		&form.new_story_line div {
+		form.new_story_line div {
 			padding-left: 5px;
 		}
 
 
-		&form.new_story_line div ,form.new_story_line img{
+		form.new_story_line div ,form.new_story_line img{
 			float:left;
 		}
 
 
 
-		&div.continue-story-text-area {
+		div.continue-story-text-area {
 			width: 282px;
-			&textarea{
+			textarea{
 				width:260px; min-height: 55px;
 				max-height: 70px;
 				font-size:20px;
@@ -229,7 +229,7 @@ textarea {
 	background-color: $white;
 	span {
 		display: inline-block;
-		&.label-name {
+		.label-name {
 			width: 200px;
 		}
 	}

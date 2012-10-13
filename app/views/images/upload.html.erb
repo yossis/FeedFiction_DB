@@ -1,21 +1,21 @@
-<%# direct_upload_form_for @uploader do |f| 
+<%= direct_upload_form_for @uploader do |f| %> 
   <p>
-    <%= f.file_field :image_source 
+    <%= f.file_field :image_source %> 
   </p>
   <p>
-  	<%= f.button 
+  	<%= f.button %> 
   </p>
   
 <% end %>
 
-<%# s3_uploader_form post: images_url, as: 'image[image_source]' do %>
-  <%# file_field_tag :file %>
-<%# end %>
+<%= s3_uploader_form post: images_url, as: "image[image_thumb]" do %>
+  <%= file_field_tag :file %>
+<% end %>
 
-<%= form_for Image.new do |f| %>
- <%= f.file_field :image_source %>
- <%= f.submit %>
-<%end%>
+<%# form_for Image.new do |f| %>
+ <%#= f.file_field :image_source %>
+ <%#= f.submit %>
+<%#end%>
 
 <script id="template-upload" type="text/x-tmpl">
 <div class="upload">
