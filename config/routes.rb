@@ -23,7 +23,7 @@ FeedFiction::Application.routes.draw do
   get "like/create"
 
   get "like/destroy"
-
+  get "sessions/connect_instagram"
   resources :story_lines
   resources :stories
   resources :categories
@@ -50,6 +50,7 @@ FeedFiction::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   match '/facebook', to: 'images#facebook' 
+  match '/instagram', to: 'images#instagram' 
   match 'register/start-story', to: 'register#start', as: 'start_story_wizard'
   match 'register/follow-friends', to: 'register#friends' , as: 'find_friends_wizard'
   match 'register/facebook-images', to: 'register#facebook' , as: 'import_facebook_wizard'

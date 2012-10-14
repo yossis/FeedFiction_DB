@@ -16,6 +16,11 @@ class ImagesController < ApplicationController
 
 
   def instagram
+    redirect_to :controller => 'sessions', :action => 'connect_instagram' if !session[:access_token] 
+
+    client = Instagram.client(:access_token => session[:access_token])
+    @user = client.user
+    @recent_media_items = client.user_recent_media
   end
 
   def upload
@@ -40,6 +45,7 @@ class ImagesController < ApplicationController
     #@image = Image.new(params[:image])
     @image.user_id = current_user.id
     @image.save
+    debugger
     @image.enqueue_image
     
     render :upload_images
@@ -48,9 +54,9 @@ class ImagesController < ApplicationController
   def create
     #get the url from the callbcack
     #e.g: image[image_source] = https://<BUCKET>.s3.amazonaws.com/uploads/myimage.png
-    #@image = Image.new(key:params[:key])
-    @image = Image.new(params[:image])
-    debugger
+    @image = Image.new
+    @image.image_source = params[:key]
+    @image.key =params[:key].sub("#{ENV['AWS_S3_URL']}/",'')
     @image.user_id = current_user.id
     @image.save
     @image.enqueue_image

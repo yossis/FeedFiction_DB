@@ -61,6 +61,9 @@ FeedFiction::Application.configure do
 
   ENV['FACEBOOK_APP_ID'] = '256183294497269'
   ENV['FACEBOOK_SECRET'] = 'fb2afb7985f715e7e4a8f08d09439efc'
+  ENV['INSTAGRAM_ID'] = 'f6fdd0b62ff346fb934d9f5ddf7ffaa7'
+  ENV['INSTAGRAM_SECRET'] = 'dd8cccd3de3b47ccaa6d0a41edc9b12d'
+  ENV['INSTAGRAM_CALLBACK'] = 'http://localhost:3000/session/callback'
   ENV["AWS_ACCESS_KEY_ID"] = 'AKIAIKZTOEKGDO6YLPEQ'
   ENV["AWS_SECRET_ACCESS_KEY"] = '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'
   ENV["AWS_S3_BUCKET"] = 'dev-feedfiction-images'

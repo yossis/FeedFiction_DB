@@ -19,6 +19,17 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+
+  def connect_instagram
+    redirect_to Instagram.authorize_url(:redirect_uri => ENV['INSTAGRAM_CALLBACK'])
+  end
+
+  def callback
+    response = Instagram.get_access_token(params[:code], :redirect_uri => ENV['INSTAGRAM_CALLBACK'])
+    session[:access_token] = response.access_token
+    redirect_to instagram_images_url
+  end
+
   private
 
     def start_wizard
