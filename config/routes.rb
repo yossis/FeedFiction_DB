@@ -46,6 +46,7 @@ FeedFiction::Application.routes.draw do
   match '/terms', to: 'static_pages#terms' 
 
   match 'auth/:provider/callback', to: 'sessions#create'
+  match 'oauth/instagram/callback', to: 'sessions#callback_instagram'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
 

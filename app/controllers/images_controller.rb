@@ -10,17 +10,17 @@ class ImagesController < ApplicationController
 	 #fql_query = 'SELECT src_big,src_big_height,src_big_width FROM photo WHERE aid IN (SELECT aid FROM album WHERE owner=me())'
 	 #@images = current_user.facebook.fql_query(fql_query)
 	 #raise @images.to_yaml
-	 @images = Image.facebook_images(current_user)
+	 @images = Image.get_images(current_user, ImageType.facebook_id)
 	 
   end
 
 
   def instagram
-    redirect_to :controller => 'sessions', :action => 'connect_instagram' if !session[:access_token] 
-
-    client = Instagram.client(:access_token => session[:access_token])
-    @user = client.user
-    @recent_media_items = client.user_recent_media
+    if (current_user.has_instagram?)
+      @images = Image.get_images(current_user, ImageType.instagram_id)
+    else
+      redirect_to :controller => 'sessions', :action => 'connect_instagram' #if !session[:access_token] 
+    end 
   end
 
   def upload

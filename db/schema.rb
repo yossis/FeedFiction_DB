@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121007081310) do
+ActiveRecord::Schema.define(:version => 20121015090744) do
 
   create_table "album_types", :force => true do |t|
     t.string   "name"
@@ -136,6 +136,19 @@ ActiveRecord::Schema.define(:version => 20121007081310) do
   add_index "notifications", ["notified_user_id"], :name => "index_notifications_on_notified_user_id"
   add_index "notifications", ["story_id"], :name => "index_notifications_on_story_id"
 
+  create_table "providers", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider_name"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.string   "oauth_expires_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "providers", ["user_id"], :name => "index_providers_on_user_id"
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -207,6 +220,8 @@ ActiveRecord::Schema.define(:version => 20121007081310) do
   add_foreign_key "notifications", "stories", :name => "notifications_story_id_fk"
   add_foreign_key "notifications", "users", :name => "notifications_notified_user_id_fk", :column => "notified_user_id"
   add_foreign_key "notifications", "users", :name => "notifications_notifier_user_id_fk", :column => "notifier_user_id"
+
+  add_foreign_key "providers", "users", :name => "providers_user_id_fk"
 
   add_foreign_key "stories", "categories", :name => "stories_category_id_fk"
   add_foreign_key "stories", "images", :name => "stories_image_id_fk"

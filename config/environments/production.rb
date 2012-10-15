@@ -82,6 +82,9 @@ FeedFiction::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   ENV['FACEBOOK_APP_ID'] = '244160649037860'
   ENV['FACEBOOK_SECRET'] = 'c7974ab01e76c15d62823eca67f51d2d'
+  ENV['INSTAGRAM_ID'] = 'f6fdd0b62ff346fb934d9f5ddf7ffaa7'
+  ENV['INSTAGRAM_SECRET'] = 'dd8cccd3de3b47ccaa6d0a41edc9b12d'
+  ENV['INSTAGRAM_CALLBACK'] = 'http://localhost:3000/session/callback'
   ENV["AWS_ACCESS_KEY_ID"] = 'AKIAIKZTOEKGDO6YLPEQ'
   ENV["AWS_SECRET_ACCESS_KEY"] = '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'
   ENV["AWS_S3_BUCKET"] = 'feefiction-images'

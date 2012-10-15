@@ -67,47 +67,79 @@ class Image < ActiveRecord::Base
 
   class << Image
 
-    def facebook_images(user)
-      type_id = ImageType.facebook_id
+    def get_images(user ,type_id)
       if LastImport.was_before_limit(type_id,user.id)
-        images = import_images_facebook(user)
-        
-        update_or_create(images,type_id,user.id)
+        case type_id
+          when ImageType.instagram_id 
+            images = import_images_instagram(user)
+          when ImageType.facebook_id 
+            images = import_images_facebook(user)
+        end
+        update_or_create(images,type_id,user)
       end
       Image.where(image_type_id: type_id, user_id: user.id)
     end
 
+    # def instagram_images(user)
+    #   type_id = ImageType.instagram_id
+    #   if LastImport.was_before_limit(type_id,user.id)
+    #     images = import_images_facebook(user)
+        
+    #     update_or_create(images,type_id,user.id)
+    #   end
+    #   Image.where(image_type_id: type_id, user_id: user.id)
+    # end
+
     private
 
-    def import_images_facebook(user)
-      fql_query = 'SELECT object_id,src_big,src_big_height,src_big_width FROM photo WHERE aid IN (SELECT aid FROM album WHERE owner=me()) ORDER BY object_id DESC'
-      images = user.facebook.fql_query(fql_query)
-    end
-
-    def update_or_create(images, type_id,user_id)
-      images.each do |image|
-        foo = Image.where(:image_type_id => type_id,:source_object_id => image['object_id'].to_s )
-        if foo.empty? 
-          ratio = aspect_ratio(image['src_big_width'], image['src_big_height'], 365)
-          i = Image.new(user_id: user_id, source_object_id: image['object_id'].to_s,
-                image_type_id: type_id ,
-                source_height: image['src_big_height'] ,
-                image_source: image['src_big'] ,
-                source_width: image['src_big_width'] ,
-                url: image['src_big'] ,
-                width: ratio['new_width'] ,
-                height: ratio['new_height'])
-          i.save!
-        end
+      def import_images_facebook(user)
+        fql_query = 'SELECT object_id,src_big,src_big_height,src_big_width FROM photo WHERE aid IN (SELECT aid FROM album WHERE owner=me()) ORDER BY object_id DESC'
+        images = user.facebook.fql_query(fql_query)
       end
-      LastImport.update_time(type_id, user_id)
-    end
 
-   def aspect_ratio(width,height,new_width)
-    #original height / original width x new width = new height
-    new_height = (height.to_f/width.to_f*new_width).to_i
-    ratio = { "new_height" => new_height, "new_width" => new_width }
-   end
+      def import_images_instagram(user)
+        access_token = user.get_token_provider('Instagram')
+        client = Instagram.client(access_token: access_token)
+        images = client.user_recent_media
+      end
+
+      def update_or_create(images, type_id,user)
+        images.each do |image|
+          item = Image.where(:image_type_id => type_id,:source_object_id => image['object_id'].to_s )
+          if item.empty? 
+            case type_id
+              when ImageType.instagram_id
+                images = import_images_instagram(user)
+              when ImageType.facebook_id
+                images = import_images_facebook(user)
+            end
+          end
+        end
+        LastImport.update_time(type_id, user.id)
+      end
+
+      def store_facebook_image(image)
+        ratio = aspect_ratio(image['src_big_width'], image['src_big_height'], 365)
+            i = Image.new(user_id: user_id, source_object_id: image['object_id'].to_s,
+                  image_type_id: type_id ,
+                  source_height: image['src_big_height'] ,
+                  image_source: image['src_big'] ,
+                  source_width: image['src_big_width'] ,
+                  url: image['src_big'] ,
+                  width: ratio['new_width'] ,
+                  height: ratio['new_height'])
+            i.save!
+      end
+
+      def store_instagram_image(image)
+        
+      end
+
+      def aspect_ratio(width,height,new_width)
+       #original height / original width x new width = new height
+       new_height = (height.to_f/width.to_f*new_width).to_i
+       ratio = { "new_height" => new_height, "new_width" => new_width }
+      end
   end
 
 end

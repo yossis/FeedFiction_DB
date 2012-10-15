@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   has_many :liked_stories, through: :likes , source: :story
   has_many :story_lines
   has_many :likes
+  has_many :providers
   has_many :comments
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
@@ -93,6 +94,15 @@ class User < ActiveRecord::Base
   def new_notifications_count
     notifications.where(date_read: nil).count
 
+  end
+
+  def has_instagram?
+    Provider.where(provider_name: 'Instagram', user_id: self.id).first
+  end
+
+  def get_token_provider(name)
+    provider = Provider.where(user_id: self.id, provider_name: name).first
+    provider.oauth_token unless provider.nil?
   end
   
 end
