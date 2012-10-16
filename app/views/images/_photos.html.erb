@@ -1,0 +1,25 @@
+<h1>Please choose image and start your story</h1>
+<div id="story-container" role="story-container">
+	<ul id="tiles" class="unstyled">
+		<% @images.each do |image|%>
+			<li class="story-box container-ss">
+				<%=  image_tag(image.image_source , width: image.width.to_s+'px' , height: image.height.to_s+'px', id: 'image_'+image.id.to_s)  %>
+				<div class="tiels-items-container">
+					<a class="btn btn-small"><i class="icon-edit"></i>Start Story</a>		
+				</div>
+
+			</li>
+
+		<% end %>
+	</ul>
+</div>
+
+<div class="modal hide" id="start-story">
+  <div class="modal-header lg">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h2>Start A Story</h2>
+  </div>
+  <div id="start-story-container"></div>
+   
+</div>
+	

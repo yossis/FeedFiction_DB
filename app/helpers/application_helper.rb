@@ -9,7 +9,8 @@ module ApplicationHelper
 	    end
 	  end
 
-	  def number_to_pixel(num)
+	  def number_to_pixel(num ={})
+	  	num ||= "365"
 	  	"#{num}px"
 	  end
 
@@ -17,4 +18,5 @@ module ApplicationHelper
 	  	@categories = Category.all
 		render 'categories/categories_drop_down' 
 	  end
+	  
 end

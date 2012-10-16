@@ -109,18 +109,18 @@ class Image < ActiveRecord::Base
           if item.empty? 
             case type_id
               when ImageType.instagram_id
-                images = import_images_instagram(user)
+                store_instagram_image(image,type_id, user)
               when ImageType.facebook_id
-                images = import_images_facebook(user)
+                store_facebook_image(image,type_id, user)
             end
           end
         end
         LastImport.update_time(type_id, user.id)
       end
 
-      def store_facebook_image(image)
+      def store_facebook_image(image,type_id, user)
         ratio = aspect_ratio(image['src_big_width'], image['src_big_height'], 365)
-            i = Image.new(user_id: user_id, source_object_id: image['object_id'].to_s,
+            i = Image.new(user_id: user.id, source_object_id: image['object_id'].to_s,
                   image_type_id: type_id ,
                   source_height: image['src_big_height'] ,
                   image_source: image['src_big'] ,
@@ -131,7 +131,16 @@ class Image < ActiveRecord::Base
             i.save!
       end
 
-      def store_instagram_image(image)
+      def store_instagram_image(media,type_id, user)
+        ratio = aspect_ratio(media.images.standard_resolution.width, media.images.standard_resolution.height, 365)
+        i = Image.new(user_id: user.id, source_object_id: media.images.id,
+                  image_type_id: type_id ,
+                  source_height: media.images.standard_resolution.height ,
+                  image_source: media.images.standard_resolution.url ,
+                  source_width: media.images.standard_resolution.width ,
+                  width: ratio['new_width'] ,
+                  height: ratio['new_height'])
+            i.save!
         
       end
 

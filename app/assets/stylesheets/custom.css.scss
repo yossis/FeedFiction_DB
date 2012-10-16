@@ -112,7 +112,7 @@ textarea ,input[type=text] {
 }
 /* Modal start a story from facebook or Insta*/
 
-#start-story{
+#start-story, #UploadModal{
 	width:765px;
 
 	.ss-image, .ss-feed-form {
@@ -120,6 +120,8 @@ textarea ,input[type=text] {
 		img {
 			border:solid 3px #eee;
 		}
+
+		.ss-image { width: 110px;}
 	}
 
 
