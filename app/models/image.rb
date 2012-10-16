@@ -140,7 +140,7 @@ class Image < ActiveRecord::Base
                   source_width: media.images.standard_resolution.width ,
                   width: ratio['new_width'] ,
                   height: ratio['new_height'])
-            i.save!
+            i.save! 
         
       end
 
