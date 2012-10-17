@@ -84,9 +84,9 @@ FeedFiction::Application.configure do
   ENV['FACEBOOK_SECRET'] = 'c7974ab01e76c15d62823eca67f51d2d'
   ENV['INSTAGRAM_ID'] = '1f959f58747d43bba86e1ccc0440c070'
   ENV['INSTAGRAM_SECRET'] = 'ab6ac65e596a45aab1b29d0ea68cb194'
-  ENV['INSTAGRAM_CALLBACK'] = 'http://feedfiction.herokuapp.com/session/callback'
+  ENV['INSTAGRAM_CALLBACK'] = 'http://feedfiction.herokuapp.com/oauth/instagram/callback'
   ENV["AWS_ACCESS_KEY_ID"] = 'AKIAIKZTOEKGDO6YLPEQ'
   ENV["AWS_SECRET_ACCESS_KEY"] = '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'
-  ENV["AWS_S3_BUCKET"] = 'feefiction-images'
+  ENV["AWS_S3_BUCKET"] = 'feedfiction-images'
   ENV["AWS_S3_URL"] = "https://#{ENV["AWS_S3_BUCKET"]}.s3.amazonaws.com"
 end
