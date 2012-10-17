@@ -113,6 +113,9 @@ textarea ,input[type=text] {
 
 #start-story, #UploadModal{
 	width:765px;
+	.ss-image { 
+		width: 110px;
+	}
 
 	.ss-image, .ss-feed-form {
 		float:left;
@@ -120,7 +123,6 @@ textarea ,input[type=text] {
 			border:solid 3px #eee;
 		}
 
-		.ss-image { width: 110px;}
 	}
 
 
