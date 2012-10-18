@@ -15,10 +15,14 @@ class ImageType < ActiveRecord::Base
   validates :name, presence: true
 
   def self.facebook_id
-  	type ||= where(name: 'Facebook' ).first_or_create.id
+  	type ||= where(name: 'Facebook' ).first.id
   end
 
   def self.instagram_id
-  	type ||= where(name: 'Instagram' ).first_or_create.id
+  	type ||= where(name: 'Instagram' ).first.id
+  end
+
+  def self.upload_id
+  	type ||= where(name: 'Upload' ).first.id
   end
 end

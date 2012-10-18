@@ -127,7 +127,6 @@ class Image < ActiveRecord::Base
                   source_height: image['src_big_height'] ,
                   image_source: image['src_big'] ,
                   source_width: image['src_big_width'] ,
-                  url: image['src_big'] ,
                   width: ratio['new_width'] ,
                   height: ratio['new_height'])
             i.save!

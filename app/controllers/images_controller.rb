@@ -18,14 +18,16 @@ class ImagesController < ApplicationController
   def instagram
     if (current_user.has_instagram?)
       @images = Image.get_images(current_user, ImageType.instagram_id)
+      
     else
       redirect_to :controller => 'sessions', :action => 'connect_instagram' #if !session[:access_token] 
-    end 
+    end
+
   end
 
   def upload
     @image = Image.find(params[:id]) if params[:id].present?
-    
+    @image_type = ImageType.upload_id
     if @image.nil?
   	   @image = Image.new
     end
@@ -56,6 +58,7 @@ class ImagesController < ApplicationController
     #e.g: image[image_source] = https://<BUCKET>.s3.amazonaws.com/uploads/myimage.png
     @image = Image.new
     @image.image_source = params[:key]
+    @image.image_type_id = ImageType.upload_id
     @image.key =params[:key].sub("#{ENV['AWS_S3_URL']}/",'')
     @image.user_id = current_user.id
     @image.save
