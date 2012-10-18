@@ -22,6 +22,8 @@
 class Image < ActiveRecord::Base
   attr_accessible :height, :source_object_id, :image_type_id, :image_processed, :in_cdn, :source_height, :image_source, :source_width, :image_thumb, :user_id, :width ,:album_type_id 
   has_one :story
+  belongs_to :image_type
+  
   
   mount_uploader :image_thumb, ImageUploader
 
