@@ -28,7 +28,11 @@ class SessionsController < ApplicationController
     response = Instagram.get_access_token(params[:code], :redirect_uri => ENV['INSTAGRAM_CALLBACK'])
     provider = Provider.set_provider('Instagram', response, current_user.id)
     session[:access_token] = provider.oauth_token
-    redirect_to instagram_images_url
+    if current_user.first_time?
+      redirect_to import_instagram_wizard_url
+    else
+      redirect_to instagram_images_url
+    end
   end
 
   private
