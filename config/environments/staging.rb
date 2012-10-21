@@ -15,11 +15,13 @@ FeedFiction::Application.configure do
   config.assets.compress = false
 
 
-  # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = true
+  # Do not compress assets
+  config.assets.compress = false
 
+  # Expands the lines which load the assets
+  config.assets.debug = true
   # Generate digests for assets URLs
-  config.assets.digest = true
+  #config.assets.digest = true
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
