@@ -19,8 +19,15 @@ test:
   smtp_user: 'yossish73'
   smtp_password: 'a1a2a3'
 
+staging:
+  email_notifications: true
+  site_url: 'http://feedfiction-demo.herokuapp.com'
+  smtp_user: 'yossish73'
+  smtp_password: 'a1a2a3'
+
 production:
   email_notifications: true
   site_url: 'http://feedfiction.herokuapp.com'
   smtp_user: 'yossish73'
   smtp_password: 'a1a2a3'
+
