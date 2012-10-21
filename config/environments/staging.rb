@@ -84,7 +84,7 @@ FeedFiction::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   ENV['FACEBOOK_APP_ID'] = '117474545075929'
   ENV['FACEBOOK_SECRET'] = '54875f42c706b1079c10b19a48b29f25'
-  ENV['INSTAGRAM_ID'] = '1f959f58747d43bba86e1ccc0440c070'
+  ENV['INSTAGRAM_ID'] = '604e4964a81a488292a95f5c9573c827'
   ENV['INSTAGRAM_SECRET'] = 'e812eb59c7964df38d708c87a695472a'
   ENV['INSTAGRAM_CALLBACK'] = 'http://feedfiction-demo.herokuapp.com/oauth/instagram/callback'
   ENV["AWS_ACCESS_KEY_ID"] = 'AKIAIKZTOEKGDO6YLPEQ'
