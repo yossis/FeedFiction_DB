@@ -79,7 +79,7 @@ class Image < ActiveRecord::Base
         end
         update_or_create(images,type_id,user)
       end
-      Image.where(image_type_id: type_id, user_id: user.id)
+      Image.where(image_type_id: type_id, user_id: user.id).order("created_at ASC")
     end
 
     # def instagram_images(user)

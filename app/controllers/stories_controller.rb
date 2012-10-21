@@ -9,6 +9,7 @@ class StoriesController < ApplicationController
     @comments = @story.comments
     @new_comment = Comment.new
     @new_comment.story_id = params[:id]
+    @in_story_page = true
     set_meta_tags_and_title
     
 

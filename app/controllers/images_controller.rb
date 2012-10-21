@@ -1,9 +1,12 @@
 class ImagesController < ApplicationController
 
-  before_filter :set_upload
+  before_filter :check_user , :set_upload
+
+
+  
 
   def facebook
-
+   reconnect_with_facebook
  	 #SELECT aid, owner, name FROM album WHERE owner='675499110'
 	 #SELECT src,aid FROM photo WHERE aid IN (SELECT aid FROM album WHERE owner='675499110') 
 
@@ -70,6 +73,23 @@ class ImagesController < ApplicationController
   def set_upload
     @uploader = Image.new.image_thumb
     @uploader.success_action_redirect = new_image_url
+  end
+
+  def check_user
+    unless current_user
+      redirect_to root_url
+    end
+  end
+
+  private
+    def reconnect_with_facebook
+    if current_user && current_user.fb_token_expired?
+
+      # re-request a token from facebook. Assume that we got a new token so
+      # update it anyhow...
+      session[:return_to] = request.env["REQUEST_URI"] unless request.env["REQUEST_URI"] == facebook_request_path
+      redirect_to(with_canvas(facebook_request_path)) and return false
+    end
   end
 
 

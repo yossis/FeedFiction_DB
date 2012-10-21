@@ -46,6 +46,14 @@ test:
   username: FeedFiction
   password:
 
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: FeedFiction_staging
+  pool: 5
+  username: FeedFiction
+  password:
+
 production:
   adapter: postgresql
   encoding: unicode

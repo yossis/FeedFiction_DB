@@ -104,5 +104,9 @@ class User < ActiveRecord::Base
     provider = Provider.where(user_id: self.id, provider_name: name).first
     provider.oauth_token unless provider.nil?
   end
+
+  def fb_token_expired?
+    self.oauth_expires_at < Time.now
+  end
   
 end
