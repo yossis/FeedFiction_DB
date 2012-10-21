@@ -54,7 +54,8 @@ FeedFiction::Application.routes.draw do
   match '/instagram', to: 'images#instagram' 
   match 'register/start-story', to: 'register#start', as: 'start_story_wizard'
   match 'register/follow-friends', to: 'register#friends' , as: 'find_friends_wizard'
-  match 'register/facebook-images', to: 'register#facebook' , as: 'import_facebook_wizard'
+  match 'register/facebook', to: 'register#facebook' , as: 'import_facebook_wizard'
+  match 'register/instagram', to: 'register#instagram' , as: 'import_instagram_wizard'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
