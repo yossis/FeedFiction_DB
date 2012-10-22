@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :providers
   has_many :comments
+  has_many :participate_stories, through: :story_lines , source: :story ,uniq: true
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",
@@ -108,5 +109,6 @@ class User < ActiveRecord::Base
   def fb_token_expired?
     self.oauth_expires_at < Time.now
   end
+
   
 end

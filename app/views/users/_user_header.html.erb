@@ -3,16 +3,17 @@
   <p><h3><%= @user.name %></h3></p>  
   
  
-  <%= render 'follow_form' if current_user %>
+  <%= render 'users/follow_form' if current_user %>
 
 
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#">stories:<%= @user.stories.count%></a>
+    
     <ul class="nav">
-      <li class="active"><a href="<%= likes_user_path%>">Like:<%= @user.likes.count%></a></li>
+      <li><a href="<%=user_url(@user)%>">stories:<%= @user.participate_stories.count%></a></li>
+      <li><a href="<%= likes_user_url(@user)%>">Like:<%= @user.likes.count%></a></li>
       <li><%= render 'shared/stats' %></li>
-      <li><a href="#">Link</a></li>
+      
     </ul>
   </div>
 </div>

@@ -101,6 +101,19 @@ var feedfiction = {
             });
         },
 
+        writeUnfollowButton: function(){
+             $(this).bind({
+              mouseenter: function() {
+                $(this).removeClass('btn-warning');
+                $(this).val('UnFollow');
+              },
+              mouseleave: function() {
+                $(this).addClass('btn-warning');
+                $(this).val('Following');
+              }
+            });
+        },
+
         renderBoxes: function(){
             var options = {
             autoResize: true, // This will auto-update the layout when the browser window is resized.
@@ -256,6 +269,7 @@ var feedfiction = {
 
         $('input,textarea').live('blur', feedfiction.validateField);
         $('.story-with-owners span').live('hover', feedfiction.actions.boldWriterLine);
+        $('.btn-following').live('hover', feedfiction.actions.writeUnfollowButton);
         //$('.story-item').on('hover', '.story-with-owners span', feedfiction.actions.boldWriterLine);
         //$('a.like-link').on('click', function(e) {alert('hh')});
         //var storyBox = '#tiles li.continue-story';
