@@ -1,4 +1,6 @@
 FeedFiction::Application.routes.draw do
+  resources :accounts
+
   resources :flags
 
   get "notifications/show"

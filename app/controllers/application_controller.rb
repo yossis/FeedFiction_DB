@@ -1,7 +1,18 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  #http_basic_authenticate_with :name => "frodo", :password => "thering"
+  before_filter :authenticate
 
   private
+
+  def authenticate
+    if Rails.env.production?
+      authenticate_or_request_with_http_basic do |username, password|
+         u = Account.authorize(username,password)
+         u.present?
+      end 
+    end
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

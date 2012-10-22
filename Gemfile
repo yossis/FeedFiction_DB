@@ -53,6 +53,7 @@ group :assets,:staging do
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass', '2.0.4.1'
   gem 'jquery-fileupload-rails'
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
