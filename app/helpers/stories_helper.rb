@@ -4,7 +4,7 @@ module StoriesHelper
         if (story.image.image_type.name=="Upload")
         	started_by += ' photo uploaded personally'
         else
-			started_by += " from #{story.image.image_type.name}"
+			started_by += " photo from #{story.image.image_type.name}"
 		end
 		started_by.html_safe
 

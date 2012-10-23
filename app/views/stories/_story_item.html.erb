@@ -30,8 +30,8 @@
 						<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
 						<%= f.hidden_field :story_id, value: story.id %>
 						<div class="continue-story-text-area">
-							<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue story..'></textarea>
-							<span class="counter-text"><%= add_how_many_words story.story_lines%>/55 words left</span>
+							<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story..'></textarea>
+							<span class="counter-text"><%= add_how_many_words story.story_lines%> words left out of 55</span>
 							<input type="submit" name="submit-story" value="submit" class="btn" disabled/>
 						</div>
 						<span id="continue-error" class="error-message"></span>

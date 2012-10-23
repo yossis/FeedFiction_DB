@@ -66,7 +66,7 @@
 			    	if (options.container!=null){
 						$(options.container).html(obj.val());
 					}
-			        $(counterText).html((options.limit - wordcount)+'/55 words left');
+			        $(counterText).html((options.limit - wordcount)+' words left out of 55');
 			    }
 			    if (options.callback!=null){
 			    	//callback
