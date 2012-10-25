@@ -21,9 +21,11 @@ gem 'carrierwave_direct'
 gem 'sidekiq'
 
 
+gem 'rspec-rails'
+gem 'rspec'
+gem 'rspec-core'
 
 group :development, :test do
-  gem 'rspec-rails', '2.11.0'
   gem 'capybara', '1.1.2'
   gem 'guard-rspec', '0.5.5'
   gem 'guard-spork', '0.3.2'
