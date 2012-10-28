@@ -11,7 +11,7 @@
     
     <ul class="nav">
       <li><a href="<%=user_url(@user)%>">stories:<%= @user.participate_stories.count%></a></li>
-      <li><a href="<%= likes_user_url(@user)%>">Like:<%= @user.likes.count%></a></li>
+      <li><a href="<%= likes_user_url(@user)%>">Likes:<%= @user.likes.count%></a></li>
       <li><%= render 'shared/stats' %></li>
       
     </ul>
