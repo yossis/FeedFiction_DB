@@ -1,0 +1,7 @@
+<ul class="navbar nav-pills">
+	<li ><%= link_to('My Feed' , root_url) if current_user%></li>
+	<li ><%= link_to('Everything' , general_feed_url) %></li>
+	<li class="dropdown">
+	  <%= drop_down_categories %>
+	</li>
+</ul>
