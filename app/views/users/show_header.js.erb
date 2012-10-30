@@ -1,1 +1,5 @@
-$('#user-header').html("<%=j render 'users/user_header'%>");
+<%if @in_header==true%>
+	$('#user-header').html("<%=j render 'users/user_header'%>");
+<%else%>
+	$('.relation-<%=@user.id%>').html("<%=j render 'users/follow_form'%>");
+<%end%>
