@@ -45,8 +45,15 @@
       </nav>
     </div>
   </div>
+  
 </header>
-
+<ul class="nav nav-pills">
+    <li class="disabled"><a href="#">My Feed</a></li>
+    <li ><a href="#">Everything</a></li>
+    <li class="dropdown">
+      <%= drop_down_categories %>
+    </li>
+</ul>
 <% unless current_user%>
   <% unless @donot_show_disclaimer%>
     <div class="unlogin-disclaimer hero-unit">

@@ -277,12 +277,12 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (>= 2.5.0)
-  bootstrap-sass (= 2.0.4.1)
-  bootstrap-will_paginate (= 0.0.6)
+  bootstrap-sass
+  bootstrap-will_paginate
   capybara (= 1.1.2)
   carrierwave
   carrierwave_direct
-  coffee-rails (~> 3.2.2)
+  coffee-rails
   debugger
   factory_girl_rails
   faker
@@ -306,10 +306,10 @@ DEPENDENCIES
   rspec
   rspec-core
   rspec-rails
-  sass-rails (~> 3.2.5)
+  sass-rails
   sidekiq
   simple_form
   spork (= 0.9.0)
   uglifier (>= 1.0.3)
   unicorn
-  will_paginate (= 3.0.3)
+  will_paginate
