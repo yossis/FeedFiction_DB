@@ -15,7 +15,7 @@
 	<span class='st_twitter_vcount' displayText='Tweet'></span>
 	<span class='st_pinterest_vcount' displayText='Pinterest'></span>
 	<span class='st_email_vcount' displayText='Email'></span>
-  <%=  image_tag(@story.image.image_thumb)  %>
+  <%=  image_tag(@story.image.image_source)  %>
   <%= render 'stories/started_by' , :story => @story%>
   <h1><%= @story.story_title%></h1>
   <%= render 'stories/story_item' , :story => @story%>
