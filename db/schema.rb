@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022205256) do
+ActiveRecord::Schema.define(:version => 20121029205307) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -179,8 +179,9 @@ ActiveRecord::Schema.define(:version => 20121022205256) do
     t.integer  "quality"
     t.integer  "story_source_id"
     t.integer  "category_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.datetime "last_line_updated_at"
   end
 
   create_table "story_lines", :force => true do |t|

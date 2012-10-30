@@ -31,6 +31,8 @@ group :development, :test do
   gem 'debugger'
   gem 'pry'
   gem 'pry-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 gem 'annotate', ">=2.5.0" , group: :development

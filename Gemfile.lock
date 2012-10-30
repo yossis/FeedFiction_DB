@@ -78,6 +78,13 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     facter (1.6.13)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.1.0)
+      factory_girl (~> 4.1.0)
+      railties (>= 3.0.0)
+    faker (1.0.1)
+      i18n (~> 0.4)
     faraday (0.8.4)
       multipart-post (~> 1.1)
     faraday_middleware (0.8.8)
@@ -276,6 +283,8 @@ DEPENDENCIES
   carrierwave_direct
   coffee-rails (~> 3.2.2)
   debugger
+  factory_girl_rails
+  faker
   fog
   foreigner
   guard-rspec (= 0.5.5)

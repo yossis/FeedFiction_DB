@@ -16,6 +16,8 @@ class StoryLine < ActiveRecord::Base
   attr_accessible :is_flagged, :line, :order_id, :story_id, :user_id
   belongs_to :story
   belongs_to :user 
+
+	after_save :update_story
   
   validates :line, presence: true
   validates :user_id, presence: true
@@ -23,4 +25,10 @@ class StoryLine < ActiveRecord::Base
   def self.last_by_order(story_id)
     where(:story_id => story_id).last
   end
+
+  private
+
+  	def update_story
+  		self.story.touch(:last_line_updated_at)
+  	end
 end

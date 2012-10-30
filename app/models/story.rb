@@ -15,7 +15,7 @@
 #
 
 class Story < ActiveRecord::Base
-  attr_accessible :category_id, :image_id, :inappropriate, :is_complete, :quality, :story_source_id, :user_id
+  attr_accessible :category_id, :image_id, :inappropriate, :is_complete, :quality, :story_source_id, :user_id, :last_line_updated_at
   has_many :story_lines, :order => 'order_id ASC'
   has_many :likes , dependent: :destroy
   has_many :users , through: :likes, source: :users
@@ -64,5 +64,14 @@ class Story < ActiveRecord::Base
   def last_comments
     how_many = 3
     self.comments.order('id DESC').limit(how_many).reverse
+  end
+
+  def self.from_users_followed_by(user)
+    followed_user_ids = "SELECT followed_id FROM relationships
+                         WHERE follower_id = :user_id"
+    stories_id = "SELECT DISTINCT story_id FROM story_lines WHERE (user_id IN (#{followed_user_ids}) OR user_id = :user_id)"
+    #    StoryLine.select('story_id').where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", 
+    #     user_id: user.id).uniq
+    where("id IN (#{stories_id})",user_id: user.id).order('last_line_updated_at DESC')
   end
 end
