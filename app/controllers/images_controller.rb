@@ -60,6 +60,7 @@ class ImagesController < ApplicationController
     #get the url from the callbcack
     #e.g: image[image_source] = https://<BUCKET>.s3.amazonaws.com/uploads/myimage.png
     @image = Image.new
+    #p @image.inspect
     @image.image_source = params[:key]
     @image.image_type_id = ImageType.upload_id
     @image.key =params[:key].sub("#{ENV['AWS_S3_URL']}/",'')
