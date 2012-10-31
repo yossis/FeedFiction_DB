@@ -77,7 +77,7 @@ class Image < ActiveRecord::Base
           when ImageType.facebook_id 
             images = import_images_facebook(user)
         end
-        update_or_create(images,type_id,user)
+        create_just_if_new(images,type_id,user)
       end
       Image.where(image_type_id: type_id, user_id: user.id).order("created_at ASC")
     end
@@ -105,44 +105,46 @@ class Image < ActiveRecord::Base
         images = client.user_recent_media
       end
 
-      def update_or_create(images, type_id,user)
+      def create_just_if_new(images, type_id,user)
         images.each do |image|
-          item = Image.where(:image_type_id => type_id,:source_object_id => image['object_id'].to_s )
-          if item.empty? 
-            case type_id
+          case type_id
               when ImageType.instagram_id
                 store_instagram_image(image,type_id, user)
               when ImageType.facebook_id
                 store_facebook_image(image,type_id, user)
-            end
           end
         end
         LastImport.update_time(type_id, user.id)
       end
 
       def store_facebook_image(image,type_id, user)
-        ratio = aspect_ratio(image['src_big_width'], image['src_big_height'], 365)
-            i = Image.new(user_id: user.id, source_object_id: image['object_id'].to_s,
-                  image_type_id: type_id ,
-                  source_height: image['src_big_height'] ,
-                  image_source: image['src_big'] ,
-                  source_width: image['src_big_width'] ,
-                  width: ratio['new_width'] ,
-                  height: ratio['new_height'])
-            i.save!
+        item = Image.where(:image_type_id => type_id,:source_object_id => image['object_id'].to_s )
+        if item.empty?
+          ratio = aspect_ratio(image['src_big_width'], image['src_big_height'], 365)
+              i = Image.new(user_id: user.id, source_object_id: image['object_id'].to_s,
+                    image_type_id: type_id ,
+                    source_height: image['src_big_height'] ,
+                    image_source: image['src_big'] ,
+                    source_width: image['src_big_width'] ,
+                    width: ratio['new_width'] ,
+                    height: ratio['new_height'])
+              i.save!
+        end
       end
 
       def store_instagram_image(media,type_id, user)
-        ratio = aspect_ratio(media.images.standard_resolution.width, media.images.standard_resolution.height, 365)
-        i = Image.new(user_id: user.id, source_object_id: media.images.id,
-                  image_type_id: type_id ,
-                  source_height: media.images.standard_resolution.height ,
-                  image_source: media.images.standard_resolution.url ,
-                  source_width: media.images.standard_resolution.width ,
-                  width: ratio['new_width'] ,
-                  height: ratio['new_height'])
-            i.save! 
-        
+        item = Image.where(:image_type_id => type_id,:source_object_id => media.images.id.to_s )
+        if item.empty?
+          ratio = aspect_ratio(media.images.standard_resolution.width, media.images.standard_resolution.height, 365)
+          i = Image.new(user_id: user.id, source_object_id: media.images.id,
+                    image_type_id: type_id ,
+                    source_height: media.images.standard_resolution.height ,
+                    image_source: media.images.standard_resolution.url ,
+                    source_width: media.images.standard_resolution.width ,
+                    width: ratio['new_width'] ,
+                    height: ratio['new_height'])
+              i.save!
+        end 
       end
 
       def aspect_ratio(width,height,new_width)

@@ -12,6 +12,7 @@ window.fbAsyncInit = ->
 
   $('.sign-in').click (e) ->
     e.preventDefault()
+    $('#loginPreloader').modal('show')
     FB.login (response) ->
       window.location = '/auth/facebook' if response.authResponse
     , scope: "user_photos,friends_photos,email, publish_stream"
