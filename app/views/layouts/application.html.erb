@@ -4,7 +4,15 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= display_meta_tags :site => 'FeedFiction'%>
     <%= stylesheet_link_tag    "application", media: "all" %>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Economica:700,400italic">
     <%= javascript_include_tag "application" %>
+    <!-- start: Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- end: Mobile Specific -->
+
     <%= csrf_meta_tags %>
     <%= yield :head %>
 
@@ -12,7 +20,9 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="container main-body">
+  <div id="wrapper">
+    <div class="container">
+      <hr/>
       <%= yield %>
       <!-- Start Story Modal -->
       <%= render 'stories/start_story_modal' %>
@@ -30,6 +40,7 @@
         </div>
       </div>
     <%end%>
+  </div>
     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
