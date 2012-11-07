@@ -1,20 +1,20 @@
 					<div class="picture">
 						<%= link_to(story,{title: story.story_title}) do%>
 						<%=  image_tag(image_thumb(story.image))  %><div class="image-overlay-link"></div>
-						<figcaption class="thumbnail-title">
+						<!-- <figcaption class="thumbnail-title">
 			                <h3>
 			                  <span>Mary Doe</span>
 			                </h3>
 			                <p>
 			                  <span>Assistant director</span>
 			                </p>
-		              </figcaption>
+		              </figcaption> -->
 						<% end %>
 							<div class="item-description alt">
-								<%= render 'stories/started_by' , :story => story%>
-								<h5><a href="project.html">Project no. 5</a></h5>
+								<%#= render 'stories/started_by' , :story => story%>
+								<h5 id="ttt"><%= story.story_title%></h5>
 								<p>
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+								<%= render 'stories/story_item' , :story => story%>
 								</p>
 							</div>
 							<div class="post-meta">
@@ -25,12 +25,7 @@
 					</div>
 
 
-				<div class="story-header">
-					<%= link_to (story) do%>
-					<h1><%= story.story_title%></h1>
-					<%=  image_tag(image_thumb(story.image) , width: number_to_pixel(story.image.width) , height: number_to_pixel(story.image.height))  %>
-					<% end %>
-				</div>
+				
 				
 				
 				
@@ -38,5 +33,5 @@
 					<a class="btn btn-small like-story"><i class="icon-thumbs-up"></i>Like</a>
 					<a class="btn btn-small continue-story"><i class="icon-edit"></i>Continue</a>		
 				</div>-->
-				<%= render 'stories/story_item' , :story => story%>
+				
 				

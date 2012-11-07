@@ -8,11 +8,13 @@
 					</div>
 						
 					
-					<div class="writer-legend ">
-						<div>Feeders</div>
+					<div class="post-meta">
+						<div>Feeders:</div>
+						<ul class="social-bookmarks">
 						<% story.story_lines.map {|l| l.user}.uniq.each do |user| %>
-							<span class="writer_<%=user.id%>"><%=basic_avatar(user) %></span>
+							<li class="writer_<%=user.id%>"><%=avatar_rounded(user) %></li>
 						<% end%>
+						</ul>
 					</div>
 				</div>
 				<hr/>
@@ -25,14 +27,23 @@
 				<% unless story.is_complete%>
 					<div>
 						<%= simple_form_for @story_line ,:remote => true  do |f| %>
-						<%= image_tag(current_user.avatar,:class => 'border-image-small') if current_user %>
+						
+						
+						
+						
 						
 						<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
 						<%= f.hidden_field :story_id, value: story.id %>
 						<div class="continue-story-text-area">
-							<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story..'></textarea>
-							<span class="counter-text"><%= add_how_many_words story.story_lines%> words left out of 55</span>
-							<input type="submit" name="submit-story" value="submit" class="btn" disabled/>
+              <div>
+              <span class="counter-text"><%= add_how_many_words story.story_lines%> words left out of 55</span>
+              </div>
+              <%= avatar_rounded(current_user) if current_user %>
+              <div class="">
+  							<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story..'></textarea>
+
+  							<input type="submit" name="submit-story" value="submit" class="btn" disabled/>
+              </div>
 						</div>
 						<span id="continue-error" class="error-message"></span>
 						

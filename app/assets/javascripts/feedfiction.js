@@ -85,18 +85,12 @@ var feedfiction = {
             $(elements).bind({
               mouseenter: function() {
                 $(elements).css('background-color','yellow');
-                $(elements).find('.border-image-small').animate({
-                 height: "70",width: "70",
-                 left: "-=50",
-                 top: "-=50"}, "fast");
+                
 
               },
               mouseleave: function() {
                 $(elements).css('background-color','white');
-                 $(elements).find('.border-image-small').animate({
-                 height: "56",width: "56",
-                 left: "+=50",
-                 top: "+=50"}, "fast");
+                 
               }
             });
         },

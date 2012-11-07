@@ -1,0 +1,30 @@
+.basic-avatar {
+	display: inline-block;
+	width: 40px; height: 40px;
+}
+
+.continue-story-text-area {
+	.image-small {
+		width: 40px; height: 40px;
+		float: left;
+		margin-right: 5px;
+	}
+}
+
+#ttt {
+	font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+	font-size:20px;
+	font-weight: 700px;
+}
+
+.round-avatar {
+	position: relative;
+	width:40px;	height:40px;
+	div {
+		position: absolute;
+		background: url('rounded-avatar.png') no-repeat;
+		width:40px;	height:40px;
+	}
+	
+	
+}

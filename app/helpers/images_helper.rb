@@ -7,4 +7,10 @@ module ImagesHelper
 		# end
 		image.image_source
 	end
+
+	def avatar_rounded(user)
+		img = '<div class="round-avatar"><div></div>'+ link_to(image_tag(user.avatar) ,user, title: user.name)
+		img +='</div>'
+		img.html_safe
+	end
 end
