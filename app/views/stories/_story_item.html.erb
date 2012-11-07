@@ -10,14 +10,13 @@
 					
 					<div class="post-meta">
 						<div>Feeders:</div>
-						<ul class="social-bookmarks">
+						<ul class="feeders">
 						<% story.story_lines.map {|l| l.user}.uniq.each do |user| %>
 							<li class="writer_<%=user.id%>"><%=avatar_rounded(user) %></li>
 						<% end%>
 						</ul>
 					</div>
 				</div>
-				<hr/>
 				<div>
 					<% if current_user && @in_story_page %>
 						<%= link_to_if(current_user && @in_story_page, "Flag", new_flag_url(:story_id => story.id), :remote => true, 'data-toggle' => 'modal' ,:class => "btn btn-danger" , 'data-target' => "#flag-#{story.id}") 
@@ -26,7 +25,7 @@
  					<div id="flag-<%=story.id%>" class="modal hide fade flag-container"></div>
 				<% unless story.is_complete%>
 					<div>
-						<%= simple_form_for @story_line ,:remote => true  do |f| %>
+						<%= simple_form_for @story_line , html: {class: 'form-horizontal'},:remote => true  do |f| %>
 						
 						
 						
@@ -42,7 +41,7 @@
               <div class="">
   							<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story..'></textarea>
 
-  							<input type="submit" name="submit-story" value="submit" class="btn" disabled/>
+  							<input type="submit" name="submit-story" value="submit" class="btn pull-right" disabled/>
               </div>
 						</div>
 						<span id="continue-error" class="error-message"></span>

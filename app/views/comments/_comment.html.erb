@@ -1,5 +1,5 @@
 <div class="comment">
-	<div class="commenter-avatar"><%= basic_avatar(@comment.user) %></div>
+	<div class="commenter-avatar"><%= avatar_rounded(@comment.user) %></div>
 	
 	<div class="comment-body">
 		<%= user_link @comment.user ,:class => 'commenter-avatar'%>

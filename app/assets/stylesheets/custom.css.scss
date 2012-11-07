@@ -3,13 +3,7 @@
 	width: 40px; height: 40px;
 }
 
-.continue-story-text-area {
-	.image-small {
-		width: 40px; height: 40px;
-		float: left;
-		margin-right: 5px;
-	}
-}
+
 
 #ttt {
 	font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
@@ -20,11 +14,31 @@
 .round-avatar {
 	position: relative;
 	width:40px;	height:40px;
-	div {
-		position: absolute;
-		background: url('rounded-avatar.png') no-repeat;
-		width:40px;	height:40px;
-	}
-	
-	
+	xfloat: left;
+	margin-right: 5px;
 }
+
+.continue-story-text-area {
+	border-top:1px solid #E9E9E9;
+}
+
+.feeders {
+	li img {
+	opacity: 0.6;
+	filter: gray;
+	-webkit-filter: grayscale(100%);
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+		&:hover {
+			opacity: 1;
+			filter: none;
+			-webkit-filter: grayscale(0%);
+		}
+	}
+}
+
+
+
+	
