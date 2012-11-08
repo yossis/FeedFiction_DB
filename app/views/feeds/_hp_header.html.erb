@@ -1,26 +1,50 @@
-<section class="header-hp">
-	<div class="row-fluid">
-		<div class="span4">
-			<h1>FeedFiction</h1>
-			<div class="lead">
-			<%= render 'static_pages/about'%>
-						
+<!-- start: Slider -->
+<% content_for :home do %>
+  <div class="slider-wrapper">
+
+		<div id="da-slider" class="da-slider">
+			<div class="da-slide">
+				<h2>FeedFiction</h2>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+				<a href="#" class="da-link">Read more</a>
+				<div class="da-img"><img src="img/parallax-slider/twitter.png" alt="image01" /></div>
 			</div>
-			<button class="btn btn-large btn-primary sign-in" type="button">Join now!</button>
-		</div>
-		<div class="span8">
-			<div id="myCarousel" class="carousel slide">
-			  <!-- Carousel items -->
-			  <div class="carousel-inner">
-			    <div class="active item">Here will be images of stories</div>
-			    <div class="item">Or images of users</div>
-			    <div class="item">Or any expirience</div>
-			  </div>
-			  <!-- Carousel nav -->
-			  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-			  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			<div class="da-slide">
+				<h2>Enjoy & Fun</h2>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+				<a href="#" class="da-link">Read more</a>
+				<div class="da-img"><img src="img/parallax-slider/responsive.png" alt="image02" /></div>
 			</div>
+			<div class="da-slide">
+				<h2>Write your story!</h2>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+				<a href="#" class="da-link">Read more</a>
+				<div class="da-img"><img src="img/parallax-slider/html5.png" alt="image03" /></div>
+			</div>
+			<div class="da-slide">
+				<h2>Let other to continue your story</h2>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+				<a href="#" class="da-link">Read more</a>
+				<div class="da-img"><img src="img/parallax-slider/css3.png" alt="image04" /></div>
+			</div>
+			<nav class="da-arrows">
+				<span class="da-arrows-prev"></span>
+				<span class="da-arrows-next"></span>
+			</nav>
 		</div>
+		
 	</div>
+	<!-- end: Slider -->
+<% end %>
 	
-</section>
+<!-- start: Hero Unit - Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+	<h3>
+		<%= render 'static_pages/about'%>
+	</h3>
+	<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
+<!-- end: Hero Unit -->
+
+<hr>
+			
