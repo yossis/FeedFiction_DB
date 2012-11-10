@@ -1,9 +1,19 @@
+body {
+	xfont-family: 'Alike';
+}
+
 .basic-avatar {
 	display: inline-block;
 	width: 40px; height: 40px;
 }
 
-
+.story-area {
+	font-family: 'Alike';
+	font-size:18px;
+	font-weight: 700px;
+	padding:5px;
+	
+}
 
 #ttt {
 	font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
@@ -11,15 +21,42 @@
 	font-weight: 700px;
 }
 
+.writers {
+	padding-left: 0;
+	div {
+		float: left;
+	}
+	.feeders {
+		line-height: 38px;
+		margin-right: 7px;
+	}
+	
+}
+
 .round-avatar {
-	position: relative;
 	width:40px;	height:40px;
-	xfloat: left;
-	margin-right: 5px;
+	margin-right: 7px;
 }
 
 .continue-story-text-area {
-	border-top:1px solid #E9E9E9;
+	xborder-top:1px solid #E9E9E9;
+	padding-left: 5px;
+	padding-bottom: 3px;
+	background: url('bg-k10.png') repeat;
+	.round-avatar {
+		float:left;
+	}
+	.textarea-with-button{
+		textarea {
+			width: 82%;
+		}
+
+		div{
+			text-align: right;
+			padding: 5px;
+		}
+	}
+	
 }
 
 .xxxxfeeders {
@@ -38,6 +75,83 @@
 		}
 	}
 }
+#story-container {
+	.item-description {
+		padding:0;
+		h5 a{	
+			font-family: 'Alike';
+			font-size: 25px;
+			font-weight: 700px;
+		}
+	}
+
+	.story-item {
+		/*border: 1px solid #fcfcfc;
+		-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.25);
+    box-shadow: 0px 1px 1px rgba(0,0,0,.25);*/
+
+		.picture {
+			padding:0;
+			/*border:0;
+			box-shadow:0;
+			-webkit-box-shadow: 0;*/
+		}
+		.dropcap {
+			text-align: left;
+			font-size: 40px;
+			line-height: 40px;
+			margin: 0;
+			border:0;
+
+		}
+		.item-description {
+			padding: 0;
+			h5 {
+				padding: 5px 0 0 5px;
+			}
+			.writers {
+				padding-left: 5px;
+				border-bottom: 1px solid #E9E9E9;
+			}
+			form {
+				margin-bottom: 0;
+			}
+		}
+
+		.post-meta {
+			margin-top: 0;
+		}
+	}
+
+}
+
+
+/* Comments */
+.comments-sec {
+	float:left;
+	width:100%;
+	line-height: 20px;
+	margin-top: -15px;
+}
+
+ul.commentlist {
+	float:left; 
+	width:100%;
+	margin: 0;
+	li {
+		float:left;
+	width: 100%;
+	border-top: 1px solid #e7e7e7;
+
+	.avatar {
+		padding:5px;
+	}
+		.comment-des {
+			width:84%;
+		}
+	}
+}
+
 
 
 

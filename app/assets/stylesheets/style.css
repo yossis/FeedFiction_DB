@@ -253,7 +253,7 @@ header {
 
 
 #page-title {
-	background: url(../img/slider.jpg);
+	background: url(slider.jpg);
 	display: block;
 	margin-bottom: 25px;
 	position: relative;
@@ -354,11 +354,11 @@ header {
 }
 
 .image-overlay-link {
-	background-image: url(../img/overlay-icon-01.png);
+	background-image: url(overlay-icon-01.png);
 }
 
 .image-overlay-zoom {
-	background-image: url(../img/overlay-icon-02.png);
+	background-image: url(overlay-icon-02.png);
 }
 
 
@@ -467,14 +467,14 @@ html[xmlns] .slides {display: block;}
 }
 
 .flex-direction-nav .flex-next {
-	background-image: url(../img/slider-control-right.png);
+	background-image: url(slider-control-right.png);
 	background-repeat: no-repeat;
 	background-position: 52% 50%;
 }
 
 .flex-direction-nav .flex-prev {
 	margin-right: 36px;
-	background-image: url(../img/slider-control-left.png);
+	background-image: url(slider-control-left.png);
 	background-repeat: no-repeat;
 	background-position: 48% 50%;
 }
@@ -645,12 +645,12 @@ html[xmlns] .slides {display: block;}
 }
 
 .ico-color {
-	background-image: url("../img/icons/blue/glyphicons.png");
+	background-image: url("icons/blue/glyphicons.png");
 	opacity: 1;
 }
 
 .mini-color {
-  background-image: url("../img/icons/blue/glyphicons-mini.png");
+  background-image: url("icons/blue/glyphicons-mini.png");
   opacity: 1;
 }
 
@@ -875,7 +875,7 @@ input[type="button"] {
 }
 
 .testimonials-bg {
-	background: url(../img/testimonials-bg.png) no-repeat;
+	background: url(testimonials-bg.png) no-repeat;
 	margin-top: -1px;
 	display: block;
 	width: 200px;
@@ -918,14 +918,14 @@ input[type="button"] {
 }
 
 .mr-rotato-next {
-	background: url(../img/testimonials-right-01.png) no-repeat 50%;
+	background: url(testimonials-right-01.png) no-repeat 50%;
 	background-color: #fff;
 	right: -1px;
 	z-index: 6;
 }
 
 .mr-rotato-prev {
-	background: url(../img/testimonials-left-01.png) no-repeat 50%;
+	background: url(testimonials-left-01.png) no-repeat 50%;
 	background-color: #fff;
 	right: 25px;
 	-webkit-box-shadow:  3px 0px 0px 0px #fff;
@@ -934,11 +934,11 @@ input[type="button"] {
 }
 
 .mr-rotato-next:hover {
-	background: url(../img/testimonials-right-02.png) no-repeat 50%;
+	background: url(testimonials-right-02.png) no-repeat 50%;
 }
 
 .mr-rotato-prev:hover {
-	background: url(../img/testimonials-left-02.png) no-repeat 50%;
+	background: url(testimonials-left-02.png) no-repeat 50%;
 }
 
 .mr-rotato-prev:hover,
@@ -1761,21 +1761,21 @@ li.current {
 	margin: 5px 0;
 }
 
-.check_list li {background: url(../img/icons/list/blue/list_check.png) no-repeat 0% 50%; padding: 0 0 0 18px;}
-.plus_list  li {background: url(../img/icons/list/blue/list_plus.png) no-repeat 0% 50%; padding: 0 0 0 18px;}
-.minus_list  li {background: url(../img/icons/list/blue/list_minus.png) no-repeat 0% 50%; padding: 0 0 0 18px;}
-.star_list  li {background: url(../img/icons/list/blue/list_star.png) no-repeat 0% 50%; padding: 0 0 0 16px;}
-.arrow_list  li {background: url(../img/icons/list/blue/list_arrow.png) no-repeat 0% 50%; padding: 0 0 0 16px;}
-.square_list  li {background: url(../img/icons/list/blue/list_square.png) no-repeat 0% 50%; padding: 0 0 0 16px;}
-.circle_list  li {background: url(../img/icons/list/blue/list_circle.png) no-repeat 0% 50%; padding: 0 0 0 16px;}
-.cross_list  li {background: url(../img/icons/list/blue/list_cross.png) no-repeat 0% 50%; padding: 0 0 0 16px;}
+.check_list li {background: url(icons/list/blue/list_check.png) no-repeat 0% 50%; padding: 0 0 0 18px;}
+.plus_list  li {background: url(icons/list/blue/list_plus.png) no-repeat 0% 50%; padding: 0 0 0 18px;}
+.minus_list  li {background: url(icons/list/blue/list_minus.png) no-repeat 0% 50%; padding: 0 0 0 18px;}
+.star_list  li {background: url(icons/list/blue/list_star.png) no-repeat 0% 50%; padding: 0 0 0 16px;}
+.arrow_list  li {background: url(icons/list/blue/list_arrow.png) no-repeat 0% 50%; padding: 0 0 0 16px;}
+.square_list  li {background: url(icons/list/blue/list_square.png) no-repeat 0% 50%; padding: 0 0 0 16px;}
+.circle_list  li {background: url(icons/list/blue/list_circle.png) no-repeat 0% 50%; padding: 0 0 0 16px;}
+.cross_list  li {background: url(icons/list/blue/list_cross.png) no-repeat 0% 50%; padding: 0 0 0 16px;}
 
 
 /* Footer
 ====================================================================== */
 #footer-menu {
 	height: 50px;
-	background: #fcfcfc url(../img/bg-k20.png) repeat;
+	background: #fcfcfc url(bg-k20.png) repeat;
 	border-top: 4px solid #f6f6f6;
 	border-bottom: 4px solid #f6f6f6;
 	margin-top: 20px;
@@ -1789,7 +1789,7 @@ li.current {
 	margin: 5px;
 	height: 36px;
 	width: 36px;
-	background: #fcfcfc url(../img/chart.png);
+	background: #fcfcfc url(chart.png);
 	background-repeat: no-repeat;
 	background-position: 48%;
 	opacity: .1;
@@ -1893,7 +1893,7 @@ li.current {
 	height: 30px;
 	display: block;
 	background-color: #29a9df;
-	background-image: url(../img/scroll-top-top.png);
+	background-image: url(scroll-top-top.png);
 	background-repeat: no-repeat;
 	background-position: 50%;
 	-webkit-transition: all 0.1s ease-in-out;
@@ -1906,7 +1906,7 @@ li.current {
 #footer-menu-back-to-top a:hover {background-color: #aaa;}
 
 #footer {
-	background: url(../img/bg-k10.png) repeat;
+	background: url(bg-k10.png) repeat;
 	border-bottom: 4px solid #f6f6f6;
 	color: #666 !important;
 	padding: 40px 0px;
@@ -2017,7 +2017,7 @@ form#newsletter input[type=submit] {
 	display: block;
 	padding: 3px 0;
 	padding-left: 12px;
-	background: url(../img/links-list-arrow-01.png) no-repeat left 47%;
+	background: url(links-list-arrow-01.png) no-repeat left 47%;
 }
 
 .links-list-alt li a {
@@ -2025,7 +2025,7 @@ form#newsletter input[type=submit] {
 	display: block;
 	padding: 3px 0;
 	padding-left: 12px;
-	background: url(../img/links-list-arrow-02.png) no-repeat left 47%;
+	background: url(links-list-arrow-02.png) no-repeat left 47%;
 }
 
 .links-list li a:hover {color: #efe9d8}

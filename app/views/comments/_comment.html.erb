@@ -1,9 +1,25 @@
-<div class="comment">
+<li>
+	<div class="comments">
+		<div class="avatar"><%= avatar_rounded(@comment.user) %></div>
+		<div class="comment-des">
+			<div class="comment-by"><strong><%= user_link @comment.user ,:class => 'commenter-avatar'%></strong>
+			 <span class="date"><%= time_ago_in_words(@comment.created_at) %> ago</span>
+			</div>
+				<p><%= @comment.comment%></p>
+		</div>
+	</div>
+</li>
+
+
+
+
+
+<!-- <div class="comment">
 	<div class="commenter-avatar"><%= avatar_rounded(@comment.user) %></div>
 	
 	<div class="comment-body">
-		<%= user_link @comment.user ,:class => 'commenter-avatar'%>
+		<%#= user_link @comment.user ,:class => 'commenter-avatar'%>
 		<span class="comment-time"><%= time_ago_in_words(@comment.created_at) %></span>
 		<p><%= @comment.comment%></p>
 	</div>
-</div>	
+</div>	 -->
