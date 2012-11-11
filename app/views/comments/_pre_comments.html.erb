@@ -1,0 +1,8 @@
+  <div id="comments-<%=story.id%>" class="comments">
+    <ul class="commentlist">
+      <% unless story.comments.empty? %>
+        <%= render 'comments/show' %>
+      <% end  %>
+    </ul>
+     <%= render 'comments/new' , :story => story %>
+  </div> 

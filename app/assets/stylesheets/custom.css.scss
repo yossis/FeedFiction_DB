@@ -1,5 +1,10 @@
 body {
 	xfont-family: 'Alike';
+
+}
+
+#wrapper {
+	background-color:#EDEDEB;
 }
 
 .basic-avatar {
@@ -11,7 +16,10 @@ body {
 	font-family: 'Alike';
 	font-size:18px;
 	font-weight: 700px;
-	padding:5px;
+	padding:20px;
+	span {
+		color: #444;
+	}
 	
 }
 
@@ -42,7 +50,8 @@ body {
 	xborder-top:1px solid #E9E9E9;
 	padding-left: 5px;
 	padding-bottom: 3px;
-	background: url('bg-k10.png') repeat;
+	/*background: url('bg-k10.png') repeat;*/
+	background-color: #edfcff;
 	.round-avatar {
 		float:left;
 	}
@@ -89,6 +98,8 @@ body {
 		/*border: 1px solid #fcfcfc;
 		-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.25);
     box-shadow: 0px 1px 1px rgba(0,0,0,.25);*/
+    overflow: hidden;
+    background-color: #fff;
 
 		.picture {
 			padding:0;
@@ -112,6 +123,7 @@ body {
 			.writers {
 				padding-left: 5px;
 				border-bottom: 1px solid #E9E9E9;
+				margin:0;
 			}
 			form {
 				margin-bottom: 0;
@@ -121,6 +133,9 @@ body {
 		.post-meta {
 			margin-top: 0;
 		}
+	}
+	.comments-dashboard {
+		border: 0;
 	}
 
 }
@@ -150,6 +165,50 @@ ul.commentlist {
 			width:84%;
 		}
 	}
+	.comment-by {
+		padding-bottom: 0;
+	}
+
+}
+
+.add-comment {
+		float: left;
+		border-top: 1px solid #E7E7E7;
+		width:100%;
+		padding: 10px 5px;
+		background-color: #E3E3E1;
+		.round-avatar {
+			float: left;
+		}
+
+		textarea {
+			width: 80%;
+			height: 30px;
+		}
+
+		.actions {
+			text-align: right;
+			padding: 5px 13px 0 0;
+		}
+}
+
+/* Likes / Unlikes  */
+
+.likes {
+	form {
+		float: right;
+		padding-right: 10px;
+	}
+	div {
+		display: inline;
+	}
+
+}
+
+.btn-small, .btn-like, .btn-unlike {
+	webkit-border-radius: 14px;
+     -moz-border-radius: 14px;
+          border-radius: 14px;
 }
 
 

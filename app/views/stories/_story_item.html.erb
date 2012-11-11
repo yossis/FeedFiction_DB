@@ -45,25 +45,19 @@
 						
 						<%end%>
 					</div>
-					<% else%>
-					
-						<%= render 'stories/like_actions' , :story => story%>		
-						
-					<%end%>	
+				<%end%>	
 
 				</div>
 					
 			
 				<% if story.is_complete %>
-				    <h3>Comments:</h3>
-				    <div id="comments-<%=story.id%>" class="comments">
-				      <ul class="commentlist">
-				        <% unless story.comments.empty? %>
-				          <%= render 'comments/show' %>
-				        <% end  %>
-				      </ul>
-				       <%= render 'comments/new' , :@comment => @new_comment, :story => story %>
-				    </div> 
-			  	<% end %>		
+<div class="post-meta comments-dashboard">
+	<% if story.comments.size>0%>
+	<span><i class="mini-ico-comment"></i><%=link_to "#{story.comments.size} comments", story_url(story)%></span>
+	<% end%>
+	<%= render 'stories/like_actions' , :story => story%>
+</div>
+					<%= render 'comments/pre_comments' ,story: story%>
+		  	<% end %>		
 			</div>
 			
