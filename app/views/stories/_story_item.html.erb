@@ -4,6 +4,11 @@
 						<% story.story_lines.each_with_index do |line,index| %>
 						  		<span class="writer_<%=line.user.id%> <%= @is_user_page && @user.id==line.user_id ? 'emphasis' : ''  %>"><%= index==0 ? drop_cap(line.line) : sanitize(line.line.gsub(/\n/, '<br />'), :tags => %w(br)) %></span>
 						<% end %>
+						<%if story.is_complete%>
+						<div class="the-end">
+							<h5>The End</h5>
+						</div>
+						<% end %>
 						<span class="cs-canvas"></span>
 					</div>
 						
