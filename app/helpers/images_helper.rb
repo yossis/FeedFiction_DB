@@ -15,4 +15,12 @@ module ImagesHelper
 		img +='</div>'
 		img.html_safe
 	end
+
+	def avatar_rounded_large(user)
+		# img = '<div class="round-avatar"><div></div>'+ link_to(image_tag(user.avatar) ,user, title: user.name)
+		# img +='</div>'
+		img = '<div class="round-avatar-large">'+ link_to(image_tag(user.avatar, size: "90x90", class: 'img-circle' ) ,user, title: user.name)
+		img +='</div>'
+		img.html_safe
+	end
 end

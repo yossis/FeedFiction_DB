@@ -1,23 +1,76 @@
 <% provide(:title ,@story.story_title)%>
 <% content_for :head do %>
-	<script type="text/javascript">var switchTo5x=true;</script>
+	<!--<script type="text/javascript">var switchTo5x=true;</script>
 	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-	<script type="text/javascript">stLight.options({publisher: "2ef12537-8b20-4ac6-926b-15e1351dc861"}); </script>
+	<script type="text/javascript">stLight.options({publisher: "2ef12537-8b20-4ac6-926b-15e1351dc861"}); </script>-->
 <% end%>
-
 <section class="story-page">
-  
-  	<span class='st_sharethis_vcount' displayText='ShareThis'></span>
-	<span class='st_facebook_vcount' displayText='Facebook'></span>
-	<span class='st_googleplus_vcount' displayText='Google +'></span>
-	<span class='st_digg_vcount' displayText='Digg'></span>
-	<span class='st_tumblr_vcount' displayText='Tumblr'></span>
-	<span class='st_twitter_vcount' displayText='Tweet'></span>
-	<span class='st_pinterest_vcount' displayText='Pinterest'></span>
-	<span class='st_email_vcount' displayText='Email'></span>
-  <%=  image_tag(@story.image.image_source)  %>
-  <%= render 'stories/started_by' , :story => @story%>
-  <h1><%= @story.story_title%></h1>
-  <%= render 'stories/story_item' , :story => @story%>
+	<div class="started-by">
+		<h4>Started by:</h4>
+		<%= avatar_rounded_large(@story.user)%>
+		<h2><%= link_to(@story.user.name , user_url(@story.user))%></h2>
+		
 
+
+	</div>
+	<hr/>
+<div class="row">
+	<div class="span9">
+		<div class="story">
+		  <%=  image_tag(@story.image.image_source)  %>
+		  <%= render 'stories/started_by' , :story => @story%>
+		  <h1><%= @story.story_title%></h1>
+		  <%= render 'stories/story_item' , :story => @story%>
+		</div>
+	</div>
+	<div class="span3 hidden-phone">
+
+				<!-- start: Popular Photos -->
+				<div class="widget-first">
+					<div class="title"><h3>Popular Photos</h3></div>
+
+					<div class="flickr-widget">
+						<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&display=latest&size=s&layout=x&source=user&user=29609591@N08"></script>
+						<div class="clear"></div>
+					</div>
+
+				</div>
+				<!-- end: Popular Photos -->
+
+				<!-- start: Sidebar Menu -->
+				<div class="widget">
+					<div class="title"><h3>Menu</h3></div>
+					<ul class="links-list-alt">
+						<li><a href="full_width.html">Full Width</a></li>
+						<li><a href="sidebar.html">Sidebar</a></li>
+						<li><a href="post.html">Single Post</a></li>
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="pricing_tables.html">Pricing Tables</a></li>
+					</ul>
+				</div>
+				<!-- end: Sidebar Menu -->
+
+				<!-- start: Tags -->
+				<div class="widget">
+					<div class="title"><h3>Tags</h3></div>
+					<div class="tags">
+						<a href="#">Tag1</a>
+						<a href="#">Tag2</a>
+						<a href="#">Tag3</a>
+						<a href="#">Tag4</a>
+						<a href="#">Tag5</a>
+						<a href="#">Tag6</a>
+						<a href="#">Tag7</a>
+						<a href="#">Tag8</a>
+						<a href="#">Tag9</a>
+						<a href="#">Tag10</a>
+						<a href="#">Tag11</a>
+						<a href="#">Tag12</a>
+					</div>
+				</div>
+				<!-- end: Tags -->
+
+			</div>
+			<!-- end: Sidebar -->
+</div>
 </section>

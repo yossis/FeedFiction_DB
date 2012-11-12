@@ -3,8 +3,68 @@ body {
 
 }
 
+hr {
+  	margin: 20px 0;
+  	border: 0;
+  	border-top: 1px solid #e0dfdf;
+  	border-bottom: 1px solid #fcfcfc;
+}
+
+hr.clean {
+	margin: 20px 0;
+  	border: 0;
+  	border-top: 1px solid #fff;
+  	border-bottom: 1px solid #f6f6f6;
+}
+
+/* Logos */
+
+.logo ,.small-logo{
+    background-color: #f73b3b;
+    border-radius: 65px;
+    -moz-border-radius: 65px;
+    -webkit-border-radius: 65px;
+    transform:rotate(-27deg);
+		-ms-transform:rotate(-27deg); /* IE 9 */
+		-moz-transform:rotate(-27deg); /* Firefox */
+		-webkit-transform:rotate(-27deg); /* Safari and Chrome */
+		-o-transform:rotate(-27deg); /* Opera */
+    color: #fff;
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    height: 110px;
+    line-height: 110px;
+    margin: 0 auto;
+    text-align: center;
+    width: 110px;
+
+
+}
+
+.small-logo {
+    	background-color: #ea6030;
+    	height: 90px;
+	    line-height: 90px;
+	    width: 90px;
+	    font-size: 25px;
+	    border: 5px solid #F6F6F6;
+	    i {
+	    	display: block;
+	    	color: #eee;
+	    }
+}
+
+.logo-feed {
+	margin-bottom: 20px;
+}
+
+
 #wrapper {
 	background-color:#EDEDEB;
+}
+
+.hero-unit {
+	background-color: #fff;
 }
 
 .basic-avatar {
@@ -64,6 +124,11 @@ body {
 .round-avatar {
 	width:40px;	height:40px;
 	margin-right: 7px;
+}
+
+.round-avatar-large {
+	width:90px;	height:90px;
+
 }
 
 .continue-story-text-area {
@@ -241,7 +306,49 @@ ul.commentlist {
           border-radius: 14px;
 }
 
+.like-unregistered {
+	float:right;
+}
 
 
+/* Story Page */
+.story-page {
+	.started-by {
+		text-align: center;
+		div{
+			margin:0 auto;
+		}
+	}
+
+	.story {
+		padding: 10px 10px 0px 10px;
+		border-bottom: 1px solid #eee;
+		margin-bottom: 30px;
+		background: #fff;
+		-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.35);
+		   -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.35);
+			    box-shadow: 0px 1px 1px rgba(0,0,0,.35);	
+	}
+
+	.widget {
+	padding: 10px;
+	margin-top: 25px;
+	background: #fff;
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.35);
+	   -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.35);
+		    box-shadow: 0px 1px 1px rgba(0,0,0,.35);
+	}
+	
+.widget.first {
+	margin-top: -5px;
+	background: #fff;
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.35);
+	   -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.35);
+		    box-shadow: 0px 1px 1px rgba(0,0,0,.35);
+	}
+
+
+
+}
 
 	

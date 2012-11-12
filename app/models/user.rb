@@ -110,5 +110,8 @@ class User < ActiveRecord::Base
     self.oauth_expires_at < Time.now
   end
 
+  # def avatar_large
+  #   large_avatar ||= self.avatar.gsub('=square','=large')
+  # end
   
 end
