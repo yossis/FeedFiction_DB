@@ -344,13 +344,16 @@ ul.commentlist {
 	}
 
 	.story {
-		padding: 10px 10px 0px 10px;
+		
 		border-bottom: 1px solid #eee;
 		margin-bottom: 30px;
 		background: #fff;
 		-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.35);
 		   -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.35);
 			    box-shadow: 0px 1px 1px rgba(0,0,0,.35);	
+		.story-wrapper {
+			padding: 10px 10px 0px 10px;
+		}
 	}
 
 	.story-header {
@@ -386,6 +389,10 @@ ul.commentlist {
 		   -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.35);
 			    box-shadow: 0px 1px 1px rgba(0,0,0,.35);
 	}
+
+	.comment-des {
+			width:90% !important;
+		}
 
 
 

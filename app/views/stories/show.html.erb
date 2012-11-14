@@ -21,13 +21,17 @@
 <div class="row">
 	<div class="span9">
 		<div class="story">
-			<div class="picture">
-			  <%=  image_tag(@story.image.image_source)  %>
+			<div class="story-wrapper">
+				<div class="picture">
+				  <%=  image_tag(@story.image.image_source)  %>
+				</div>
+		  			<%= render 'stories/started_by' , :story => @story%>
+				  <h1 class="story-title"><%= @story.story_title%></h1>
+				  <%= render 'stories/story_item' , :story => @story%>
 			</div>
-		  <%= render 'stories/started_by' , :story => @story%>
-		  <h1 class="story-title"><%= @story.story_title%></h1>
-		  <%= render 'stories/story_item' , :story => @story%>
+		  <%= render 'comments/pre_comments' ,story: @story%>
 		</div>
+
 	</div>
 	<!-- Side bar -->
 	<%= render 'stories/side_bar' %>
