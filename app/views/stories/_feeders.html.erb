@@ -1,0 +1,3 @@
+<% story.story_lines.map {|l| l.user}.uniq.each do |user| %>
+	<div class="writer writer_<%=user.id%>"><%=avatar_rounded(user) %></div>
+<% end%>

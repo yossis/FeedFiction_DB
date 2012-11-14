@@ -5,10 +5,11 @@
 	<script type="text/javascript">stLight.options({publisher: "2ef12537-8b20-4ac6-926b-15e1351dc861"}); </script>-->
 <% end%>
 <section class="story-page">
+
 	<div class="started-by">
-		<!-- <h4>Started by:</h4> -->
-		<%= avatar_rounded_large(@story.user)%>
-		<h2><%= link_to(@story.user.name , user_url(@story.user))%> presents:</h2>
+		<h2>The Feeders:</h2>
+		<%= render 'stories/big_feeders' ,story: @story%>
+		<h2>Present:</h2>
 		<div class="story-header">
 			<h1><%=@story.story_title%></h1>
 		</div>

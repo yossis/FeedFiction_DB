@@ -1,11 +1,15 @@
 $background-color :#EDEDEB;
-
+$story-font : 'Sanchez',serif;
+$xstory-font : 'Arbutus Slab', serif;
 
 body {
-	xfont-family: 'Alike';
+	font-family: $story-font;
 
 }
 
+h2 {
+	font-size: 25px;
+}
 hr {
   	margin: 20px 0;
   	border: 0;
@@ -76,7 +80,7 @@ hr.clean {
 }
 
 .story-area {
-	font-family: 'Alike';
+	font-family: $story-font;
 	font-size:18px;
 	font-weight: 700px;
 	padding:20px;
@@ -104,12 +108,6 @@ hr.clean {
 	  
 	}
 	
-}
-
-#ttt {
-	font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
-	font-size:20px;
-	font-weight: 700px;
 }
 
 .writers {
@@ -172,11 +170,20 @@ hr.clean {
 		}
 	}
 }
+
+.dropcap {
+	text-align: left;
+	font-size: 40px;
+	line-height: 40px;
+	margin: 0;
+	border:0;
+
+}
 #story-container {
 	.item-description {
 		padding:0;
 		h5 a{	
-			font-family: 'Alike';
+			font-family: $story-font;
 			font-size: 25px;
 			font-weight: 700px;
 		}
@@ -195,14 +202,7 @@ hr.clean {
 			/*box-shadow:0;
 			-webkit-box-shadow: 0;*/
 		}
-		.dropcap {
-			text-align: left;
-			font-size: 40px;
-			line-height: 40px;
-			margin: 0;
-			border:0;
-
-		}
+		
 		.item-description {
 			padding: 0;
 			h5.story-title {
@@ -255,6 +255,7 @@ ul.commentlist {
 		float:left;
 	width: 100%;
 	border-top: 1px solid #e7e7e7;
+	background-color: #f2f2ed;
 
 	.avatar {
 		padding:5px;
@@ -316,10 +317,29 @@ ul.commentlist {
 
 /* Story Page */
 .story-page {
+	font-size: 14px;
 	.started-by {
 		text-align: center;
 		div{
 			margin:0 auto;
+		}
+		a, h2 {
+			font-family: $story-font !important;
+		}
+	}
+
+	.round-avatar {
+		width: 60px; height: 60px;
+	}
+
+
+	.big-avatars {
+		ul {
+			display: inline-block;
+		}
+		.writer {
+			float: left;
+			padding: 10px;
 		}
 	}
 
@@ -347,7 +367,7 @@ ul.commentlist {
 		}
 	}
 	.story-title {
-		font-family: 'Atika' !important;
+		font-family: $story-font !important;
 		padding-left: 25px;
 	}
 

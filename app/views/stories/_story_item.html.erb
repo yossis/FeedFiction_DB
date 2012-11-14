@@ -15,18 +15,12 @@
 					
 					<div class="post-meta writers clearfix">
 						<div class="feeders">Feeders:</div>
-						<% story.story_lines.map {|l| l.user}.uniq.each do |user| %>
-							<div class="writer writer_<%=user.id%>"><%=avatar_rounded(user) %></div>
-						<% end%>
+						<%= render 'stories/feeders' ,story: story%>
 						
 					</div>
 				</div>
 				<div>
-					<% if current_user && @in_story_page %>
-						<%= link_to_if(current_user && @in_story_page, "Flag", new_flag_url(:story_id => story.id), :remote => true, 'data-toggle' => 'modal' ,:class => "btn btn-danger" , 'data-target' => "#flag-#{story.id}") 
-	 					%>
-	 				<% end %>
- 					<div id="flag-<%=story.id%>" class="modal hide fade flag-container"></div>
+					<div id="flag-<%=story.id%>" class="modal hide fade flag-container"></div>
 				<% unless story.is_complete%>
 					<div class="continue-story-text-area">
 						<%= simple_form_for @story_line , html: {class: 'form-horizontal'}, remote: true  do |f| %>
@@ -60,7 +54,8 @@
 	<% if story.comments.size>0%>
 	<span><i class="mini-ico-comment"></i><%=link_to "#{story.comments.size} comments", story_url(story)%></span>
 	<% end%>
-	<%= render 'stories/like_actions' , :story => story%>
+	<%= render 'stories/like_actions' , story: story %>
+	<%= render 'stories/flag_actions' , story: story %>
 </div>
 					<%= render 'comments/pre_comments' ,story: story%>
 		  	<% end %>		
