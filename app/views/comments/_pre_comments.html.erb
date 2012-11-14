@@ -1,4 +1,5 @@
-  <div id="comments-<%=story.id%>" class="comments">
+ <% if story.is_complete %>
+ <div id="comments-<%=story.id%>" class="comments">
     <ul class="commentlist">
       <% unless story.comments.empty? %>
         <%= render 'comments/show' %>
@@ -6,3 +7,4 @@
     </ul>
      <%= render 'comments/new' , :story => story %>
   </div> 
+  <%end%>

@@ -1,7 +1,7 @@
 					<div class="story-item">
 						<div class="picture">
 						<%= link_to(story,{title: story.story_title}) do%>
-						<%=  image_tag(image_thumb(story.image))  %><div class="image-overlay-link"></div>
+						<%=  image_tag(image_thumb(story.image))  %>
 						<!-- <figcaption class="thumbnail-title">
 			                <h3>
 			                  <span>Mary Doe</span>
@@ -10,21 +10,21 @@
 			                  <span>Assistant director</span>
 			                </p>
 		              </figcaption> -->
+		              <div class="title-container">
+		              	<div class="story-title"><%= link_to story.story_title, story%></div>
+		              </div>
 						<% end %>
+						
 						</div>
 						
 							<div class="item-description alt">
 								<%#= render 'stories/started_by' , :story => story%>
-								<h5 class="story-title"><%= link_to story.story_title, story%></h5>
+								
 								<%= render 'stories/story_item' , :story => story%>
 							</div>
-							<!-- <div class="post-meta">
-								<span><i class="mini-ico-calendar"></i>1 June 2011</span>
-								<span><i class="mini-ico-user"></i> <a href="#">lucas</a></span>
-								<span><i class="mini-ico-comment"></i><a href="#">89 comments</a></span>
-							</div>	 -->
+							<%= render 'comments/pre_comments' ,story: story%>
 					
-</div>
+					</div>
 
 				
 				

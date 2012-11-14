@@ -1,4 +1,6 @@
 <% if current_user && @in_story_page %>
-<%= link_to_if(current_user && @in_story_page, "Flag", new_flag_url(:story_id => story.id), :remote => true, 'data-toggle' => 'modal' ,:class => "btn btn-small btn-danger" , 'data-target' => "#flag-#{story.id}") 
-	%>
+<span class="flag"><%= link_to(new_flag_url(:story_id => story.id), :remote => true, 'data-toggle' => 'modal' ,:class => "btn btn-small btn-danger" , 'data-target' => "#flag-#{story.id}") do %>
+<i class="ico-white mini-ico-flag"></i>Flag
+<%end%>
+</span>
 <% end %>
