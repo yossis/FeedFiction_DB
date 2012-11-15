@@ -17,18 +17,62 @@ class StoryLine < ActiveRecord::Base
   belongs_to :story
   belongs_to :user 
 
-	after_save :update_story
+  before_create :duplicate_story_if_needed
+  after_save :update_story
   
   validates :line, presence: true
   validates :user_id, presence: true
 
   def self.last_by_order(story_id)
-    where(:story_id => story_id).last
+    StoryLine.where(:story_id => story_id).last
   end
 
   private
 
-  	def update_story
-  		self.story.touch(:last_line_updated_at)
-  	end
+    def update_story
+      self.story.touch(:last_line_updated_at)
+    end
+
+    def duplicate_story_if_needed
+      if should_duplicate?
+        duplicate_story
+      else
+          self.order_id +=1
+          #notification
+          Notification.notify(self, user)
+          #UserMailer.continue_story(@story_line.story , current_user).deliver 
+      end
+    end
+
+    def should_duplicate?
+      last_line = StoryLine.last_by_order(self.story_id)
+      return false if last_line.blank?
+
+      last_line.order_id != order_id.to_i
+    end
+
+    def duplicate_story
+      story_attributes = clean_attributes story.attributes
+      new_story = Story.create(story_attributes)
+      duplicate_story_lines new_story
+      self.story_id = new_story.id
+    end
+
+    def duplicate_story_lines(new_story)
+      story.story_lines.each do |line|
+        break if line.order_id == self.order_id
+
+        line_attributes = clean_attributes line.attributes
+        line_attributes.delete "story_id"
+        new_story.story_lines.create(line_attributes)
+      end
+    end
+
+    def clean_attributes(attributes)
+      attributes.delete("id")
+      attributes.delete("created_at")
+      attributes.delete("updated_at")
+      attributes
+    end
+
 end

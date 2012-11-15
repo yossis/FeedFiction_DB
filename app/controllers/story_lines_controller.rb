@@ -1,3 +1,4 @@
+
 class StoryLinesController < ApplicationController
   # GET /story_lines
   # GET /story_lines.json
@@ -42,23 +43,8 @@ class StoryLinesController < ApplicationController
   def create
     #raise params[:story_line].to_yaml
 
-    @story_line = StoryLine.new(params[:story_line])
-    @story_line.user_id = current_user.id
-    last_line = StoryLine.last_by_order(params[:story_line][:story_id])
-
-    #logger.debug "last_line: #{params[:story_line].attributes.inspect}"
-    #logger.debug "Post should be valid: #{@post.valid?}"
+    @story_line = StoryLine.create(params[:story_line].merge user_id: current_user.id)
     
-    if (last_line.order_id==params[:story_line][:order_id].to_i)
-        @story_line.order_id +=1
-        @story_line.save!
-        #notification
-        Notification.notify(@story_line ,current_user)
-        #UserMailer.continue_story(@story_line.story , current_user).deliver 
-        
-    else
-      #duplicate story
-    end
     @story = @story_line.story
     limit = add_how_many_words @story.story_lines
     logger.debug "limit: #{limit}"

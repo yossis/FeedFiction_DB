@@ -50,4 +50,25 @@ subject { @story }
     it { should be_valid }
   end
 
+  describe 'image' do
+    before :each do
+      @image = mock
+      @story.stub!(:image).and_return(@image)
+      @story.stub!(:valid?).and_return(true)
+    end
+
+    it "should resize image after save" do
+      @image.stub!(:image_processed?).and_return(false)
+      @image.should_receive(:enqueue_image)
+      @story.save!
+    end
+
+    it "should resize image after save" do
+      @image.stub!(:image_processed?).and_return(true)
+      @image.should_not_receive(:enqueue_image)
+      @story.save!
+    end
+    
+  end
+
 end

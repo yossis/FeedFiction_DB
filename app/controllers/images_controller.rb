@@ -1,12 +1,11 @@
 class ImagesController < ApplicationController
 
   before_filter :check_user , :set_upload
-
-
+  before_filter :reconnect_with_facebook, only: :facebook
   
 
   def facebook
-   reconnect_with_facebook
+   
  	 #SELECT aid, owner, name FROM album WHERE owner='675499110'
 	 #SELECT src,aid FROM photo WHERE aid IN (SELECT aid FROM album WHERE owner='675499110') 
 
@@ -50,7 +49,6 @@ class ImagesController < ApplicationController
     #@image = Image.new(params[:image])
     @image.user_id = current_user.id
     @image.save
-    debugger
     @image.enqueue_image
     
     render :upload_images

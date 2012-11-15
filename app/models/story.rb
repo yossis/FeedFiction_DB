@@ -29,9 +29,15 @@ class Story < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  after_save :play_with_image
+
   validates :image_id, presence: true 
 
   self.per_page = 10
+
+  def play_with_image
+    image.enqueue_image unless image.image_processed?
+  end
 
   def story_title
     lines = self.story_lines.first

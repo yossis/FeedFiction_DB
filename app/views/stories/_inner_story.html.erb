@@ -1,20 +1,20 @@
 					<div class="story-item">
 						<div class="picture">
-						<%= link_to(story,{title: story.story_title}) do%>
-						<%=  image_tag(image_thumb(story.image))  %>
-						<!-- <figcaption class="thumbnail-title">
-			                <h3>
-			                  <span>Mary Doe</span>
-			                </h3>
-			                <p>
-			                  <span>Assistant director</span>
-			                </p>
-		              </figcaption> -->
-		              <div class="title-container">
-		              	<div class="story-title"><%= link_to story.story_title, story%></div>
-		              </div>
-						<% end %>
-						
+							<%= link_to(story,{title: story.story_title}) do%>
+							<%=  image_tag(image_thumb(story.image))  %>
+							<!-- <figcaption class="thumbnail-title">
+				                <h3>
+				                  <span>Mary Doe</span>
+				                </h3>
+				                <p>
+				                  <span>Assistant director</span>
+				                </p>
+			              </figcaption> -->
+			              
+							<% end %>
+							<div class="title-container">
+			           <div class="story-title"><%= link_to story.story_title, story%></div>
+	            </div>
 						</div>
 						
 							<div class="item-description alt">

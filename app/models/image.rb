@@ -21,7 +21,7 @@
 
 class Image < ActiveRecord::Base
   attr_accessible :height, :source_object_id, :image_type_id, :image_processed, :in_cdn, :source_height, :image_source, :source_width, :image_thumb, :user_id, :width ,:album_type_id 
-  has_one :story
+  has_many :stories
   belongs_to :image_type
   
   
@@ -60,7 +60,7 @@ class Image < ActiveRecord::Base
      image = Image.find(id)
      image.key = key
      #image.remote_image_thumb_url = "#{ENV["AWS_S3_URL"]}"+key
-     image.remote_image_thumb_url = image.image_thumb.direct_fog_url(with_path: true)
+     image.remote_image_thumb_url = image.image_source
      image.save!
      image.update_column(:image_processed, true)
     end

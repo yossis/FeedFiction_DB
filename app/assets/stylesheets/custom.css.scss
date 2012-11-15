@@ -37,11 +37,11 @@ hr.clean {
     border-radius: 65px;
     -moz-border-radius: 65px;
     -webkit-border-radius: 65px;
-    transform:rotate(-27deg);
+   /* transform:rotate(-27deg);
 		-ms-transform:rotate(-27deg); /* IE 9 */
-		-moz-transform:rotate(-27deg); /* Firefox */
+		/*-moz-transform:rotate(-27deg);  Firefox 
 		-webkit-transform:rotate(-27deg); /* Safari and Chrome */
-		-o-transform:rotate(-27deg); /* Opera */
+		/*-o-transform:rotate(-27deg); /* Opera */
     color: #fff;
     font-family: 'Lobster', cursive;
     font-size: 30px;
@@ -67,8 +67,33 @@ hr.clean {
 	    }
 }
 
-.logo-feed {
-	margin-bottom: 20px;
+.wrapper-logo-feed {
+	width: 200px;
+	background-color: $background-color;
+	margin:0 auto;
+	position: relative;
+	top: -4.5em;
+	.logo-feed {
+		
+	}
+}
+
+.header-hr {
+		text-align:center;
+		border-bottom:2px solid #666;
+		height: 2px;
+		margin:0 0 35px 0 !important;
+
+}
+
+
+.wrapper-hr{
+	
+	.header-hr {
+		margin:60px 0 !important;
+		
+		
+	}
 }
 
 
@@ -219,7 +244,9 @@ hr.clean {
 			-moz-box-shadow: inset 0 -70px 70px -20px rgba(0,0,0,0.65);
 			box-shadow: inset 0 -70px 70px -20px rgba(0, 0, 0, 0.65);*/
 			.title-container {
-				position: relative;
+				position: absolute;
+				width: 100%;
+				height: 100%;
 				div.story-title {
 					position: absolute;
 					padding-left: 20px;
@@ -229,8 +256,8 @@ hr.clean {
 					height: 28px;
 					line-height: 28px;
 					webkit-box-shadow: inset 0 -70px 70px -20px rgba(0, 0, 0, 0.65);
-			-moz-box-shadow: inset 0 -70px 70px -20px rgba(0,0,0,0.65);
-			box-shadow: inset 0 -70px 70px -20px rgba(0, 0, 0, 0.65);
+					-moz-box-shadow: inset 0 -70px 70px -20px rgba(0,0,0,0.65);
+					box-shadow: inset 0 -70px 70px -20px rgba(0, 0, 0, 0.65);
 
 					a{
 						font-family: $story-font;
@@ -375,6 +402,10 @@ ul.commentlist {
 	.big-avatars {
 		ul {
 			display: inline-block;
+
+			li {
+				width:170px;
+			}
 		}
 		.writer {
 			float: left;
@@ -395,17 +426,16 @@ ul.commentlist {
 		}
 	}
 
-	.story-header {
-		text-align:center;
-		border-bottom:2px solid #666;
-		height: 25px;
-		margin:35px 0 !important;
+	.header-hr {
+		
 
 		h1 {
+			position: relative; top: -0.5em;
 			font-family: 'Lobster' !important;
 			background-color: $background-color;
 			display: inline-block;
 			padding: 0 35px;
+
 		}
 	}
 	.story-title {
