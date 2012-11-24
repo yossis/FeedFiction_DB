@@ -142,7 +142,7 @@ header {
     overflow: visible \9 !important;
 }
 
-.navbar, 
+/*.navbar, 
 .navbar-inner, 
 .nav,
 .navbar-inverse {
@@ -202,7 +202,7 @@ header {
 .navbar .nav .active a:hover > .caret {
   border-top-color: #fff !important;	
   border-bottom-color: #fff !important;	
-}
+}*/
 
 .dropdown-menu li > a:hover,
 .dropdown-menu li > a:focus,

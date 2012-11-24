@@ -13,7 +13,10 @@
 			              
 							<% end %>
 							<div class="title-container">
-			           <div class="story-title"><%= link_to story.story_title, story%></div>
+			           <div class="story-title"><%= link_to story.story_title, story%>
+			           
+			           	<div>By <%=story.user.name%></div>
+			           </div>
 	            </div>
 						</div>
 						
