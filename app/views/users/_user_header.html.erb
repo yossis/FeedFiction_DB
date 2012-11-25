@@ -1,20 +1,30 @@
 <div class="user-info">
-  <%= normal_avatar(@user) %>
-  <p><h3><%= @user.name %></h3></p>  
-  
- 
-  <%= render 'users/follow_form_header' if current_user %>
-
-
-<div class="navbar">
-  <div class="navbar-inner">
-    
-    <ul class="nav">
-      <li><a href="<%=user_url(@user)%>">stories:<%= @user.participate_stories.count%></a></li>
-      <li><a href="<%= likes_user_url(@user)%>">Likes:<%= @user.likes.count%></a></li>
-      <li><%= render 'shared/stats' %></li>
-      
-    </ul>
+  <div class="image-wrapper">
+    <%=avatar_rounded_large(@user) %>
   </div>
-</div>
+  <%= render 'layouts/title_hr' , :@hr_name => @user.name%>
+  
+
+  
+    <div class="navbar">
+      <div class="navbar-inner">
+        
+        <ul class="nav">
+          <li><a href="<%=user_url(@user)%>">stories:<%= @user.participate_stories.count%></a></li>
+          <li><a href="<%= likes_user_url(@user)%>">Likes:<%= @user.likes.count%></a></li>
+        </ul>
+       
+        <ul class="nav pull-right">
+          <%= render 'shared/stats' %>
+         
+        </ul>
+     
+         <div>
+          <%= render 'users/follow_form_header' if current_user %>
+        </div>
+      </div>
+    </div>
+  
+
+  
 </div>

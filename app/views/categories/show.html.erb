@@ -1,3 +1,4 @@
-<h1><%= @category.name %></h1>
-<%=drop_down_categories %>
+
+<%= render 'layouts/feed_nav' %>
+<%= render 'layouts/title_hr' , :@hr_name => @category.name %>
 <%= render 'feeds/feed'  %>

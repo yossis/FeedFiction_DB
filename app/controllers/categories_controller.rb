@@ -18,6 +18,8 @@ class CategoriesController < ApplicationController
     @story_line = StoryLine.new
     @new_comment = Comment.new
     @categories = Category.all
+    @feed_name = @category.name#'Everything'
+    @feed_logo_color = 'categories-logo'
     
   end
 

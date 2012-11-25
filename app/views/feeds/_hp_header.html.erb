@@ -48,38 +48,5 @@
 
 <hr>
 
-<div class="wrapper-hr">
-	<div class="navbar">
-	  <div class="navbar-inner">
-	    
-	    <ul class="nav">
-	      <li><a href="#">My Feed</a></li>
-	      <li><a href="#">Everything</a></li>
-	      <li><a href="#" data-toggle="dropdown" class="dropdown-toggle">Categories <b class="caret"></b></a>
-	      		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-	      			<li>
-	      				<% Category.all.each_slice(17) do |slice| -%>
-								   <span> 
-								    <% slice.each do |category| -%>
-								      <%= link_to category.name ,category %>
-								    <% end -%>
-								  </span> 
-								<% end -%>
-
-	      			</li>	
-	      		</ul>
-	      </li>
-	    </ul>
-	  </div>
-	</div>
-<div class="logo-framework">
-	<div class="wrapper-logo-feed">
-		<div class="left-corner"></div>
-		<div class="small-logo logo-feed"><div>Categories</div></div>
-		<div class="right-corner"></div>
-	</div>
-</div>
-	
-</div>
 
 

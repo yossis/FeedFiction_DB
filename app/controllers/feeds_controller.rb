@@ -8,6 +8,8 @@ class FeedsController < ApplicationController
   
   def index
     if current_user
+      @feed_name = 'My Feed'
+      @feed_logo_color = 'myfeed-logo'
       @stories = Story.from_users_followed_by(current_user).paginate(page: params[:page])
     else
       @stories = Story.paginate(page: params[:page]).order('updated_at DESC')
@@ -18,6 +20,8 @@ class FeedsController < ApplicationController
   private
 
     def init_vars
+     @feed_name = 'Everything'
+     @feed_logo_color = 'everything-logo'
      @story_line = StoryLine.new
      @donot_show_disclaimer = true
     end

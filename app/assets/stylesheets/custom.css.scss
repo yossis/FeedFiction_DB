@@ -93,6 +93,14 @@ header {
 	    }
 }
 
+.everything-logo {
+	background-color: #39AB2E;
+}
+
+.categories-logo {
+	background-color: #2954C5;
+}
+
 
 /*Main Navbar*/
 /*.navbar .nav > li > a */
@@ -116,6 +124,14 @@ header {
 		border-bottom:2px solid #666;
 		height: 2px;
 		margin:0 0 35px 0 !important;
+		h1 {
+			position: relative; top: -0.5em;
+			font-family: 'Lobster' !important;
+			background-color: $background-color;
+			display: inline-block;
+			padding: 0 35px;
+
+		}
 
 }
 
@@ -255,6 +271,10 @@ header {
 
 .round-avatar-large {
 	width:90px;	height:90px;
+	border-radius: 90px;
+  -moz-border-radius: 90px;
+  -webkit-border-radius: 90px;
+	border: 5px solid #F6F6F6
 
 }
 
@@ -528,19 +548,7 @@ ul.commentlist {
 			padding: 10px 10px 0px 10px;
 		}
 	}
-
-	.header-hr {
-		
-
-		h1 {
-			position: relative; top: -0.5em;
-			font-family: 'Lobster' !important;
-			background-color: $background-color;
-			display: inline-block;
-			padding: 0 35px;
-
-		}
-	}
+	
 	.story-title {
 		font-family: $story-font !important;
 		padding-left: 25px;
@@ -569,9 +577,16 @@ ul.commentlist {
 	.comments-dashboard {
 		height: 18px;
 	}
+}
 
-
-
+/* User Page */
+.user-info {
+	.image-wrapper {
+		margin: 25px 0;
+	}
+	.round-avatar-large {
+		margin:0 auto;
+	}
 }
 
 	
