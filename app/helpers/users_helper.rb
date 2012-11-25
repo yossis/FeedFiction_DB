@@ -15,4 +15,8 @@ module UsersHelper
 	def current_user?(user)
 		current_user==user
 	end
+
+	# def active_stories
+	# 	'class="active"' if controller_name == "homepage" && action_name == "index" 
+	# end
 end

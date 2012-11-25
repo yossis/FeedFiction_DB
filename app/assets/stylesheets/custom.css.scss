@@ -123,7 +123,7 @@ header {
 		text-align:center;
 		border-bottom:2px solid #666;
 		height: 2px;
-		margin:0 0 35px 0 !important;
+		margin:35px 0 35px 0 !important;
 		h1 {
 			position: relative; top: -0.5em;
 			font-family: 'Lobster' !important;
@@ -586,6 +586,20 @@ ul.commentlist {
 	}
 	.round-avatar-large {
 		margin:0 auto;
+	}
+	.following-wrapper {
+		position: relative;
+		form {
+			position: absolute;
+			top: 5px;
+			height: 0;
+			width:100%;
+
+			.btn {
+				display: block;
+				margin: 0 auto;
+			}
+		}
 	}
 }
 
