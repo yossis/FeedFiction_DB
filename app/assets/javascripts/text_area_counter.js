@@ -25,7 +25,7 @@
 			var obj, text, wordcount, limited ,charCount;
  
 			obj = $(this);
-			var counterText = $(obj).parent().children('.counter-text');
+			var counterText = options.labelCounter;
 			if (counterText.length==0){
 				obj.after('<span style="font-size: 11px; clear: both; margin-top: 3px; display: block;" class="counter-text">Max. '+options.limit+' words</span>');
 				counterText = $(obj).parent().children('.counter-text');

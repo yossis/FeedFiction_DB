@@ -31,11 +31,12 @@
     }
 
     var button = $(this).closest('div.continue-story-text-area').find('input[type=submit]');
+    var labelCounter = $(this).closest('div.continue-story-text-area').find('.counter-text');
     $(button).show();
      var canvas = $(this).closest('.story-item').find('.cs-canvas');
      var limit = $(this).attr('limit');
      
-    $(this).textareaCounter({container: canvas, limit:limit, callback: function(e,limit){
+    $(this).textareaCounter({container: canvas, limit:limit, labelCounter:labelCounter, callback: function(e,limit){
         if(e>0){
             $(button).addClass('btn-primary').removeAttr("disabled"); 
             // handler.wookmark();
@@ -46,6 +47,7 @@
         if(limit==0){
           $(button).attr('value', 'Finish the story and submit');
         }
+        $('#portfolio-wrapper').isotope('reLayout');
       }
     });
    

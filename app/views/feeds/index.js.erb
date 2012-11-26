@@ -1,7 +1,9 @@
-$('#portfolio-wrapper').append("<%= escape_javascript(render(:partial => 'stories/story' , :collection => @stories))%>")
+var $newItems = $("<%= escape_javascript(render(:partial => 'stories/story' , :collection => @stories))%>")
 <% if @stories.next_page %>
 $('.pagination').replaceWith('<%= j will_paginate(@stories) %>');
 <% else %>
 $('.pagination').remove();
 <% end %>
-feedfiction.actions.renderBoxes();
+
+$('#portfolio-wrapper').append($newItems).isotope('appended', $newItems)
+// feedfiction.actions.renderBoxes();
