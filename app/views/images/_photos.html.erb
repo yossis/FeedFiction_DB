@@ -1,8 +1,8 @@
 <h1>Please choose image and start your story</h1>
-<div id="story-container" role="story-container">
-	<ul id="tiles" class="unstyled">
+<div id="story-container" role="story-container" >
+	<ul id="portfolio-wrapper" class="row ">
 		<% @images.each do |image|%>
-			<li class="story-box container-ss">
+			<li class="story-box container-ss span3 portfolio-item">
 				<%=  image_tag(image.image_source , width: image.width.to_s+'px' , height: image.height.to_s+'px', id: 'image_'+image.id.to_s)  %>
 				<div class="tiels-items-container">
 					<a class="btn btn-small"><i class="icon-edit"></i>Start Story</a>		

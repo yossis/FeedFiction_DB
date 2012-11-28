@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def mobile_device?
+    request.user_agent =~ /Mobile|webOS/
+  end
+  helper_method :mobile_device?
+  
+
   def authenticate
     if Rails.env.production?
       authenticate_or_request_with_http_basic do |username, password|

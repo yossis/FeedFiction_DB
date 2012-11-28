@@ -28,6 +28,13 @@ module UsersHelper
 		img.html_safe
 	end
 
+	def avatar_rounded_mini(user)
+		# img = '<div class="round-avatar"><div></div>'+ link_to(image_tag(user.avatar) ,user, title: user.name)
+		# img +='</div>'
+		img = '<div class="round-avatar-mini">'+ link_to(image_tag(user.avatar, size: "30x30" , class: 'img-circle') ,user, title: user.name)
+		img +='</div>'
+		img.html_safe
+	end
 	def user_link(user, options={})
 		link_to(user.name , user , options.merge(:title => user.name))
 	end

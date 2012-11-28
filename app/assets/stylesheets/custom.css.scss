@@ -1,4 +1,6 @@
 $background-color :#EDEDEB;
+/*$background-header :#3f3c3c;*/
+$background-header :#EDEDEB;
 $story-font : 'Sanchez',serif;
 $xstory-font : 'Arbutus Slab', serif;
 
@@ -33,14 +35,15 @@ hr.clean {
   	border-bottom: 1px solid #fcfcfc;
 }
 header {
-	background-color: #EDEDEB;
+	background-color: $background-header;
 	border-bottom: 0;
+	height: 30px;
 	.navbar, 
 	.navbar-inner, 
 	.nav,
 	.navbar-inverse {
 		float: right;
-		background: $background-color !important;
+		/*background: $background-color !important;*/
 		filter: none !important;
 		border: none;
 		-webkit-box-shadow: none;
@@ -48,6 +51,16 @@ header {
 	            box-shadow: none;
 		padding: 0px;
 		margin: 0;
+		height: 30px;
+		min-height:30px;
+		background-color: $background-header;
+		.nav {
+			margin:0;
+		}
+		li {
+			height: 30px;
+			line-height: 10px;
+		}
 
 	}
 
@@ -60,7 +73,21 @@ header {
 }
 
 /* Logos */
-
+.logo {
+	height: 0;
+	i {
+		margin-top: 0px;
+		color: #fff;
+	}
+	a{
+		height:30px;
+		/*color: #DDD;*/
+		text-decoration: none;
+		font-size: 22px;
+		line-height: 22px;
+		margin-left: 10px;
+	}
+}
 .logo ,.small-logo{
     
     
