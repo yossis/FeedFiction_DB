@@ -5,7 +5,7 @@
     <div class="row">
      <!--start: Logo -->
       <div class="logo span3">
-        <i class="mini-white mini-ico-bookmark circle"></i>
+        <i class="mini-white mini-ico-bookmark circle-color-full"></i>
 <%= link_to  content_tag(:span ,'feed') + 'fiction', root_path, id: "logo" , class: "brand" %>
 
         <!-- <a class="brand" href="#">Feed<span>fiction</span></a> -->
@@ -27,14 +27,14 @@
                       <% if current_user.has_notification? %>
                         <li><a href='<%= notifications_show_url%>'>
                             <%if current_user.new_notifications_count==0%>
-                              <span class="badge">&nbsp;</span>
+                              <i class="mini-ico-bell"></i>
                             <%else%>
-                              <span class="badge badge-warning"><%=current_user.new_notifications_count%></span>
+                              <i class="mini-ico-bell mini-white"></i><span class="notify-count"><%=current_user.new_notifications_count%></span>
                             <% end %>
                             </a>
                         </li>
                       <%end%>
-                      <li><a data-toggle="modal" href="#StartStoryModal">Start a story</a></li>
+                      <li><a data-toggle="modal" href="#StartStoryModal"><i class="mini-ico-plus-sign mini-white"></i> Start a story</a></li>
                       <%= render 'layouts/about_dd_menu' %>
                       <li> <%= avatar_rounded_mini(current_user)%></li>
                        <li id="fat-menu" class="dropdown">
@@ -73,7 +73,7 @@
     <!-- <div class="row">
       <%#= render 'layouts/second_navbar'%>
     </div> -->
-    <div class="hr"></div>
+    
   </div>
   <!--end: Container-->     
     
