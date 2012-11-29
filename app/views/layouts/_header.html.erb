@@ -34,8 +34,11 @@
                             </a>
                         </li>
                       <%end%>
-                      <li><a data-toggle="modal" href="#StartStoryModal"><i class="mini-ico-plus-sign mini-white"></i> Start a story</a></li>
+                      <li class="divider-vertical"></li>
+                      <%= render 'layouts/start_story_link' %>
+                      <li class="divider-vertical"></li>
                       <%= render 'layouts/about_dd_menu' %>
+                      <li class="divider-vertical"></li>
                       <li> <%= avatar_rounded_mini(current_user)%></li>
                        <li id="fat-menu" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -42,7 +42,9 @@
           <p>Logging you in…</p>
         </div>
       </div>
+
     <%end%>
+    <%= yield :footer %>
   </div>
     <%= debug(params) if Rails.env.development? %>
   </body>
