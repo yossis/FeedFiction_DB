@@ -1,13 +1,20 @@
 				<ul class="row logo-images show-grid">
                   
-                    <li class="span2 social-upload upload-instagram ">
+                    <li class="span2">
+                         <a >
+                              <span class="social-upload upload-facebook"></span>
+                              Facebook</a>
                     	<%#= link_to image_tag('logos/facebook_logo.jpg'),in_wizard ? import_facebook_wizard_url : facebook_path %>
                     </li>
                     <li class="span2">
-                    	<a class="social-upload upload-facebook"><span> Upload with facebook</span></a>
+                    	<a ><span class="social-upload upload-instagram"></span>
+                              Instagram</a>
                     	<%#= link_to image_tag('logos/upload_image.jpg'),'#UploadModal' ,data: { function: 'displayUpload' , dismiss: 'modal'}, class: 'userFunction' %>
                     </li>
-                    <li class="span2 social-upload upload-cloud">
+                    <li class="span2">
+                         <a><span class="social-upload upload-cloud"></span>
+                          Upload Manually
+                         </a>
                     	<%#= link_to image_tag('logos/instagram_logo.jpg'),in_wizard ? import_instagram_wizard_url : instagram_url %></li>
                  
                 </ul>

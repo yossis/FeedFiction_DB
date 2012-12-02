@@ -36,6 +36,18 @@ hr.clean {
 	border-top: 1px solid #e0dfdf;
   	border-bottom: 1px solid #fcfcfc;
 }
+
+.circle-color-full-disable {
+	background-color: #aaaaaa;
+	-webkit-border-radius: 50em;
+	-moz-border-radius: 50em;
+	border-radius: 50em;
+	-webkit-box-shadow: 0px 0px 0px 3px #aaaaaa;
+	   -moz-box-shadow: 0px 0px 0px 3px #aaaaaa;
+		    box-shadow: 0px 0px 0px 3px #aaaaaa;
+	margin: 0 auto;
+	opacity: 1;
+}
 header {
 	background-color: $background-header;
 	border-bottom: 0;
@@ -141,6 +153,9 @@ footer {
 	}
 
 }
+
+
+
 
 #footer-menu-links {
 	display: block;
@@ -851,11 +866,44 @@ ul.commentlist {
 	width: 630px;
 	li {
 		font-size: 15px;
-		.circle-color-full {
+		.circle-color-full,.circle-color-full-disable {
 			display: inline-block;
 			width: 20px;
 			color: #fff;
-			text-align: center
+			text-align: center;
+			
+		}
+	}
+
+	.story-bradcrumbs {
+		li {
+			padding: 10px 0;
+			span {
+				margin-right: 5px;
+			}
+		}
+	}
+	.modal-body {
+		p {
+			padding-left: 45px;
+			font-size: 20px;
+
+		}
+	}
+
+	.logo-images {
+		text-align: center;
+		padding: 30px 0;
+		a {
+			display: inline-block;
+			width: 100px;
+			text-align: center;
+			padding: 10px 20px;
+			text-decoration: none;
+			span {
+				margin-bottom: 20px;
+			}
+			cursor: pointer;
 		}
 	}
 }
@@ -866,19 +914,19 @@ ul.commentlist {
 }
 
 .upload-facebook {
-	background-position: -3px -169px;
+	background-position: -3px -85px;
 	&:hover {
 		background-position: -3px -85px;
 	}
 }
 .upload-instagram {
-	background-position: -174px -169px;
+	background-position: -174px -85px;
 	&:hover {
 		background-position: -174px -85px;
 	}
 }
 .upload-cloud {
-	background-position: -89px -169px;
+	background-position: -89px -85px;
 	&:hover {
 		background-position: -89px -85px;
 	}
