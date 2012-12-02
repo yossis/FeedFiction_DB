@@ -11,6 +11,7 @@ body {
 }
 
 h2 {
+	font-family: $story-font !important;
 	font-size: 25px;
 }
 
@@ -106,41 +107,39 @@ footer {
 
 #footer-menu-logo  {
 	height: 46px;
-}
+	#logo-arrow {
+		margin: 5px;
+		height: 36px;
+		width: 36px;
+		background: #fcfcfc url('arrow.png');
+		background-repeat: no-repeat;
+		background-position: 66% 50%;
+		opacity: .1;
+		filter: alpha(opacity=10);
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+		-webkit-border-radius: 50em;
+		-moz-border-radius: 50em;
+		border-radius: 50em;
+		border: 3px solid #000;
+		float: left;
+	}
 
-#footer-menu-logo #logo-arrow {
-	margin: 5px;
-	height: 36px;
-	width: 36px;
-	background: #fcfcfc url('arrow.png');
-	background-repeat: no-repeat;
-	background-position: 66% 50%;
-	opacity: .1;
-	filter: alpha(opacity=10);
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-	-webkit-border-radius: 50em;
-	-moz-border-radius: 50em;
-	border-radius: 50em;
-	border: 3px solid #000;
-	float: left;
-}
-
-
-#footer-menu-logo a{
+	a{
 	color: #fff;
 	text-decoration: none;
 	font-size: 22px;
 	line-height: 54px;
 	margin-left: 5px;
-}
+	}
 
-#footer-menu-logo span {
-	color: #444;
-}
+	span {
+		color: #444;
+	}
 
+	img {
+		margin-top: 10px;
+	}
 
-#footer-menu-logo img {
-	margin-top: 10px;
 }
 
 #footer-menu-links {
@@ -338,11 +337,6 @@ footer {
 		/*-moz-transform:rotate(-27deg);  Firefox 
 		-webkit-transform:rotate(-27deg); /* Safari and Chrome */
 		/*-o-transform:rotate(-27deg); /* Opera */
-    
-    
-    
-    
-
 
 }
 
@@ -849,6 +843,44 @@ ul.commentlist {
 
 	.comments-dashboard {
 		height: 18px;
+	}
+}
+
+/* Start a stry wizard */
+#StartStoryModal {
+	width: 630px;
+	li {
+		font-size: 15px;
+		.circle-color-full {
+			display: inline-block;
+			width: 20px;
+			color: #fff;
+			text-align: center
+		}
+	}
+}
+.social-upload {
+	background: url('social-uploads.png') no-repeat;
+	height: 86px; width: 87px;
+	display: inline-block;
+}
+
+.upload-facebook {
+	background-position: -3px -169px;
+	&:hover {
+		background-position: -3px -85px;
+	}
+}
+.upload-instagram {
+	background-position: -174px -169px;
+	&:hover {
+		background-position: -174px -85px;
+	}
+}
+.upload-cloud {
+	background-position: -89px -169px;
+	&:hover {
+		background-position: -89px -85px;
 	}
 }
 

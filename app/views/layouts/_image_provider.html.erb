@@ -1,9 +1,13 @@
-				<div class="row logo-images show-grid">
+				<ul class="row logo-images show-grid">
                   
-                    <div class="span"><%= link_to image_tag('logos/facebook_logo.jpg'),in_wizard ? import_facebook_wizard_url : facebook_path %></div>
-                    <div class="span">
-                    	<%= link_to image_tag('logos/upload_image.jpg'),'#UploadModal' ,data: { function: 'displayUpload' , dismiss: 'modal'}, class: 'userFunction' %>
-                    </div>
-                    <div class="span"><%= link_to image_tag('logos/instagram_logo.jpg'),in_wizard ? import_instagram_wizard_url : instagram_url %></div>
+                    <li class="span2 social-upload upload-instagram ">
+                    	<%#= link_to image_tag('logos/facebook_logo.jpg'),in_wizard ? import_facebook_wizard_url : facebook_path %>
+                    </li>
+                    <li class="span2">
+                    	<a class="social-upload upload-facebook"><span> Upload with facebook</span></a>
+                    	<%#= link_to image_tag('logos/upload_image.jpg'),'#UploadModal' ,data: { function: 'displayUpload' , dismiss: 'modal'}, class: 'userFunction' %>
+                    </li>
+                    <li class="span2 social-upload upload-cloud">
+                    	<%#= link_to image_tag('logos/instagram_logo.jpg'),in_wizard ? import_instagram_wizard_url : instagram_url %></li>
                  
-                </div>
+                </ul>
