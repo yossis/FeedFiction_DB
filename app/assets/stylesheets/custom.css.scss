@@ -48,6 +48,10 @@ hr.clean {
 	margin: 0 auto;
 	opacity: 1;
 }
+
+.close-modal {
+	background: url('close_btn_modal.png') no-repeat;
+}
 header {
 	background-color: $background-header;
 	border-bottom: 0;
@@ -863,7 +867,22 @@ ul.commentlist {
 
 /* Start a stry wizard */
 #StartStoryModal {
-	width: 630px;
+	
+	width: 650px;
+	overflow: visible;
+	.close-modal {
+		width: 55px;
+		height: 23px;
+		float: right;
+		position: relative;
+		top: -31px;
+		cursor: pointer;
+	}
+
+	h2 {
+		padding-left: 45px;
+	}
+	
 	li {
 		font-size: 15px;
 		.circle-color-full,.circle-color-full-disable {
@@ -874,8 +893,23 @@ ul.commentlist {
 			
 		}
 	}
+	#portfolio-wrapper {
+		margin-left: -14px;
+		li {
+			margin-left: 15px;
+			margin-bottom: 15px;
+			box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+			-moz-box-shadow: 0 1px 2px rgba(34,25,25,0.4);
+			-webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+		}
+		.picture {
+			padding: 0;
+			border: 0;
+		}
+	}
 
 	.story-bradcrumbs {
+		padding-left: 45px;
 		li {
 			padding: 10px 0;
 			span {
@@ -889,6 +923,11 @@ ul.commentlist {
 			font-size: 20px;
 
 		}
+	}
+
+	.modal-footer {
+		background-color: #fff;
+		padding: 40px;
 	}
 
 	.logo-images {

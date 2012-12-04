@@ -1,0 +1,18 @@
+var $newItems = "<%=j render 'images/photos' %>";
+$('#uploadProviders').hide();
+$('#StartStoryModal').animate({
+             width: "790px", left: "41%"
+                }).promise().done(function(){
+
+$('#imageTiles').append($newItems);
+renderIsotope('#StartStoryModal #portfolio-wrapper');
+imageOverlay();
+$('#StartStoryModal .modal-footer').show();
+
+});
+
+// promise().done(function(){
+// $('#StartStoryModal #portfolio-wrapper').isotope('reLayout')
+// }
+
+//$('#imageTiles').append($newItems).isotope('appended', $newItems);

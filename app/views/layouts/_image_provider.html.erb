@@ -1,15 +1,16 @@
 				<ul class="row logo-images show-grid">
                   
                     <li class="span2">
-                         <a >
-                              <span class="social-upload upload-facebook"></span>
-                              Facebook</a>
+                         <%= link_to(facebook_url, remote: true) do %>
+                              <span class="social-upload upload-facebook"></span>Facebook
+                         <%end%>
                     	<%#= link_to image_tag('logos/facebook_logo.jpg'),in_wizard ? import_facebook_wizard_url : facebook_path %>
                     </li>
                     <li class="span2">
-                    	<a ><span class="social-upload upload-instagram"></span>
-                              Instagram</a>
+                    	<%= link_to(instagram_url, remote: true) do %>
+                         <span class="social-upload upload-instagram"></span>Instagram
                     	<%#= link_to image_tag('logos/upload_image.jpg'),'#UploadModal' ,data: { function: 'displayUpload' , dismiss: 'modal'}, class: 'userFunction' %>
+                         <%end %>
                     </li>
                     <li class="span2">
                          <a><span class="social-upload upload-cloud"></span>
@@ -17,4 +18,4 @@
                          </a>
                     	<%#= link_to image_tag('logos/instagram_logo.jpg'),in_wizard ? import_instagram_wizard_url : instagram_url %></li>
                  
-                </ul>
+                    </ul>

@@ -124,6 +124,14 @@ var feedfiction = {
           
         },
 
+        startStoryReset: function(){
+          $('#StartStoryModal').width('650px').css('left','50%');
+          $('#StartStoryModal #imageTiles').empty();
+          $('#uploadProviders').show();
+          $('#StartStoryModal .modal-footer').hide();
+
+        },
+
         displayUpload: function(){
           if ($('#UploadModal #start-story-form').length==0){
             $('#start-story-form').appendTo($('#UploadModal'));

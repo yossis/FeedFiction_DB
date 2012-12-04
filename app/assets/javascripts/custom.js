@@ -128,23 +128,25 @@ jQuery(document).ready(function($){
 
 /* ------------------ Image Overlay ----------------- */
 
+function imageOverlay(){
+	$('.picture a').hover(function () {
+		$(this).find('.image-overlay-zoom, .image-overlay-link , .image-overlay-start').stop().fadeTo('fast', 1);
+	},function () {
+		$(this).find('.image-overlay-zoom, .image-overlay-link , .image-overlay-start').stop().fadeTo('fast', 0);
+	});
+}
+
 jQuery(document).ready(function () {
 	
-	$('.picture a').hover(function () {
-		$(this).find('.image-overlay-zoom, .image-overlay-link').stop().fadeTo('fast', 1);
-	},function () {
-		$(this).find('.image-overlay-zoom, .image-overlay-link').stop().fadeTo('fast', 0);
-	});
+	imageOverlay();
 	
 });
 
 /* -------------------- Isotope --------------------- */
-
-jQuery(document).ready(function (){
-	
-	$('#portfolio-wrapper').imagesLoaded(function(){
+function renderIsotope(tiles){
+	$(tiles).imagesLoaded(function(){
         
-                var $container = $('#portfolio-wrapper');
+                var $container = $(tiles);
                     $select = $('#filters select');
 
                 // initialize Isotope
@@ -213,6 +215,9 @@ jQuery(document).ready(function (){
                   });
                 
             });
+}
 
+jQuery(document).ready(function (){
+	renderIsotope('#portfolio-wrapper');
 	
 });

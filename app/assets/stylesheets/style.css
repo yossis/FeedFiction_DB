@@ -333,7 +333,8 @@ header {
 .picture img {width: 100%; height: auto; }
 
 .image-overlay-link,
-.image-overlay-zoom {
+.image-overlay-zoom,
+.image-overlay-start {
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
@@ -359,6 +360,10 @@ header {
 
 .image-overlay-zoom {
 	background-image: url(overlay-icon-02.png);
+}
+
+.image-overlay-start {
+	background-image: url(pencil-white.png);
 }
 
 
