@@ -1,0 +1,12 @@
+<div class='select-box'>
+			<span class='selected'></span>
+			<span class='select-arrow'>&#9660</span>
+			<ul class="select-options" >
+				<% Category.all.each do |category|%>
+				<li class="select-option" category-value="<%= category.id%>"><%= category.name%></li>
+				<% end -%>
+			</ul>
+</div>
+
+
+

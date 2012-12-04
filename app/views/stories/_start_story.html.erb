@@ -1,43 +1,20 @@
-<%= simple_form_for Story.new do |f| %>
-  <%= f.error_notification %>
- <div class="modal-body" >
+<%= form_for Story.new do |f| %>
+  
 	  <ul>
 		<!-- <li><h3></h3></li> -->
-		<li><div id="start-story-form-image">In Process...</div></li>
-		<li><!-- categories -->
+		<li><div id="start-story-form-image">In Process...</div>
+			<%=f.hidden_field :image_id , :class => 'start-story-image' %>
+		</li>
+		<li><%= render 'categories/custom_drop_down_categories' %>
+			<%= f.hidden_field :category_id , class: 'start-story-category'%>
 		</li>
 		<li>
-
-
-			<div>
-				
-				<div class="ss-feed-form">
-				 <ul>
-				 	<li><%= collection_select(:story, :category_id, Category.all, :id, :name) %></li>
-				 	<!-- <li><div class="ss-canvas"></div></li> -->
-				 	<li>Please start your story (minimum 10 words) and give other to complete your story</li>
-				 	<li>
-				 		<textarea name='line' ></textarea>
-				 	<%=f.hidden_field :image_id , :class => 'ss-image' %>
-				 	
-				 	</li>
-				 	
-
-
-
-				 </ul>		
-				</div>
-
-
-			</div>
-
-		</li>	
-	  </ul>
-	
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="btn btn-large" data-dismiss="modal">Close</a>
-    <input type="submit" class="btn btn-large" value="Create Story" name="commit" disabled/>
-    
-  </div>
+			<textarea name='story[storyline][line]' placeholder="You need a minimum of 10 words to start a story. It's that easy!"></textarea>
+			
+		</li>
+		<li>
+		<input type="submit" class="btn btn-large" value="Create Story" name="commit" disabled/>
+		</li>					
+	</ul>		
+  
 <% end %>
