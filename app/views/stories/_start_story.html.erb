@@ -1,6 +1,6 @@
 <%= form_for Story.new do |f| %>
   
-	  <ul>
+	  <ul class="start-story-form">
 		<!-- <li><h3></h3></li> -->
 		<li><div id="start-story-form-image">In Process...</div>
 			<%=f.hidden_field :image_id , :class => 'start-story-image' %>
@@ -8,12 +8,14 @@
 		<li><%= render 'categories/custom_drop_down_categories' %>
 			<%= f.hidden_field :category_id , class: 'start-story-category'%>
 		</li>
+		<li><span class="counter-text">55 words left out of 55</span></li>
 		<li>
-			<textarea name='story[storyline][line]' placeholder="You need a minimum of 10 words to start a story. It's that easy!"></textarea>
+			<textarea name='story[storyline][line]' placeholder="Write here..."></textarea>
 			
 		</li>
 		<li>
-		<input type="submit" class="btn btn-large" value="Create Story" name="commit" disabled/>
+			<span class="counter-announce">Min 10 words</span>
+		<input type="submit" class="btn btn-small btn-create-story" value="Create Story" name="commit" disabled/>
 		</li>					
 	</ul>		
   

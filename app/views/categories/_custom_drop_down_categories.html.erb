@@ -2,6 +2,8 @@
 			<span class='selected'></span>
 			<span class='select-arrow'>&#9660</span>
 			<ul class="select-options" >
+				<li class="select-option" category-value="0">-- Choose Category --</li>
+
 				<% Category.all.each do |category|%>
 				<li class="select-option" category-value="<%= category.id%>"><%= category.name%></li>
 				<% end -%>

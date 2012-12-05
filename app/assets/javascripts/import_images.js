@@ -19,7 +19,8 @@
   var startStoryClick = $('#tiles li.container-ss');
   startStoryClick.click(function(e){
     e.stopPropagation();
-    feedfiction.actions.implementEvent($(this));
+    //feedfiction.actions.implementEvent($(this));
+    
   });
 
    

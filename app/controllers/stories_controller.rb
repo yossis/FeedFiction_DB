@@ -15,6 +15,10 @@ class StoriesController < ApplicationController
 
   end
 
+  def testform
+    
+  end
+
   def set_meta_tags_and_title
     set_meta_tags :title => @story.story_title,
               :author => @story.author,

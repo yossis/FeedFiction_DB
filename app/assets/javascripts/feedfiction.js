@@ -124,12 +124,23 @@ var feedfiction = {
           
         },
 
+        startStoryModal: function(){
+          feedfiction.actions.startStoryReset();
+          $('#StartStoryModal').modal('show');
+          $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10});
+
+        },
+
         startStoryReset: function(){
           $('#StartStoryModal').width('650px').css('left','50%');
           $('#StartStoryModal #imageTiles').empty();
           $('#uploadProviders').show();
           $('#StartStoryModal .modal-footer').hide();
 
+        },
+
+        enableStartStoryForm: function(){
+          alert("yofi");
         },
 
         displayUpload: function(){
@@ -273,6 +284,8 @@ var feedfiction = {
         $('input,textarea').live('blur', feedfiction.validateField);
         $('.story-with-owners span').live('hover', feedfiction.actions.boldWriterLine);
         $('.btn-following').live('hover', feedfiction.actions.writeUnfollowButton);
+        $('#imageForStory ul li.story-box').live('click', feedfiction.actions.enableStartStoryForm);
+        feedfiction.enableCustomDropDown();
         //$('.story-item').on('hover', '.story-with-owners span', feedfiction.actions.boldWriterLine);
         //$('a.like-link').on('click', function(e) {alert('hh')});
         //var storyBox = '#tiles li.continue-story';
@@ -307,7 +320,30 @@ var feedfiction = {
     },
     alert: function(message) {
         alert(message);
-    }
+    },
+    enableCustomDropDown: function() {
+      $('div.select-box').each(function(){
+        $(this).children('span.selected').html($(this).children('ul.select-options').children('li.select-option:first').html());
+        $(this).attr('value',$(this).children('ul.select-options').children('li.select-option:first').attr('value'));
+        
+        $(this).children('span.selected,span.select-arrow').click(function(){
+          if($(this).parent().children('ul.select-options').css('display') == 'none'){
+            $(this).parent().children('ul.select-options').css('display','block');
+          }
+          else
+          {
+            $(this).parent().children('ul.select-options').css('display','none');
+          }
+        });
+        
+        $(this).find('li.select-option').click(function(){
+          $(this).parent().css('display','none');
+          $(this).closest('div.select-box').attr('value',$(this).attr('value'));
+          $(this).parent().siblings('span.selected').html($(this).html());
+        });
+      }); 
+    },
+
     
 };
 

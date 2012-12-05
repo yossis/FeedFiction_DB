@@ -11,6 +11,7 @@ FeedFiction::Application.routes.draw do
 
   get "notification/index"
 
+
   resources :image_types
   resources :users do
     member do
@@ -59,6 +60,7 @@ FeedFiction::Application.routes.draw do
   match 'register/facebook', to: 'register#facebook' , as: 'import_facebook_wizard'
   match 'register/instagram', to: 'register#instagram' , as: 'import_instagram_wizard'
   match '/all', to: 'feeds#general_feed' , as: 'general_feed'
+  match "/testform" , to: 'stories#testform'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -32,6 +32,11 @@ hr.clean {
   	border-bottom: 1px solid #f6f6f6;
 }
 
+textarea
+{
+   resize: none;
+}
+
 .hr {
 	border-top: 1px solid #e0dfdf;
   	border-bottom: 1px solid #fcfcfc;
@@ -586,22 +591,6 @@ footer {
 	
 }
 
-.xxxxfeeders {
-	li img {
-	opacity: 0.6;
-	filter: gray;
-	-webkit-filter: grayscale(100%);
-	-webkit-transition: all 0.5s ease-in-out;
-	-moz-transition: all 0.5s ease-in-out;
-	-o-transition: all 0.5s ease-in-out;
-	transition: all 0.5s ease-in-out;
-		&:hover {
-			opacity: 1;
-			filter: none;
-			-webkit-filter: grayscale(0%);
-		}
-	}
-}
 
 .dropcap {
 	text-align: left;
@@ -944,6 +933,81 @@ ul.commentlist {
 			}
 			cursor: pointer;
 		}
+	}
+
+	ul.start-story-form {
+		width: 350px;
+		
+		#start-story-form-image {
+			width: 350px;
+			min-height: 120px;   max-height: 300px;
+			background: #EDEDEB;
+			border: 1px solid rgba(26, 0, 0, 0.26);
+			margin-bottom: 20px;
+
+
+		}
+
+		div.select-box {
+			width: 350px;
+			ul.select-options {
+				width: 348px;
+				li.select-option {
+					padding:5px 10% 5px 6%;
+					&:hover {
+						width: 100%;
+					}
+				}
+			}
+			span.selected, span.select-arrow {
+				border:1px solid #AD9C9C !important;
+				border-right: 0 !important;
+				background: rgb(255,255,255); /* Old browsers */
+				background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
+				background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
+				background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+				color: inherit !important;
+
+			}
+
+			span.selected {
+				width: 318px;
+			}
+			span.select-arrow {
+				border-left: 0 !important;
+				border-right:1px solid #AD9C9C !important;
+
+			}
+
+			
+		}
+
+		textarea {
+				width:338px;
+				height: 100px;
+		}
+	}
+
+	.counter-announce , .counter-text {
+		font-size: 13px;
+	}
+
+	.counter-announce {
+		line-height: 29px;
+	}
+
+	.counter-text {
+		display: block;
+		text-align: center;
+
+	}
+
+	.btn-create-story {
+		float: right;
 	}
 }
 .social-upload {

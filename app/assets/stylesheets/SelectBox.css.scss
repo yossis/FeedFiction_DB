@@ -16,7 +16,8 @@ div.select-box
 					border-right:none;
 					border-top-left-radius:5px;
 					border-bottom-left-radius:5px;
-					background:#f6f6f6;
+					background:#f6f6f6 ;
+					color:#888;
 					overflow:hidden;
 				}
 				span.select-arrow
@@ -52,10 +53,12 @@ div.select-box
 					border:1px solid #ccc;
 					border-bottom-right-radius:5px;
 					border-bottom-left-radius:5px;
-					overflow:hidden;
+					overflow-x: hidden;
+					overflow-y: auto;
 					background:#f6f6f6;
 					padding-top:2px;
 					display:none;
+					max-height: 90px;
 				}
 					
 				li.select-option
