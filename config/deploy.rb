@@ -24,6 +24,7 @@ set :rvm_ruby_string, "1.9.3-turbo"
 set :rails_env, "production"
 
 after "deploy:update_code", "deploy:bundle_install"
+after "deploy:bundle_install", "deploy:migrate"
 after "deploy:restart", "sidekiq:restart"
 after "sidekiq:restart", "deploy:cleanup"
 
@@ -37,6 +38,10 @@ namespace :deploy do
 
   task :bundle_install do
     run "cd #{release_path}; bundle install --quiet"
+  end
+
+  task :migrate do
+    run "cd #{release_path}; bundle exec rake db:migrate RAILS_ENV=#{rails_env}"
   end
 
   task :start, :roles => :web, :except => { :no_release => true } do 
