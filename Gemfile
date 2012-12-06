@@ -19,7 +19,8 @@ gem 'carrierwave'
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
-
+gem 'capistrano'
+gem 'rvm-capistrano'
 
 gem 'rspec-rails'
 gem 'rspec'
