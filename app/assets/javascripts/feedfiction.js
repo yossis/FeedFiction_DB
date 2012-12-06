@@ -129,7 +129,12 @@ var feedfiction = {
           $('#StartStoryModal').modal('show');
           var counter = $('#StartStoryModal #start-story .counter-text');
           $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
-
+          $('.start-story-form textarea').live('click' , function(){
+            if ($('#StartStoryModal div.select-box').attr('value') == '0') {
+              feedfiction.alert('Please choose category');
+            }
+            
+          })
         },
 
         startStoryReset: function(){
@@ -157,12 +162,26 @@ var feedfiction = {
 
             $('#StartStoryModal #start-story').show();
             $('#StartStoryModal').addClass('behaviour-story-form');
+            feedfiction.actions.startStoryBradCrumbsNext();
             // $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
             //   $(this).css({float:'none',display:'block'});
             // });
-
-
           });
+        },
+
+        startStoryBradCrumbsNext: function(){
+            var next = false;
+            $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
+              if ($(this).hasClass('current-crumbs')){
+                $(this).removeClass('current-crumbs');
+                next = true;
+              }
+              else if (next){
+                $(this).addClass('current-crumbs');
+                next = false;
+              }
+              
+            });
         },
 
         displayUpload: function(){
@@ -360,11 +379,24 @@ var feedfiction = {
         
         $(this).find('li.select-option').click(function(){
           $(this).parent().css('display','none');
-          $(this).closest('div.select-box').attr('value',$(this).attr('value'));
+          $(this).closest('div.select-box').attr('value',$(this).attr('category-value'));
           $(this).parent().siblings('span.selected').html($(this).html());
+          // if ($(this).closest('div.select-box').attr('value') == '0') {
+          //   $(this).closest('div.select-box').addClass('choose-category');
+          // }
+          // else if ($(this).closest('div.select-box').hasClass('choose-category')) {
+          //   $(this).closest('div.select-box').removeClass('choose-category');
+          // }
+
         });
+        // if ($(this).closest('div.select-box').attr('value') == '0') {
+        //   $(this).closest('div.select-box').addClass('choose-category');
+        // }
+       
       }); 
     },
+
+
 
     
 };

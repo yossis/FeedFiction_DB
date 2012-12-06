@@ -910,6 +910,16 @@ ul.commentlist {
 				margin-right: 5px;
 			}
 		}
+		li.current-crumbs {
+			color: #29A9DF;
+			span{
+				background-color: #29A9DF;
+				-webkit-box-shadow: 0px 0px 0px 3px #29A9DF;
+	   		-moz-box-shadow: 0px 0px 0px 3px #29A9DF;
+		    box-shadow: 0px 0px 0px 3px #29A9DF;
+
+			}
+		}
 	}
 	.modal-body {
 		p {
@@ -1015,6 +1025,13 @@ ul.commentlist {
 			}
 
 			
+		}
+
+		.choose-category {
+			.selected {
+				color: #fff !important;
+				background: #4096EE !important;
+			}
 		}
 
 		textarea {
