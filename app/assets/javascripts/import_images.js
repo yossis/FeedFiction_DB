@@ -16,12 +16,12 @@
   // Capture clicks on grid items.
   //var button = $('#tiles li.story-box div.tiels-items-container a.btn');
   //$(document).on("click", '#tiles li.story-box div.tiels-items-container a.btn', function(){ alert("Goodbye!"); });  
-  var startStoryClick = $('#tiles li.container-ss');
-  startStoryClick.click(function(e){
-    e.stopPropagation();
-    //feedfiction.actions.implementEvent($(this));
+  // var startStoryClick = $('#tiles li.container-ss');
+  // startStoryClick.click(function(e){
+  //   e.stopPropagation();
+  //   //feedfiction.actions.implementEvent($(this));
     
-  });
+  // });
 
    
   $(document).on("click", '.continue-story-text-area textarea', function(e){

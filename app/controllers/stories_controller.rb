@@ -33,12 +33,12 @@ class StoriesController < ApplicationController
   # POST /stories
   
   def create
-    story = Story.new(params[:story])
-    story_line = story.build.story_lines
-    story.save!
-    # story_line = StoryLine.new(:line => params[:line], :order_id =>1, user_id: current_user.id)
-    # story_line.build_story(params[:story].merge :user_id => current_user.id)
-    # story_line.save!
+    # story = Story.new(params[:story])
+    # story_line = story.story_lines.build
+    # story.save!
+    story_line = StoryLine.new(:line => params[:story_line][:line], :order_id =>1, user_id: current_user.id)
+    story_line.build_story(params[:story].merge :user_id => current_user.id)
+    story_line.save!
 
     if in_wizard
       redirect_to find_friends_wizard_url

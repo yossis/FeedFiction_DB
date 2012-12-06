@@ -42,6 +42,10 @@ textarea
   	border-bottom: 1px solid #fcfcfc;
 }
 
+a.link {
+	cursor: pointer;
+}
+
 .circle-color-full-disable {
 	background-color: #aaaaaa;
 	-webkit-border-radius: 50em;
@@ -655,7 +659,8 @@ footer {
 						border-bottom: solid 1px;
 						padding: 5px 0;
 						font-family: $story-font;
-						font-style: italic;
+						/*font-style: italic;*/
+						text-decoration: none;
 						font-size: 20px;
 						color: #eee;
 					}
@@ -864,7 +869,7 @@ ul.commentlist {
 		height: 23px;
 		float: right;
 		position: relative;
-		top: -31px;
+		top: -22px; left: -22px;
 		cursor: pointer;
 	}
 
@@ -919,6 +924,8 @@ ul.commentlist {
 		padding: 40px;
 	}
 
+
+
 	.logo-images {
 		text-align: center;
 		padding: 30px 0;
@@ -935,6 +942,29 @@ ul.commentlist {
 		}
 	}
 
+	&.behaviour-story-form {
+		width: 600px;
+		.modal-header {
+			position: absolute;
+			border: 0;
+			ul {
+				li {
+					display: block;
+					float: none;
+				}
+			}
+		}
+
+		.modal-body {
+			max-height: none;
+		}
+
+		ul.start-story-form {
+			float: right;
+		}
+		
+	}
+
 	ul.start-story-form {
 		width: 350px;
 		
@@ -944,6 +974,7 @@ ul.commentlist {
 			background: #EDEDEB;
 			border: 1px solid rgba(26, 0, 0, 0.26);
 			margin-bottom: 20px;
+			overflow: hidden;
 
 
 		}

@@ -127,7 +127,8 @@ var feedfiction = {
         startStoryModal: function(){
           feedfiction.actions.startStoryReset();
           $('#StartStoryModal').modal('show');
-          $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10});
+          var counter = $('#StartStoryModal #start-story .counter-text');
+          $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
 
         },
 
@@ -140,7 +141,28 @@ var feedfiction = {
         },
 
         enableStartStoryForm: function(){
-          alert("yofi");
+          
+          //$('#StartStoryModal').rotate3Di(180, 3000);
+          // $('#StartStoryModal').hide();
+          // $('#start-story').show();
+          var li = $(this);
+
+          $('#StartStoryModal #imageTiles').hide(1200, function(){
+            $('#StartStoryModal .modal-footer').hide(600);
+            var image = $('img', li).attr('src');
+            var id = $('img', li).attr('id').replace('image_','');
+            $('#start-story-form-image').html('<img width="100%" src="'+image+'"/>');
+             // set the hidden file 
+            $('#story_image_id').attr('value', id);
+
+            $('#StartStoryModal #start-story').show();
+            $('#StartStoryModal').addClass('behaviour-story-form');
+            // $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
+            //   $(this).css({float:'none',display:'block'});
+            // });
+
+
+          });
         },
 
         displayUpload: function(){

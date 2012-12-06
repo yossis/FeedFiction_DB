@@ -20,11 +20,14 @@ class ImagesController < ApplicationController
   def instagram
     if (current_user.has_instagram?)
       @images = Image.get_images(current_user, ImageType.instagram_id)
-      
+      respond_to do |format|
+        format.html
+        format.js { render 'facebook'}
+      end
     else
       redirect_to :controller => 'sessions', :action => 'connect_instagram' #if !session[:access_token] 
     end
-
+    
   end
 
   def upload
