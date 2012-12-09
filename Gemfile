@@ -21,6 +21,7 @@ gem 'carrierwave_direct'
 gem 'sidekiq'
 gem 'capistrano'
 gem 'rvm-capistrano'
+gem 'therubyracer'
 
 gem 'rspec-rails'
 gem 'rspec'

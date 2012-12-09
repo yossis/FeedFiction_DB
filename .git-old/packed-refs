@@ -1,0 +1,5 @@
+# pack-refs with: peeled 
+5bf0dc698b509a2475562635795e6eb46578fb14 refs/heads/master
+2d070485d9b66f41b9c8ef42eace7473d19f1ba5 refs/heads/static-pages
+422404c06701bffcd60572abbae5bcd719acbe47 refs/remotes/heroku/master
+5bf0dc698b509a2475562635795e6eb46578fb14 refs/remotes/origin/master
