@@ -25,36 +25,7 @@ var feedfiction = {
            
         },
 
-        addPreloader:function(obj,element,message,cssClass) {
-            if (obj)
-                $(obj).attr('disabled','disabled');
-            if (message==null)
-                    message = 'loading..';
-            if (cssClass==null)
-                    cssClass = 'loading';
-            if (element == null) {
-                element = $(obj).add('<span>'+message+'</span>').addClass(cssClass);
-            }
-            else{
-                $(element).addClass(cssClass);
-            }
-        },
-
-        removePreloader:function(obj,cssClass,element){
-            if (obj){
-                $(obj).removeAttr('disabled');
-            }
-            if (cssClass == null) {
-                cssClass='loading';
-            }
-            if (element == null) {
-                $(obj).not(cssClass);
-                }
-            else{
-                $(element).removeClass(cssClass);
-            }
-        },
-
+        
         clearCommentText: function(){
             $('.add-comment textarea').val('');
          },
@@ -126,7 +97,10 @@ var feedfiction = {
 
         startStoryModal: function(){
           feedfiction.actions.startStoryReset();
+          var toggleLoading = $('#StartStoryModal .preloader');
           $('#StartStoryModal').modal('show');
+          // $("#StartStoryModal .logo-images a").on("ajax:before",  alert("hh")).bind("ajax:complete", alert("jj"));
+
           var counter = $('#StartStoryModal #start-story .counter-text');
           $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
           $('.start-story-form textarea').live('click' , function(){
@@ -160,9 +134,11 @@ var feedfiction = {
              // set the hidden file 
             $('#story_image_id').attr('value', id);
 
-            $('#StartStoryModal #start-story').show();
-            $('#StartStoryModal').addClass('behaviour-story-form');
+            $('#StartStoryModal #start-story').show(600);
+
+            //$('#StartStoryModal').switchClass('change','behaviour-story-form');
             feedfiction.actions.startStoryBradCrumbsNext();
+            $('#StartStoryModal').animate({overflow:'visible', width: '400px', height: 'auto', left: '56%'});
             // $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
             //   $(this).css({float:'none',display:'block'});
             // });
@@ -200,38 +176,7 @@ var feedfiction = {
           $('.ss-feed-form textarea').val('');
           $('#start-story-form .modal-body h3').html('');
           $('#images img').attr('src', '');
-        },
-
-        implementEvent: function(e){
-          //Open new LightBox with start story component 
-          
-          // Update the layout.
-          //handler.wookmark();
-           
-          if (e!=null && $('#start-story-container #start-story-form').length ==0) {
-            $('#start-story-form').appendTo($('#start-story-container'));
-            $('#start-story-form').show();
-          }
-          $('#start-story .ss-image').empty();
-          feedfiction.actions.resetStartStoryForm();
-          if (e!=null){
-              var image = $('img', e).attr('src');
-              var id = $('img', e).attr('id').replace('image_','');
-              if ($('#start-story .ss-image img').length >0) {
-                $('#start-story .ss-image img').attr('src', image);
-              }
-              else
-              {
-                $('#start-story .ss-image').append('<img width="200" src="'+image+'"/>');
-              }
-              $('#start-story-form .ss-feed-form input[type=hidden].ss-image').attr('value', id);
-          }
-          $('#start-story-form textarea').textareaCounter({title: '#start-story-form h3',submit:'#start-story-form .modal-footer input[type=submit]', enableSubmitAfterNumWords:10});
-          if (e!=null)
-              $('#start-story').modal('toggle');
-
         }
-
 
     },
     /*
@@ -362,6 +307,8 @@ var feedfiction = {
     alert: function(message) {
         alert(message);
     },
+
+
     enableCustomDropDown: function() {
       $('div.select-box').each(function(){
         $(this).children('span.selected').html($(this).children('ul.select-options').children('li.select-option:first').html());

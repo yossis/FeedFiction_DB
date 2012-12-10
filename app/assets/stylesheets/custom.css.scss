@@ -61,6 +61,10 @@ a.link {
 .close-modal {
 	background: url('close_btn_modal.png') no-repeat;
 }
+
+.preloader {
+	background: url('preloader.gif') center center no-repeat;
+}
 header {
 	background-color: $background-header;
 	border-bottom: 0;
@@ -868,14 +872,20 @@ ul.commentlist {
 		width: 55px;
 		height: 23px;
 		float: right;
-		position: relative;
-		top: -22px; left: -22px;
+		position: absolute;
+		top: -22px; left: 8px;
 		cursor: pointer;
 	}
-
-	h2 {
-		padding-left: 45px;
+	.preloader {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+			opacity: 0.9;
 	}
+
+
+	
 	
 	li {
 		font-size: 15px;
@@ -903,9 +913,11 @@ ul.commentlist {
 	}
 
 	.story-bradcrumbs {
-		padding-left: 45px;
+		
 		li {
 			padding: 10px 0;
+			display: block;
+			float: none;
 			span {
 				margin-right: 5px;
 			}
@@ -925,10 +937,16 @@ ul.commentlist {
 		p {
 			padding-left: 45px;
 			font-size: 20px;
+			
 
 		}
+		
 	}
-
+	.modal-header {
+		position: absolute;
+		left: -200px;
+		border: 0;
+	}
 	.modal-footer {
 		background-color: #fff;
 		padding: 40px;
@@ -953,25 +971,25 @@ ul.commentlist {
 	}
 
 	&.behaviour-story-form {
-		width: 600px;
+		width: 400px;
 		.modal-header {
 			position: absolute;
 			border: 0;
-			ul {
+			/*ul {
 				li {
 					display: block;
 					float: none;
 				}
-			}
+			}*/
 		}
 
 		.modal-body {
 			max-height: none;
 		}
 
-		ul.start-story-form {
+		/*ul.start-story-form {
 			float: right;
-		}
+		}*/
 		
 	}
 
