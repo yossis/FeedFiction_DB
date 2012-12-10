@@ -872,8 +872,8 @@ ul.commentlist {
 		width: 55px;
 		height: 23px;
 		float: right;
-		position: absolute;
-		top: -22px; left: 8px;
+		position: relative;
+		top: -22px; left: -22px;
 		cursor: pointer;
 	}
 	.preloader {
@@ -943,9 +943,9 @@ ul.commentlist {
 		
 	}
 	.modal-header {
-		position: absolute;
+		/*position: absolute;
 		left: -200px;
-		border: 0;
+		border: 0;*/
 	}
 	.modal-footer {
 		background-color: #fff;
@@ -973,8 +973,8 @@ ul.commentlist {
 	&.behaviour-story-form {
 		width: 400px;
 		.modal-header {
-			position: absolute;
-			border: 0;
+			/*position: absolute;*/
+			/*border: 0;*/
 			/*ul {
 				li {
 					display: block;

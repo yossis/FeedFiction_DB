@@ -138,7 +138,8 @@ var feedfiction = {
 
             //$('#StartStoryModal').switchClass('change','behaviour-story-form');
             feedfiction.actions.startStoryBradCrumbsNext();
-            $('#StartStoryModal').animate({overflow:'visible', width: '400px', height: 'auto', left: '56%'});
+            $('#StartStoryModal').addClass('behaviour-story-form');
+            $('#StartStoryModal').animate({overflow:'visible', width: '400px', left: '56%'});
             // $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
             //   $(this).css({float:'none',display:'block'});
             // });
