@@ -137,9 +137,11 @@ var feedfiction = {
             $('#StartStoryModal #start-story').show(600);
 
             //$('#StartStoryModal').switchClass('change','behaviour-story-form');
-            feedfiction.actions.startStoryBradCrumbsNext();
+            //feedfiction.actions.startStoryBradCrumbsNext();
             $('#StartStoryModal').addClass('behaviour-story-form');
             $('#StartStoryModal').animate({overflow:'visible', width: '400px', left: '56%'});
+            $('#StartStoryModal.modal').css('top','40%');
+            
             // $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
             //   $(this).css({float:'none',display:'block'});
             // });
