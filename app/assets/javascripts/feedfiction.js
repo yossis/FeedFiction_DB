@@ -102,13 +102,21 @@ var feedfiction = {
           // $("#StartStoryModal .logo-images a").on("ajax:before",  alert("hh")).bind("ajax:complete", alert("jj"));
 
           var counter = $('#StartStoryModal #start-story .counter-text');
-          $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
+         // $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
+          $('.start-story-form textarea').textareaCounter({labelCounter:counter ,callback:feedfiction.actions.validateWriteStorySteps});
           $('.start-story-form textarea').live('click' , function(){
             if ($('#StartStoryModal div.select-box').attr('value') == '0') {
-              feedfiction.alert('Please choose category');
+              feedfiction.actions.blinkCategoriesDropBox();
+              feedfiction.actions.categoriesDropBoxFocus();
+
+              //feedfiction.alert('Please choose category');
             }
             
           })
+        },
+
+        validateWriteStorySteps: function(chars, words){
+          alert(words);
         },
 
         startStoryReset: function(){
@@ -140,12 +148,25 @@ var feedfiction = {
             //feedfiction.actions.startStoryBradCrumbsNext();
             $('#StartStoryModal').addClass('behaviour-story-form');
             $('#StartStoryModal').animate({overflow:'visible', width: '400px', left: '56%'});
-            $('#StartStoryModal.modal').css('top','40%');
+            $('#StartStoryModal.modal').css('top','40%' ,function(){
+
+            });
+            $('#StartStoryModal .select-box span').delay(1000).effect("highlight", {color:'#4096EE'}, 600);
+
+            
             
             // $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
             //   $(this).css({float:'none',display:'block'});
             // });
           });
+        },
+
+        blinkCategoriesDropBox: function(){
+          $('#StartStoryModal .select-box span').effect("highlight", {color:'#4096EE'}, 600);
+        },
+
+        categoriesDropBoxFocus: function(){
+          $('#StartStoryModal .select-box span').focus();
         },
 
         startStoryBradCrumbsNext: function(){

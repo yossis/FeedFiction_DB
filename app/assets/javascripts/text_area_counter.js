@@ -19,6 +19,7 @@
 
 		};	
 		var options = $.extend(defaults, options);
+		var lastWordCount = 0;
  
 		// and the plugin begins
 		return this.each(function() {
@@ -37,7 +38,7 @@
 			    if(text === "") {
 			    	wordcount = 0;
 			    } else {
-				    wordcount = $.trim(text).split(/\s/).length;
+				    wordcount = $.trim(text).split(' ').length;
 				}
 
 				// Set title
@@ -68,10 +69,11 @@
 					}
 			        $(counterText).html((options.limit - wordcount)+' words left out of 55');
 			    }
-			    if (options.callback!=null){
+			    if (options.callback!=null && wordcount != lastWordCount){
 			    	//callback
-			    	options.callback(charCount,(options.limit - wordcount));
+			    	options.callback(charCount,wordcount/*(options.limit - wordcount)*/);
 			    }
+			    lastWordCount = wordcount;
 			});
 		});
 	};

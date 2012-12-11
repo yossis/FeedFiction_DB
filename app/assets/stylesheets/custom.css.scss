@@ -865,7 +865,9 @@ ul.commentlist {
 
 /* Start a stry wizard */
 #StartStoryModal {
-	
+	h2,h3 {
+		text-align: center;
+	}
 	width: 650px;
 	overflow: visible;
 	.close-modal {
@@ -1009,6 +1011,11 @@ ul.commentlist {
 
 		div.select-box {
 			width: 350px;
+			&.selected-blink span{
+				color: #F6F6F6;
+				background: #4096EE;
+			}
+
 			ul.select-options {
 				width: 348px;
 				li.select-option {
@@ -1019,8 +1026,8 @@ ul.commentlist {
 				}
 			}
 			span.selected, span.select-arrow {
-				border:1px solid #AD9C9C !important;
-				border-right: 0 !important;
+				border:1px solid #AD9C9C;
+				border-right: 0;
 				background: rgb(255,255,255); /* Old browsers */
 				background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
 				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
@@ -1029,7 +1036,7 @@ ul.commentlist {
 				background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
 				background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
-				color: inherit !important;
+				color: inherit;
 
 			}
 
@@ -1064,6 +1071,7 @@ ul.commentlist {
 
 	.counter-announce {
 		line-height: 29px;
+		float: left;
 	}
 
 	.counter-text {
@@ -1073,7 +1081,7 @@ ul.commentlist {
 	}
 
 	.btn-create-story {
-		float: right;
+		text-align: center;
 	}
 }
 .social-upload {
