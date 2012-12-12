@@ -19,11 +19,13 @@ gem 'carrierwave'
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
-# gem 'capistrano'
-# gem 'rvm-capistrano'
+gem 'capistrano'
+gem 'rvm-capistrano'
 
-
-
+gem 'rspec-rails'
+gem 'rspec'
+gem 'rspec-core'
+gem 'jquery-fileupload-rails'
 
 group :development, :test do
   gem 'capybara', '1.1.2'
@@ -35,16 +37,12 @@ group :development, :test do
   gem 'pry-rails'
   gem 'factory_girl_rails'
   gem 'faker'
-
-  gem 'rspec-rails'
-  gem 'rspec'
-  gem 'rspec-core'
 end
 
 gem 'annotate', ">=2.5.0" , group: :development
 
 group :test do
-	gem 'rb-inotify', '0.8.8'
+  gem 'rb-inotify', '0.8.8'
   gem 'libnotify', '0.5.9'
 end
 
@@ -60,7 +58,7 @@ group :assets,:staging do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass'
-  gem 'jquery-fileupload-rails'
+ 
   #gem 'twitter-bootstrap-rails'
 end
 
@@ -73,7 +71,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-#gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
