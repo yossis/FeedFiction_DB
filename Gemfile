@@ -19,13 +19,11 @@ gem 'carrierwave'
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
-gem 'capistrano'
-gem 'rvm-capistrano'
-gem 'therubyracer'
+# gem 'capistrano'
+# gem 'rvm-capistrano'
 
-gem 'rspec-rails'
-gem 'rspec'
-gem 'rspec-core'
+
+
 
 group :development, :test do
   gem 'capybara', '1.1.2'
@@ -37,6 +35,10 @@ group :development, :test do
   gem 'pry-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+
+  gem 'rspec-rails'
+  gem 'rspec'
+  gem 'rspec-core'
 end
 
 gem 'annotate', ">=2.5.0" , group: :development
@@ -71,7 +73,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-gem 'unicorn'
+#gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
