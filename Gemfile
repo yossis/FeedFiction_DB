@@ -21,11 +21,11 @@ gem 'carrierwave_direct'
 gem 'sidekiq'
 gem 'capistrano'
 gem 'rvm-capistrano'
-gem 'therubyracer'
 
 gem 'rspec-rails'
 gem 'rspec'
 gem 'rspec-core'
+gem 'jquery-fileupload-rails'
 
 group :development, :test do
   gem 'capybara', '1.1.2'
@@ -58,7 +58,7 @@ group :assets,:staging do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass'
-  gem 'jquery-fileupload-rails'
+ 
   #gem 'twitter-bootstrap-rails'
 end
 
