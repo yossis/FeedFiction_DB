@@ -12,7 +12,7 @@ body {
 
 h2 {
 	font-family: $story-font !important;
-	font-size: 25px;
+	font-size: 20px;
 }
 
 /*h3 {
@@ -866,16 +866,18 @@ ul.commentlist {
 /* Start a stry wizard */
 #StartStoryModal {
 	h2,h3 {
-		text-align: center;
+		/*text-align: center;*/
 	}
 	width: 650px;
-	overflow: visible;
+	&.modal {
+		overflow: visible !important;
+	}
 	.close-modal {
 		width: 55px;
 		height: 23px;
 		float: right;
 		position: relative;
-		top: -22px; left: -22px;
+		top: -21px; left: -22px;
 		cursor: pointer;
 	}
 	.preloader {
@@ -1081,6 +1083,7 @@ ul.commentlist {
 	}
 
 	.btn-create-story {
+		float: right;
 		text-align: center;
 	}
 }

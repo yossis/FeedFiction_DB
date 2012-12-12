@@ -45,7 +45,9 @@ jQuery(document).ready(function($){
 	    maxItems: 8,
 		controlNav: false,
 		directionNav: false,
-		move: 2
+		move: 2,
+		slideshowSpeed: 19000  ,
+		animationSpeed: 1600
       });
 
 
@@ -121,7 +123,8 @@ jQuery(document).ready(function($){
 	
 	$('#da-slider').cslider({
 		autoplay	: true,
-		bgincrement	: 50
+		bgincrement	: 50,
+		interval: 10000
 	});
 
 });

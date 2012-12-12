@@ -1,7 +1,7 @@
 <div class="thumb">
   <% if image.image_thumb? && image.image_processed %>
-  <%= link_to image_tag(image.image_thumb_url(:thumb)) %>
+  <%= link_to image_tag(image.image_thumb_url(:thumb), id: image.id) %>
   <%else%>
-  <%= link_to image_tag(image.image_source) %>
+  <%= link_to image_tag(image.image_source , id: image.id) %>
   <%end%>
 </div>

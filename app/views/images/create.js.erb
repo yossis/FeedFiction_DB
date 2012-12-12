@@ -1,7 +1,8 @@
 <% if @image.new_record? %>
   feedfiction.alert("Failed to upload image: <%= j @image.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-  $("#upload-component").html("<%= j render('images/uploader') %>");
-  $("#images").html("<%= j render(@image) %>");
-  $('#story_image_id').val('<%=@image.id%>');
+   var li = $('<li></li>').html("<%= j render(@image) %>");
+   feedfiction.actions.enableStartStoryForm.apply($(li));
+  // $("#images").html("<%= j render(@image) %>");
+  // $('#story_image_id').val('<%=@image.id%>');
 <% end %>
