@@ -69,10 +69,10 @@
 					}
 			        $(counterText).html((options.limit - wordcount)+' words left out of 55');
 			    }
-			    if (options.callback!=null && wordcount != lastWordCount){
+			    //if (options.callback!=null && wordcount != lastWordCount){
 			    	//callback
 			    	options.callback(charCount,wordcount/*(options.limit - wordcount)*/);
-			    }
+			    //}
 			    lastWordCount = wordcount;
 			});
 		});

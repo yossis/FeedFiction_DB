@@ -5,17 +5,15 @@
 		<li><div id="start-story-form-image">In Process...</div>
 			<%=f.hidden_field :image_id , :class => 'start-story-image' %>
 		</li>
-		<li><%= render 'categories/custom_drop_down_categories' %>
-			<%= f.hidden_field :category_id , class: 'start-story-category'%>
-		</li>
+		
 		<li><span class="counter-text">55 words left out of 55</span></li>
 		<li>
 			<textarea name='story_line[line]' placeholder="Write here..."></textarea>
 			
 		</li>
 		<li>
-			<span class="counter-announce">10 words min.</span>
-		<input type="submit" class="btn btn-create-story" value="Feed it! or let other continue" name="commit" disabled/>
+			<span class="counter-announce">1 word min.</span>
+		<input type="submit" class="btn btn-create-story" value="Feed it" name="commit" disabled/>
 		</li>					
 	</ul>		
   

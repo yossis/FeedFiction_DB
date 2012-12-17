@@ -72,7 +72,7 @@ end
 
 namespace :sidekiq do
   task :start, roles: :sidekiq do
-    run "cd #{current_path}; sidekiq -e #{rails_env}"
+    run "cd #{current_path}; bundle exec sidekiq -e #{rails_env}"
   end
 
   task :stop, roles: :sidekiq do
