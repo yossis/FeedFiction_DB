@@ -293,6 +293,22 @@ footer {
 
 }
 
+/* Home page */
+.slider-wrapper {
+	background: url('hpcollage_blur.jpg') repeat-x;
+	height: 500px;
+
+	p {
+		color: #fff;
+		font-size: 30px;
+		margin: 0 auto;
+		width: 500px;
+		position: relative;
+		top: 150px;	
+		line-height: 34px;
+	}
+}
+
 /* Photo Stream
 =================================================================== */
 .flickr-widget {margin-right: -12px; margin-top: 15px; padding: 0px 5px}

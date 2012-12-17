@@ -103,16 +103,18 @@ var feedfiction = {
 
           var counter = $('#StartStoryModal #start-story .counter-text');
          // $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
-          $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10, labelCounter:counter ,callback:feedfiction.actions.validateWriteStorySteps});
+          $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', labelCounter:counter ,callback:feedfiction.actions.validateWriteStorySteps});
           
         },
 
         validateWriteStorySteps: function(chars, words){
-          if (words>=10){
-            $('#StartStoryModal .counter-announce').hide();
+          if (chars<2){
+            $('#StartStoryModal .counter-announce').show();
+        $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');    
           }
           else{
-            $('#StartStoryModal .counter-announce').show();
+            $('#StartStoryModal .counter-announce').hide();
+            $('#StartStoryModal .btn-create-story').addClass('btn-primary').removeAttr('disabled');
           }
 
         },
@@ -360,7 +362,7 @@ var feedfiction = {
         
         $(this).find('li.select-option').click(function(){
           $(this).parent().css('display','none');
-          $(this).closest('div.select-box').attr('value',$(this).attr('category-value'));
+          //$(this).closest('div.select-box').attr('value',$(this).attr('category-value'));
           $(this).parent().siblings('span.selected').html($(this).html());
           // if ($(this).closest('div.select-box').attr('value') == '0') {
           //   $(this).closest('div.select-box').addClass('choose-category');

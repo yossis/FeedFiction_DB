@@ -5,20 +5,7 @@
 	    <ul class="nav">
 	      <li><%=link_to 'My Feed', root_url if current_user%></li>
 	      <li><%=link_to 'Everything', general_feed_url%></li>
-	      <li><a href="#" data-toggle="dropdown" class="dropdown-toggle">Categories <b class="caret"></b></a>
-	      		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-	      			<li>
-	      				<% Category.all.each_slice(17) do |slice| -%>
-								   <span> 
-								    <% slice.each do |category| -%>
-								      <%= link_to category.name ,category %>
-								    <% end -%>
-								  </span> 
-								<% end -%>
-
-	      			</li>	
-	      		</ul>
-	      </li>
+	      <li><%=link_to 'Popular', '#'%></li>
 	    </ul>
 	  </div>
 	</div>
