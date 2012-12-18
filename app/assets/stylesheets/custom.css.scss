@@ -884,7 +884,7 @@ ul.commentlist {
 	h2,h3 {
 		/*text-align: center;*/
 	}
-	width: 650px;
+	width: 555px;
 	&.modal {
 		overflow: visible !important;
 	}
@@ -937,7 +937,7 @@ ul.commentlist {
 		li {
 			padding: 10px 0;
 			display: block;
-			float: none;
+			/*float: none;*/
 			span {
 				margin-right: 5px;
 			}
@@ -977,9 +977,16 @@ ul.commentlist {
 	.logo-images {
 		text-align: center;
 		padding: 30px 0;
+		div.span2 {
+			background-color: #eee;
+			margin-left: 5px;
+		}
+		.first {
+			margin-left: 10px;
+		}
 		a {
 			display: inline-block;
-			width: 100px;
+			width: 110px;
 			text-align: center;
 			padding: 10px 20px;
 			text-decoration: none;

@@ -16,6 +16,12 @@ var feedfiction = {
         *   opens the link in a lightbox instead of in the window
         *   It uses the href and title parts of the link.
         */
+        setPreloader: function(e){
+          $(e).removeClass('hide').removeAttr('style').show('slow');
+          $(this).bind("ajax:success", function() {
+            $(e).hide();
+            });
+        },
         continueStory:function(id) {
             //Change form
             //var form = $('#story-'+id).find('form');
@@ -110,11 +116,14 @@ var feedfiction = {
         validateWriteStorySteps: function(chars, words){
           if (chars<2){
             $('#StartStoryModal .counter-announce').show();
-        $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');    
+            $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');    
           }
           else{
             $('#StartStoryModal .counter-announce').hide();
             $('#StartStoryModal .btn-create-story').addClass('btn-primary').removeAttr('disabled');
+          }
+          if (words==55){
+            $('#StartStoryModal .btn-create-story').html('The End');
           }
 
         },
@@ -308,6 +317,8 @@ var feedfiction = {
         $('.btn-following').live('hover', feedfiction.actions.writeUnfollowButton);
         $('#imageForStory ul li.story-box').live('click', feedfiction.actions.enableStartStoryForm);
         feedfiction.enableCustomDropDown();
+        
+        
         //$('.story-item').on('hover', '.story-with-owners span', feedfiction.actions.boldWriterLine);
         //$('a.like-link').on('click', function(e) {alert('hh')});
         //var storyBox = '#tiles li.continue-story';
@@ -319,6 +330,7 @@ var feedfiction = {
 
        
     },
+    
     post_to_url: function (path, params, method) {
         method = method || "post"; // Set method to post by default, if not specified.
 

@@ -13,7 +13,8 @@
 		</li>
 		<li>
 			<span class="counter-announce">1 word min.</span>
-		<input type="submit" class="btn btn-create-story" value="Feed it" name="commit" disabled/>
+			<%= f.button 'Feed It', :class => 'btn btn-create-story', disabled: true, disable_with: 'Processing...'%>
+		<!-- <input type="submit" class="btn btn-create-story" value="Feed it" name="commit" disabled/> -->
 		</li>					
 	</ul>		
   
