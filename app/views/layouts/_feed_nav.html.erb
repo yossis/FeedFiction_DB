@@ -6,6 +6,10 @@
 	      <li><%=link_to 'My Feed', root_url if current_user%></li>
 	      <li><%=link_to 'Everything', general_feed_url%></li>
 	      <li><%=link_to 'Popular', '#'%></li>
+
+	    </ul>
+	    <ul class="nav pull-right">
+	    	<li class="disabled"><%=link_to 'Invite your friends', '#', id:'facebook_invitation_link'%></li>
 	    </ul>
 	  </div>
 	</div>

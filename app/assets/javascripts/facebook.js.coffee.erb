@@ -21,3 +21,17 @@ window.fbAsyncInit = ->
     FB.getLoginStatus (response) ->
       FB.logout() if response.authResponse
     true
+
+  $("#facebook_invitation_link").click ->
+    FB.ui
+      method: "send"
+      name: "Check out Feedficton!"
+      description: "Setapp finds you applications and tools that you must know, based on your expertise."
+      link: "http://alpha.feedfiction.com/invitation/c3301fe4"
+    , (data) ->
+      AnalyticsManager.trackPage "/invite_via_facebook_sent"  if data?
+
+  AnalyticsManager.trackPage "/invite_via_facebook"
+  false
+
+ 

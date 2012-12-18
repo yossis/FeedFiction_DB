@@ -36,7 +36,8 @@
 	              			<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story..'></textarea>
 			  							
 			  							<div>
-			  							<input type="submit" name="submit-story" value="submit" class="btn btn-small" disabled/>
+			  							<%= f.submit 'Feed It', class: 'btn btn-small', disabled: true ,disable_with: 'Processing...'%>
+			  							
 			  							</div>
 			              </div>
 						<!-- </div> -->

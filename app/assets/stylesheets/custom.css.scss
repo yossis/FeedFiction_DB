@@ -602,6 +602,9 @@ footer {
 	.round-avatar {
 		float:left;
 	}
+	.counter-text {
+		padding-left: 47px;
+	}
 	.textarea-with-button{
 		textarea {
 			width: 82%;
@@ -976,13 +979,13 @@ ul.commentlist {
 
 	.logo-images {
 		text-align: center;
-		padding: 30px 0;
+		/*padding: 30px 0;*/
 		div.span2 {
 			background-color: #eee;
 			margin-left: 5px;
 		}
 		.first {
-			margin-left: 10px;
+			margin-left: 0 !important;
 		}
 		a {
 			display: inline-block;

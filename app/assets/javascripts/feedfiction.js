@@ -12,10 +12,7 @@ var feedfiction = {
     *       Meant to be used in conjunction with the class="userFunction" and data-function="functionName_arguments" style
     */
     actions: {
-        /*
-        *   opens the link in a lightbox instead of in the window
-        *   It uses the href and title parts of the link.
-        */
+        
         setPreloader: function(e){
           $(e).removeClass('hide').removeAttr('style').show('slow');
           $(this).bind("ajax:success", function() {
@@ -130,6 +127,7 @@ var feedfiction = {
 
         startStoryReset: function(){
           //$('#StartStoryModal').width('650px').css('left','50%');
+          feedfiction.actions.storyBradCrumbsReset();
           $('#StartStoryModal').removeClass('behaviour-story-form').removeAttr('style');
           $('#StartStoryModal #imageTiles').removeAttr('style').empty();
           $('#StartStoryModal .modal-footer').hide();
@@ -137,16 +135,10 @@ var feedfiction = {
           $('#StartStoryModal #start-story').removeAttr('style').hide();
           $('#StartStoryModal #upload-form').removeAttr('style').hide();
           $('#StartStoryModal #uploadProviders').show();
-
-          
-
         },
 
         enableStartStoryForm: function(){
           
-          //$('#StartStoryModal').rotate3Di(180, 3000);
-          // $('#StartStoryModal').hide();
-          // $('#start-story').show();
           var li = $(this);
 
           $('#StartStoryModal #imageTiles').hide(1200, function(){
@@ -160,7 +152,7 @@ var feedfiction = {
             $('#StartStoryModal #start-story').show(600);
 
             //$('#StartStoryModal').switchClass('change','behaviour-story-form');
-            //feedfiction.actions.startStoryBradCrumbsNext();
+            feedfiction.actions.startStoryBradCrumbsNext();
             $('#StartStoryModal').addClass('behaviour-story-form');
             $('#StartStoryModal').animate({overflow:'visible', width: '400px', left: '56%'});
             $('#StartStoryModal.modal').css('top','40%' ,function(){
@@ -182,6 +174,19 @@ var feedfiction = {
 
         categoriesDropBoxFocus: function(){
           $('#StartStoryModal .select-box span').focus();
+        },
+
+        storyBradCrumbsReset: function(){
+          var start = true
+          $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
+              if (start){
+                $(this).addClass('current-crumbs');
+                start = false;
+              }
+              else {
+                $(this).removeClass('current-crumbs');
+              }
+            });
         },
 
         startStoryBradCrumbsNext: function(){

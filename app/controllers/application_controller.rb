@@ -12,10 +12,11 @@ class ApplicationController < ActionController::Base
   
 
   def authenticate
-    if Rails.env.production? && false
+    if Rails.env.production? 
       authenticate_or_request_with_http_basic do |username, password|
-         u = Account.authorize(username,password)
-         u.present?
+        username == "foo" && password == "bar"
+      #    u = Account.authorize(username,password)
+      #    u.present?
       end 
     end
   end
