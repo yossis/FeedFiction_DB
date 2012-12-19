@@ -28,10 +28,6 @@ window.fbAsyncInit = ->
       name: "Check out Feedficton!"
       description: "Connect with friends and family to transform your photos into great short stories. Create, Inspire, Share. Have fun, Together."
       link: "http://alpha.feedfiction.com"
-    , (data) ->
-      AnalyticsManager.trackPage "/invite_via_facebook_sent"  if data?
-
-  AnalyticsManager.trackPage "/invite_via_facebook"
-  false
+    false
 
  
