@@ -8,9 +8,14 @@
 	      <li><%=link_to 'Popular', '#'%></li>
 
 	    </ul>
+	    <% if current_user && current_user.invitation_limit > 0 %>
 	    <ul class="nav pull-right">
-	    	<li class="disabled"><%=link_to 'Invite your friends', '#', id:'facebook_invitation_link'%></li>
+	    	<li><%=link_to 'Invite your friends', '#', id:'facebook_invitation_link'%></li>
 	    </ul>
+	    
+	      <%#= link_to 'Send invitation', new_invitation_path %>
+		  <% end %>
+	    
 	  </div>
 	</div>
 <div class="logo-framework">

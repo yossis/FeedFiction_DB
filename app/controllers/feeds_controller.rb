@@ -22,7 +22,6 @@ class FeedsController < ApplicationController
     def init_vars
      @feed_name = 'Everything'
      @feed_logo_color = 'everything-logo'
-     @story_line = StoryLine.new
      @donot_show_disclaimer = true
     end
 

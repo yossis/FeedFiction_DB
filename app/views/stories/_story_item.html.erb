@@ -23,7 +23,7 @@
 					<div id="flag-<%=story.id%>" class="modal hide fade flag-container"></div>
 				<% unless story.is_complete%>
 					<div class="continue-story-text-area">
-						<%= simple_form_for @story_line , html: {class: 'form-horizontal'}, remote: true  do |f| %>
+						<%= simple_form_for StoryLine.new , html: {class: 'form-horizontal'}, remote: true  do |f| %>
 						
 						<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
 						<%= f.hidden_field :story_id, value: story.id %>

@@ -321,7 +321,12 @@ var feedfiction = {
         $('.story-with-owners span').live('hover', feedfiction.actions.boldWriterLine);
         $('.btn-following').live('hover', feedfiction.actions.writeUnfollowButton);
         $('#imageForStory ul li.story-box').live('click', feedfiction.actions.enableStartStoryForm);
-        feedfiction.enableCustomDropDown();
+        $('#registration_wizard').modal({
+           keyboard: false,
+           show: true,
+           backdrop: 'static'
+        });
+        //feedfiction.enableCustomDropDown();
         
         
         //$('.story-item').on('hover', '.story-with-owners span', feedfiction.actions.boldWriterLine);

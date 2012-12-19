@@ -1,4 +1,6 @@
 FeedFiction::Application.routes.draw do
+  resources :invitations
+
   resources :accounts
 
   resources :flags

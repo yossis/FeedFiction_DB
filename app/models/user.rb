@@ -20,7 +20,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count
+  attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count, :invitation_token, :invitation_limit
 
   has_many :stories
   has_many :liked_stories, through: :likes , source: :story
@@ -36,6 +36,12 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships
   has_many :notifications , foreign_key: 'notified_user_id'
+  has_many :sent_invitations, class_name: 'Invitation', foreign_key: 'sender_id'
+  belongs_to :invitation
+
+  before_create :set_invitation_limit
+
+
 
   def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -108,6 +114,20 @@ class User < ActiveRecord::Base
 
   def fb_token_expired?
     self.oauth_expires_at < Time.now
+  end
+
+  def invitation_token
+    invitation.token if invitation
+  end
+
+  def invitation_token=(token)
+    self.invitation = Invitation.find_by_token(token)
+  end
+
+  private
+
+  def set_invitation_limit
+    self.invitation_limit = 10
   end
 
   # def avatar_large

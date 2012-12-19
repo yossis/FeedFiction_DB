@@ -293,6 +293,10 @@ footer {
 
 }
 
+#facebook_invitation_link {
+	display: inline-block;
+}
+
 /* Home page */
 .slider-wrapper {
 	background: url('hpcollage_blur.jpg') repeat-x;
@@ -364,17 +368,18 @@ footer {
 /* Logos */
 .logo {
 	height: 0;
+	margin-top: 6px;
 	i {
 		margin-top: 0px;
 		color: #fff;
 	}
 	a{
-		height:30px;
+		/*height:30px;*/
 		/*color: #DDD;*/
 		text-decoration: none;
 		font-size: 22px;
 		line-height: 22px;
-		margin-left: 10px;
+		margin-left: 0px;
 	}
 }
 .logo ,.small-logo{

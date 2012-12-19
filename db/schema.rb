@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121029205307) do
+ActiveRecord::Schema.define(:version => 20121218194747) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -105,6 +105,15 @@ ActiveRecord::Schema.define(:version => 20121029205307) do
 
   add_index "images", ["source_object_id", "image_type_id"], :name => "index_images_on_source_object_id_and_image_type_id", :unique => true
   add_index "images", ["user_id"], :name => "index_images_on_user_id"
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "sender_id"
+    t.string   "recipient_email"
+    t.string   "token"
+    t.datetime "sent_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "last_imports", :force => true do |t|
     t.integer  "user_id"
@@ -204,11 +213,13 @@ ActiveRecord::Schema.define(:version => 20121029205307) do
     t.string   "gender"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.integer  "login_count",      :default => 0
     t.string   "big_avatar"
     t.string   "cover"
+    t.integer  "invitation_id"
+    t.integer  "invitation_limit", :default => 10
   end
 
   add_foreign_key "comments", "stories", :name => "comments_story_id_fk"
@@ -221,6 +232,8 @@ ActiveRecord::Schema.define(:version => 20121029205307) do
   add_foreign_key "images", "album_types", :name => "images_album_type_id_fk"
   add_foreign_key "images", "image_types", :name => "images_image_type_id_fk"
   add_foreign_key "images", "users", :name => "images_user_id_fk"
+
+  add_foreign_key "invitations", "users", :name => "invitations_sender_id_fk", :column => "sender_id"
 
   add_foreign_key "last_imports", "image_types", :name => "last_imports_image_type_id_fk"
   add_foreign_key "last_imports", "users", :name => "last_imports_user_id_fk"

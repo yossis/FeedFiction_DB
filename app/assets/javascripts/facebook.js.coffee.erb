@@ -26,8 +26,8 @@ window.fbAsyncInit = ->
     FB.ui
       method: "send"
       name: "Check out Feedficton!"
-      description: "Setapp finds you applications and tools that you must know, based on your expertise."
-      link: "http://alpha.feedfiction.com/invitation/c3301fe4"
+      description: "Connect with friends and family to transform your photos into great short stories. Create, Inspire, Share. Have fun, Together."
+      link: "http://alpha.feedfiction.com"
     , (data) ->
       AnalyticsManager.trackPage "/invite_via_facebook_sent"  if data?
 
