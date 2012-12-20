@@ -21,12 +21,13 @@ role :sidekiq, "198.74.61.35"
 set :rvm_type, :system
 set :rvm_ruby_string, "1.9.3-turbo"
 
+set :rake, "bundle exec rake"
+
 set :rails_env, "production"
 
-after "deploy:update_code", "deploy:bundle_install"
+before "deploy:assets:precompile", "deploy:bundle_install"
 after "deploy:bundle_install", "deploy:migrate"
 after "deploy:restart", "sidekiq:restart"
-after "sidekiq:restart", "deploy:cleanup"
 
 
 namespace :deploy do
@@ -72,11 +73,11 @@ end
 
 namespace :sidekiq do
   task :start, roles: :sidekiq do
-    run "cd #{current_path}; bundle exec sidekiq -e #{rails_env}"
+    run "cd #{current_path}; bundle exec sidekiq -e #{rails_env} > log/sidekiq.log 2>&1 &", :pty => false
   end
 
   task :stop, roles: :sidekiq do
-    run "ps aus | grep sidekiq | grep -v grep | awk {'print $2'} | xargs -r sudo kill -s QUIT"
+    run "ps aux | grep sidekiq | grep -v grep | awk {'print $2'} | xargs -r sudo kill -s QUIT"
   end
 
   task :restart, roles: :sidekiq do
