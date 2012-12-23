@@ -26,15 +26,15 @@ gem 'rspec-rails'
 gem 'rspec'
 gem 'rspec-core'
 gem 'jquery-fileupload-rails'
-
+gem 'pry'
+gem 'pry-rails'
 group :development, :test do
   gem 'capybara', '1.1.2'
   gem 'guard-rspec', '0.5.5'
   gem 'guard-spork', '0.3.2'
   gem 'spork', '0.9.0'
   #gem 'debugger' use binding.pry instead
-  gem 'pry'
-  gem 'pry-rails'
+  
   gem 'factory_girl_rails'
   gem 'faker'
 end

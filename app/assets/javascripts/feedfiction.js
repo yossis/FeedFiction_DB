@@ -12,221 +12,258 @@ var feedfiction = {
     *       Meant to be used in conjunction with the class="userFunction" and data-function="functionName_arguments" style
     */
     actions: {
+
+      startRegistrationWizard: function(){
+       $('#registration_wizard').modal({
+           keyboard: false,
+           show: true,
+           backdrop: 'static'
+        });
+       $('#start_story_wizard').live('click', function(){
+          $('#registration_wizard .modal-body-registration').html($('#StartStoryModal'));
+          feedfiction.actions.prepareSocialModal();
+          feedfiction.actions.registrationWizardNext();
+          $('#StartStoryModal').removeClass('modal').removeClass('hide').show('slow');
+       });
+       $('#registration_wizard .prepare-registartion-modal').live('click', function(){
+        feedfiction.actions.prepareSocialModal();
         
-        setPreloader: function(e){
-          $(e).removeClass('hide').removeAttr('style').show('slow');
-          $(this).bind("ajax:success", function() {
-            $(e).hide();
-            });
-        },
-        continueStory:function(id) {
-            //Change form
-            //var form = $('#story-'+id).find('form');
-            //$(form).attr('action','/story_lines');
-            //$(form).attr('id','new_story_line');
 
-           
-        },
-
+       });
+       
+      },
+      registrationWizardNext: function(){
+        var next = false;
+        $('.next-registration-wizad-btns').each(function(index,item){
+          if ($(item).hasClass('current')){
+            $(item).removeClass('current').hide();
+            next = true;
+          }
+          else if (next){
+           $(this).addClass('current').show();
+           break;
+          }
+        })
+      },
+      prepareSocialModal : function(){
+        $('#registration_wizard').animate({overflow:'visible', left: '40%'});
+        $('#registration_wizard').css('top','40%');
+        feedfiction.actions.registrationWizardNext();
+      
+      },
         
-        clearCommentText: function(){
-            $('.add-comment textarea').val('');
-         },
-
-        validateComment: function(e){
-            if (!feedfiction.validateLogin.call(this,'You must sign in to add comment'))
-                return;
-
-            var obj = $(this);
-            var button = $(this).closest('div.add-comment').find('input[type=submit]');
-
-            obj.keyup(function() {
-                text = obj.val();
-                charCount = $.trim(text).length;
-                if(charCount > 1) {
-                    $(button).addClass('btn-primary').removeAttr("disabled"); 
-                }
-                else{
-                    $(button).removeClass('btn-primary').attr('disabled','disabled');
-                }
-            });
-        },
-
-        boldWriterLine: function(){
-            var className = $(this).attr('class');
-            var elements = $(this).closest('.story-with-owners').find('.'+className);
-
-            $(elements).bind({
-              mouseenter: function() {
-                $(elements).css('background-color','yellow');
-                
-
-              },
-              mouseleave: function() {
-                $(elements).css('background-color','white');
-                 
-              }
-            });
-        },
-
-        writeUnfollowButton: function(){
-             $(this).bind({
-              mouseenter: function() {
-                $(this).removeClass('btn-warning');
-                $(this).val('UnFollow');
-              },
-              mouseleave: function() {
-                $(this).addClass('btn-warning');
-                $(this).val('Following');
-              }
-            });
-        },
-
-        renderBoxes: function(){
-          //   var options = {
-          //   autoResize: true, // This will auto-update the layout when the browser window is resized.
-          //   container: $('#story-container'),// Optional, used for some extra CSS styling
-          //   offset: 15, // Optional, the distance between grid items
-          //   itemWidth: 370 // Optional, the width of a grid item
-          // };
-          
-          // // Get a reference to your grid items.
-          // var handler = $('#tiles li');
-  
-          // // Call the layout function.
-          // handler.wookmark(options);
-          
-        },
-
-        startStoryModal: function(){
-          feedfiction.actions.startStoryReset();
-          var toggleLoading = $('#StartStoryModal .preloader');
-          $('#StartStoryModal').modal('show');
-          // $("#StartStoryModal .logo-images a").on("ajax:before",  alert("hh")).bind("ajax:complete", alert("jj"));
-
-          var counter = $('#StartStoryModal #start-story .counter-text');
-         // $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
-          $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', labelCounter:counter ,callback:feedfiction.actions.validateWriteStorySteps});
-          
-        },
-
-        validateWriteStorySteps: function(chars, words){
-          if (chars<2){
-            $('#StartStoryModal .counter-announce').show();
-            $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');    
-          }
-          else{
-            $('#StartStoryModal .counter-announce').hide();
-            $('#StartStoryModal .btn-create-story').addClass('btn-primary').removeAttr('disabled');
-          }
-          if (words==55){
-            $('#StartStoryModal .btn-create-story').html('The End');
-          }
-
-        },
-
-        startStoryReset: function(){
-          //$('#StartStoryModal').width('650px').css('left','50%');
-          feedfiction.actions.storyBradCrumbsReset();
-          $('#StartStoryModal').removeClass('behaviour-story-form').removeAttr('style');
-          $('#StartStoryModal #imageTiles').removeAttr('style').empty();
-          $('#StartStoryModal .modal-footer').hide();
-          feedfiction.actions.resetStartStoryForm();
-          $('#StartStoryModal #start-story').removeAttr('style').hide();
-          $('#StartStoryModal #upload-form').removeAttr('style').hide();
-          $('#StartStoryModal #uploadProviders').show();
-        },
-
-        enableStartStoryForm: function(){
-          
-          var li = $(this);
-
-          $('#StartStoryModal #imageTiles').hide(1200, function(){
-            $('#StartStoryModal .modal-footer').hide(600);
-            var image = $('img', li).attr('src');
-            var id = $('img', li).attr('id').replace('image_','');
-            $('#start-story-form-image').html('<img width="100%" src="'+image+'"/>');
-             // set the hidden file 
-            $('#story_image_id').attr('value', id);
-
-            $('#StartStoryModal #start-story').show(600);
-
-            //$('#StartStoryModal').switchClass('change','behaviour-story-form');
-            feedfiction.actions.startStoryBradCrumbsNext();
-            $('#StartStoryModal').addClass('behaviour-story-form');
-            $('#StartStoryModal').animate({overflow:'visible', width: '400px', left: '56%'});
-            $('#StartStoryModal.modal').css('top','40%' ,function(){
-
-            });
-            $('#StartStoryModal .select-box span').delay(1000).effect("highlight", {color:'#4096EE'}, 600);
-
-            
-            
-            // $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
-            //   $(this).css({float:'none',display:'block'});
-            // });
+      setPreloader: function(e){
+        $(e).removeClass('hide').removeAttr('style').show('slow');
+        $(this).bind("ajax:success", function() {
+          $(e).hide();
           });
-        },
+      },
+      continueStory:function(id) {
+          //Change form
+          //var form = $('#story-'+id).find('form');
+          //$(form).attr('action','/story_lines');
+          //$(form).attr('id','new_story_line');
 
-        blinkCategoriesDropBox: function(){
-          $('#StartStoryModal .select-box span').effect("highlight", {color:'#4096EE'}, 600);
-        },
+         
+      },
 
-        categoriesDropBoxFocus: function(){
-          $('#StartStoryModal .select-box span').focus();
-        },
+      
+      clearCommentText: function(){
+          $('.add-comment textarea').val('');
+       },
 
-        storyBradCrumbsReset: function(){
-          var start = true
-          $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
-              if (start){
-                $(this).addClass('current-crumbs');
-                start = false;
-              }
-              else {
-                $(this).removeClass('current-crumbs');
-              }
-            });
-        },
+      validateComment: function(e){
+          if (!feedfiction.validateLogin.call(this,'You must sign in to add comment'))
+              return;
 
-        startStoryBradCrumbsNext: function(){
-            var next = false;
-            $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
-              if ($(this).hasClass('current-crumbs')){
-                $(this).removeClass('current-crumbs');
-                next = true;
+          var obj = $(this);
+          var button = $(this).closest('div.add-comment').find('input[type=submit]');
+
+          obj.keyup(function() {
+              text = obj.val();
+              charCount = $.trim(text).length;
+              if(charCount > 1) {
+                  $(button).addClass('btn-primary').removeAttr("disabled"); 
               }
-              else if (next){
-                $(this).addClass('current-crumbs');
-                next = false;
+              else{
+                  $(button).removeClass('btn-primary').attr('disabled','disabled');
               }
+          });
+      },
+
+      boldWriterLine: function(){
+          var className = $(this).attr('class');
+          var elements = $(this).closest('.story-with-owners').find('.'+className);
+
+          $(elements).bind({
+            mouseenter: function() {
+              $(elements).css('background-color','yellow');
               
-            });
-        },
 
-        displayUpload: function(){
-          $('#StartStoryModal #uploadProviders').hide(1200, function(){
-            $('#StartStoryModal #upload-form').show();
+            },
+            mouseleave: function() {
+              $(elements).css('background-color','white');
+               
+            }
           });
-          
-          // if ($('#UploadModal #start-story-form').length==0){
-          //   $('#start-story-form').appendTo($('#UploadModal'));
-          //   $('#start-story-form').show();
-          // }
-          // feedfiction.actions.resetStartStoryForm();
-          // feedfiction.actions.implementEvent(null);
-          // $('#UploadModal').modal('toggle');
-          // $('#start-story-form').hide();
+      },
 
-        },
-
-        resetStartStoryForm: function(){
-          $('#new_story').each (function(){
-            this.reset();
+      writeUnfollowButton: function(){
+           $(this).bind({
+            mouseenter: function() {
+              $(this).removeClass('btn-warning');
+              $(this).val('UnFollow');
+            },
+            mouseleave: function() {
+              $(this).addClass('btn-warning');
+              $(this).val('Following');
+            }
           });
-          
+      },
 
+      renderBoxes: function(){
+        //   var options = {
+        //   autoResize: true, // This will auto-update the layout when the browser window is resized.
+        //   container: $('#story-container'),// Optional, used for some extra CSS styling
+        //   offset: 15, // Optional, the distance between grid items
+        //   itemWidth: 370 // Optional, the width of a grid item
+        // };
+        
+        // // Get a reference to your grid items.
+        // var handler = $('#tiles li');
+
+        // // Call the layout function.
+        // handler.wookmark(options);
+        
+      },
+
+      startStoryModal: function(){
+        feedfiction.actions.startStoryReset();
+        var toggleLoading = $('#StartStoryModal .preloader');
+        $('#StartStoryModal').modal('show');
+        // $("#StartStoryModal .logo-images a").on("ajax:before",  alert("hh")).bind("ajax:complete", alert("jj"));
+
+        var counter = $('#StartStoryModal #start-story .counter-text');
+       // $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
+        $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', labelCounter:counter ,callback:feedfiction.actions.validateWriteStorySteps});
+        
+      },
+
+      validateWriteStorySteps: function(chars, words){
+        if (chars<2){
+          $('#StartStoryModal .counter-announce').show();
+          $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');    
         }
+        else{
+          $('#StartStoryModal .counter-announce').hide();
+          $('#StartStoryModal .btn-create-story').addClass('btn-primary').removeAttr('disabled');
+        }
+        if (words==55){
+          $('#StartStoryModal .btn-create-story').html('The End');
+        }
+
+      },
+
+      startStoryReset: function(){
+        //$('#StartStoryModal').width('650px').css('left','50%');
+        feedfiction.actions.storyBradCrumbsReset();
+        $('#StartStoryModal').removeClass('behaviour-story-form').removeAttr('style');
+        $('#StartStoryModal #imageTiles').removeAttr('style').empty();
+        $('#StartStoryModal .modal-footer').hide();
+        feedfiction.actions.resetStartStoryForm();
+        $('#StartStoryModal #start-story').removeAttr('style').hide();
+        $('#StartStoryModal #upload-form').removeAttr('style').hide();
+        $('#StartStoryModal #uploadProviders').show();
+      },
+
+      enableStartStoryForm: function(){
+        
+        var li = $(this);
+
+        $('#StartStoryModal #imageTiles').hide(1200, function(){
+          $('#StartStoryModal .modal-footer').hide(600);
+          var image = $('img', li).attr('src');
+          var id = $('img', li).attr('id').replace('image_','');
+          $('#start-story-form-image').html('<img width="100%" src="'+image+'"/>');
+           // set the hidden file 
+          $('#story_image_id').attr('value', id);
+
+          $('#StartStoryModal #start-story').show(600);
+
+          //$('#StartStoryModal').switchClass('change','behaviour-story-form');
+          feedfiction.actions.startStoryBradCrumbsNext();
+          $('#StartStoryModal').addClass('behaviour-story-form');
+          $('#StartStoryModal').animate({overflow:'visible', width: '400px', left: '56%'});
+          $('#StartStoryModal.modal').css('top','40%');
+          //$('#StartStoryModal .select-box span').delay(1000).effect("highlight", {color:'#4096EE'}, 600);
+
+          
+          
+          // $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
+          //   $(this).css({float:'none',display:'block'});
+          // });
+        });
+      },
+
+      blinkCategoriesDropBox: function(){
+        $('#StartStoryModal .select-box span').effect("highlight", {color:'#4096EE'}, 600);
+      },
+
+      categoriesDropBoxFocus: function(){
+        $('#StartStoryModal .select-box span').focus();
+      },
+
+      storyBradCrumbsReset: function(){
+        var start = true
+        $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
+            if (start){
+              $(this).addClass('current-crumbs');
+              start = false;
+            }
+            else {
+              $(this).removeClass('current-crumbs');
+            }
+          });
+      },
+
+      startStoryBradCrumbsNext: function(){
+          var next = false;
+          $('#StartStoryModal .modal-header ul.story-bradcrumbs li').each(function(i,e) {
+            if ($(this).hasClass('current-crumbs')){
+              $(this).removeClass('current-crumbs');
+              next = true;
+            }
+            else if (next){
+              $(this).addClass('current-crumbs');
+              next = false;
+            }
+            
+          });
+      },
+
+      displayUpload: function(){
+        $('#StartStoryModal #uploadProviders').hide(1200, function(){
+          $('#StartStoryModal #upload-form').show();
+        });
+        
+        // if ($('#UploadModal #start-story-form').length==0){
+        //   $('#start-story-form').appendTo($('#UploadModal'));
+        //   $('#start-story-form').show();
+        // }
+        // feedfiction.actions.resetStartStoryForm();
+        // feedfiction.actions.implementEvent(null);
+        // $('#UploadModal').modal('toggle');
+        // $('#start-story-form').hide();
+
+      },
+
+      resetStartStoryForm: function(){
+        $('#new_story').each (function(){
+          this.reset();
+        });
+        
+
+      }
 
     },
     /*
@@ -321,11 +358,7 @@ var feedfiction = {
         $('.story-with-owners span').live('hover', feedfiction.actions.boldWriterLine);
         $('.btn-following').live('hover', feedfiction.actions.writeUnfollowButton);
         $('#imageForStory ul li.story-box').live('click', feedfiction.actions.enableStartStoryForm);
-        $('#registration_wizard').modal({
-           keyboard: false,
-           show: true,
-           backdrop: 'static'
-        });
+
         //feedfiction.enableCustomDropDown();
         
         

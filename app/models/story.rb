@@ -16,7 +16,7 @@
 
 class Story < ActiveRecord::Base
   attr_accessible :category_id, :image_id, :inappropriate, :is_complete, :quality, :story_source_id, :user_id, :last_line_updated_at
-  has_many :story_lines, :order => 'order_id ASC'
+  has_many :story_lines#, :order => 'order_id ASC'
   accepts_nested_attributes_for :story_lines
   
   has_many :likes , dependent: :destroy

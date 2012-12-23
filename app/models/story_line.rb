@@ -59,20 +59,21 @@ class StoryLine < ActiveRecord::Base
     end
 
     def duplicate_story_lines(new_story)
-      story.story_lines.each do |line|
-        break if line.order_id == self.order_id
+      story.story_lines.each_with_index do |line, i|
 
         line_attributes = clean_attributes line.attributes
         line_attributes.delete "story_id"
         new_story.story_lines.create(line_attributes)
+
+        break if self.order_id == (i+1)
       end
     end
 
-    def clean_attributes(attributes)
-      attributes.delete("id")
-      attributes.delete("created_at")
-      attributes.delete("updated_at")
-      attributes
+    def clean_attributes(hash)
+      hash.delete("id")
+      hash.delete("created_at")
+      hash.delete("updated_at")
+      hash
     end
 
 end

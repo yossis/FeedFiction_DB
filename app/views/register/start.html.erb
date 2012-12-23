@@ -2,7 +2,7 @@
 <%= render 'feeds/feed' %>
 <div class="modal  fade in" id="registration_wizard">
 	
-	<div class="modal-body">
+	<div class="modal-body-registration">
 		<h3>Hi <%= current_user.name %></h3>
 		<p>
 			<div>You’re ready to feed the fiction.</div>
@@ -18,8 +18,22 @@
 		</p>
 
 	</div>
-	<div class="modal-footer hide">
-		<input type="button" value="Start a Story"/>
-		<%= lin
+	<div class="modal-footer">
+		<div class="next-registration-wizad-btns current">
+			<input type="button" value="Start a Story" id="start_story_wizard" class="btn btn-primary"/>
+		<%= link_to 'More option' , '#'%>
+		</div>
+		<div class="next-registration-wizad-btns hide">
+			<%= link_to 'Skip' , '#'%>
+		</div>
+		<div class="next-registration-wizad-btns hide">
+			<input type="button" value="Done" class="btn btn-primary"/>
+		</div>
+		
 	</div>
 </div>
+<script type="text/javascript">
+<!--
+	feedfiction.actions.startRegistrationWizard();
+-->
+</script>
