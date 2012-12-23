@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218194747) do
+ActiveRecord::Schema.define(:version => 20121223120859) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(:version => 20121218194747) do
     t.string   "cover"
     t.integer  "invitation_id"
     t.integer  "invitation_limit", :default => 10
+    t.integer  "admin",            :default => 0
   end
 
   add_foreign_key "comments", "stories", :name => "comments_story_id_fk"

@@ -40,11 +40,7 @@ class StoriesController < ApplicationController
     story_line.build_story(params[:story].merge :user_id => current_user.id)
     story_line.save!
 
-    if in_wizard
-      redirect_to find_friends_wizard_url
-    else
-      redirect_to root_url
-    end
+    
   end
 
   

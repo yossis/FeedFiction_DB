@@ -124,6 +124,10 @@ class User < ActiveRecord::Base
     self.invitation = Invitation.find_by_token(token)
   end
 
+  def admin?
+    self.admin>0
+  end
+
   private
 
   def set_invitation_limit

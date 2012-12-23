@@ -2,8 +2,9 @@ class RegisterController < ApplicationController
   before_filter :set_common_vars
 
   def start
-    #TODO: remove the cookie its just for example here
-    cookies[:register_wizard] = '1'
+    redirect_to root_url unless has_permission 
+    end_wizard
+    
     @title = 'Start your story'
     @next_step = find_friends_wizard_url
     @skip_next_text = 'Skip this step'
@@ -36,6 +37,13 @@ class RegisterController < ApplicationController
     @skip_next_text = 'Skip this step'
     @next_step = find_friends_wizard_url
     @story = Story.new
+  end
+
+  private
+
+  def has_permission
+    return true if current_user.admin?
+    return in_wizard
   end
 end
 

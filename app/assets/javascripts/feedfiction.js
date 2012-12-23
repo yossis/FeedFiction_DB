@@ -20,15 +20,20 @@ var feedfiction = {
            backdrop: 'static'
         });
        $('#start_story_wizard').live('click', function(){
-          $('#registration_wizard .modal-body-registration').html($('#StartStoryModal'));
-          feedfiction.actions.prepareSocialModal();
+          $('#registration_wizard .modal-body-registration .start-registration').html($('#StartStoryModal'));
           feedfiction.actions.registrationWizardNext();
           $('#StartStoryModal').removeClass('modal').removeClass('hide').show('slow');
+          feedfiction.actions.textAreaListener();
        });
        $('#registration_wizard .prepare-registartion-modal').live('click', function(){
         feedfiction.actions.prepareSocialModal();
-        
-
+       });
+       // Last form when create a story and press the button
+       $('#registration_wizard .btn-create-story').live('click', function(){
+        feedfiction.actions.endRegistrationModal();
+       });
+       $('#registration-skip-wizard').live('click', function(){
+        feedfiction.actions.endRegistrationModal();
        });
        
       },
@@ -41,14 +46,20 @@ var feedfiction = {
           }
           else if (next){
            $(this).addClass('current').show();
-           break;
+           return false;
           }
-        })
+        });
+      },
+      endRegistrationModal: function(){
+        $('#registration_wizard .modal-body-registration .start-registration').empty().hide('slow', function(){
+          $('#registration_wizard .modal-body-registration #registration-done').show('slow');
+          feedfiction.actions.registrationWizardNext();
+        });
       },
       prepareSocialModal : function(){
         $('#registration_wizard').animate({overflow:'visible', left: '40%'});
         $('#registration_wizard').css('top','40%');
-        feedfiction.actions.registrationWizardNext();
+        
       
       },
         
@@ -139,14 +150,13 @@ var feedfiction = {
 
       startStoryModal: function(){
         feedfiction.actions.startStoryReset();
-        var toggleLoading = $('#StartStoryModal .preloader');
+        feedfiction.actions.textAreaListener();
         $('#StartStoryModal').modal('show');
-        // $("#StartStoryModal .logo-images a").on("ajax:before",  alert("hh")).bind("ajax:complete", alert("jj"));
-
+      },
+      textAreaListener: function(){
         var counter = $('#StartStoryModal #start-story .counter-text');
        // $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
         $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', labelCounter:counter ,callback:feedfiction.actions.validateWriteStorySteps});
-        
       },
 
       validateWriteStorySteps: function(chars, words){
@@ -193,8 +203,17 @@ var feedfiction = {
           //$('#StartStoryModal').switchClass('change','behaviour-story-form');
           feedfiction.actions.startStoryBradCrumbsNext();
           $('#StartStoryModal').addClass('behaviour-story-form');
-          $('#StartStoryModal').animate({overflow:'visible', width: '400px', left: '56%'});
-          $('#StartStoryModal.modal').css('top','40%');
+          // Check if in registration wizard
+          if ($('#registration_wizard').length>0)
+          {
+            $('#registration_wizard').css('min-width', '100px').animate({ left: '56%'});
+          
+          }
+          // else{
+            $('#StartStoryModal').animate({overflow:'visible', width: '383px', left: '56%'});
+            $('#StartStoryModal.modal').css('top','40%');
+          //}
+          
           //$('#StartStoryModal .select-box span').delay(1000).effect("highlight", {color:'#4096EE'}, 600);
 
           
@@ -401,6 +420,7 @@ var feedfiction = {
 
 
     enableCustomDropDown: function() {
+      return;
       $('div.select-box').each(function(){
         $(this).children('span.selected').html($(this).children('ul.select-options').children('li.select-option:first').html());
         $(this).attr('value',$(this).children('ul.select-options').children('li.select-option:first').attr('value'));

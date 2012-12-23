@@ -3,19 +3,29 @@
 <div class="modal  fade in" id="registration_wizard">
 	
 	<div class="modal-body-registration">
-		<h3>Hi <%= current_user.name %></h3>
-		<p>
-			<div>You’re ready to feed the fiction.</div>
-			<div>Starting a story is easy.</div>
-			Two steps and you’re done.
-			<!-- <ol>
-				<li>1. Upload a photo</li> 
-				<li>2. Start writing. You may write one word or more.</li>
-			</ol>	
-			
-			That’s it. Click “Feed it” and let others continue your story. 
-			Every story is 55 words long. It’s short and sweet. -->
-		</p>
+		<div class="start-registration">
+			<h3>Hi <%= current_user.name %></h3>
+			<p>
+				<div>You’re ready to feed the fiction.</div>
+				<div>Starting a story is easy.</div>
+				Two steps and you’re done.
+				<!-- <ol>
+					<li>1. Upload a photo</li> 
+					<li>2. Start writing. You may write one word or more.</li>
+				</ol>	
+				
+				That’s it. Click “Feed it” and let others continue your story. 
+				Every story is 55 words long. It’s short and sweet. -->
+			</p>
+		</div>
+		<div class="hide" id="registration-done">
+			<h3>Just last thing..</h3>
+			<p>
+				<p>Every story you start or continue will appear in “My Feed” and in “Everything”.</p>
+				<p>It also appears in the feed of the feeders you follow.</p>
+				<strong>It’s that simple.</storng>
+			</p>
+		</div>
 
 	</div>
 	<div class="modal-footer">
@@ -24,7 +34,7 @@
 		<%= link_to 'More option' , '#'%>
 		</div>
 		<div class="next-registration-wizad-btns hide">
-			<%= link_to 'Skip' , '#'%>
+			<%= link_to 'Skip' , '#', id: 'registration-skip-wizard'%>
 		</div>
 		<div class="next-registration-wizad-btns hide">
 			<input type="button" value="Done" class="btn btn-primary"/>

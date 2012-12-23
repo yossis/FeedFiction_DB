@@ -957,7 +957,9 @@ ul.commentlist {
 	}
 
 	.story-bradcrumbs {
-		
+		.span2 {
+			width:160px;
+		}
 		li {
 			padding: 10px 0;
 			display: block;
@@ -1022,7 +1024,7 @@ ul.commentlist {
 	}
 
 	&.behaviour-story-form {
-		width: 400px;
+		width: 383px;
 		.modal-header {
 			/*position: absolute;*/
 			/*border: 0;*/
