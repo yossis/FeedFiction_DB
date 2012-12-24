@@ -65,7 +65,7 @@ FeedFiction::Application.configure do
     #openssl_verify_mode => 'none'
 
   }
-  config.action_mailer.default_url_options = { host: "feedfiction.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "alpha.feedfiction.com" }
 
   # Enable threaded mode
   # config.threadsafe!
@@ -89,4 +89,6 @@ FeedFiction::Application.configure do
   ENV["AWS_SECRET_ACCESS_KEY"] = 'wKgJSbWoPrb2OFSB4KOvvnsviCUiuYEyTrfkFN5s'
   ENV["AWS_S3_BUCKET"] = 'feedfiction-images'
   ENV["AWS_S3_URL"] = "https://#{ENV["AWS_S3_BUCKET"]}.s3.amazonaws.com"
+  ENV["ROOT_URL"] = "http://alpha.feedfiction.com"
+  
 end

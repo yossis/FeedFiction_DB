@@ -1,5 +1,5 @@
 class RegisterController < ApplicationController
-  before_filter :set_common_vars
+  before_filter :set_common_vars, :can_access
 
   def start
     redirect_to root_url unless has_permission 
@@ -42,8 +42,14 @@ class RegisterController < ApplicationController
   private
 
   def has_permission
+    
     return true if current_user.admin?
     return in_wizard
+  end
+
+  def can_access
+    redirect_to :root unless current_user
+    
   end
 end
 

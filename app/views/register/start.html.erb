@@ -29,17 +29,35 @@
 
 	</div>
 	<div class="modal-footer">
+		<div class="preloader hide"></div>
 		<div class="next-registration-wizad-btns current">
 			<input type="button" value="Start a Story" id="start_story_wizard" class="btn btn-primary"/>
-		<%= link_to 'More option' , '#'%>
+		<%= link_to 'More option' , '#' ,class: 'more-option'%>
 		</div>
 		<div class="next-registration-wizad-btns hide">
-			<%= link_to 'Skip' , '#', id: 'registration-skip-wizard'%>
+			<%= link_to 'Skip' , '#', class: 'skip-step-registration'%>
 		</div>
 		<div class="next-registration-wizad-btns hide">
-			<input type="button" value="Done" class="btn btn-primary"/>
+			<input type="button" value="Done" class="btn btn-primary btn-done"/>
 		</div>
 		
+	</div>
+</div>
+<div id="registration-continue-story" class="popover fade right in" >
+	<div class="arrow"></div>
+	<div class="popover-inner">
+		<h3 class="popover-title">Continue a Story</h3>
+		<div class="popover-content">
+			<p>Continuing a story is also easy.</p>
+			<p>Add one word or more and then click “Feed it”.</p>
+			<strong>You may try to continue this story.</strong>
+		</div>
+		<div class="clearfix"></div>
+		<div class="modal-footer">
+			<div class="next-registration-wizad-btns">
+				<%= link_to 'Skip' , '#' , class: 'skip-step-registration'%>
+			</div>
+		</div>
 	</div>
 </div>
 <script type="text/javascript">

@@ -7,7 +7,7 @@
 <section class="story-page">
 
 	<div class="started-by">
-		<h2>The Feeders:</h2>
+		<!-- <h2>The Feeders:</h2> -->
 		<%= render 'stories/big_feeders' ,story: @story%>
 		<h2><%= @story.story_lines.map {|l| l.user}.uniq.size >1 ? 'Present:' : 'Presents' %></h2>
 		
@@ -17,23 +17,23 @@
 	</div>
 	
 
-<div class="row">
-	<div class="span9">
-		<div class="story">
-			<div class="story-wrapper">
-				<div class="picture">
-				  <%=  image_tag(@story.image.image_source)  %>
-				</div>
-		  			<%= render 'stories/started_by' , :story => @story%>
-				  <h1 class="story-title"><%= @story.story_title%></h1>
-				  <%= render 'stories/story_item' , :story => @story%>
-			</div>
-		  <%= render 'comments/pre_comments' ,story: @story%>
-		</div>
+<div class="container">
 
+	<div class="story">
+		<div class="story-wrapper">
+			<div class="picture">
+			  <%=  image_tag(@story.image.image_source)  %>
+			</div>
+	  			<%#= render 'stories/started_by' , :story => @story%>
+			  <h1 class="story-title"><%= @story.story_title%></h1>
+			  <%= render 'stories/story_item' , :story => @story%>
+		</div>
+	  <%= render 'comments/pre_comments' ,story: @story%>
 	</div>
+
+	
 	<!-- Side bar -->
-	<%= render 'stories/side_bar' %>
+	<%#= render 'stories/side_bar' %>
 </div>
 </section>
 
