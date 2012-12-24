@@ -26,6 +26,7 @@ var feedfiction = {
           $('#StartStoryModal').removeClass('modal').removeClass('hide').show('slow');
           feedfiction.actions.textAreaListener();
        });
+
        $('#registration_wizard .prepare-registartion-modal').live('click', function(){
         feedfiction.actions.prepareSocialModal();
        });
@@ -39,11 +40,12 @@ var feedfiction = {
           location.href = feedfiction.constants.sitePath;
        });
        // init popover on open story (step 2)
-       $('#portfolio-wrapper .portfolio-item .story-with-owners .post-meta').first().append($('#registration-continue-story'));
+      //ggggggggg $('#portfolio-wrapper .portfolio-item').first().append($('#registration-continue-story'));
        $('#registration_wizard .modal-footer .next-registration-wizad-btns .more-option').live('click', function(e){
         e.preventDefault();
         feedfiction.actions.registrationWizardNext();
         feedfiction.actions.registrationWizardContinueStory();
+
         
         
        });
@@ -65,24 +67,32 @@ var feedfiction = {
       },
       registrationWizardContinueStory: function(){
 
-        var continueTile = $('#registration-continue-story').closest('.portfolio-item');
-        $('#registration_wizard').hide('slow', function(){
+        var continueTile = $('#portfolio-wrapper .portfolio-item').first();
+        var posStart = continueTile.offset();
+        var startPosLeft = posStart.left+continueTile.width();
+        var startPosTop = posStart.top;
+        var posEnd = $('#portfolio-wrapper .portfolio-item .post-meta').first().offset();
+        var endPosTop = posEnd.top-$('#registration-continue-story').height();
 
-          $('#registration-continue-story').show(600, function(){
+        
+        $('#registration_wizard').fadeOut('slow', function(){
             $(continueTile).addClass('exposure-tile');
-            $('html,body').animate({scrollTop:$('#registration-continue-story').offset().top}, 500);
-            $(this).animate({left: '102%'});
-            
-          });
+
+            $('#registration-continue-story').css({'top':posStart.top ,'left':startPosLeft}).show('slow');
+           
         });
         // register click event when continu the story
         $(document).on("ajax:before" , $('#portfolio-wrapper .portfolio-item input[type=submit]').first() , function(){
           feedfiction.actions.endRegistrationModal();
-        })
+        });
+
+        // register the popover to the scroller
+        feedfiction.actions.windowScrollFollowTo($('#registration-continue-story'), startPosTop , endPosTop);
       },
 
       endRegistrationModal: function(){
         $('.exposure-tile').removeClass('exposure-tile');
+        $('#registration-continue-story').fadeOut();
         $('#registration_wizard').show();
         $('#registration_wizard .modal-body-registration .start-registration').empty().hide('slow', function(){
           $('#registration_wizard .modal-body-registration #registration-done').show('slow');
@@ -163,6 +173,24 @@ var feedfiction = {
               $(this).val('Following');
             }
           });
+      },
+      windowScrollFollowTo: function(element,posStart, posEnd){
+        var $this = $(element),
+        $window = $(window);
+    
+        $window.scroll(function(e){
+            if ($window.scrollTop() > posEnd) {
+                $this.css({
+                    position: 'absolute',
+                    top: posEnd + $this.height()
+                });
+            } else {
+                $this.css({
+                    position: 'fixed',
+                    top: posStart
+                });
+            }
+        });
       },
 
       renderBoxes: function(){

@@ -894,11 +894,17 @@ ul.commentlist {
 #registration_wizard {
 	width:auto;
 	min-width: 555px;
+	font-size: 17px;
 	&.modal {
 		overflow: visible !important;
 	}
 	.start-registration, #registration-done {
 		padding:0 15px;
+		line-height: 24px;
+	}
+	.modal-footer {
+		font-size: 14px;
+		line-height: 14px;	
 	}
 	#StartStoryModal {
 		.close-modal, .modal-footer {
@@ -910,12 +916,16 @@ ul.commentlist {
 }
 
 #registration-continue-story {
+	overflow: visible;
+	z-index: 999999;
+	width: 435px;
+	font-size: 16px;
+	line-height: 26px;
+
 	h3 {
 		font-size: 17px;
 	}
-	width: 112%;
-	font-size: 16px;
-	line-height: 26px;
+	
 	.modal-footer {
 		width: 92%;
 		.next-registration-wizad-btns {
