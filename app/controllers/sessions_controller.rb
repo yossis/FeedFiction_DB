@@ -6,12 +6,9 @@ class SessionsController < ApplicationController
     session[:user_id] = user._id
     
     if user.first_time?
-      start_wizard
-      redirect_to start_story_wizard_url
       UserMailer.welcome(user).deliver if user.email.present?
-    else
-      redirect_to root_url
     end
+    redirect_to root_url
   end
 
   def destroy

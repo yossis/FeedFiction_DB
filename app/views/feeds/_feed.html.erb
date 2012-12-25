@@ -1,3 +1,10 @@
+<% if current_user %>
+	<div class="alert alert-block">
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	  You may <button class="btn btn-primary userFunction" data-function="startStoryModal" type="button" >Start here</button>
+	</div>
+<%end%>
+
 <div id="story-container" >
 	<div id="portfolio-wrapper" class="row">
 	<%= render :partial => 'stories/story' ,:collection => @stories%>

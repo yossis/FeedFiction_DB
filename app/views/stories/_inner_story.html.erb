@@ -7,7 +7,12 @@
 							<div class="title-container">
 			           <div class="story-title"><%= link_to story.story_title, story%>
 			           
-			           	<div>By <%=story.user.name%></div>
+			           	<div class="by-owners">
+			           		<%=story.user.name%>
+			           		<%= '& 1 feeder' if story.user_count==2%>
+			           		<%= "& #{story.user_count} feeders" if story.user_count>2%> 
+			           		
+			           	</div>
 			           </div>
 	            </div>
 						</div>

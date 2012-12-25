@@ -5,18 +5,16 @@
 	<div class="modal-body-registration">
 		<div class="start-registration">
 			<h3>Hi <%= current_user.name %></h3>
-			<p>
-				<div>You’re ready to feed the fiction.</div>
-				<div>Starting a story is easy.</div>
-				Two steps and you’re done.
-				<!-- <ol>
-					<li>1. Upload a photo</li> 
-					<li>2. Start writing. You may write one word or more.</li>
-				</ol>	
-				
-				That’s it. Click “Feed it” and let others continue your story. 
-				Every story is 55 words long. It’s short and sweet. -->
-			</p>
+			
+			<p>Starting a story is easy. Just upload a photo and start writing.</p>
+			<p>You may write one word or more and let others continue your story. <p>
+			<p>Every story is 55 words long. It’s short and sweet.</p>
+			<!-- <p>To start a story just upload a photo and start writing.</p>
+			<p>To continue story just add your words.</p>
+			<p>The stories appear in “My Feed”, “Everything” and in the feed of the feeders you follow</p><br/>
+			<p>Oh, one last thing, every story is 55 words long. </p>
+			<p>It’s short and sweet.</p> -->
+
 		</div>
 		<div class="hide" id="registration-done">
 			<h3>Just last thing..</h3>
@@ -31,11 +29,11 @@
 	<div class="modal-footer">
 		<div class="preloader hide"></div>
 		<div class="next-registration-wizad-btns current">
-			<input type="button" value="Start a Story" id="start_story_wizard" class="btn btn-primary"/>
+			<input type="button" value="I want to start a story" id="start_story_wizard" class="btn btn-primary"/>
 		<%= link_to 'More option' , '#' ,class: 'more-option'%>
 		</div>
 		<div class="next-registration-wizad-btns hide">
-			<%= link_to 'Skip' , '#', class: 'skip-step-registration'%>
+			<%= link_to 'Skip for now' , '#', class: 'skip-step-registration'%>
 		</div>
 		<div class="next-registration-wizad-btns hide">
 			<input type="button" value="Done" class="btn btn-primary btn-done"/>

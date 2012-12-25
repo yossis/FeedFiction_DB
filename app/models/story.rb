@@ -74,6 +74,10 @@ class Story < ActiveRecord::Base
     self.comments.order('id DESC').limit(how_many).reverse
   end
 
+  def user_count
+    @count ||= self.story_lines.map {|l| l.user}.uniq.size
+   end
+
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships
                          WHERE follower_id = :user_id"
@@ -82,4 +86,6 @@ class Story < ActiveRecord::Base
     #     user_id: user.id).uniq
     where("id IN (#{stories_id})",user_id: user.id).order('last_line_updated_at DESC')
   end
+
+
 end
