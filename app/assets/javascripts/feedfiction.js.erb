@@ -222,11 +222,11 @@ var feedfiction = {
 
       validateWriteStorySteps: function(chars, words){
         if (chars<2){
-          $('#StartStoryModal .counter-announce').show();
+          //$('#StartStoryModal .counter-announce').show();
           $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');    
         }
         else{
-          $('#StartStoryModal .counter-announce').hide();
+          //$('#StartStoryModal .counter-announce').hide();
           $('#StartStoryModal .btn-create-story').addClass('btn-primary').removeAttr('disabled');
         }
         if (words==55){

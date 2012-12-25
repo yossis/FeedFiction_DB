@@ -35,9 +35,9 @@
     var labelCounter = $(this).closest('div.continue-story-text-area').find('.counter-text');
     $(button).show();
      var canvas = $(this).closest('.story-item').find('.cs-canvas');
-     var limit = $(this).attr('limit');
+     var $limit = $(this).attr('limit');
      
-    $(this).textareaCounter({container: canvas, limit:limit, labelCounter:labelCounter, callback: function(e,limit){
+    $(this).textareaCounter({container: canvas, limit:$limit, labelCounter:labelCounter, callback: function(e,words){
         if(e>0){
             $(button).addClass('btn-primary').removeAttr("disabled"); 
             // handler.wookmark();
@@ -45,8 +45,12 @@
           else{
             $(button).removeClass('btn-primary').attr('disabled','disabled');
           }
-        if(limit==0){
-          $(button).attr('value', 'Finish the story and submit');
+        var count = $limit*1-words*1;
+        if(count==0){
+          $(button).attr('value', 'The End');
+        }
+        else{
+          $(button).attr('value', 'Feed It');
         }
         $('#portfolio-wrapper').isotope('reLayout');
       }

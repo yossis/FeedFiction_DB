@@ -40,8 +40,9 @@ class Story < ActiveRecord::Base
   end
 
   def story_title
-    lines = self.story_lines.first
-    lines.line.split(' ')[0..3].join(' ').capitalize
+    lines ||= self.story_lines.map {|i| i.line}.join(' ').split(' ')[0..3].join(' ').capitalize
+
+    # lines.line.split(' ')[0..3].join(' ').capitalize
   end
 
   def description

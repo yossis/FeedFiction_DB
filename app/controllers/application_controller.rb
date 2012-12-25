@@ -26,12 +26,14 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  def add_how_many_words(lines)
-    words = Array.new
-    lines.each do |w|
-      words.push w.line
-    end
-    55-words.join(' ').split(' ').count
+  def add_how_many_words(story)
+    # words = Array.new
+    # lines.each do |w|
+    #   words.push w.line
+    # end
+    # 55-words.join(' ').split(' ').count
+    count ||= story.story_lines.map {|i| i.line}.join(' ').split(' ').count
+    55-count
   end
   helper_method :add_how_many_words
 

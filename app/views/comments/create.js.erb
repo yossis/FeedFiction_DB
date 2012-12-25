@@ -1,2 +1,5 @@
-$("#comments-<%=@comment.story_id%> div.comments-container").append("<%= escape_javascript(render('comments/comment')) %>");
+$("#comments-<%=@comment.story_id%> ul.commentlist").append("<%= escape_javascript(render('comments/comment')) %>");
+$("#comment-count-<%=@comment.story_id%>").html("<%= @comment.story.comments.size%> comments");
+if ($('#portfolio-wrapper').length>0)
+	$('#portfolio-wrapper').isotope('reLayout');
 feedfiction.actions.clearCommentText();

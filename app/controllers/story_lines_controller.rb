@@ -46,8 +46,9 @@ class StoryLinesController < ApplicationController
     @story_line = StoryLine.create(params[:story_line].merge user_id: current_user.id)
     
     @story = @story_line.story
-    limit = add_how_many_words @story.story_lines
+    limit = add_how_many_words @story
     logger.debug "limit: #{limit}"
+
     if limit<1
       logger.debug "inside if limit"
       @story.is_complete = true

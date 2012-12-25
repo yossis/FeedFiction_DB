@@ -1,2 +1,6 @@
+if ($('#story-<%=@story.id%>').length >0){
+		$('#story-<%=@story.id%> .picture').html("<%= escape_javascript(render('stories/inner_story' , :story => @story ))%>");
+}
+
 $("#story-item-<%=@story.id%>").html("<%= escape_javascript(render('stories/story_item' , :story => @story ))%>");
-feedfiction.actions.continueStory("<%=@story.id%>");
+//feedfiction.actions.continueStory("<%=@story.id%>");

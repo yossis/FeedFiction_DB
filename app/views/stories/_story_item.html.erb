@@ -28,14 +28,12 @@
 						<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
 						<%= f.hidden_field :story_id, value: story.id %>
 						<!-- <div class="continue-story-text-area"> -->
-			              <div>
-			              <span class="counter-text"><%= add_how_many_words story.story_lines%> words left out of 55</span>
-			              </div>
 			              <%= avatar_rounded(current_user) if current_user %>
 			              <div class="textarea-with-button">
-	              			<textarea limit='<%= add_how_many_words story.story_lines%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story..'></textarea>
+	              			<textarea limit='<%= (add_how_many_words story)+1%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story..'></textarea>
 			  							
 			  							<div>
+			  								<span class="counter-text"><%= (add_how_many_words story)+1%> words left out of 55</span>
 			  							<%= f.submit 'Feed It', class: 'btn btn-small', disabled: true ,disable_with: 'Processing...'%>
 			  							
 			  							</div>
@@ -53,7 +51,7 @@
 				<% if story.is_complete %>
 <div class="post-meta comments-dashboard">
 	<% if story.comments.size>0%>
-	<span><i class="mini-ico-comment"></i><%=link_to "#{story.comments.size} comments", story_url(story)%></span>
+	<span><i class="mini-ico-comment"></i><%=link_to "#{story.comments.size} comments", story_url(story) , id: "comment-count-#{story.id}"%></span>
 	<% end%>
 	<%= render 'stories/like_actions' , story: story %>
 	<%= render 'stories/flag_actions' , story: story %>

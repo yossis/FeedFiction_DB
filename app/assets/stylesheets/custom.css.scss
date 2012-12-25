@@ -342,9 +342,9 @@ footer {
 
 
 .btn-small {
-	webkit-border-radius: 14px;
+	/*webkit-border-radius: 14px;
      -moz-border-radius: 14px;
-          border-radius: 14px;
+          border-radius: 14px;*/
 }
 
 
@@ -544,6 +544,7 @@ footer {
 .story-area {
 	font-family: $story-font;
 	font-size:18px;
+	line-height: 22px;
 	font-weight: 700px;
 	padding:20px;
 	span {
@@ -600,8 +601,8 @@ footer {
 
 .continue-story-text-area {
 	xborder-top:1px solid #E9E9E9;
-	padding-left: 5px;
-	padding-bottom: 3px;
+	padding: 10px 5px 2px;
+	
 	/*background: url('bg-k10.png') repeat;*/
 	background-color: #edfcff;
 	.round-avatar {
@@ -618,6 +619,9 @@ footer {
 		div{
 			text-align: right;
 			padding: 5px;
+			.counter-text {
+				float: left;
+			}
 		}
 	}
 	
@@ -627,10 +631,16 @@ footer {
 .dropcap {
 	text-align: left;
 	font-size: 40px;
-	line-height: 40px;
+	line-height: 43px;
+	max-width: 49px;
 	margin: 0;
 	border:0;
 
+}
+
+.portfolio-item {
+	/*overflow: hidden;*/
+	background-color: #fff;
 }
 #story-container {
 	.item-description {
@@ -817,6 +827,10 @@ ul.commentlist {
 }
 
 /* Story Page */
+
+.story-header-hr-wrapper {
+	width: 780px;
+}
 .story-page {
 	font-size: 14px;
 	.started-by {
@@ -1170,8 +1184,8 @@ ul.commentlist {
 	}
 
 	.counter-text {
-		display: block;
-		text-align: center;
+		line-height: 29px;
+		float: left;
 
 	}
 

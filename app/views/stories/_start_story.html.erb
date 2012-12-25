@@ -6,16 +6,16 @@
 			<%=f.hidden_field :image_id , :class => 'start-story-image' %>
 		</li>
 		
-		<li><span class="counter-text">55 words left out of 55</span></li>
+		
 		<li>
 			<textarea name='story_line[line]' placeholder="Write here..."></textarea>
 			
 		</li>
 		<li>
-			<span class="counter-announce">1 word min.</span>
+			<span class="counter-text">55 words left out of 55</span>
 			<%= f.button 'Feed It', :class => 'btn btn-create-story', disabled: true, disable_with: 'Processing...'%>
-		<!-- <input type="submit" class="btn btn-create-story" value="Feed it" name="commit" disabled/> -->
-		</li>					
+		</li>
+					
 	</ul>		
   
 <% end %>

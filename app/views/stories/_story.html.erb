@@ -1,5 +1,10 @@
-		<div class="span4 portfolio-item" id="story-<%= story.id%>" >
-			
+	<div class="span4 portfolio-item" id="story-<%= story.id%>" >
+		<div class="story-item">
 			<%= render 'stories/inner_story' , :story => story, :@comments => story.last_comments%>
-				
+			<div class="item-description alt">
+			<%#= render 'stories/started_by' , :story => story%>
+				<%= render 'stories/story_item' , :story => story%>
+			</div>
+			<%= render 'comments/pre_comments' ,story: story%>
 		</div>
+	</div>
