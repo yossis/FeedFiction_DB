@@ -438,7 +438,9 @@ var feedfiction = {
         $('.story-with-owners span').live('hover', feedfiction.actions.boldWriterLine);
         $('.btn-following').live('hover', feedfiction.actions.writeUnfollowButton);
         $('#imageForStory ul li.story-box').live('click', feedfiction.actions.enableStartStoryForm);
-
+        $(document).on('click', '.btn-file-input' , function(){
+          $('#file').click();
+        })
         //feedfiction.enableCustomDropDown();
         
         

@@ -32,9 +32,23 @@ class ApplicationController < ActionController::Base
     #   words.push w.line
     # end
     # 55-words.join(' ').split(' ').count
-    count ||= story.story_lines.map {|i| i.line}.join(' ').split(' ').count
+    count ||= story.story_lines.map {|i| i.line}.join(' ').squish.strip.split(' ').count
     55-count
   end
+
+  def update_if_complete(story)
+      limit = add_how_many_words story
+      logger.debug "limit: #{limit}"
+
+    if limit<1
+      logger.debug "inside if limit"
+      story.is_complete = true
+      story.save!
+    end
+  end
+
+
+
   helper_method :add_how_many_words
 
   def in_wizard

@@ -46,18 +46,8 @@ class StoryLinesController < ApplicationController
     @story_line = StoryLine.create(params[:story_line].merge user_id: current_user.id)
     
     @story = @story_line.story
-    limit = add_how_many_words @story
-    logger.debug "limit: #{limit}"
 
-    if limit<1
-      logger.debug "inside if limit"
-      @story.is_complete = true
-      @story.save!
-    end
-    @story_line = StoryLine.new()
-    respond_to do |format|
-      format.js
-    end
+    update_if_complete @stroy
     #render json: @story_line, status: :created, location: @story_line
   end
 

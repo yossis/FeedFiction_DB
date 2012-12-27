@@ -10,22 +10,10 @@
 	     	<div class="by-owners">
 	     		<%=story.user.name%>
 	     		<%= '& 1 Feeder' if story.user_count==2%>
-	     		<%= "& #{story.user_count} Feeders" if story.user_count>2%> 
+	     		<%= "& #{story.user_count-1} Feeders" if story.user_count>2%> 
 	     		
 	     	</div>
 	     </div>
     </div>
 	</div>
 	
-	
-
-				
-				
-				
-				
-				<!--<div class="tiels-items-container">
-					<a class="btn btn-small like-story"><i class="icon-thumbs-up"></i>Like</a>
-					<a class="btn btn-small continue-story"><i class="icon-edit"></i>Continue</a>		
-				</div>-->
-				
-				

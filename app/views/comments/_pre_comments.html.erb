@@ -4,7 +4,10 @@
       <% unless story.comments.empty? %>
         <%= render 'comments/show' %>
       <% end  %>
+      <li>
+		<%= render 'comments/new' , :story => story %>
+      </li>
     </ul>
-     <%= render 'comments/new' , :story => story %>
+     
   </div> 
   <%end%>

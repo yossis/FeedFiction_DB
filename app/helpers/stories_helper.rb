@@ -9,5 +9,5 @@ module StoriesHelper
 		started_by.html_safe
 
 	end
-	
+
 end

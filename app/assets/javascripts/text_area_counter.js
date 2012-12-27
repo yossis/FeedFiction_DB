@@ -33,7 +33,7 @@
 			}
 
 			obj.keyup(function() {
-			    text = obj.val();
+			    text = obj.val().replace(/ +(?= )/g,'');
 			    charCount = $.trim(text).length;
 			    if(text === "") {
 			    	wordcount = 0;

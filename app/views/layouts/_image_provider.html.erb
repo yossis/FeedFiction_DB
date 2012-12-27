@@ -1,21 +1,20 @@
 				<div class="logo-images show-grid">
                   
-                    <div class="first span2">
-                         <%= link_to(facebook_url, remote: true , class: 'userFunction prepare-registartion-modal', 'data-function' => "setPreloader#.modal .preloader") do %>
-                              <span class="social-upload upload-facebook"></span>Facebook
-                         <%end%>
-                    	<%#= link_to image_tag('logos/facebook_logo.jpg'),in_wizard ? import_facebook_wizard_url : facebook_path %>
-                    </div>
-                    <div class="span2">
-                    	<%= link_to(instagram_url, remote: true ,class: 'userFunction prepare-registartion-modal', 'data-function' => "setPreloader#.modal .preloader") do %>
-                         <span class="social-upload upload-instagram"></span>Instagram
-                    	<%#= link_to image_tag('logos/upload_image.jpg'),'#UploadModal' ,data: { function: 'displayUpload' , dismiss: 'modal'}, class: 'userFunction' %>
-                         <%end %>
-                    </div>
-                    <div class="span2">
-                         <a class="userFunction prepare-registartion-modal" data-function="displayUpload"><span class="social-upload upload-cloud"></span>
-                          Upload a Photo
-                         </a>
-                    	<%#= link_to image_tag('logos/instagram_logo.jpg'),in_wizard ? import_instagram_wizard_url : instagram_url %></div>
-                 
-                    </div>
+          <div class="first span2">
+               <%= link_to(facebook_url, remote: true , class: 'userFunction prepare-registartion-modal', 'data-function' => "setPreloader#.modal .preloader") do %>
+                    <span class="social-upload upload-facebook"></span>Facebook
+               <%end%>
+          	<%#= link_to image_tag('logos/facebook_logo.jpg'),in_wizard ? import_facebook_wizard_url : facebook_path %>
+          </div>
+          <div class="span2">
+          	<%= link_to(instagram_url, remote: true ,class: 'userFunction prepare-registartion-modal', 'data-function' => "setPreloader#.modal .preloader") do %>
+               <span class="social-upload upload-instagram"></span>Instagram
+          	<%#= link_to image_tag('logos/upload_image.jpg'),'#UploadModal' ,data: { function: 'displayUpload' , dismiss: 'modal'}, class: 'userFunction' %>
+               <%end %>
+          </div>
+          <div class="span2">
+            <a class="userFunction prepare-registartion-modal" data-function="displayUpload"><span class="social-upload upload-cloud"></span>
+                Upload a Photo
+             </a>
+          </div>
+       </div>

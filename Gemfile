@@ -34,7 +34,7 @@ group :development, :test do
   gem 'guard-spork', '0.3.2'
   gem 'spork', '0.9.0'
   #gem 'debugger' use binding.pry instead
-  
+  gem 'meta_request'
   gem 'factory_girl_rails'
   gem 'faker'
 end

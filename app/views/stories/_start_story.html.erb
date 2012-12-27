@@ -1,8 +1,8 @@
-<%= form_for Story.new, remote: true do |f| %>
+<%= form_for Story.new do |f| %>
   
 	  <ul class="start-story-form">
 		<!-- <li><h3></h3></li> -->
-		<li><div id="start-story-form-image">In Process...</div>
+		<li><div id="start-story-form-image">In process...</div>
 			<%=f.hidden_field :image_id , :class => 'start-story-image' %>
 		</li>
 		
@@ -13,7 +13,7 @@
 		</li>
 		<li>
 			<span class="counter-text">55 words left out of 55</span>
-			<%= f.button 'Feed It', :class => 'btn btn-create-story', disabled: true, disable_with: 'Processing...'%>
+			<%= f.button 'Feed it', :class => 'btn btn-create-story', disabled: true, disable_with: 'Create story...'%>
 		</li>
 					
 	</ul>		

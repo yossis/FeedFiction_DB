@@ -1,6 +1,6 @@
-<div class="add-comment">
+<div class="add-comment comment">
     <% if current_user %>
-      <div class="commenter-avatar"><%= avatar_rounded(current_user) %></div>
+      <div class="avatar"><%= avatar_rounded(current_user) %></div>
     <%end%>
 	<%= form_for(Comment.new , html: {class: 'form-horizontal'},  remote: true) do |f| %>
 	  	<%if story.nil? %>

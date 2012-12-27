@@ -1077,7 +1077,7 @@ input[type="button"] {
 
 /* Dropcaps
 =================================================================== */
-.dropcap {
+/*.dropcap {
 	background: #fcfcfc;
 	color: #666;
 	display: inline-block;
@@ -1091,7 +1091,7 @@ input[type="button"] {
 	width: 36px;
 	border: 1px solid #f6f6f6;
 }
-
+*/
 	.dropcap.dark {
 		background: #3a3a3a;
 		color: #fff;
@@ -1159,8 +1159,8 @@ input[type="button"] {
 =================================================================== */
 
 /* Comments
-=================================================================== */
-.comments-sec {
+=/*================================================================== */
+/*.comments-sec {
 	float:left;
 	width:100%;
 	line-height: 20px;
