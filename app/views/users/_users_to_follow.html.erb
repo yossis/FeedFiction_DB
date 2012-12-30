@@ -1,4 +1,4 @@
-	<h3><%= @title %></h3>
+	
       <% if @users.any? %>
         <ul class="followers row">
           <%= render @users %>
@@ -6,11 +6,7 @@
         <%= will_paginate @users%>
       <% else %>
       	<div class="alert">
-      		<% if @user==current_user %>
-      			<h3>You have no <%= @title.downcase %> yet!</h3> 
-      		<% else %>
-      			<h3>@user has no <%= @title.downcase %> yet!</h3> 
-      		<% end%>
+      		<h3><%= @empty_disclaimer%></h3> 
       	</div>
       <% end %>
-    </div>
+    

@@ -10,8 +10,8 @@
       <div class="navbar-inner">
         
         <ul class="nav">
-          <li <%=@active_stories%>><a href="<%=user_url(@user)%>">stories:<%= @user.participate_stories.count%></a></li>
-          <li <%=@active_likes%>><a href="<%= likes_user_url(@user)%>">Likes:<%= @user.likes.count%></a></li>
+          <li <%=@active_stories%>><a href="<%=user_url(@user)%>"><%= pluralize(@user.participate_stories.count , 'Story')%></a></li>
+          <li <%=@active_likes%>><a href="<%= likes_user_url(@user)%>"><%= pluralize(@user.likes.count ,'Like')%></a></li>
         </ul>
        
         <ul class="nav pull-right">

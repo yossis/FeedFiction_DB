@@ -1,7 +1,8 @@
-<% if (current_user && current_user.stories.size<1) ||  current_user && current_user.admin?%>
+<% if (current_user && current_user.stories.size<1) %>
 	<div class="alert alert-block">
 	  <button class="btn btn-primary userFunction" data-function="startStoryModal" type="button" >Start here</button>
 	</div>
+
 <%end%>
 
 <div id="story-container" >

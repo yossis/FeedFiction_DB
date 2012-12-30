@@ -2,12 +2,11 @@ $background-color :#EDEDEB;
 $background-header :#1B1B1B;
 $background-socials :#29A9DF;
 $background-socials :#1A1A1A;
-$story-font : 'Vollkorn',serif;
+$story-font : 'Sanchez',serif;
 
 
 body {
 	font-family: $story-font;
-	font-weight: 400;
 
 }
 
@@ -549,7 +548,7 @@ footer {
 	font-family: $story-font;
 	font-size:18px;
 	line-height: 22px;
-	font-weight: 400;
+	font-weight: 700px;
 	text-align: justify;
 	padding:20px;
 	span {
@@ -567,7 +566,7 @@ footer {
 			margin:15px 0;
 			padding: 0 30px !important;
 		  text-align: center;
-		  color: #7B0202;
+			color: #555;
 		  font-family: 'Lobster', cursive !important;
 		  font-size: 23px;
 		  text-transform: capitalize;
