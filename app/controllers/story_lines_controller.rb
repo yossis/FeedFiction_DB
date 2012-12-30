@@ -45,9 +45,13 @@ class StoryLinesController < ApplicationController
 
     @story_line = StoryLine.create(params[:story_line].merge user_id: current_user.id)
     
+    @story_line.update_attribute(:line, until_55_words(@story_line.story,@story_line.line))
+
+    #@story_line.save!
+    
     @story = @story_line.story
 
-    update_if_complete @stroy
+    update_if_complete @story
     #render json: @story_line, status: :created, location: @story_line
   end
 

@@ -30,10 +30,10 @@
 						<!-- <div class="continue-story-text-area"> -->
 			              <%= avatar_rounded(current_user) if current_user %>
 			              <div class="textarea-with-button">
-	              			<textarea limit='<%= (add_how_many_words story)+1%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story..'></textarea>
+	              			<textarea limit='<%= (add_how_many_words_left story)+1%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story..'></textarea>
 			  							
 			  							<div>
-			  								<span class="counter-text"><%= (add_how_many_words story)+1%> words left out of 55</span>
+			  								<span class="counter-text"><%= (add_how_many_words_left story)+1%> words left out of 55</span>
 			  							<%= f.submit 'Feed It', class: 'btn btn-small', disabled: true ,disable_with: 'Processing...'%>
 			  							
 			  							</div>

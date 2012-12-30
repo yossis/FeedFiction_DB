@@ -151,12 +151,13 @@ var feedfiction = {
 
           $(elements).bind({
             mouseenter: function() {
-              $(elements).css('background-color','yellow');
-              
-
+              $(elements).css('font-weight','bold');
+              $(elements).last().find('.round-avatar').addClass('round-avatar-border');
             },
             mouseleave: function() {
-              $(elements).css('background-color','white');
+              $(elements).css('font-weight','normal');
+              $(elements).last().find('.round-avatar').removeClass('round-avatar-border');
+              
                
             }
           });

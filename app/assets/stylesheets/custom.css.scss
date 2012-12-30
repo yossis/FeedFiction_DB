@@ -2,11 +2,12 @@ $background-color :#EDEDEB;
 $background-header :#1B1B1B;
 $background-socials :#29A9DF;
 $background-socials :#1A1A1A;
-$story-font : 'Sanchez',serif;
-$xstory-font : 'Arbutus Slab', serif;
+$story-font : 'Vollkorn',serif;
+
 
 body {
 	font-family: $story-font;
+	font-weight: 400;
 
 }
 
@@ -548,7 +549,7 @@ footer {
 	font-family: $story-font;
 	font-size:18px;
 	line-height: 22px;
-	font-weight: 700px;
+	font-weight: 400;
 	text-align: justify;
 	padding:20px;
 	span {
@@ -592,6 +593,10 @@ footer {
 .round-avatar {
 	width:40px;	height:40px;
 	margin-right: 7px;
+	border-radius: 90px;
+  -moz-border-radius: 90px;
+  -webkit-border-radius: 90px;
+  border: 1px solid #eee;
 }
 
 .round-avatar-large {
@@ -601,6 +606,12 @@ footer {
   -webkit-border-radius: 90px;
 	border: 5px solid #F6F6F6
 
+}
+.round-avatar-border {
+	border-radius: 90px;
+  -moz-border-radius: 90px;
+  -webkit-border-radius: 90px;
+	border: 1px solid #000;
 }
 
 .continue-story-text-area {
@@ -799,7 +810,7 @@ ul.commentlist {
 				margin:0;
 			}
 			textarea {
-				width: 272px;
+				width: 270px;
 				height: 30px;
 			}
 

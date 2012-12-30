@@ -28,18 +28,25 @@ gem 'rspec-core'
 gem 'jquery-fileupload-rails'
 gem 'pry'
 gem 'pry-rails'
+gem 'meta_request', '0.2.0'
+gem 'meta_request', '0.2.0'
+gem 'annotate', ">=2.5.0" 
+gem 'debugger'
+
+group :development do
+
+end
+
 group :development, :test do
   gem 'capybara', '1.1.2'
   gem 'guard-rspec', '0.5.5'
   gem 'guard-spork', '0.3.2'
   gem 'spork', '0.9.0'
   #gem 'debugger' use binding.pry instead
-  gem 'meta_request'
   gem 'factory_girl_rails'
   gem 'faker'
 end
 
-gem 'annotate', ">=2.5.0" , group: :development
 
 group :test do
   gem 'rb-inotify', '0.8.8'

@@ -26,31 +26,34 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  def add_how_many_words(story)
-    # words = Array.new
-    # lines.each do |w|
-    #   words.push w.line
-    # end
-    # 55-words.join(' ').split(' ').count
+  def add_how_many_words_left(story)
     count ||= story.story_lines.map {|i| i.line}.join(' ').squish.strip.split(' ').count
     55-count
   end
+  helper_method :add_how_many_words_left
+
+
+  def until_55_words(story, line)
+    count = 0
+    count = add_how_many_words_left story unless story.nil?
+    line_arr = line.squish.strip.split(' ')
+    line_arr[0..55-count-1].join(' ')
+  end
 
   def update_if_complete(story)
-      limit = add_how_many_words story
+      limit = add_how_many_words_left story
       logger.debug "limit: #{limit}"
 
     if limit<1
       logger.debug "inside if limit"
       story.is_complete = true
-      story.save!
+      story.update_attribute(:is_complete, true)
     end
   end
 
 
 
-  helper_method :add_how_many_words
-
+  
   def in_wizard
      cookies[:register_wizard]=='1'
   end
