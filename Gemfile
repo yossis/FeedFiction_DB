@@ -26,15 +26,15 @@ gem 'rspec-rails'
 gem 'rspec'
 gem 'rspec-core'
 gem 'jquery-fileupload-rails'
+
+
+group :development do
 gem 'pry'
 gem 'pry-rails'
 gem 'meta_request', '0.2.0'
-gem 'meta_request', '0.2.0'
+
 gem 'annotate', ">=2.5.0" 
 gem 'debugger'
-
-group :development do
-
 end
 
 group :development, :test do
