@@ -108,9 +108,19 @@ var feedfiction = {
         
       setPreloader: function(e){
         $(e).removeClass('hide').removeAttr('style').show('slow');
+        // $(this).bind('ajax:before', function() {alert("before!");}).bind('ajax:loading', function() {alert("loading!");})
+        // .bind('ajax:success', function(data, status, xhr) {alert("success!");})
+        // .bind('ajax:error', function(xhr, status, error) {alert("failure!");})
+        // .bind('ajax:complete', function() {alert("complete!");});
+        
         $(this).bind("ajax:success", function() {
           $(e).hide();
+        });
+        if ($(this).hasClass('start-instagram')){
+          $(this).bind("ajax:error", function(xhr, status, error) {
+            location.href = feedfiction.constants.sitePath+'/instagram';
           });
+        }
       },
       continueStory:function(id) {
           //Change form
@@ -119,6 +129,11 @@ var feedfiction = {
           //$(form).attr('id','new_story_line');
 
          
+      },
+
+      fireInstagram: function(){
+        feedfiction.actions.startStoryModal();
+        $('#start-instagram').trigger('click');
       },
 
       

@@ -1,0 +1,40 @@
+(function($, require) {
+  $('#connect-instagram').live('click', function(){
+  var Instagram, ig, param, store, token;
+    Instagram = require.Instagram;
+    store = {
+      get: function(key) {
+        return window.localStorage.getItem(key);
+      },
+      set: function(key, val) {
+        return window.localStorage.setItem(key, val);
+      },
+      clear: function() {
+        return window.localStorage.clear();
+      },
+      remove: function(key) {
+        return window.localStorage.removeItem(key);
+      }
+    };
+    ig = new Instagram();
+    if (window.location.hash) {
+      token = ig.getToken();
+      store.set('ig_token', token);
+    }
+    if (!store.get('ig_token')) {
+      param = {
+        client_id: "<%= ENV['INSTAGRAM_ID']%>",
+        client_secret: "<%= ENV['INSTAGRAM_SECRET']%>",
+        redirect_uri: "<%= ENV['INSTAGRAM_CALLBACK']%>",
+        scope: 'basic',
+        response_type: 'code'
+      };
+      ig.auth(param);
+    }
+    ig.setOptions({
+      token: store.get('ig_token')
+    });
+  });
+  
+  
+})(jQuery, window);

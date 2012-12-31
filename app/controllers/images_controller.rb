@@ -25,6 +25,7 @@ class ImagesController < ApplicationController
         format.js { render 'facebook'}
       end
     else
+      session[:fire_insta_box] = 1
       redirect_to :controller => 'sessions', :action => 'connect_instagram' #if !session[:access_token] 
     end
     

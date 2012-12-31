@@ -3,3 +3,14 @@
 <%end%>
 <%= render 'layouts/feed_nav'%>
 <%= render 'feed' %>
+
+<% if @connect_instagram==1 %>
+	<script type="text/javascript">
+	<!--
+	$(function(){
+		feedfiction.actions.fireInstagram();
+	})
+	
+	//-->
+	</script>
+<% end %>

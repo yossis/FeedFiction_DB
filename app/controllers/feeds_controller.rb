@@ -14,7 +14,10 @@ class FeedsController < ApplicationController
     else
       @stories = Story.paginate(page: params[:page]).order('updated_at DESC')
     end
-
+    if session[:fire_insta_box]==1
+      session.delete :fire_insta_box
+      @connect_instagram=1
+    end
   end
 
   private
