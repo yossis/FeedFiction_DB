@@ -1,5 +1,7 @@
 $("<%= j render 'comments/comment' %>").insertBefore($("#comments-<%=@comment.story_id%> ul.commentlist li.add-comment"));
-$("#comment-count-<%=@comment.story_id%>").html("<%= @comment.story.comments.size%> comments");
+$("#actions-item-<%=@comment.story_id%> ").html("<%= escape_javascript(render('stories/actions' , :story => @comment.story ))%>");
+
+//$("#comment-count-<%#=@comment.story_id%>").html("<%#= @comment.story.comments.size%> comments");
 if ($('#portfolio-wrapper').length>0)
 	$('#portfolio-wrapper').isotope('reLayout');
 feedfiction.actions.clearCommentText();

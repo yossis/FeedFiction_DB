@@ -2,6 +2,7 @@ $background-color :#EDEDEB;
 $background-header :#1B1B1B;
 $background-socials :#29A9DF;
 $background-socials :#1A1A1A;
+$background-url: url('background.png');
 $story-font : 'Sanchez',serif;
 
 
@@ -69,7 +70,7 @@ a.link {
 header {
 	background-color: $background-header;
 	border-bottom: 0;
-	/*height: 30px;*/
+	height: 45px;
 	.navbar, 
 	.navbar-inner, 
 	.nav,
@@ -108,6 +109,10 @@ header {
 			/*line-height: 10px*/;
 			a {
 				color: #fff !important;
+			}
+
+			.round-avatar-mini {
+				margin-top: 7px;
 			}
 
 		}
@@ -302,13 +307,15 @@ footer {
 .hp-header {
 	position: relative;
 	.slider-wrapper {
-		background: url('hpcollage_blur.jpg') repeat-x;
+		/*background: url('hpcollage_blur.jpg') repeat-x;*/
+		background: url('collage.jpg') repeat-x;
 		height: 500px;
-		opacity: 0.3;
 		
-		xdiv {
-			background-color: #fff;
+
+		div {
+			background-color: #000;
 			width:100%; height: 100%;
+			opacity: 0.7;
 		}
 
 	}
@@ -316,28 +323,34 @@ footer {
 		position: absolute;
 		top: 50px;
 		width: 100%;
+		/*.container {
+			background-color: $background-color;
+			padding:10px;
+		}*/
 	}
 	.anounce {
 			float: left;
-			color: #000;
+			color: #fff;
 			font-size: 30px;
 			width: 500px;
 			line-height: 40px;
+			text-align: center;
 			p{
 				text-align: center;
 			}
 			.last-word {
 				/*color: #2954C5;*/
-				color: #37809e;
+				
 			}
 
 			.sign-in {
 				background: url('hp_facbook_coonect.png') no-repeat;
 				height: 61px; width: 344px;
-				display: block;
+				display: inline-block;
 				color: #EEE;
 				font-size: 23px;
-				padding-left: 69px;
+				/*padding-left: 69px;*/
+				padding-left: 30px;
 				line-height: 62px;
 				position: relative;
 				top: 67px;
@@ -436,7 +449,8 @@ footer {
 /* Logos */
 .logo {
 	height: 0;
-	margin-top: 6px;
+	font-family: 'Lobster';
+	margin-top: 10px;
 	i {
 		margin-top: 0px;
 		color: #fff;
@@ -445,9 +459,10 @@ footer {
 		/*height:30px;*/
 		/*color: #DDD;*/
 		text-decoration: none;
-		font-size: 22px;
+		font-size: 28px;
 		line-height: 22px;
 		margin-left: 0px;
+
 	}
 }
 .logo ,.small-logo{
@@ -497,7 +512,8 @@ footer {
 
 .wrapper-logo-feed {
 	width: 135px;
-	background-color: $background-color;
+	/*background-color: $background-color;*/
+	background: $background-url;
 	margin:0 auto;
 	position: relative;
 	top: -7.3em;
@@ -515,7 +531,8 @@ footer {
 		h1 {
 			position: relative; top: -0.5em;
 			font-family: 'Lobster' !important;
-			background-color: $background-color;
+			/*background-color: $background-color;*/
+			background: $background-url;
 			display: inline-block;
 			padding: 0 35px;
 			font-size: 33px;
@@ -539,7 +556,8 @@ footer {
 		border:solid 1px #D4D4D4;
 		height: 40px;
 		width: 8px;
-		background-color: #EDEDEB;
+		/*background-color: #EDEDEB;*/
+		background: $background-url;
 
 	}
 	.left-corner {
@@ -599,7 +617,8 @@ footer {
 
 
 #wrapper {
-	background-color:$background-color;
+	/*background-color:$background-color;*/
+	background: $background-url;
 }
 
 .hero-unit {
@@ -618,9 +637,8 @@ footer {
 	font-weight: 700px;
 	text-align: justify;
 	padding:20px;
-	span {
-		color: #444;
-	}
+	color: #444;
+	
 
 	.the-end {
 		text-align:center;
@@ -1349,6 +1367,7 @@ ul.commentlist {
 .followers {
 	
 	li {
+		position: relative;
 		padding: 7px 0 0 0;
 		margin-bottom: 30px;
 		height: 67px;
@@ -1364,6 +1383,15 @@ ul.commentlist {
      .span1 {
      	display: block;
      		margin-left: 7px;
+     }
+     form{
+     	position: absolute;
+     	top: 42px;
+     	width: 100%;
+     	.btn-small {
+     		float: right;
+     		margin-right: 5px;
+     	}
      }
      .btn-follow-wrapper {
      	margin-top: 12px;

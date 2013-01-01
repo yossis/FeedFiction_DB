@@ -1,0 +1,7 @@
+					<div class="post-meta comments-dashboard">
+						<% if story.comments.size>0%>
+						<span><i class="mini-ico-comment"></i> <%=link_to pluralize(story.comments.size, 'Comment'), story_url(story) , id: "comment-count-#{story.id}"%></span>
+						<% end%>
+						<%= render 'stories/like_actions' , story: story %>
+						<%= render 'stories/flag_actions' , story: story %>
+					</div>
