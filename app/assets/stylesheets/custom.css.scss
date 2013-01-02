@@ -343,19 +343,32 @@ footer {
 				
 			}
 
-			.sign-in {
+			.sign-in{
+				background: url('hp_facbook_coonect_sprite.png') no-repeat;
+				height: 63px; width: 344px;
+				display: inline-block;
+				position: relative;
+				top: 90px;
+				cursor: pointer;
+				&:hover {
+					background-position: 0 -65px;
+				}
+			}
+
+			/*.sign-in {
 				background: url('hp_facbook_coonect.png') no-repeat;
 				height: 61px; width: 344px;
 				display: inline-block;
 				color: #EEE;
 				font-size: 23px;
 				/*padding-left: 69px;*/
-				padding-left: 30px;
+				/*padding-left: 30px;
+				margin-left: 30px;
 				line-height: 62px;
 				position: relative;
-				top: 67px;
+				top: 90px;
 				cursor: pointer;
-			}
+			}*/
 			
 		}
 	.story-panel {
@@ -364,7 +377,7 @@ footer {
 	}
 
 		.hp-labels {
-			background: url('hp_labels.png') no-repeat;
+			background: url('hp_labels_arrows_white.png') no-repeat;
 			background-repeat: no-repeat;
 			display: block;
 			height: 100px; width: 150px; 
