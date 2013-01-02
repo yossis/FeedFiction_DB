@@ -1,13 +1,14 @@
- <% if story.is_complete %>
  <div id="comments-<%=story.id%>" class="comments">
+  <%= render 'comments/comments_list',story: story%>
+  <% if story.is_complete %>
+ 
     <ul class="commentlist">
       <% unless story.comments.empty? %>
         <%= render 'comments/show' %>
       <% end  %>
       <li class="add-comment">
-		<%= render 'comments/new' , :story => story %>
+    <%= render 'comments/new' , :story => story %>
       </li>
     </ul>
-     
-  </div> 
-  <%end%>
+ <%end%>
+ </div> 

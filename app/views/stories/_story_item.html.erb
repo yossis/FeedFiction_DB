@@ -28,7 +28,10 @@
 						<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
 						<%= f.hidden_field :story_id, value: story.id %>
 						<!-- <div class="continue-story-text-area"> -->
-			              <%= avatar_rounded(current_user) if current_user %>
+								
+			              <%= avatar_rounded(current_user)  %>
+			              
+
 			              <div class="textarea-with-button">
 	              			<textarea limit='<%= (add_how_many_words_left story)+1%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story...'></textarea>
 			  							

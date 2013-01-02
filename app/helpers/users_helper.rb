@@ -5,11 +5,17 @@ module UsersHelper
 	end
 
 	def avatar_rounded(user)
-		# img = '<div class="round-avatar"><div></div>'+ link_to(image_tag(user.avatar) ,user, title: user.name)
-		# img +='</div>'
-		img = '<div class="round-avatar">'+ link_to(image_tag(user.avatar, class: 'img-circle') ,user, title: user.name)
-		img +='</div>'
-		img.html_safe
+		if user.nil?
+			img = '<div class="round-avatar">'+ image_tag('fb_avatar.png', class: 'img-circle')
+			img +='</div>'
+			img.html_safe
+		else
+			# img = '<div class="round-avatar"><div></div>'+ link_to(image_tag(user.avatar) ,user, title: user.name)
+			# img +='</div>'
+			img = '<div class="round-avatar">'+ link_to(image_tag(user.avatar, class: 'img-circle') ,user, title: user.name)
+			img +='</div>'
+			img.html_safe
+		end
 	end
 
 	def avatar_rounded_large(user)
