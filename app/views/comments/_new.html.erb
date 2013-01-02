@@ -1,7 +1,7 @@
 <div class="add-comment comment">
-    <% if current_user %>
+    
       <div class="avatar"><%= avatar_rounded(current_user) %></div>
-    <%end%>
+   
 	<%= form_for(Comment.new , html: {class: 'form-horizontal'},  remote: true) do |f| %>
 	  	<%if story.nil? %>
 	  		<%= f.hidden_field :story_id%>
@@ -10,10 +10,10 @@
 		<% end %>
 	  <textarea <%= 'unlogged=1' unless current_user %> rows="3" name="comment[comment]" id="comment_comment" data-function="validateComment" class="userFunction" placeholder="Add your comment here..."></textarea>
 	  
-	  <% if current_user%>
-		  <div class="actions">
-		    <%= f.submit 'Comment' ,disable_with: 'Please wait...' ,disabled: true , class: 'btn btn-small'%>
-		  </div>
-	  <% end %>
+	  
+	  <div class="actions">
+	    <%= f.submit 'Comment' ,disable_with: 'Please wait...' ,disabled: true , class: 'btn btn-small'%>
+	  </div>
+	  
 	<% end %>
 </div>
