@@ -149,16 +149,17 @@ jQuery(document).ready(function () {
 function renderIsotope(tiles){
 	var $container = $(tiles);
 
-
-	$(window).load(function(){
+$(window).load(function(){
+	$(tiles).imagesLoaded( function(){
 		$(tiles).isotope({
 	  // options
-	  itemSelector : '.portfolio-item',
-	  masonry: {
-	    columnWidth: $container.width() / 12 
-	    
-	  }
-	});
+		  itemSelector : '.portfolio-item',
+		  masonry: {
+		    columnWidth: $container.width() / 12 
+		    
+		  }
+		})
+	})
 });
 	// $(tiles).imagesLoaded(function(){
         

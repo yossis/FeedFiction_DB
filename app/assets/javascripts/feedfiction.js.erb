@@ -451,7 +451,7 @@ var feedfiction = {
         });
 
         $('input,textarea').live('blur', feedfiction.validateField);
-        $('.story-with-owners span').live('hover', feedfiction.actions.boldWriterLine);
+        $('.story-with-owners .hover-line').live('hover', feedfiction.actions.boldWriterLine);
         $('.btn-following').live('hover', feedfiction.actions.writeUnfollowButton);
         $('#imageForStory ul li.story-box').live('click', feedfiction.actions.enableStartStoryForm);
         $(document).on('click', '.btn-file-input' , function(){

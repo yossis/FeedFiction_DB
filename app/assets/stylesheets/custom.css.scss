@@ -66,7 +66,9 @@ a.link {
 .preloader {
 	background: url('preloader.gif') center center no-repeat;
 }
-
+.pagination {
+	visibility: hidden;
+}
 header {
 	background-color: $background-header;
 	border-bottom: 0;
@@ -123,6 +125,7 @@ header {
 }
 
 footer {
+	margin-top: 20px;
 	background-color: #323232;
 	padding: 10px;
 	-webkit-box-shadow: 0 -4px 0 rgba(0,0,0,.1), 0px 1px 1px rgba(0,0,0,.35);
@@ -645,6 +648,7 @@ footer {
 
 .story-area {
 	font-family: $story-font;
+	overflow: hidden;
 	font-size:18px;
 	line-height: 22px;
 	font-weight: 700px;
@@ -930,7 +934,7 @@ ul.commentlist {
 		float: right;
 		/*padding-right: 10px;*/
 		position: relative;
-		top: -5px;
+		margin:0;
 	}
 	div {
 		display: inline;
@@ -966,9 +970,14 @@ ul.commentlist {
 		}
 	}
 
-	.round-avatar {
-		width: 60px; height: 60px;
+	.writers {
+		.round-avatar ,img {
+			width: 60px; height: 60px;
+		}
+
 	}
+
+	
 
 
 	.big-avatars {
@@ -1191,6 +1200,9 @@ ul.commentlist {
 		div.span2 {
 			background-color: #eee;
 			margin-left: 5px;
+			&:hover {
+				background-color: #d6d6d4;
+			}
 		}
 		.first {
 			margin-left: 0 !important;
@@ -1328,27 +1340,27 @@ ul.commentlist {
 	}
 }
 .social-upload {
-	background: url('social-uploads.png') no-repeat;
-	height: 86px; width: 87px;
+	background: url('social-uploads2.png') no-repeat;
+	height: 101px; width: 102px;
 	display: inline-block;
 }
 
 .upload-facebook {
-	background-position: -3px -85px;
+	/*background-position: -3px -85px;
 	&:hover {
 		background-position: -3px -85px;
-	}
+	}*/
 }
 .upload-instagram {
-	background-position: -174px -85px;
+	background-position: -114px 0px;
 	&:hover {
-		background-position: -174px -85px;
+		
 	}
 }
 .upload-cloud {
-	background-position: -89px -85px;
+	background-position: -225px 0px;
 	&:hover {
-		background-position: -89px -85px;
+		
 	}
 }
 

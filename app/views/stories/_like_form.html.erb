@@ -1,6 +1,6 @@
 
 <%= form_for(current_user.likes.build(story_id: story.id) , remote: true) do |f| %>
-  <div><%= f.hidden_field :story_id %></div>
+  <%= f.hidden_field :story_id %>
   <%#= f.submit "Like", class: "btn btn-small btn-info" %>
   <a class="btn btn-small btn-info btn-like" onclick="$('#like-<%=story.id%> form').submit();">
   	<i class="mini-ico-heart"></i>Like
