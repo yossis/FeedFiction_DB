@@ -61,6 +61,15 @@ a.link {
 
 .close-modal {
 	background: url('close_btn_modal.png') no-repeat;
+	width: 55px;
+		height: 23px;
+		float: right;
+		position: relative;
+		top: -21px; left: -22px;
+		cursor: pointer;
+}
+.modal {
+	overflow: visible;
 }
 
 .preloader {
@@ -347,15 +356,10 @@ footer {
 			}
 
 			.sign-in{
-				background: url('hp_facbook_coonect_sprite.png') no-repeat;
-				height: 63px; width: 344px;
-				display: inline-block;
+				
 				position: relative;
 				top: 90px;
-				cursor: pointer;
-				&:hover {
-					background-position: 0 -65px;
-				}
+				
 			}
 
 			/*.sign-in {
@@ -442,6 +446,15 @@ footer {
 	/*webkit-border-radius: 14px;
      -moz-border-radius: 14px;
           border-radius: 14px;*/
+}
+.btn-signin-large {
+	background: url('hp_facbook_coonect_sprite.png') no-repeat;
+	height: 63px; width: 345px;
+	display: inline-block;
+	cursor: pointer;
+	&:hover {
+		background-position: 0 -65px;
+	}
 }
 
 
@@ -762,6 +775,11 @@ footer {
 .portfolio-item {
 	/*overflow: hidden;*/
 	background-color: #fff;
+	&:hover {
+		-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+		-moz-box-shadow: 0 0 8px rgba(0,0,0,0.2);
+		box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+	}
 }
 #story-container {
 	.item-description {
@@ -801,6 +819,7 @@ footer {
 				top: 25px;
 				width: 100%;
 				div.story-title {
+					overflow: hidden;
 					width:270px;
 					text-align: center;
 					margin: 0 auto;
@@ -1043,6 +1062,26 @@ ul.commentlist {
 	}
 }
 
+/* Modal Validation registraion */
+
+#modal-register {
+	width: 650px;
+	text-align: center;
+	.modal-body {
+		clear: both;
+		padding: 0 42px;
+		overflow-y:visible;
+		font-size: 22px;
+		line-height: 37px;
+	}
+	.link-login {
+		padding-top: 20px;
+		text-align: right;
+		font-size: 15px;
+	}
+
+}
+
 /* Registration modal wizrd */
 #registration_wizard {
 	width:auto;
@@ -1107,12 +1146,7 @@ ul.commentlist {
 		overflow: visible !important;
 	}
 	.close-modal {
-		width: 55px;
-		height: 23px;
-		float: right;
-		position: relative;
-		top: -21px; left: -22px;
-		cursor: pointer;
+		
 	}
 	.preloader {
 			position: absolute;
@@ -1386,6 +1420,7 @@ ul.commentlist {
 			}
 		}
 	}
+	
 }
 
 /* Followers page */
@@ -1421,6 +1456,12 @@ ul.commentlist {
      .btn-follow-wrapper {
      	margin-top: 12px;
      }
+     .thats-you {
+				float: right;
+				position: relative;
+				top: 3px;
+				margin-right: 5px;
+			}
 	}
 }
 

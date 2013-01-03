@@ -26,7 +26,7 @@
    
   $(document).on("click", '.continue-story-text-area textarea', function(e){
     if ($(this).attr('unlogged') && $(this).attr('unlogged').length>0){
-      alert("You must sign in to complete the story!");
+      feedfiction.validateLogin.call(this,"You must sign in to complete the story!");
       $(this).blur();
       return;
     }

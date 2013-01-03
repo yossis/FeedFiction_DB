@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
   #
   def welcome (user)
     @user = user
-    mail to: user.email, subject: "Welocme to Feedfiction"
+    mail to: user.email, subject: "Welcome to FeedFiction"
   end
 
   def continue_story(story , user, current_user)
