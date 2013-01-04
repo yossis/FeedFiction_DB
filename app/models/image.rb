@@ -24,7 +24,7 @@ class Image < ActiveRecord::Base
   has_many :stories
   belongs_to :image_type
   
-  
+  before_save :saving
   mount_uploader :image_thumb, ImageUploader
 
   #after_save :enqueue_image
@@ -63,13 +63,7 @@ class Image < ActiveRecord::Base
      image.remote_image_thumb_url = image.image_source
      image.save!
 
-     geometry = image.image_thumb.thumb.geometry
-      if (! geometry.nil?)
-        image.width = geometry[0]
-        image.height = geometry[1]
-      end
-
-     image.update_attributes({image_processed: true , width:image.width , height:image.height})
+     image.update_column(:image_processed, true)
     end
   end
   
