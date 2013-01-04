@@ -35,7 +35,7 @@ class Image < ActiveRecord::Base
   end
 
   def saving
-    geometry = self.url.geometry
+    geometry = self.image_thumb.geometry
     if (! geometry.nil?)
       self.source_width = geometry[0]
       self.source_height = geometry[1]
@@ -62,7 +62,14 @@ class Image < ActiveRecord::Base
      #image.remote_image_thumb_url = "#{ENV["AWS_S3_URL"]}"+key
      image.remote_image_thumb_url = image.image_source
      image.save!
-     image.update_column(:image_processed, true)
+
+     geometry = image.image_thumb.thumb.geometry
+      if (! geometry.nil?)
+        image.width = geometry[0]
+        image.height = geometry[1]
+      end
+
+     image.update_attributes({image_processed: true , width:image.width , height:image.height})
     end
   end
   
