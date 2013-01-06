@@ -1,7 +1,7 @@
 
 	<div class="picture">
 		<%= link_to(story,{title: story.story_title}) do%>
-		<%=  image_tag(image_thumb(story.image))  %>
+		<%= image_thumb(story.image)  %>
 	
 		<% end %>
 		<div class="title-container">

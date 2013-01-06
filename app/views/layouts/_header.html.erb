@@ -88,12 +88,3 @@
 <%= yield :home%>
 
 
-<% unless current_user%>
-<% unless @donot_show_disclaimer%>
-  <div class="unlogin-disclaimer hero-unit">
-    <p>Use Feedfiction to write stories alone or with friends</p>
-    <button class="btn btn-large btn-primary sign-in" type="button">Sign up</button>
-  </div>
-<% end %>
-<% end %>
-

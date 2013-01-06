@@ -35,16 +35,18 @@ class Image < ActiveRecord::Base
   end
 
   def saving
-    geometry = self.image_thumb.geometry
-    if (! geometry.nil?)
-      self.source_width = geometry[0]
-      self.source_height = geometry[1]
-    end
+    if (!self.image_processed)
+      geometry = self.image_thumb.geometry
+      if (! geometry.nil?)
+        self.source_width = geometry[0]
+        self.source_height = geometry[1]
+      end
 
-    geometry = self.image_thumb.thumb.geometry
-    if (! geometry.nil?)
-      self.width = geometry[0]
-      self.height = geometry[1]
+      geometry = self.image_thumb.thumb.geometry
+      if (! geometry.nil?)
+        self.width = geometry[0]
+        self.height = geometry[1]
+      end
     end
   end
 

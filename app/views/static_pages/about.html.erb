@@ -1,4 +1,9 @@
 <% full_title('About us')%>
 
-<h1>About us</h1>
+<div class="header-hr">
+	<h1>About us</h1>
+</div>
 <%= render 'static_pages/about'%>
+<% content_for :footer do %>
+	<%=render 'layouts/footer' %>
+<% end %>

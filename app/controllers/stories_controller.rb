@@ -39,6 +39,8 @@ class StoriesController < ApplicationController
     story_line = StoryLine.new(:line => until_55_words(nil,params[:story_line][:line]), :order_id =>1, user_id: current_user.id)
     story_line.build_story(params[:story].merge :user_id => current_user.id)
     story_line.save!
+    image = story_line.story.image
+    image.enqueue_image if !image.image_processed && image.image_type.id != ImageType.upload_id
 
     update_if_complete story_line.story
     

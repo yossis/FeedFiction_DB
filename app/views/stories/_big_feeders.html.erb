@@ -1,7 +1,7 @@
 <div class="big-avatars clearfix">
 	<ul>
 	<% story.story_lines.map {|l| l.user}.uniq.each do |user| %>
-		<li class="writer writer_<%=user.id%>"><%=avatar_rounded_large(user) %>
+		<li class="owner writer_<%=user.id%>"><%=avatar_rounded_large(user) %>
 			<div><%= link_to(user.name , user_url(user))%></div>
 		</li>
 	<% end%>
