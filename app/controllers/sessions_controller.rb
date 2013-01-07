@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user._id
     
     if user.first_time?
-      UserMailer.welcome(user).deliver if user.email.present?
+      UserMailer.delay.welcome(user) if user.email.present?
     end
     redirect_to root_url
   end

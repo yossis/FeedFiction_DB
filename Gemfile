@@ -19,7 +19,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
-gem 'sidekiq_mailer'
+#gem 'sidekiq_mailer'
 gem 'capistrano'
 gem 'rvm-capistrano'
 

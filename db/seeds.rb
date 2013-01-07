@@ -29,7 +29,7 @@ end
 end 
 
 
-['Story', 'Comment'].each do |t|
+['Story', 'Comment', 'Like' , 'Follow'].each do |t|
 	NotificationType.find_or_create_by_name t
 end 
 

@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  include Sidekiq::Mailer
+  #include Sidekiq::Mailer
   default from: "\"Feedfiction\" <notification@Feedfiction.com>"
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -16,8 +16,10 @@ class UserMailer < ActionMailer::Base
     @story = story
     @current_user = current_user
     @user  = user
+    subject = "#{current_user.name} continued the story #{story.story_title}"
+    subject = "#{current_user.name} continued your story #{story.story_title}" if story.user_id==user.id
 
-    mail to: user.email, subject: "#{current_user.name} continued your story"
+    mail to: user.email, subject: subject
     #emails = story.writers.map {|i| i.email}.compact
     #emails = emails.delete current_user.email if current_user.email.present?
   end
@@ -29,6 +31,16 @@ class UserMailer < ActionMailer::Base
     @comment = comment
 
     mail to: user.email, subject: "#{current_user.name} commented on your story"
+  end
+
+  def like_story(story , user, current_user)
+    @story = story
+    @current_user = current_user
+    subject = "#{current_user.name} likes the story #{story.story_title}"
+    subject = "#{current_user.name} likes your story #{story.story_title}" if @story.user_id==user.id
+    
+    mail to: user.email, subject: subject
+    
   end
     
     

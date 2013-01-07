@@ -105,26 +105,7 @@ header {
 	border-bottom: 5px solid #f6f6f6;
 }
 
-.logo  {
-	height: 60px;
-}
 
-.logo i{
-	margin-top:-25px;
-}
-
-
-.logo a{
-	color: #ddd;
-	text-decoration: none;
-	font-size: 28px;
-	line-height: 68px;
-	margin-left: 10px;
-}
-
-.logo span {
-	color: #29a9df;
-}
 
 #social-links {
 	margin-top:20px;

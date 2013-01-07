@@ -260,10 +260,6 @@ GEM
       multi_json (~> 1)
       redis (~> 3)
       redis-namespace
-    sidekiq_mailer (0.0.4)
-      actionmailer (~> 3.0)
-      activesupport (~> 3.0)
-      sidekiq (~> 2.3)
     simple_form (2.0.4)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -334,7 +330,6 @@ DEPENDENCIES
   rvm-capistrano
   sass-rails
   sidekiq
-  sidekiq_mailer
   simple_form
   spork (= 0.9.0)
   uglifier (>= 1.0.3)

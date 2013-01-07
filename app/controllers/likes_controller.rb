@@ -9,6 +9,7 @@ class LikesController < ApplicationController
   def create
   	@story =  Story.find(params[:like][:story_id])
   	@story.like!(current_user.id)
+    Notification.notify(@story.likes.last ,current_user)
   	respond_to do |format|
       format.js
     end

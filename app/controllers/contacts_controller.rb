@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(params[:contact])
     if @contact.valid?
       # TODO send message here
-      Mailer.contact_us(@contact).deliver
+      Mailer.delay.contact_us(@contact)
       redirect_to root_url, notice: "Message sent! Thank you for contacting us."
     else
       render "new"

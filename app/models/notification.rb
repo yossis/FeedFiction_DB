@@ -23,12 +23,14 @@ class Notification < ActiveRecord::Base
 
 def Notification.notify(item, user)
 	item_name = nil
-
+	logger.info("Notification::::::::: #{item.class}")
 	case item.class.to_s
 		when 'StoryLine'
 			  notify_story(item,user)
 		when 'Comment'
 			  comment_on_story(item,user)
+		when 'Like'
+			  like_story(item,user)
 	end
 
 end
@@ -49,7 +51,7 @@ private
 		users.delete_if {|user| user==current_user} 
 		users.each do |u|
     		self.create(:notified_user_id => u.id, :notification_type_id => notification_type.id, :notifier_user_id => current_user.id , :item_id => "sl-#{item.id}", :story_id => item.story_id)
-    		UserMailer.continue_story(item.story , u, current_user).deliver
+    		UserMailer.delay.continue_story(item.story , u, current_user)
     	end
 		
 	end
@@ -60,7 +62,21 @@ private
 		users.delete_if {|user| user==current_user} 
 		users.each do |u|
     		self.create(:notified_user_id => u.id, :notification_type_id => notification_type.id, :notifier_user_id => current_user.id , :item_id => "co-#{item.id}", :story_id => item.story_id)
-    		UserMailer.comment_on_story(item , u, current_user).deliver
+    		UserMailer.delay.comment_on_story(item , u, current_user)
+    	end
+		
+	end
+
+	def Notification.like_story(item , current_user)
+
+		notification_type = NotificationType.find_by_name('Like')
+		users = item.story.writers.uniq
+		users.delete_if {|user| user==current_user} 
+		
+		users.each do |u|
+    		self.create(:notified_user_id => u.id, :notification_type_id => notification_type.id, :notifier_user_id => current_user.id , :item_id => "st-#{item.story_id}", :story_id => item.story_id)
+    		logger.info 'before create like smtp'
+    		UserMailer.delay.like_story(item.story , u, current_user)
     	end
 		
 	end

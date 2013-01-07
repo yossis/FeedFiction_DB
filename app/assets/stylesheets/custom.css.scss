@@ -640,7 +640,7 @@ footer {
 /* Logos */
 .logo {
 	height: 0;
-	font-family: 'Lobster';
+	
 	margin-top: 10px;
 	i {
 		margin-top: 0px;
@@ -653,7 +653,11 @@ footer {
 		font-size: 28px;
 		line-height: 22px;
 		margin-left: 0px;
+		font-family: 'Lobster';
 
+	}
+	.logo-feed {
+		color: #29a9df;
 	}
 }
 .logo ,.small-logo{

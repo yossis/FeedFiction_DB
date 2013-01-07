@@ -2,11 +2,11 @@
 <p>
 	<%= link_to @current_user.name, user_url(@current_user) %>
 <% if @user.id==@story.user_id %>
-	<%= 'continued your story ' %> 
+	<%= ' likes your story ' %> 
 <%else%>
-	<%= 'continue the story ' %>
+	<%= ' likes the story ' %>
 <%end%>
 
-<%= link_to "#{@story.story_title}, read here" ,story_url(@story) %>
+<%= link_to "#{@story.story_title}" ,story_url(@story) %>
 
 </p>
