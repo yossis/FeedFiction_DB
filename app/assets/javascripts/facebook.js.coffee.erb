@@ -23,12 +23,12 @@ window.fbAsyncInit = ->
       FB.logout() if response.authResponse
     true
 
-  $("#facebook_invitation_link").click ->
+  $(".facebook_invitation_link").click ->
     FB.ui
       method: "send"
       name: "Check out Feedficton!"
       description: "Connect with friends and family to transform your photos into great short stories. Create, Inspire, Share. Have fun. Together."
-      link: "http://alpha.feedfiction.com"
+      link: "http://feedfiction.com"
     false
 
  

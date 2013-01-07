@@ -10,7 +10,7 @@
 	    </ul>
 	    <% if current_user && current_user.invitation_limit > 0 %>
 	    <ul class="nav pull-right">
-	    	<li><%=link_to 'Invite your friends', '#', id:'facebook_invitation_link'%></li>
+	    	<li><%=link_to 'Invite your friends', '#', class: 'facebook_invitation_link'%></li>
 	    </ul>
 	    
 	      <%#= link_to 'Send invitation', new_invitation_path %>

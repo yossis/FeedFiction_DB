@@ -45,8 +45,12 @@
                            <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                          <li><%= link_to "Profile", '#' %></li>
-                          <li><%= link_to "Settings", '#' %></li>
+<li><%=link_to 'My Feed', root_url if current_user%></li>
+        <li><%=link_to 'Invite friends', '#', class: 'facebook_invitation_link'%></li>
+
+                           <li class="divider"></li>
+                          <li><%= link_to "Following",  followers_user_path(current_user) %></li>
+                          <li><%= link_to "Followers",  following_user_path(current_user) %></li>
                           <li class="divider"></li>
                           <li><%= link_to "Sign out", signout_path %></li>
                           </li>

@@ -1,4 +1,5 @@
 class UserMailer < ActionMailer::Base
+  include Sidekiq::Mailer
   default from: "\"Feedfiction\" <notification@Feedfiction.com>"
 
   # Subject can be set in your I18n file at config/locales/en.yml

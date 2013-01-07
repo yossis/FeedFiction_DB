@@ -13,8 +13,9 @@
 
 				<!-- start: Footer Menu Logo -->
 				<div class="span2">
-					<div id="footer-menu-logo">
-						<a class="brand" href="#">Feed<span>Fiction</span></a>
+					<div class="logo">
+						<%= link_to  content_tag(:span ,'Feed') + 'Fiction', root_path, class: "brand" %>
+
 					</div>
 				</div>
 				<!-- end: Footer Menu Logo -->
@@ -25,7 +26,9 @@
 					<div id="footer-menu-links">
 
 						<ul id="footer-nav">
+							<li><%= link_to 'About' , about_url %></li>
 							<%= render 'layouts/footer_menu'%>
+
 						</ul>
 
 					</div>

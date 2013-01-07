@@ -1,4 +1,5 @@
 FeedFiction::Application.routes.draw do
+  
   resources :invitations
 
   resources :accounts
@@ -20,6 +21,8 @@ FeedFiction::Application.routes.draw do
       get :following, :followers, :likes
     end
   end
+
+  resources :contacts , only: [:create, :new]
 
   get "users/show"
 
@@ -49,7 +52,8 @@ FeedFiction::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/privacy', to: 'static_pages#privacy'  
   match '/terms', to: 'static_pages#terms'
-  match '/contact', to: 'static_pages#contact' 
+  match '/contact' => 'contacts#new', :as => 'contacts', :via => :get
+  match '/contact' => 'contacts#create', :as => 'contacts', :via => :post
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'oauth/instagram/callback', to: 'sessions#callback_instagram'

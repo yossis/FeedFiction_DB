@@ -19,6 +19,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
+gem 'sidekiq_mailer'
 gem 'capistrano'
 gem 'rvm-capistrano'
 
@@ -26,6 +27,7 @@ gem 'rspec-rails'
 gem 'rspec'
 gem 'rspec-core'
 gem 'jquery-fileupload-rails'
+gem 'active_attr'
 
 
 group :development do
