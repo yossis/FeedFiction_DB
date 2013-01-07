@@ -4,7 +4,7 @@
 <% if @user.id==@story.user_id %>
 	<%= 'continued your story ' %> 
 <%else%>
-	<%= 'continue the story ' %>
+	<%= 'continued the story ' %>
 <%end%>
 
 <%= link_to "#{@story.story_title}, read here" ,story_url(@story) %>

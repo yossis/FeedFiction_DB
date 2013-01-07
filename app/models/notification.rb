@@ -75,7 +75,6 @@ private
 		
 		users.each do |u|
     		self.create(:notified_user_id => u.id, :notification_type_id => notification_type.id, :notifier_user_id => current_user.id , :item_id => "st-#{item.story_id}", :story_id => item.story_id)
-    		logger.info 'before create like smtp'
     		UserMailer.delay.like_story(item.story , u, current_user)
     	end
 		

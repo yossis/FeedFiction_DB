@@ -36,8 +36,9 @@ class UserMailer < ActionMailer::Base
   def like_story(story , user, current_user)
     @story = story
     @current_user = current_user
+    @user  = user
     subject = "#{current_user.name} likes the story #{story.story_title}"
-    subject = "#{current_user.name} likes your story #{story.story_title}" if @story.user_id==user.id
+    #subject = "#{current_user.name} likes your story #{story.story_title}" if @story.user_id==user.id
     
     mail to: user.email, subject: subject
     
