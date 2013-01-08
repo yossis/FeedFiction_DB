@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  layout 'static_pages'
+
   def terms
   end
 

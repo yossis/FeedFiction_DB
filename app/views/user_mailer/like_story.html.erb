@@ -1,4 +1,4 @@
-<h2>Hey <%=@user.name%>,</h2>
+<h2>Hi <%=@user.name%>,</h2>
 <p>
 	<%= link_to @current_user.name, user_url(@current_user) %>
 <% if @user.id==@story.user_id %>

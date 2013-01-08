@@ -8,7 +8,7 @@
 	<% if current_user %>
 		<% if current_user.like?(story.id) %>
 			<a class="btn btn-small btn-liked" disabled>
-			  	<i class="mini-ico-ok"></i>Liked
+			  	<i class="mini-ico-ok"></i>Likes
 			</a>
 		<%else %>
 			<%= render 'stories/like_form' , story: story %>

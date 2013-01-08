@@ -284,6 +284,7 @@ var feedfiction = {
         $('#StartStoryModal #start-story').removeAttr('style').hide();
         $('#StartStoryModal #upload-form').removeAttr('style').hide();
         $('#StartStoryModal #uploadProviders').show();
+        $('#file-upload-wrapper').show();
       },
 
       enableStartStoryForm: function(){
@@ -425,6 +426,7 @@ var feedfiction = {
         $('.btn-following').live('hover', feedfiction.actions.writeUnfollowButton);
         $('#imageForStory ul li.story-box').live('click', feedfiction.actions.enableStartStoryForm);
         $(document).on('click', '.btn-file-input' , function(){
+          $('#file-upload-wrapper').hide();
           $('#file').click();
         })
         //feedfiction.enableCustomDropDown();

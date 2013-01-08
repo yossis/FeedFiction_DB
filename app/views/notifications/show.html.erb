@@ -7,18 +7,21 @@
 
 	<% @notifications.each do |notify| %>
 	  <div class="notifications">
-	  	<%=basic_avatar(notify.notifier) %>
+	  	<%=avatar_rounded(notify.notifier) %>
 	    <%= link_to notify.notifier.name, user_url(notify.notifier) %> 
 	    	<% if notify.notification_type.name =='Story' %>
-	    	continue your story <%= link_to notify.story.story_title, story_url(notify.story) %>
+	    	continued your story <%= link_to notify.story.story_title, story_url(notify.story) %>
 	    	<% elsif notify.notification_type.name =='Comment'%>
 	    		commented in story <%= link_to notify.story.story_title, story_url(notify.story) %>
+    		<% elsif notify.notification_type.name =='Like'%>
+    		likes the story <%= link_to notify.story.story_title, story_url(notify.story) %>
+
 	    	<% end %>
 	    	<% if notify.is_new?	%>
 	    		<span class="label label-info">New</span>
 	    		<% notify.update_view %>
 	    	<%end%>
-	    	<p><%= time_ago_in_words notify.created_at%> ago</p>
+	    	<%#= time_ago_in_words notify.created_at%>
 	   
 	  </div>
 

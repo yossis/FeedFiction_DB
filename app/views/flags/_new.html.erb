@@ -1,16 +1,12 @@
+<a class="close-modal" data-dismiss="modal"></a>
 <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal">×</button>
-	<h3>Flag the story <%=@story.story_title %> as Inappropriate</h3>
+	<h3>Report the story "<strong><%=@story.story_title %></strong>" as Inappropriate</h3>
 </div>
-<p>
-If you find this story to be inappropriate or offensive for any reason, please select a reason for reporting it from the dropdown menu below.
-</p>
+<div class="modal-body">
+	<%= render 'form' %>
 
+</div>
 
-<%= render 'form' %>
-
-<p>
-We are committed to reviewing each and every one of your submissions.</p>
 
 
 

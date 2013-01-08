@@ -13,15 +13,15 @@
 
   <%= f.hidden_field :story_id %>
   <div class="field">
-    <%= f.label :flag_reason_id %><br />
+    <%= f.label :flag_reason_id , 'Why are you reporting this story'%><br />
     <%= select("flag", "flag_reason_id", FlagReason.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Choose one'})%>
    
   </div>
   <div class="field">
-    <%= f.label :reason %><br />
+    <%= f.label :reason , 'Please write why do you want to report this story' %><br />
     <%= f.text_field :reason %>
   </div>
   <div class="actions">
-    <%= f.submit value: 'Send'%>
+    <%= f.submit value: 'Send', class: 'btn btn-danger'%>
   </div>
 <% end %>

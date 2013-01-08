@@ -20,7 +20,8 @@ module ApplicationHelper
 		end
 
 		def drop_cap(line)
-			line.capitalize!
+	
+			line = line.slice(0,1).capitalize + line.slice(1..-1)
 			#line.gsub!(line[0],'<span class="dropcap">'+line[0]+'</span>')
 			line.insert(1,'</span>').insert(0,'<span class="dropcap">')
 			line.html_safe

@@ -659,6 +659,10 @@ footer {
 	.logo-feed {
 		color: #29a9df;
 	}
+	.alpha {
+		position: relative;
+		top: -2px; left: 2px;
+	}
 }
 .logo ,.small-logo{
     
@@ -1204,6 +1208,11 @@ ul.commentlist {
 		line-height: 32px;
 	}
 
+	.continue-story-text-area .textarea-with-button textarea {
+		width: 88%;
+	}
+
+
 	.widget {
 		padding: 10px;
 		margin-top: 25px;
@@ -1219,6 +1228,18 @@ ul.commentlist {
 		   -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.35);
 			    box-shadow: 0px 1px 1px rgba(0,0,0,.35);
 	}
+
+	ul.commentlist li {
+		.add-comment {
+			textarea {
+					width: 480px;
+			}
+			.actions {
+				padding: 10px 0;
+			}	
+		}
+	}
+	
 
 	.comment-des {
 			width:90% !important;

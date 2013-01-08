@@ -5,5 +5,9 @@ if ($('#story-<%=@story.id%>').length >0){
 $("#story-item-<%=@story.id%>").html("<%= escape_javascript(render('stories/story_item' , :story => @story ))%>");
 <% if @story.is_complete %>
 	$('#comments-<%=@story.id%>').html("<%= j render 'comments/comments_list' , story: @story %>");
+	if ($('#portfolio-wrapper').length>0)
+		$('#portfolio-wrapper').isotope('reLayout');
 <%end%>
+
+
 //feedfiction.actions.continueStory("<%=@story.id%>");

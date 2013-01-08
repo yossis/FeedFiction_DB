@@ -1,8 +1,10 @@
 <%= s3_uploader_form post: images_url, as: "key" do %>
-<span class="btn btn-small btn-primary btn-file-input">
-    <i class="mini-ico-upload mini-white"></i>
-    Choose file
-    
-</span>
-  <%= file_field_tag :file %>
+<div id="file-upload-wrapper">
+	<span class="btn btn-small btn-primary btn-file-input">
+	    <i class="mini-ico-upload mini-white"></i>
+	    Choose file
+	    
+	</span>
+	  <%= file_field_tag :file %>
+</div>
 <% end %>

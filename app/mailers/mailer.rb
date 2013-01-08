@@ -1,5 +1,5 @@
 class Mailer < ActionMailer::Base
-  default from: "contacts@feedfiction.com"
+  default from: "contactus@feedfiction.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -14,7 +14,7 @@ class Mailer < ActionMailer::Base
 
  def contact_us(message)
     @message = message
-    mail to: 'contacts@feedfiction.com' , from: @message.email , subject: "Contact us message from #{message.name}"
+    mail to: 'contactus@feedfiction.com' , from: @message.email , subject: "Contact - FeedFiction us message from #{message.name}"
 
   end
 
