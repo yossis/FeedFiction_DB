@@ -16,9 +16,9 @@ class UserMailer < ActionMailer::Base
     @story = story
     @current_user = current_user
     @user  = user
-    subject = "#{current_user.name} continued the story #{story.story_title}"
-    subject = "#{current_user.name} continued your story #{story.story_title}" if story.user_id==user.id
-
+    @story_owner_sentence = story_owner_sentence(story,user)
+    subject = "#{current_user.name} continued a story #{@story_owner_sentence}"
+   
     mail to: user.email, subject: subject
     #emails = story.writers.map {|i| i.email}.compact
     #emails = emails.delete current_user.email if current_user.email.present?
@@ -29,20 +29,29 @@ class UserMailer < ActionMailer::Base
     @current_user = current_user
     @user  = user
     @comment = comment
-
-    mail to: user.email, subject: "#{current_user.name} commented on your story"
+    @story_owner_sentence = story_owner_sentence(@story,user)
+    subject = "#{current_user.name} left a comment on a story #{@story_owner_sentence}"
+  
+    mail to: user.email, subject: subject
   end
 
   def like_story(story , user, current_user)
     @story = story
     @current_user = current_user
     @user  = user
-    subject = "#{current_user.name} likes the story #{story.story_title}"
+    @story_owner_sentence = story_owner_sentence(story,user)
+    subject = "#{current_user.name} likes a story that #{@story_owner_sentence}"
     #subject = "#{current_user.name} likes your story #{story.story_title}" if @story.user_id==user.id
     
     mail to: user.email, subject: subject
     
   end
+
+  private
+  def story_owner_sentence(story , user)
+    senence = story.user_id==user.id ? 'that you started' : 'that you participated in'
+  end
     
     
 end
+

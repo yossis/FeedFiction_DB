@@ -3,16 +3,7 @@
   <div class="container">
     <!--start: Row -->
     <div class="row">
-     <!--start: Logo -->
-      <div class="logo span3">
-        <!-- <i class="mini-white mini-ico-bookmark circle-color-full"></i> -->
-<%= link_to  content_tag(:span ,'Feed' ,class: 'logo-feed') + 'Fiction', root_path, id: "logo" , class: "brand" %>
-
-        <!-- <a class="brand" href="#">Feed<span>fiction</span></a> -->
-        <span class="label label-info alpha">Alpha</span>
-      </div>
-
-      <!--end: Logo -->
+     <%= render 'layouts/logo_nav' %>
         
       <!--start: Navigation -->
       <div class="span9">
@@ -51,8 +42,8 @@
         <li><%=link_to 'Invite friends', '#', class: 'facebook_invitation_link'%></li>
 
                            <li class="divider"></li>
-                          <li><%= link_to "Following",  followers_user_path(current_user) %></li>
-                          <li><%= link_to "Followers",  following_user_path(current_user) %></li>
+                          <li><%= link_to "Following",  following_user_path(current_user) %></li>
+                          <li><%= link_to "Followers",  followers_user_path(current_user) %></li>
                           <li class="divider"></li>
                           <li><%= link_to "Sign out", signout_path %></li>
                           </li>

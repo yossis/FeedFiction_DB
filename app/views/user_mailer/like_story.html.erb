@@ -1,12 +1,7 @@
 <h2>Hi <%=@user.name%>,</h2>
 <p>
-	<%= link_to @current_user.name, user_url(@current_user) %>
-<% if @user.id==@story.user_id %>
-	<%= ' likes your story ' %> 
-<%else%>
-	<%= ' likes the story ' %>
-<%end%>
-
-<%= link_to "#{@story.story_title}" ,story_url(@story) %>
-
+	<%= link_to @current_user.name, user_url(@current_user) %> likes the story 
+	"<%= link_to @story.story_title ,story_url(@story) %>"  
+	<%= @story_owner_sentence%>
 </p>
+<%= link_to "#{@story.story_title}, Read here" ,story_url(@story) %>

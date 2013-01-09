@@ -73,7 +73,7 @@ class Image < ActiveRecord::Base
   class << Image
 
     def get_images(user ,type_id)
-      if LastImport.was_before_limit(type_id,user.id)
+      if LastImport.can_import_before_limit(type_id,user.id)
         case type_id
           when ImageType.instagram_id 
             images = import_images_instagram(user)
@@ -87,7 +87,7 @@ class Image < ActiveRecord::Base
 
     # def instagram_images(user)
     #   type_id = ImageType.instagram_id
-    #   if LastImport.was_before_limit(type_id,user.id)
+    #   if LastImport.can_import_before_limit(type_id,user.id)
     #     images = import_images_facebook(user)
         
     #     update_or_create(images,type_id,user.id)

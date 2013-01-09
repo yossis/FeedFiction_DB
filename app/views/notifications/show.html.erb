@@ -1,4 +1,6 @@
-<h1>Your notifications</h1>
+
+
+
 <% if @notifications.nil? %>
 		You don't have notification yet!
 <%else%>
@@ -6,15 +8,16 @@
 	
 
 	<% @notifications.each do |notify| %>
-	  <div class="notifications">
+	  <div class="notification">
 	  	<%=avatar_rounded(notify.notifier) %>
 	    <%= link_to notify.notifier.name, user_url(notify.notifier) %> 
 	    	<% if notify.notification_type.name =='Story' %>
-	    	continued your story <%= link_to notify.story.story_title, story_url(notify.story) %>
+	    		continued the story <%= link_to_story_with_owner(notify)%>
+
 	    	<% elsif notify.notification_type.name =='Comment'%>
-	    		commented in story <%= link_to notify.story.story_title, story_url(notify.story) %>
+	    		left a comment on the story <%= link_to_story_with_owner(notify)%>
     		<% elsif notify.notification_type.name =='Like'%>
-    		likes the story <%= link_to notify.story.story_title, story_url(notify.story) %>
+    		likes the story <%= link_to_story_with_owner(notify)%>
 
 	    	<% end %>
 	    	<% if notify.is_new?	%>

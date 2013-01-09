@@ -24,8 +24,24 @@
     
   <div id="wrapper">
     <div class="container">
-      
-      <%= yield %>
+      <%= yield :general_nav %>
+      <div class="static-pages">
+        <%= render 'static_pages/static_pages_nav' if @is_notifications.nil?%>
+        <div class="story-page">
+          <div class="header-hr">
+            <h1><%= @static_page_full_name%></h1>
+          </div>
+          <div class="story">
+            <div class="picture">
+              <%= image_tag("#{@static_page_story_image}.jpg", class: @static_page_story_image)%>
+            </div>
+            <div class="story-area">
+              <h2><%= @static_page_full_name%></h2>
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Start Story Modal -->
       <%= render 'stories/start_story_modal' %>
     

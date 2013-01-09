@@ -12,8 +12,8 @@
 class LastImport < ActiveRecord::Base
   attr_accessible :image_type_id, :user_id, :updated_at
 
-  def self.was_before_limit(type_id,uid)
-  	limit = 6
+  def self.can_import_before_limit(type_id,uid)
+  	limit = 2
   	last = where(image_type_id: type_id, user_id: uid).first
   	unless last.nil?
   	 	limit < ((Time.now - last.updated_at)/1.hour).round
@@ -22,7 +22,7 @@ class LastImport < ActiveRecord::Base
   	end 
   end
 
- def self.update_time(type_id,uid)#TODO: change from camel case
+ def self.update_time(type_id,uid)
  	where(image_type_id: type_id, user_id: uid).first_or_create.touch	
  end
 

@@ -703,6 +703,31 @@ footer {
 	background-color: #2954C5;
 }
 
+.help-logo {
+	background-color: #750c0c;
+}
+
+.contact-logo {
+	background-color: #a51a77;
+}
+
+.terms-logo {
+	background-color: #877c7c;
+}
+
+.privacy-logo {
+	background-color: #dd1313;
+}
+.about-logo {
+	background-color: #37917a;
+}
+
+.notifications-logo {
+	background-color: #444;
+}
+
+
+
 
 /*Main Navbar*/
 /*.navbar .nav > li > a */
@@ -1140,12 +1165,15 @@ ul.commentlist {
 	margin-right: 5px;
 }
 
-/* Story Page */
 
-.story-header-hr-wrapper {
+
+.story-header-hr-wrapper , .static-pages {
 	width: 580px;
 }
-.story-page {
+
+/* Story page & Static pages*/
+
+.story-page  {
 	font-size: 14px;
 	.started-by {
 		text-align: center;
@@ -1249,6 +1277,84 @@ ul.commentlist {
 		height: 18px;
 	}
 }
+
+/* Static Pages */
+.static-pages {
+	margin: 0 auto;
+	text-align: justify;
+	h2 {
+		font-size: 25px;
+	}
+	h3 {
+		font-size: 22px;
+	}
+	.story-area , li{
+		font-size: 20px;
+		line-height: 25px;
+	}
+	.big-avatars {
+		text-align: center;
+	}
+	.small-logo {
+		width: 80px;
+		height: 80px;
+		line-height: 80px;
+		overflow: hidden;
+	}
+
+}
+
+.static-nav {
+		display: inline-block;
+		margin: 0 auto;
+		padding-top: 15px;
+		li{
+			float: left;
+			padding-left: 10px;
+			.small-logo {
+				background-color: #877C7C;
+			}
+			.active {
+				background-color: #750C0C;
+			}
+
+		}
+		a {
+			text-decoration: none;
+		}
+		
+	}
+
+/*
+.about-story-photo {
+	background: url('about.jpg') no-repeat;
+	
+}
+
+.contact-story-photo {
+	background: url('contact.jpg') no-repeat;
+	
+}
+.help-story-photo {
+	background: url('help.jpg') no-repeat;
+	
+}
+.privacy-story-photo {
+	background: url('privacy.jpg') no-repeat;
+	
+}
+
+
+/* Notifications Page */
+.notification {
+	border-bottom: 1px solid #EEE;
+	font-size: 16px;
+	padding: 10px 0;
+	.round-avatar {
+		float: left;
+	}
+}
+
 
 /* Modal Validation registraion */
 
