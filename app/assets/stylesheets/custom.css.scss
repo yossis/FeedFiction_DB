@@ -686,8 +686,11 @@ footer {
 }
 
 .logo-image {
-	background: url('logos/logo35X136.png') no-repeat center center;
+	/*background: url('logos/logo35X136.png') no-repeat center center;
 	width: 136px;
+	height: 42px;*/
+	background: url('logos/logo-alpha-1.png') no-repeat center center;
+	width: 189px;
 	height: 42px;
 	display: inline-block;
 }
