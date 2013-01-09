@@ -542,14 +542,14 @@ footer {
 		}
 	.story-panel {
 		float: right;
-		width: 560px;
+		width: 570px;
 	}
 
 		.hp-labels {
 			background: url('hp_labels_arrows_white.png') no-repeat;
 			background-repeat: no-repeat;
 			display: block;
-			height: 100px; width: 150px; 
+			height: 117px; width: 150px; 
 		}
 		.hp-lbl-container, .photo-tile , .lbl-start-writing{
 			float: left;
@@ -560,17 +560,17 @@ footer {
 			background-position: 22px 150px;
 		}
 		.photo-tile {
-			background: url('hp_story_cover.png') no-repeat;
+			background: url('hp_story_cover2.png') no-repeat;
 			display: inline-block;
-			width: 260px;
-			height: 400px;
+			width: 263px;
+			height: 417px;
 		}
 		.lbl-upload-photo {
-			background-position: -280px 27px;
+			background-position: -264px 27px;
 			height: 234px;
 		}
 		.lbl-continue {
-			background-position: -115px 0;
+			background-position: -112px 14px;
 		}
  
 
@@ -619,7 +619,17 @@ footer {
 	}
 }
 
+.btns {
+	background: url('small-buttons-sprite.png') no-repeat;
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	vertical-align: -2px;
+}
 
+.fb-icon {
+	background-position: -231px 0;
+}
 
 .notify-count {
 	background-color:#F03D25;
@@ -673,6 +683,13 @@ footer {
 		-webkit-transform:rotate(-27deg); /* Safari and Chrome */
 		/*-o-transform:rotate(-27deg); /* Opera */
 
+}
+
+.logo-image {
+	background: url('logos/logo35X136.png') no-repeat center center;
+	width: 136px;
+	height: 42px;
+	display: inline-block;
 }
 
 .small-logo {
