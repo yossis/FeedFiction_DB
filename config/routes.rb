@@ -1,5 +1,7 @@
 FeedFiction::Application.routes.draw do
   
+  get "oldie/show"
+
   resources :invitations
 
   resources :accounts
@@ -68,7 +70,8 @@ FeedFiction::Application.routes.draw do
   match 'register/instagram', to: 'register#instagram' , as: 'import_instagram_wizard'
   match '/all', to: 'feeds#general_feed' , as: 'general_feed'
   match "/testform" , to: 'stories#testform'
-  
+  match '/old' , to: 'oldie#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

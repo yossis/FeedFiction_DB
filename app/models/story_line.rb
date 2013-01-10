@@ -13,7 +13,7 @@
 #
 
 class StoryLine < ActiveRecord::Base
-  attr_accessible :is_flagged, :line, :order_id, :story_id, :user_id
+  attr_accessible :is_flagged, :line, :order_id, :story_id, :user_id ,:ip
   belongs_to :story
   belongs_to :user 
 

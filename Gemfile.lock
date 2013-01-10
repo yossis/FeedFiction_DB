@@ -39,6 +39,7 @@ GEM
       sass (~> 3.2)
     bootstrap-will_paginate (0.0.9)
       will_paginate
+    browser (0.1.5)
     builder (3.0.4)
     capistrano (2.13.5)
       highline
@@ -299,6 +300,7 @@ DEPENDENCIES
   annotate (>= 2.5.0)
   bootstrap-sass
   bootstrap-will_paginate
+  browser
   capistrano
   capybara (= 1.1.2)
   carrierwave

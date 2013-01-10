@@ -11,6 +11,11 @@ class UsersController < ApplicationController
     else
       @empty_disclaimer = "#{@user.name} doesn't have stories yet"
     end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js { render 'feeds/index' }
+    end
   end
 
   def following

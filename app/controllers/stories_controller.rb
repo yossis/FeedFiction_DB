@@ -36,7 +36,7 @@ class StoriesController < ApplicationController
     # story = Story.new(params[:story])
     # story_line = story.story_lines.build
     # story.save!
-    story_line = StoryLine.new(:line => until_55_words(nil,params[:story_line][:line]), :order_id =>1, user_id: current_user.id)
+    story_line = StoryLine.new(:line => until_55_words(nil,params[:story_line][:line]), :order_id =>1, user_id: current_user.id , ip: request.remote_ip)
     story_line.build_story(params[:story].merge :user_id => current_user.id)
     story_line.save!
     image = story_line.story.image

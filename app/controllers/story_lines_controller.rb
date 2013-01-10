@@ -43,7 +43,7 @@ class StoryLinesController < ApplicationController
   def create
     #raise params[:story_line].to_yaml
 
-    @story_line = StoryLine.create(params[:story_line].merge user_id: current_user.id)
+    @story_line = StoryLine.create(params[:story_line].merge user_id: current_user.id , ip: request.remote_ip)
     
     @story_line.update_attribute(:line, until_55_words(@story_line.story,@story_line.line))
 

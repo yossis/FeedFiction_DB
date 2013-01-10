@@ -6,7 +6,6 @@ $background-url: url('background.png');
 $story-font : 'Sanchez',serif;
 $title-font : 'Lobster';
 
-
 body {
 	font-family: "helvetica neue",arial,sans-serif;
 
@@ -864,8 +863,12 @@ footer {
 #wrapper {
 	/*background-color:$background-color;*/
 	background: $background-url;
+	height: 100%;
 }
 
+#wrapper , .container {
+	
+}
 .hero-unit {
 	background-color: #fff;
 }

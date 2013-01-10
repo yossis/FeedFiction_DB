@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   #http_basic_authenticate_with :name => "frodo", :password => "thering"
-  before_filter :authenticate
+  before_filter :authenticate 
+  before_filter :ie_disclaimer 
 
   private
 
@@ -20,6 +21,20 @@ class ApplicationController < ActionController::Base
       end 
     end
   end
+
+
+  def ie_disclaimer
+    if Rails.env.development? 
+      
+      if params[:debug]=='true'
+        session[:ie] = 1
+        redirect_to root_url
+      else
+        redirect_to old_url if browser.ie6?
+      end
+    end
+  end
+
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
