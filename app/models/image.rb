@@ -136,10 +136,10 @@ class Image < ActiveRecord::Base
       end
 
       def store_instagram_image(media,type_id, user)
-        item = Image.where(:image_type_id => type_id,:source_object_id => media.images.id.to_s )
+        item = Image.where(:image_type_id => type_id,:source_object_id => media.id.to_s )
         if item.empty?
           ratio = aspect_ratio(media.images.standard_resolution.width, media.images.standard_resolution.height, 365)
-          i = Image.new(user_id: user.id, source_object_id: media.images.id,
+          i = Image.new(user_id: user.id, source_object_id: media.id,
                     image_type_id: type_id ,
                     source_height: media.images.standard_resolution.height ,
                     image_source: media.images.standard_resolution.url ,
