@@ -3,6 +3,7 @@ jQuery ->
     add: (e, data) ->
       types = /(\.|\/)(gif|jpe?g|png)$/i
       file = data.files[0]
+      file.name = 'randomstring'
       if types.test(file.type) || types.test(file.name)
         data.context = $(tmpl("template-upload", file))
         $('#fileupload').append(data.context)

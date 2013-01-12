@@ -24,10 +24,9 @@ class ApplicationController < ActionController::Base
 
 
   def ie_disclaimer
-    if Rails.env.development? 
-      
-      if params[:debug]=='true'
-        session[:ie] = 1
+    if Rails.env.production? 
+        if params[:debug]=='true'
+          session[:ie] = 1
         redirect_to root_url
       else
         redirect_to old_url if browser.ie6?
