@@ -722,7 +722,7 @@ footer {
 	background-color: #2954C5;
 }
 
-.help-logo {
+.p404-logo {
 	background-color: #750c0c;
 }
 
@@ -734,7 +734,7 @@ footer {
 	background-color: #877c7c;
 }
 
-.privacy-logo {
+.p500-logo {
 	background-color: #dd1313;
 }
 .about-logo {
@@ -863,7 +863,7 @@ footer {
 #wrapper {
 	/*background-color:$background-color;*/
 	background: $background-url;
-	height: 100%;
+	
 }
 
 #wrapper , .container {
@@ -1787,4 +1787,17 @@ ul.commentlist {
 	width: 100%;
 }
 
-	
+/* Error pages */
+
+.error-page {
+	text-align: center;
+	padding-bottom: 35%;
+	font-family: $story-font;
+	.small-logo {
+		font-size:37px;
+	}
+	p{
+		font-size:25px;
+		line-height: 55px;
+	}
+}

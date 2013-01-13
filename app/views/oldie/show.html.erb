@@ -1,31 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but we do not support this browser</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
+  <title>FeedFiction - We're sorry, but we are not supporting this browser</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lobster' >
+    
+    <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <!-- This file lives in public/500.html -->
-  <h1>FeedFiction</h1>
-  <div class="dialog">
-    <h1>OOPS!</h1>
-    <p>We're sorry, but we do not support this browser! </p>
-    <div>
-      Sorry about that. But we make effort to publish new version
+  <header>
+    <!--start: Container -->
+    <div class="container">
+      <!--start: Row -->
+      <div class="row">
+       <!--start: Logo -->
+        <div class="span3"><a href="<%= root_url%>" class="logo-image"></a></div>
+        
+      </div>
+    
+      
     </div>
-    <div>Currently we support browsers: Safri, Chrome, Firefox, Opera, IE9</div>
-  </div>
+  </header>
+
+<!--end: Header-->
+ 
+  <div id="wrapper">
+    <div class="static-pages">
+      <div><%= image_tag('logos/ie-logo.png' , style: 'width:120px;margin: 0 auto;
+display: block;') %></div>
+
+        <div class="story-page">
+          <div class="header-hr">
+            <h1>We do not supprt IE old versions!</h1>
+          </div>
+          <div class="story">
+            <div class="picture">
+              <%= image_tag("ie-suck.png", class: @static_page_story_image)%>
+            </div>
+            <div class="story-area">
+              <h2>We do not supprt Internet Explorer old versions!</h2>
+              <p>Sorry about that. But we make an effort to publish new version</p> 
+<p>Currently you can wait or you can enjoy us with a real browser.</p>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      
+    </div>
+    
+    
+
+  
+  
+</div>
+
+
+    <script type="text/javascript">
+      var uvOptions = {};
+      (function() {
+        var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+        uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/gyrGqJSiwvglNUFEvhh3uQ.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+      })();
+
+       var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-37039143-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  <!-- This file lives in public/500.html -->
+  
 </body>
 </html>

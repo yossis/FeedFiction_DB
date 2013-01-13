@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
           session[:ie] = 1
         redirect_to root_url
       else
-        redirect_to old_url if browser.ie6?
+        redirect_to old_url if browser.ie6? || browser.ie7? ||browser.ie8? 
       end
     end
   end
