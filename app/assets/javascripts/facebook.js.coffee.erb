@@ -17,9 +17,9 @@ window.fbAsyncInit = ->
       window.location = '/auth/facebook' if response.authResponse
     , scope: "user_photos,friends_photos,email, publish_stream"
     
-  FB.Event.subscribe "auth.login", (r) ->
-    console.log r.status
-    $("#loginPreloader").modal "show"  if r.status is "connected"
+    FB.Event.subscribe "auth.login", (r) ->
+      console.log r.status
+      $("#loginPreloader").modal "show"  if r.status is "connected"
 
   $('#sign_out').click (e) ->
     FB.getLoginStatus (response) ->
