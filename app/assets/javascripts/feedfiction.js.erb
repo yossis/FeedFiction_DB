@@ -261,7 +261,7 @@ var feedfiction = {
           var re = /[^\u0000-\u0080]/;
           //errorLabel.empty();
           if (text.match(re)) {
-              errorLabel.html('Currently you can write in English.').effect("highlight", {}, 3000);
+              errorLabel.html('Currently, you can only write in English.').effect("highlight", {}, 3000);
               $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');
               
           }

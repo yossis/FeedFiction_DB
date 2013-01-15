@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user.first_time?
       UserMailer.delay.welcome(user) if user.email.present?
     end
-    redirect_to root_url
+    redirect_to general_feed_url
   end
 
   def destroy

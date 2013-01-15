@@ -3,6 +3,7 @@ class FeedsController < ApplicationController
 
   def general_feed
     @stories = Story.paginate(page: params[:page]).order('updated_at DESC')
+    @everything_active = 'class=active'
     render 'index'
   end
   
@@ -11,6 +12,7 @@ class FeedsController < ApplicationController
       @feed_name = 'My Feed'
       @feed_logo_color = 'myfeed-logo'
       @stories = Story.from_users_followed_by(current_user).paginate(page: params[:page])
+      @my_feed_active = 'class=active'
     else
       @stories = Story.paginate(page: params[:page]).order('updated_at DESC')
     end

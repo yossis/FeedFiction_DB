@@ -40,14 +40,16 @@ class Story < ActiveRecord::Base
   end
 
   def story_title
-    lines ||= self.story_lines.map {|i| i.line}.join(' ').split(' ')[0..3].join(' ').capitalize
+    lines ||= self.story_lines.map {|i| i.line.split(' ')}.join(' ').split(' ')[0..3].join(' ').titlecase
+    
 
     # lines.line.split(' ')[0..3].join(' ').capitalize
   end
 
   def description
-    lines = self.story_lines
+    lines ||= self.story_lines
     lines.map {|i| i.line}.join(' ').split(' ')[0..30].join(' ').capitalize
+    #lines.slice(0,1).capitalize + lines.slice(1..-1)
   end
 
   def story_image

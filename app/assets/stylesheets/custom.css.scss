@@ -331,6 +331,9 @@ header {
 		height: 32px;
 		min-height: 32px;
 	}
+	.active {
+		font-weight: bold;
+	}
 }
 
 footer {
@@ -622,7 +625,7 @@ footer {
 			background-position: 22px 150px;
 		}
 		.photo-tile {
-			background: url('hp_story_cover2.png') no-repeat;
+			background: url('hp_story_cover3.png') no-repeat;
 			display: inline-block;
 			width: 263px;
 			height: 417px;

@@ -44,7 +44,7 @@ class StoriesController < ApplicationController
 
     update_if_complete story_line.story
     
-    redirect_to root_url
+    redirect_to general_feed_url
     
   end
 
