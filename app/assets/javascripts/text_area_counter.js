@@ -71,7 +71,7 @@
 			    }
 			    //if (options.callback!=null && wordcount != lastWordCount){
 			    	//callback
-			    	options.callback(charCount,wordcount/*(options.limit - wordcount)*/);
+			    	options.callback(charCount,wordcount ,text /*(options.limit - wordcount)*/);
 			    //}
 			    lastWordCount = wordcount;
 			});

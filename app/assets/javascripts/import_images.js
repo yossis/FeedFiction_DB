@@ -36,22 +36,35 @@
     $(button).show();
      var canvas = $(this).closest('.story-item').find('.cs-canvas');
      var $limit = $(this).attr('limit');
+     var errorLabel = $(this).closest('.continue-story-text-area').find('.error-message');
+     var textarea = $(this);
      
-    $(this).textareaCounter({container: canvas, limit:$limit, labelCounter:labelCounter, callback: function(e,words){
-        if(e>0){
-            $(button).addClass('btn-primary').removeAttr("disabled"); 
-            // handler.wookmark();
+    $(this).textareaCounter({container: canvas, limit:$limit, labelCounter:labelCounter, callback: function(e,words,text){
+        var re = /[^\u0000-\u0080]/;
+        //errorLabel.empty();
+        if (text.match(re)) {
+            errorLabel.html('Currently you can write in English only!').effect("highlight", {}, 3000);
+            $(button).removeClass('btn-primary').attr('disabled','disabled');
+            
+        }
+        else {
+          errorLabel.empty();
+          if(e>0){
+              $(button).addClass('btn-primary').removeAttr("disabled"); 
+              // handler.wookmark();
+            }
+            else{
+              $(button).removeClass('btn-primary').attr('disabled','disabled');
+            }
+          var count = $limit*1-words*1;
+          if(count==0){
+            $(button).attr('value', 'The End');
           }
           else{
-            $(button).removeClass('btn-primary').attr('disabled','disabled');
+            $(button).attr('value', 'Feed It');
           }
-        var count = $limit*1-words*1;
-        if(count==0){
-          $(button).attr('value', 'The End');
         }
-        else{
-          $(button).attr('value', 'Feed It');
-        }
+        // feedfiction.actions.validateWriteStorySteps(e,words,text);
         $('#portfolio-wrapper').isotope('reLayout');
       }
     });

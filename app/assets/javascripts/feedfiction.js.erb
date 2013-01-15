@@ -255,11 +255,30 @@ var feedfiction = {
       },
       textAreaListener: function(){
         var counter = $('#StartStoryModal #start-story .counter-text');
+        var errorLabel = $('#StartStoryModal #start-story .error-message');
        // $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
-        $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', labelCounter:counter ,callback:feedfiction.actions.validateWriteStorySteps});
+        $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', labelCounter:counter ,callback: function(e,words,text){
+          var re = /[^\u0000-\u0080]/;
+          //errorLabel.empty();
+          if (text.match(re)) {
+              errorLabel.html('Currently you can write in English only!').effect("highlight", {}, 3000);
+              $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');
+              
+          }
+          else
+          {
+            errorLabel.empty();
+            feedfiction.actions.validateWriteStorySteps(e,words,text);
+          }
+        }});
       },
 
-      validateWriteStorySteps: function(chars, words){
+      validateWriteStorySteps: function(chars, words ,text){
+        var re = /[^\u0000-\u0080]/;
+
+        if (text.match(re)) {
+            alert("File name contains non-ASCII character!");
+        }
         if (chars<2){
           //$('#StartStoryModal .counter-announce').show();
           $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');    
@@ -423,7 +442,7 @@ var feedfiction = {
 
         $('input,textarea').live('blur', feedfiction.validateField);
         feedfiction.actions.boldWriterLine();
-        
+        feedfiction.scrollToTop();
         $('.btn-following').live('hover', feedfiction.actions.writeUnfollowButton);
         $('#imageForStory ul li.story-box').live('click', feedfiction.actions.enableStartStoryForm);
         $(document).on('click', '.btn-file-input' , function(){
@@ -468,6 +487,21 @@ var feedfiction = {
     },
     alert: function(message) {
         alert(message);
+    },
+
+    scrollToTop: function(){
+        $(window).scroll(function(){
+            if ($(window).scrollTop() > 100) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        }); 
+ 
+        $('#back-to-top').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            return false;
+        });
     },
 
 
