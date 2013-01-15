@@ -100,12 +100,6 @@ hr {
 /* Header
 =================================================================== */
 	
-header {
-	background: #fff;
-	border-bottom: 5px solid #f6f6f6;
-}
-
-
 
 #social-links {
 	margin-top:20px;
@@ -745,7 +739,7 @@ input[type="button"] {
 =================================================================== */
 .alert {
 	font-family: Arial, sans-serif;
-	font-size: 12px;
+	font-size: 15px;
 	line-height: 18px;
 	margin-bottom: 15px;
 	position: relative;

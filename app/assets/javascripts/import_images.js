@@ -43,7 +43,7 @@
         var re = /[^\u0000-\u0080]/;
         //errorLabel.empty();
         if (text.match(re)) {
-            errorLabel.html('Currently you can write in English only!').effect("highlight", {}, 3000);
+            errorLabel.html('Currently you can write in English.');
             $(button).removeClass('btn-primary').attr('disabled','disabled');
             
         }

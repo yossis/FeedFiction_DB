@@ -261,7 +261,7 @@ var feedfiction = {
           var re = /[^\u0000-\u0080]/;
           //errorLabel.empty();
           if (text.match(re)) {
-              errorLabel.html('Currently you can write in English only!').effect("highlight", {}, 3000);
+              errorLabel.html('Currently you can write in English.').effect("highlight", {}, 3000);
               $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');
               
           }
@@ -491,10 +491,12 @@ var feedfiction = {
 
     scrollToTop: function(){
         $(window).scroll(function(){
-            if ($(window).scrollTop() > 100) {
+            if ($(window).scrollTop() > 200) {
                 $('#back-to-top').fadeIn();
+                $('.second-header').fadeIn();
             } else {
                 $('#back-to-top').fadeOut();
+                $('.second-header').fadeOut();
             }
         }); 
  

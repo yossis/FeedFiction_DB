@@ -52,7 +52,7 @@ FeedFiction::Application.configure do
   ENV["SMTP_USERNAME"] = 'yossish73'
   ENV["SMTP_PASSWORD"] = 'a1a2a3'
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -65,7 +65,7 @@ FeedFiction::Application.configure do
     #openssl_verify_mode => 'none'
 
   }
-  config.action_mailer.default_url_options = { host: "alpha.feedfiction.com" }
+  config.action_mailer.default_url_options = { host: "feedfiction.com" }
 
   # Enable threaded mode
   # config.threadsafe!
@@ -84,11 +84,11 @@ FeedFiction::Application.configure do
   ENV['FACEBOOK_SECRET'] = 'c7974ab01e76c15d62823eca67f51d2d'
   ENV['INSTAGRAM_ID'] = 'bc404a3290414780a8d79ee241de94af'
   ENV['INSTAGRAM_SECRET'] = 'ead957b38e264addb8fd47d8aeecf2a9'
-  ENV['INSTAGRAM_CALLBACK'] = 'http://alpha.feedfiction.com/oauth/instagram/callback'
+  ENV['INSTAGRAM_CALLBACK'] = 'http://feedfiction.com/oauth/instagram/callback'
   ENV["AWS_ACCESS_KEY_ID"] = 'AKIAIKZTOEKGDO6YLPEQ'
   ENV["AWS_SECRET_ACCESS_KEY"] = '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'
   ENV["AWS_S3_BUCKET"] = 'feedfiction-images'
   ENV["AWS_S3_URL"] = "https://#{ENV["AWS_S3_BUCKET"]}.s3.amazonaws.com"
-  ENV["ROOT_URL"] = "http://alpha.feedfiction.com"
+  ENV["ROOT_URL"] = "http://feedfiction.com"
   
 end

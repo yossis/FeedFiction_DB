@@ -1,9 +1,13 @@
 <% if (current_user && current_user.stories.size<1) %>
 	<div class="alert alert-block">
-	  <button class="btn btn-primary userFunction" data-function="startStoryModal" type="button" >Start here</button>
+	  <a class="userFunction link" data-function="startStoryModal"><i class="mini-ico-pencil mini-white"></i> Start a story</a> or continue open stories <%= link_to 'here' , general_feed_url%>
 	</div>
 
 <%end%>
+
+
+<%= render 'feeds/alpha_disclaimer' %>
+
 
 <div id="story-container" >
 	<div id="portfolio-wrapper" class="row">

@@ -47,7 +47,7 @@ jQuery(document).ready(function () {
 function renderIsotope(tiles){
 	var $container = $(tiles);
 
-$(window).load(function(){
+
 	$(tiles).imagesLoaded( function(){
 		$(tiles).isotope({
 	  // options
@@ -57,8 +57,8 @@ $(window).load(function(){
 		    
 		  }
 		})
-	})
-});
+	});
+
 	// $(tiles).imagesLoaded(function(){
         
  //                var $container = $(tiles);
