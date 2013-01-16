@@ -30,14 +30,15 @@ gem 'jquery-fileupload-rails'
 gem 'active_attr'
 gem 'browser'
 
-gem 'pry'
-  gem 'pry-rails'
+
 
 group :development do
   
   gem 'meta_request', '0.2.0'
 
   gem 'annotate', ">=2.5.0" 
+  gem 'pry'
+  gem 'pry-rails'
 
 end
 
@@ -88,4 +89,4 @@ gem 'unicorn'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+#gem 'debugger'
