@@ -16,10 +16,7 @@ class FeedsController < ApplicationController
     else
       @stories = Story.paginate(page: params[:page]).order('updated_at DESC')
     end
-    if session[:fire_insta_box]==1
-      session.delete :fire_insta_box
-      @connect_instagram=1
-    end
+    
   end
 
   private
@@ -28,6 +25,10 @@ class FeedsController < ApplicationController
      @feed_name = 'Everything'
      @feed_logo_color = 'everything-logo'
      @donot_show_disclaimer = true
+      if session[:fire_insta_box]==1
+        session.delete :fire_insta_box
+        @connect_instagram=1
+      end
     end
 
 
