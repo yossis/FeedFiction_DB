@@ -103,9 +103,9 @@ class Image < ActiveRecord::Base
       end
 
       def import_images_instagram(user)
-        access_token ||= user.get_token_provider('Instagram')
-        client ||= Instagram.client(access_token: access_token)
-        images ||= client.user_recent_media
+        access_token = user.get_token_provider('Instagram')
+        client = Instagram.client(access_token: access_token)
+        images = client.user_recent_media
       end
 
       def create_just_if_new(images, type_id,user)

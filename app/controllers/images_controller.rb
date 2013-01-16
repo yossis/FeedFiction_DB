@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
     logger.info '================================================>  ENTER TO INSTAGRAM FUNCTION'
     
 
-    if (current_user.has_instagram?)
+    if (current_user.has_instagram? && session[:access_token])
       logger.info '================================================>   has instagram - going to import photos'
       @images = Image.get_images(current_user, ImageType.instagram_id)
       respond_to do |format|
