@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130110122049) do
+ActiveRecord::Schema.define(:version => 20130120200122) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -192,7 +192,10 @@ ActiveRecord::Schema.define(:version => 20130110122049) do
     t.datetime "updated_at",                          :null => false
     t.datetime "last_line_updated_at"
     t.integer  "view_count",           :default => 0
+    t.integer  "status",               :default => 1
   end
+
+  add_index "stories", ["status"], :name => "index_stories_on_status"
 
   create_table "story_lines", :force => true do |t|
     t.integer  "story_id"

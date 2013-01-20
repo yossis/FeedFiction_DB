@@ -2,7 +2,7 @@ class FeedsController < ApplicationController
   before_filter :end_wizard,:init_vars
 
   def general_feed
-    @stories = Story.paginate(page: params[:page]).order('updated_at DESC')
+    @stories = Story.where(status: 1).paginate(page: params[:page]).order('updated_at DESC')
     @everything_active = 'class=active'
     render 'index'
   end
@@ -14,7 +14,7 @@ class FeedsController < ApplicationController
       @stories = Story.from_users_followed_by(current_user).paginate(page: params[:page])
       @my_feed_active = 'class=active'
     else
-      @stories = Story.paginate(page: params[:page]).order('updated_at DESC')
+      @stories = Story.where(status: 1).paginate(page: params[:page]).order('updated_at DESC')
     end
     
   end
