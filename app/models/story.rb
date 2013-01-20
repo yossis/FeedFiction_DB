@@ -2,16 +2,18 @@
 #
 # Table name: stories
 #
-#  id              :integer          not null, primary key
-#  user_id         :integer
-#  image_id        :integer
-#  is_complete     :boolean
-#  inappropriate   :integer
-#  quality         :integer
-#  story_source_id :integer
-#  category_id     :integer
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                   :integer          not null, primary key
+#  user_id              :integer
+#  image_id             :integer
+#  is_complete          :boolean
+#  inappropriate        :integer
+#  quality              :integer
+#  story_source_id      :integer
+#  category_id          :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  last_line_updated_at :datetime
+#  view_count           :integer          default(0)
 #
 
 class Story < ActiveRecord::Base
@@ -79,7 +81,11 @@ class Story < ActiveRecord::Base
 
   def user_count
     @count ||= self.story_lines.map {|l| l.user}.uniq.size
-   end
+  end
+
+  def update_view
+    Story.update_counters self.id, view_count: 1
+  end
 
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships

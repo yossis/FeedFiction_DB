@@ -17,6 +17,9 @@
 #  login_count      :integer          default(0)
 #  big_avatar       :string(255)
 #  cover            :string(255)
+#  invitation_id    :integer
+#  invitation_limit :integer          default(10)
+#  admin            :integer          default(0)
 #
 
 require 'spec_helper'

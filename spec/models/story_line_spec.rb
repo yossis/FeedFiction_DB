@@ -10,5 +10,6 @@
 #  is_flagged :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  ip         :string(255)
 #
 

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   #http_basic_authenticate_with :name => "frodo", :password => "thering"
-  before_filter :authenticate 
+  # before_filter :authenticate 
   before_filter :ie_disclaimer 
 
   private
@@ -13,13 +13,13 @@ class ApplicationController < ActionController::Base
   
 
   def authenticate
-    if Rails.env.production? 
-      authenticate_or_request_with_http_basic do |username, password|
-        username == "foo" && password == "bar"
-      #    u = Account.authorize(username,password)
-      #    u.present?
-      end 
-    end
+    # if Rails.env.production? 
+    #   authenticate_or_request_with_http_basic do |username, password|
+    #     username == "foo" && password == "bar"
+    #   #    u = Account.authorize(username,password)
+    #   #    u.present?
+    #   end 
+    # end
   end
 
 

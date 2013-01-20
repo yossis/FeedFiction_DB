@@ -10,6 +10,7 @@
 #  is_flagged :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  ip         :string(255)
 #
 
 class StoryLine < ActiveRecord::Base

@@ -5,6 +5,7 @@ class StoriesController < ApplicationController
   # GET /stories/1.json
   def show
     @story = Story.find(params[:id])
+    @story.update_view
     @story_line = StoryLine.new
     @comments = @story.comments
     @new_comment = Comment.new

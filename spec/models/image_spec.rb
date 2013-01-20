@@ -5,14 +5,14 @@
 #  id               :integer          not null, primary key
 #  user_id          :integer
 #  source_object_id :string(255)
-#  source_url       :string(255)
+#  image_source     :string(255)
 #  source_width     :integer
 #  source_height    :integer
 #  image_type_id    :integer
-#  url              :string(255)
+#  image_thumb      :string(255)
 #  width            :integer
 #  height           :integer
-#  is_proceed       :boolean          default(FALSE)
+#  image_processed  :boolean          default(FALSE)
 #  in_cdn           :boolean          default(FALSE)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
