@@ -1,0 +1,23 @@
+<h1>Listing admin_fakers</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fakers.each do |admin_faker| %>
+  <tr>
+    <td><%= admin_faker.user_id %></td>
+    <td><%= link_to 'Show', admin_faker %></td>
+    <td><%= link_to 'Edit', edit_admin_faker_path(admin_faker) %></td>
+    <td><%= link_to 'Destroy', admin_faker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Faker', new_admin_faker_path %>

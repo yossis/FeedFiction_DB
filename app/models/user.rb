@@ -21,9 +21,9 @@
 #  invitation_limit :integer          default(10)
 #  admin            :integer          default(0)
 #
-
+require 'admin/faker'
 class User < ActiveRecord::Base
-  attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count, :invitation_token, :invitation_limit
+  attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count, :invitation_token, :invitation_limit, :admin ,:status
 
   has_many :stories
   has_many :liked_stories, through: :likes , source: :story
@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships
   has_many :notifications , foreign_key: 'notified_user_id'
   has_many :sent_invitations, class_name: 'Invitation', foreign_key: 'sender_id'
+  has_one :faker ,class_name: 'Admin::Faker'
   belongs_to :invitation
 
   before_create :set_invitation_limit

@@ -1,0 +1,44 @@
+<h1>Listing stories</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Completed</th>
+    <th>Inappropriate</th>
+    <th>Duplicated</th>
+    <th>Created at</th>
+    <th>Views</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stories.each do |story| %>
+  <tr>
+    <td><%= story.user_id %></td>
+    <td><div class="image-story"><%= link_to(story,{title: story.story_title}) do%>
+        <%= image_thumb(story.image)  %>
+    
+        <% end %>
+    </div>
+    </td>
+    <td><%= link_to story.story_title, story%></td>
+    <td><%= story.is_complete ? 'Y' : 'N' %></td>
+    <td><%= story.inappropriate ? 'Y' : 'N' %></td>
+    <td><%= story.story_source_id %></td>
+    <td><%= story.created_at %></td>
+    <td><%= story.view_count %></td>
+    <td></td>
+    <td><%= link_to 'Show', story %></td>
+    <td><%= link_to 'Edit', edit_admin_story_path(story) %></td>
+    <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Story', new_story_path %>

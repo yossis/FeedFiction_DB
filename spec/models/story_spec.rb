@@ -14,6 +14,7 @@
 #  updated_at           :datetime         not null
 #  last_line_updated_at :datetime
 #  view_count           :integer          default(0)
+#  status               :integer          default(1)
 #
 
 require 'spec_helper'

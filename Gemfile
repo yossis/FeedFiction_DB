@@ -29,6 +29,7 @@ gem 'rspec-core'
 gem 'jquery-fileupload-rails'
 gem 'active_attr'
 gem 'browser'
+gem 'inherited_resources'
 
 
 

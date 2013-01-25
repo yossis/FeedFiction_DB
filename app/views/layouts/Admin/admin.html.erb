@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<%= display_meta_tags :site => full_title(yield(:title))%>
+  	<%= stylesheet_link_tag "admin/admin", media: "all" %>
+	</head>
+	<body>
+		<ul>
+			<li><%= link_to 'Dashboard' , admin_root_url%></li>
+			<li><%= link_to 'Users' , admin_users_url%></li>
+			<li><%= link_to 'Stories' , admin_stories_url%></li>
+		</ul>
+		</ul>
+		<%= yield %>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+
+<h1>Listing users: (<%= @users.size %>)</h1>
+
+<table>
+  <tr>
+    <!-- <th>Provider</th> -->
+    <th>User id</th>
+    <th>Avatar</th>
+    <th>Name</th>
+    <th>Nick name</th>
+    
+    <th>Email</th>
+    <th>Gender</th>
+    
+    <th>Login count</th>
+    <th>Big avatar</th>
+    <th>Cover</th>
+    <th>Admin</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= basic_avatar(user) %></td>
+    <!-- <td><%= user.uid %></td> -->
+    <td><%= user.name %></td>
+    <td><%= user.nick_name %></td>
+    
+    <td><%= user.email %></td>
+    <td><%= user.gender %></td>
+    
+    <td><%= user.login_count %></td>
+    <td><%= user.big_avatar %></td>
+    <td><%= user.cover %></td>
+    <td><%= user.admin %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>

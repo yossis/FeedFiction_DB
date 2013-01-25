@@ -45,6 +45,15 @@ FeedFiction::Application.routes.draw do
       get :facebook, :instagram, :upload
     end
   end
+
+  namespace :admin do
+    root to: "admin#index"
+    resources :users
+    resources :stories
+    resources :fakers
+    resources :story_lines
+    resources :statuses
+  end
     
  
 

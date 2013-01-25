@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130120200122) do
+ActiveRecord::Schema.define(:version => 20130124124250) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(:version => 20130120200122) do
   end
 
   add_index "accounts", ["username", "password"], :name => "index_accounts_on_username_and_password"
+
+  create_table "admin_fakers", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "album_types", :force => true do |t|
     t.string   "name"
@@ -180,6 +186,12 @@ ActiveRecord::Schema.define(:version => 20130120200122) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
+  create_table "statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "stories", :force => true do |t|
     t.integer  "user_id"
     t.integer  "image_id"
@@ -233,7 +245,10 @@ ActiveRecord::Schema.define(:version => 20130120200122) do
     t.integer  "invitation_id"
     t.integer  "invitation_limit", :default => 10
     t.integer  "admin",            :default => 0
+    t.integer  "status",           :default => 1
   end
+
+  add_index "users", ["status"], :name => "index_users_on_status"
 
   add_foreign_key "comments", "stories", :name => "comments_story_id_fk"
   add_foreign_key "comments", "users", :name => "comments_user_id_fk"

@@ -1,0 +1,23 @@
+<h1>Listing admin_statuses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @statuses.each do |status| %>
+  <tr>
+    <td><%= status.name %></td>
+    <td><%= link_to 'Show', admin_status_path(status)%></td>
+    <td><%= link_to 'Edit', edit_admin_status_path(status) %></td>
+    <td><%#= link_to 'Destroy', admin_status_path(status), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Status', new_admin_status_path %>

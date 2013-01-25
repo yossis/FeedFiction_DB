@@ -13,5 +13,5 @@
  *= require bootstrap-responsive
  *= require style
  *= require SelectBox
- *= require_tree .
+ *= require_directory 
  */

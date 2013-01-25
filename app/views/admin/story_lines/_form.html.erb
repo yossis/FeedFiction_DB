@@ -1,0 +1,40 @@
+<%= form_for [ :admin, @story_line ]  do |f| %>
+  
+  <% if @story_line.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@story_line.errors.count, "error") %> prohibited this story_line from being saved:</h2>
+
+      <ul>
+      <% @story_line.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :story_id %>
+    <%= f.number_field :story_id %>
+  </div>
+  <div class="field">
+    <%= f.select :user_id, faker_for_select(@story_line.user) %>
+    <%# f.select :user_id, options_for_select([["Select One", ""], [current_user.name ,current_user.id ,{'data-image' => 'bold'}] , Admin::Faker.all.map {|u| [ u.user.name , u.user.id ]}] ), :class => 'genForm_dropBox'  %>
+
+   
+  </div>
+  <div class="field">
+    <%= f.label :order_id %><br />
+    <%= f.number_field :order_id %>
+  </div>
+  <div class="field">
+    <%= f.text_area :line %>
+  </div>
+  <div class="field">
+    <%= f.label :ip %>
+    <%= @story_line.ip %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
