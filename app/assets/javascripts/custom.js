@@ -50,6 +50,7 @@ function renderIsotope(tiles){
 
 	$(tiles).imagesLoaded( function(){
 		$(tiles).isotope({
+			transformsEnabled: false,
 	  // options
 		  itemSelector : '.portfolio-item',
 		  masonry: {
