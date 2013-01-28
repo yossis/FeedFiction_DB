@@ -240,77 +240,7 @@ a.link {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-8 */
 }
 
-/*header {
-	background-color: $background-header;
-	
-	height: 45px;
 
-	.span15{ 
-		float: right;
-	}
-
-	.nav-collapse.collapse {
-    height: auto \9 !important;
-    overflow: visible \9 !important;
-	}
-
-
-	.navbar, 
-	.navbar-inner, 
-	.nav,
-	.navbar-inverse {
-		float: right;
-		filter: none !important;
-		border: none;
-		-webkit-box-shadow: none;
-	       -moz-box-shadow: none;
-	            box-shadow: none;
-		padding: 0px;
-		margin: 0;
-		background-color: $background-header;
-
-		
-		li {
-			/*height: 30px;*/
-			/*line-height: 10px;
-			a {
-				color: #fff !important;
-			}
-
-			.round-avatar-mini {
-				margin-top: 7px;
-			}
-
-		}
-
-
-	}
-
-	.navbar-inner {
-		padding-left: 0px !important;
-		padding-right: 0px !important;
-	}
-	.navbar {
-		.nav {*/
-			/*margin:0;*/
-			/*li.dropdown > .dropdown-toggle .caret {
-				/*margin-top: 8px;*/
-				/*border-top-color: #eee;
-  			border-bottom-color: #eee;
-			}
-			/*> li > a {
-				padding:5px 15px;
-			}*/
-			/*.dropdown-menu a{
-				color: #000 !important;
-			}
-			/*.divider-vertical {
-				height: 30px;
-			}*/
-		/*}
-	}
-
-}*/
 
 /* Header
 =================================================================== */
@@ -1560,6 +1490,10 @@ ul.commentlist {
 }
 
 /* Start a story wizard */
+/*#StartStoryModal.import-images {
+		width: 790px;
+}*/
+
 #StartStoryModal {
 	h2,h3 {
 		/*text-align: center;*/
@@ -1568,6 +1502,7 @@ ul.commentlist {
 	&.modal {
 		overflow: visible !important;
 	}
+	
 	.close-modal {
 		
 	}
@@ -1578,6 +1513,8 @@ ul.commentlist {
 			background-color: #fff;
 			opacity: 0.9;
 	}
+
+
 
 	.error-message {
 		padding: 0;
@@ -2092,8 +2029,15 @@ ul.commentlist {
 		}
 
 	}
-	#StartStoryModal ,.static-pages, .story-page .story ,.story-header-hr-wrapper {
-		width: auto;
+	#StartStoryModal ,.static-pages, .story-page .story ,
+	.story-header-hr-wrapper, #start-story-form-image, 
+	ul.start-story-form, ul.start-story-form textarea {
+		width: 100% !important;
+	}
+	#StartStoryModal.import-images {
+		width: auto !important;
+		left: 0 !important;
+		top: 10px !important;
 	}
 	#modal-register , .modal{
 		width: auto;
@@ -2131,6 +2075,8 @@ ul.commentlist {
 			}
 		}
 	}
+
+
 	
 }
 

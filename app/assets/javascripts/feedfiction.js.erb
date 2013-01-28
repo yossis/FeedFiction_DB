@@ -296,7 +296,7 @@ var feedfiction = {
       startStoryReset: function(){
         //$('#StartStoryModal').width('650px').css('left','50%');
         feedfiction.actions.storyBradCrumbsReset();
-        $('#StartStoryModal').removeClass('behaviour-story-form').removeAttr('style');
+        $('#StartStoryModal').removeClass('import-images').removeClass('behaviour-story-form').removeAttr('style');
         $('#StartStoryModal #imageTiles').removeAttr('style').empty();
         $('#StartStoryModal .modal-footer').hide();
         feedfiction.actions.resetStartStoryForm();
