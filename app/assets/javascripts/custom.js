@@ -1,6 +1,6 @@
 jQuery(document).ready(function($){
 	
-	
+	 $('.modal').modalResponsiveFix({ debug: true });
 
 	/* ------------------ Back To Top ------------------- */
 

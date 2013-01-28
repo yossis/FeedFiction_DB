@@ -101,16 +101,6 @@ hr {
 =================================================================== */
 	
 
-#social-links {
-	margin-top:20px;
-	float: right;
-}
-
-.nav-collapse.collapse {
-    height: auto \9 !important;
-    overflow: visible \9 !important;
-}
-
 /*.navbar, 
 .navbar-inner, 
 .nav,
@@ -173,32 +163,7 @@ hr {
   border-bottom-color: #fff !important;	
 }*/
 
-.dropdown-menu li > a:hover,
-.dropdown-menu li > a:focus,
-.dropdown-submenu:hover > a {
-  color: #ffffff;
-  background: #29a9df !important;	
-}
 
-.dropdown-menu .active > a {
-	color: #ffffff !important;
-  	background: #29a9df !important;
-}
-.dropdown-menu .active > a:hover {
-  	color: #ffffff !important;
-  	background: #29a9df !important;	
-}
-
-.navbar .btn-navbar {
-	position: absolute;
-	right: 50px;
-	top: 15px;
-}
-
-.nav .active .dropdown-toggle .caret {
-  border-top-color: #29a9df !important;	
-  border-bottom-color: #29a9df !important;	
-}
 
 
 
