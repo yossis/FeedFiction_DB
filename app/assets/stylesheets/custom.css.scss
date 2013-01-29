@@ -126,7 +126,10 @@ a.link {
 	visibility: hidden;
 }
 
+.span4 {
+	width: 365px;
 
+}
 /* Page Title
 =================================================================== */
 
@@ -338,7 +341,8 @@ header {
 	.navbar .btn-navbar {
 		position: absolute;
 		right: 50px;
-		top: 15px;
+		z-index: 999;
+		/*top: 15px;*/
 	}
 
 	.nav .active .dropdown-toggle .caret {
@@ -1974,18 +1978,22 @@ ul.commentlist {
 /* Higher than 960 (desktop devices)
 ====================================================================== */
 @media only screen and (min-width: 960px) and (max-width: 1599px){
-	.story-item .picture img {
-		height: auto !important;
-		
-	}
+	
 }
 
 /* Tablet Portrait (devices and browsers)
 ====================================================================== */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-	.story-item .picture img {
+	/*.story-item .picture img {
 		height: auto !important;
 		
+	}*/
+	.container {
+		width: 738px;
+	}
+
+	.span4 {
+		width:353px;
 	}
 
 }
@@ -2054,7 +2062,7 @@ ul.commentlist {
 		width: auto !important;
 	}
 	.story-item .picture img {
-		height: auto !important;
+		/*height: auto !important;*/
 		
 	}
 	#modal-register , .modal{
@@ -2107,6 +2115,10 @@ ul.commentlist {
 ====================================================================== */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 
+	#portfolio-wrapper {
+		width: 365px;
+		margin:0 auto;
+	}
 }
 
 
