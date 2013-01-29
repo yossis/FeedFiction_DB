@@ -1,7 +1,7 @@
 var $newItems = "<%=j render 'images/photos' %>";
 $('#uploadProviders').hide();
 $('#StartStoryModal').animate({
-             width: "790px", left: "41%"
+             width: "790px", left: "41%" 
                 }).addClass('import-images').promise().done(function(){
 
 $('#imageTiles').append($newItems);
@@ -10,6 +10,7 @@ imageOverlay();
 $('#StartStoryModal .modal-footer').show();
  
 });
+$('#StartStoryModal.modal').css('top','20%');
 
 // promise().done(function(){
 // $('#StartStoryModal #portfolio-wrapper').isotope('reLayout')

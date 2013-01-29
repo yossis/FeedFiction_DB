@@ -20,14 +20,15 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
+    <!-- Start Story Modal -->
+    <%= render 'stories/start_story_modal' %>
     <%= render 'layouts/header' %>
     
   <div id="wrapper">
     <div class="container">
       
       <%= yield %>
-      <!-- Start Story Modal -->
-      <%= render 'stories/start_story_modal' %>
+      
     
     </div>
     

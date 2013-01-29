@@ -323,7 +323,7 @@ var feedfiction = {
 
           //$('#StartStoryModal').switchClass('change','behaviour-story-form');
           feedfiction.actions.startStoryBradCrumbsNext();
-          $('#StartStoryModal').addClass('behaviour-story-form');
+          $('#StartStoryModal').addClass('behaviour-story-form').removeClass('import-images');
           // Check if in registration wizard
           if ($('#registration_wizard').length>0)
           {
@@ -332,7 +332,7 @@ var feedfiction = {
           }
           // else{
             $('#StartStoryModal').animate({overflow:'visible', width: '383px', left: '56%'});
-            $('#StartStoryModal.modal').css('top','40%');
+            //$('#StartStoryModal.modal').css('top','40px');
           //}
           
           //$('#StartStoryModal .select-box span').delay(1000).effect("highlight", {color:'#4096EE'}, 600);
