@@ -251,7 +251,7 @@ a.link {
 header {
 	background-color: $background-header;
 	
-	.span15{ 
+	.navbar-actions{ 
 		float: right;
 	}
 
@@ -715,6 +715,7 @@ footer {
 	width: 189px;
 	height: 42px;
 	display: inline-block;
+	margin-left: 20px;
 }
 
 .small-logo {
@@ -1179,7 +1180,7 @@ ul.commentlist {
 				margin:0;
 			}
 			textarea {
-				width: 270px;
+				width: 266px;
 				height: 30px;
 			}
 
@@ -1975,9 +1976,65 @@ ul.commentlist {
 	}
 }
 
+@media only screen and (max-width: 960px){
+
+	.nav-collapse .nav {
+	  margin: 30px 0 10px;
+	}
+
+	#uvTab {
+		display: none !important;
+	}
+}
+
 /* Higher than 960 (desktop devices)
 ====================================================================== */
 @media only screen and (min-width: 960px) and (max-width: 1599px){
+	.hp-header {
+		.slider-wrapper {
+			height: 450px;
+		}
+		.photo-tile {
+				background-size: 220px;
+				width: 220px; height: 335px;
+		}
+		.hp-labels {
+			background-size: 280px;
+			width: 108px;
+		}
+		.lbl-continue {
+			background-position: -88px 0px;
+		}
+
+		.lbl-upload-photo {
+			background-position: -193px 27px;
+			height: 213px;
+		}
+		.lbl-start-writing {
+			height: 200px;
+			width: 90px;
+			background-position: -2px 140px;
+		}
+
+		.anounce {
+			width: 520px;
+			.sign-in {
+				/*top: 100px;*/
+			}
+		}
+		.btn-signin-large {
+			background-size: 300px; 
+			width: 300px;
+			height: 52px;
+			&:hover{
+				background-position: 0 -53px;
+			}
+		}
+
+		.story-panel {
+			width: 420px;
+		}
+	}
 	
 }
 
@@ -1996,6 +2053,55 @@ ul.commentlist {
 		width:353px;
 	}
 
+	.hp-header {
+		.slider-wrapper {
+			height: 370px;
+		}
+		.photo-tile {
+				background-size: 192px;
+				width: 192px; height: 296px;
+		}
+		.hp-labels {
+			display: none;
+		}
+
+		.anounce {
+			font-size: 25px;
+			line-height: 30px;
+			width: 400px;
+			.sign-in {
+				top: 100px;
+			}
+		}
+		.btn-signin-large {
+			background-size: 300px; 
+			width: 300px;
+			height: 52px;
+			&:hover{
+				background-position: 0 -53px;
+			}
+		}
+
+		.story-panel {
+			width: 235px;
+		}
+	}
+
+	.continue-story-text-area .textarea-with-button textarea {
+		width: 80%;
+	}
+	ul.commentlist li.add-comment {
+			textarea {
+				width: 253px;
+				
+			}
+	}
+
+	.story-page ul.commentlist li .add-comment textarea {
+		width: 88%;
+	}
+
+
 }
 
 /* All Mobile Sizes (devices and browser)
@@ -2004,9 +2110,7 @@ ul.commentlist {
 	body {
 		padding: 0;
 	}
-	#uvTab {
-		display: none !important;
-	}
+	
 
 	.header-hr h1 ,h1 {
 		font-size: 28px;
@@ -2105,6 +2209,10 @@ ul.commentlist {
 		max-height: auto !important;
 	}
 
+	.span15 {
+		width: 150px;
+	}
+
 
 	
 }
@@ -2119,15 +2227,29 @@ ul.commentlist {
 		width: 365px;
 		margin:0 auto;
 	}
+	.story-page ul.commentlist li .add-comment textarea {
+		width: 366px;
+	}
 }
 
 
 @media only screen and (min-width: 331px) and (max-width: 479px) {
 	
 	
-	.story-page .continue-story-text-area .textarea-with-button textarea {
-		width: 82%;
+	.story-page {
+		.continue-story-text-area .textarea-with-button textarea {
+			width: 82%;
+		}
+
+		ul.commentlist{
+			li {
+				.add-comment textarea {
+						width: 365px;
+				}
+			}
+		}
 	}
+
 	
 	
 
@@ -2138,6 +2260,11 @@ ul.commentlist {
 =================================================================== */
 @media only screen and (max-width: 330px) {
 
+.logo-image {
+		width: 90px;
+		background-size: 118px;
+		background-position: 0 12px;
+	}
 
 	.hp-header {
 		.slider-wrapper {
@@ -2158,26 +2285,54 @@ ul.commentlist {
  .continue-story-text-area .textarea-with-button textarea {
 		width: 76%;
 	}
-	
-.story-page {
-	.continue-story-text-area {
-		.textarea-with-button {
-			textarea {
-				width: 76%;
+
+	.story-item ul.commentlist li .add-comment textarea {
+		width: 205px;
+	}
+
+	.second-header {
+		a.link {
+			span {
+				display: none;
 			}
+			
 		}
 	}
-}
 
-	.navbar .nav.pull-right {
-		float: left;
+	.story-page {
+		.continue-story-text-area {
+			.textarea-with-button {
+				textarea {
+					width: 76%;
+				}
+			}
+		}
+
+		ul.commentlist{
+			li {
+				.comment .comment-des {
+						max-width: 220px;
+				}
+
+				.add-comment textarea {
+					width: 205px;
+				}
+			}
+		}
+	} 
+	
+
+	.hidden-mini-phones {
+		display: none !important;
 	}
-
 	#copyright p {
 		width: auto;
 	}
 
-	#StartStoryModal.import-images, .behaviour-story-form ,ul.start-story-form{
+	#StartStoryModal.import-images,
+	.behaviour-story-form ,
+	ul.start-story-form,
+	.span4{
 		/*left: 0 !important;*/
 		width: auto !important;
 	}
@@ -2186,6 +2341,10 @@ ul.commentlist {
 		max-width: 257px;
 	}
 	
+	.span4 .story-item .picture img {
+		height: auto !important;
+	}
+
 	ul.start-story-form textarea {
 		max-width: 245px;
 	}

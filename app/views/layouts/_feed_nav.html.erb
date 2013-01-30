@@ -10,7 +10,7 @@
 
 	    </ul>
 	    <% if current_user && current_user.invitation_limit > 0 %>
-	    <ul class="nav pull-right">
+	    <ul class="nav pull-right hidden-mini-phones">
 	    	<li><%=link_to 'Invite your friends', '#', class: 'facebook_invitation_link'%></li>
 	    </ul>
 	    
