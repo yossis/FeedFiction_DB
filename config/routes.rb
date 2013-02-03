@@ -80,6 +80,9 @@ FeedFiction::Application.routes.draw do
   match '/all', to: 'feeds#general_feed' , as: 'general_feed'
   match "/testform" , to: 'stories#testform'
   match '/old' , to: 'oldie#show'
+  match '/fb_channel', to: 'misc#fb_channel'
+
+
   root to: 'feeds#index'
 
   # The priority is based upon order of creation:
