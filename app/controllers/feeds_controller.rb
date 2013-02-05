@@ -22,7 +22,7 @@ class FeedsController < ApplicationController
   private
 
     def init_vars
-     @feed_name = 'Everything'
+     @feed_name = 'All Stories'
      @feed_logo_color = 'everything-logo'
      @donot_show_disclaimer = true
       if session[:fire_insta_box]==1

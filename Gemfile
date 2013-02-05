@@ -30,8 +30,8 @@ gem 'jquery-fileupload-rails'
 gem 'active_attr'
 gem 'browser'
 gem 'inherited_resources'
-gem 'turbolinks'
-gem 'jquery-turbolinks'
+#gem 'turbolinks'
+#gem 'jquery-turbolinks'
 
 
 

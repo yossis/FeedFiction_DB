@@ -270,7 +270,7 @@ header {
 	.nav,
 	.navbar-inverse {
 		float: right;
-		background-color: $background-header !important;
+		background-color: $background-header ;
 		filter: none !important;
 		border: none;
 		-webkit-box-shadow: none;
@@ -302,7 +302,7 @@ header {
 	  	color: #29a9df !important;	
 	  	text-decoration: none;
 		
-	  	background-color: #fff !important;	
+	  	background-color: #fff ;	
 	  	-webkit-box-shadow: none;
 	       -moz-box-shadow: none;
 	          	box-shadow: none;
@@ -310,7 +310,7 @@ header {
 
 	.navbar .nav > .active > a:hover {
 		
-	  	background: #29a9df !important;		
+	  	background: #29a9df;		
 	  	color: #fff !important;
 	  	-webkit-box-shadow: none;
 	       -moz-box-shadow: none;
@@ -322,6 +322,18 @@ header {
 	  border-bottom-color: #fff !important;	
 	}
 
+	.navbar-start-story {
+		display: inline;
+		text-align: center;
+		.navbar, 
+		.navbar-inner, 
+		.nav,
+		.navbar-inverse {
+			float: none;
+			display: inline-block;
+		}
+
+	}
 	.dropdown-menu li > a:hover,
 	.dropdown-menu li > a:focus,
 	.dropdown-submenu:hover > a {

@@ -9,13 +9,19 @@
 <h1><%= @story.story_title%></h1>
 
 <% @story.story_lines.each do |story_line| %>
-<div class="story-line">
-  <ul>
-    <li class="li-line"><%= basic_avatar(story_line.user) %> <span class="line"><%= story_line.line %></span></li>
-    <li><%= story_line.order_id %></li>
-    
-    <li><%= link_to 'Edit', edit_admin_story_line_path(story_line) %></li>
-  </ul>
-</div>
- 
+	<div class="story-line">
+	  <ul>
+	    <li class="li-line"><%= basic_avatar(story_line.user) %> <span class="line"><%= story_line.line %></span></li>
+	    <li><%= story_line.order_id %></li>
+	    
+	    <li><%= link_to 'Edit', edit_admin_story_line_path(story_line) %></li>
+	  </ul>
+	</div>
 <% end %>
+<% unless @story.is_complete%>
+	<div class="continue-story-text-area">
+		<%# TODO: Add StoryLine %>
+		<%= render 'admin/story_lines/form' , :@story_line => StoryLine.new %>
+	</div>
+<%end%>	
+
