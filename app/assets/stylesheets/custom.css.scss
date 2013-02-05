@@ -323,15 +323,22 @@ header {
 	}
 
 	.navbar-start-story {
-		display: inline;
-		text-align: center;
-		.navbar, 
-		.navbar-inner, 
-		.nav,
-		.navbar-inverse {
-			float: none;
-			display: inline-block;
+		
+		
+		position: absolute;
+		width: 100%;
+		left: 0;
+		
+		a {
+			display: block;
+			width: 125px;
+			margin:0 auto;
+			position: relative;
+			top: -39px;
+
+			
 		}
+		
 
 	}
 	.dropdown-menu li > a:hover,
