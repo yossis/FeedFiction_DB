@@ -1,7 +1,12 @@
 <% unless current_user %>
 <%= render 'hp_header' %>
 <%end%>
-<%= render 'layouts/feed_nav'%>
+
+<!-- Temporary instead feednav -->
+<div class="logo-feed-temp">
+	<div class="small-logo logo-feed"><div><%=@feed_name%></div></div>
+</div>
+
 
 <%= render 'feed' %>
 
