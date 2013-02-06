@@ -1878,8 +1878,8 @@ ul.commentlist {
 	position: relative;
 	.slider-wrapper {
 		/*background: url('hpcollage_blur.jpg') repeat-x;*/
-		background: url('Collage.jpg') repeat-x;
-		height: 500px;
+		/*background: url('Collage.jpg') repeat-x;
+		height: 500px;*/
 		width: 100%;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
@@ -2137,8 +2137,17 @@ ul.commentlist {
 
 	.container {
 		padding: 0;
-		width: 100%;
+		width: 95%;
+		.navbar-start-story {
+			a.btn {
+				padding: 1px 5px;
+				width: 10px;
+			}
+		}
 	}
+
+
+	
 
 	.hp-header {
 		.slider-wrapper {
@@ -2278,6 +2287,7 @@ ul.commentlist {
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
 =================================================================== */
 @media only screen and (max-width: 330px) {
+
 
 .logo-image {
 		width: 90px;
