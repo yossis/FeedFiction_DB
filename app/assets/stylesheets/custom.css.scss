@@ -500,6 +500,10 @@ footer {
 	margin-top: 0;
 }
 
+.logo-footer {
+	float:left;
+}
+
 #footer-menu-logo  {
 	height: 46px;
 	#logo-arrow {
@@ -802,12 +806,18 @@ footer {
 	/*background: url('logos/logo35X136.png') no-repeat center center;
 	width: 136px;
 	height: 42px;*/
-	background: url('logos/logo-alpha-3.png') no-repeat center center;
-	width: 189px;
+	background: url('logos/logo-3.png') no-repeat center center;
+	width: 150px;
 	height: 42px;
 	display: inline-block;
 	margin-left: 20px;
+
 }
+.alpha-sign {
+		position: relative;
+		top: -19px;
+		color: #eee;
+	}
 
 .small-logo {
 			border-radius: 65px;
@@ -2298,7 +2308,9 @@ ul.commentlist {
 		padding: 0;
 	}
 	
-
+	.alpha-sign {
+		font-size: 12px;
+	}
 	.header-hr h1 ,h1 {
 		font-size: 28px;
 	}
@@ -2480,11 +2492,14 @@ ul.commentlist {
 	width: 170px;
 }
 .logo-image {
-		width: 90px;
-		background-size: 118px;
-		background-position: 0 12px;
-	}
+		width: 106px;
+		background-size: 108px;
+		background-position: 0 9px;
 
+	}
+	.alpha-sign {
+		display: none;
+	}
 	.hp-header {
 		.slider-wrapper {
 			height: 300px;
