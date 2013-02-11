@@ -1,10 +1,12 @@
 if ($('#story-<%=@story.id%>').length >0){
 		$('#story-<%=@story.id%> .picture').html("<%= escape_javascript(render('stories/inner_story' , :story => @story ))%>");
+		
 }
 
 $("#story-item-<%=@story.id%>").html("<%= escape_javascript(render('stories/story_item' , :story => @story ))%>");
 <% if @story.is_complete %>
 	$('#comments-<%=@story.id%>').html("<%= j render 'comments/comments_list' , story: @story %>");
+
 	if ($('#portfolio-wrapper').length>0)
 		$('#portfolio-wrapper').isotope('reLayout');
 <%end%>

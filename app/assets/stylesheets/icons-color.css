@@ -19,11 +19,11 @@
 =================================================================== */
 
 .ico-color {
-	background-image: url("../../img/icons/green/glyphicons.png");
+	background-image: url("icons/blue/glyphicons.png");
 	opacity: 1;
 }
 
 .mini-color {
-  background-image: url("../../img/icons/green/glyphicons-mini.png");
+  background-image: url("icons/blue/glyphicons-mini.png");
   opacity: 1;
 }

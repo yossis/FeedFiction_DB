@@ -21,6 +21,11 @@
 				</div>
 				<div>
 					<div id="flag-<%=story.id%>" class="modal hide fade flag-container"></div>
+				<% if @feed_name.nil? || story.is_complete%>
+					<div id="actions-item-<%=story.id%>">
+						<%= render 'stories/actions' , story: story%>
+					</div>
+				<% end %>
 				<% unless story.is_complete%>
 					<div class="continue-story-text-area">
 						<%= simple_form_for StoryLine.new , html: {class: 'form-horizontal'}, remote: true  do |f| %>
@@ -51,10 +56,6 @@
 
 				</div>
 					
-			<div id="actions-item-<%=story.id%>">
-				<% if story.is_complete %>
-					<%= render 'stories/actions' , story: story%>
-				<% end %>	
-			</div>		
+					
 		</div>
 			

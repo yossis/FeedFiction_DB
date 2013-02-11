@@ -4,19 +4,34 @@
 
 <!-- Temporary instead feednav -->
 <div class="logo-feed-temp">
-	<div class="small-logo logo-feed"><div><%=@feed_name%></div></div>
+	<!-- <div class="small-logo logo-feed"><div><%#=@feed_name%></div></div> -->
 </div>
 
 
 <%= render 'feed' %>
 
-<% if @connect_instagram==1 %>
-	<script type="text/javascript">
-	<!--
-	$(function(){
-		feedfiction.actions.fireInstagram();
-	})
+<script type="text/javascript">
+<!--
+(function() {
+	if ($('.slider-wrapper').length>0){
+		var number = 1 + Math.floor(Math.random() * 6);
+		//$('.slider-wrapper').addClass('slider-wrapper'+number);
+	  $('.slider-wrapper').css('background-image','url(assets/slider/slider'+number+'.jpg)');
+	}
+
 	
-	//-->
-	</script>
+})();
+jQuery(document).ready(function ($) {
+<% if @connect_instagram==1 %>
+
+	
+		feedfiction.actions.fireInstagram();
+	
+
 <% end %>
+
+
+		//feedfiction.actions.animateHeader();
+});
+//-->
+</script>

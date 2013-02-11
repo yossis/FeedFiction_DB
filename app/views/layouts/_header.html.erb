@@ -1,5 +1,6 @@
 <div id="fb-root" data-channel-url="<%= fb_channel_url %>"></div>
-<header>
+<header <%= 'class=header-fix' if current_user%>>
+  
   <!--start: Container -->
   <div class="container">
     <!--start: Row -->
@@ -29,7 +30,7 @@
                         </li>
                       <%end%>
                       <li class="divider-vertical"></li>
-                      <%= render 'layouts/start_story_link' %>
+                       <%= render 'layouts/start_story_link' %>
                       <li class="divider-vertical"></li>
                       <%= render 'layouts/about_dd_menu' %>
                       <li class="divider-vertical"></li>
@@ -78,29 +79,30 @@
     <%# end %>
   </div>
   <!--end: Container-->     
-    
+<% if current_user %> 
 <div class="second-nav">
   <div class="container">
       <ul>
-        <li <%= @everything_active%>><%=link_to 'All Stories', general_feed_url %></li>
         <li <%= @my_feed_active%>><%=link_to 'My Feed', root_url %></li>
+        <li <%= @everything_active%>><%=link_to 'All Stories', general_feed_url %></li>
+        
         
       </ul>
-      <div class="invite-friends container">
-        <%=link_to 'Invite your friends', '#', class: 'facebook_invitation_link'%>
+     <!--  <div class="invite-friends container">
+        <%#=link_to 'Invite your friends', '#', class: 'facebook_invitation_link'%>
         
-      </div>
+      </div> -->
   </div>
 </div>
-
+<%end%>
 </header>
 <%# if current_user%>
 <!-- <div class="second-header">
   <div class="navbar navbar-inverse">
     <div class="navbar-inner">
       <ul class="nav">
-        <li <%#= @everything_active%>><%=link_to 'All Stories', general_feed_url %></li>
-        <li <%#= @my_feed_active%>><%=link_to 'My Feed', root_url %></li>
+        <li <%#= @everything_active%>><%#=link_to 'All Stories', general_feed_url %></li>
+        <li <%#= @my_feed_active%>><%#=link_to 'My Feed', root_url %></li>
         <%#= render 'layouts/start_story_link' %>
       </ul>
     </div>

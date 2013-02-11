@@ -24,7 +24,7 @@
     <%= render 'stories/start_story_modal' %>
     <%= render 'layouts/header' %>
     
-  <div id="wrapper">
+  <div id="wrapper" <%= 'class=wrapper-fix' if current_user %>>
     <div class="container">
       
       <%= yield %>

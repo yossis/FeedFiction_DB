@@ -1450,7 +1450,7 @@ a.buy:hover {
 	background: #fff;
 	color: #666;
 	margin: 5px 0px;
-	padding: 10px 5px;
+	padding: 10px 0px;
 	border-top: 1px solid #eee;
 	
 }
@@ -1462,17 +1462,9 @@ a.buy:hover {
 .post-meta a:hover {
 }
 
-.post-meta i {
-	opacity: 0.35;
-	filter: alpha(opacity = 35);
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=35)";
-	margin-right: 5px;
-	zoom: 1;
-}
 
-.post-meta span {
-	margin-right: 10px;
-}
+
+
 
 /* Portfolio Info
 =================================================================== */
