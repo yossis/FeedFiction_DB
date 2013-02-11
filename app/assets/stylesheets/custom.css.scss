@@ -2041,34 +2041,33 @@ ul.commentlist {
 	.anounce {
 			/*float: left;*/
 			font-family: "Sanchez", serif;
-			padding: 20px 0;
 			/*background: rgba(0,0,0,0.65);*/
 			color: #fff;
-			font-size: 32px;
+			font-size: 40px;
 			/*max-width: 590px;*/
-			line-height: 46px;
+			line-height: 52px;
 			text-align: center;
+		
+
+			.wrapper-sign-in {
+					position: relative;
+					padding: 45px 0;
+					display: inline-block;
+					-webkit-border-radius: 10px;
+					-moz-border-radius: 10px;
+					border-radius: 10px;
+					.sign-in{
+				
+						position: relative;
+						/*top: 90px;
+						*/
+					}
+			}
 			
-
-			/*p{
-				text-align: center;
-			}*/
-			.last-word {
-				/*color: #2954C5;*/
-				
-			}
-
-			.sign-in{
-				
-				position: relative;
-				/*top: 90px;
-				*/
-			}
 			.slogan {
 				font-family: 'Lobster';
 				text-align: center;
-				margin-top: 50px;
-				font-size: 35px;
+				font-size: 45px;
 			}
 
 			/*.sign-in {
@@ -2090,14 +2089,7 @@ ul.commentlist {
 			
 		}
 
-	.wrapper-sign-in {
-			position: relative;
-			top: 30px;
-			display: inline-block;
-			-webkit-border-radius: 10px;
-			-moz-border-radius: 10px;
-			border-radius: 10px;
-	}
+	
 
 	.story-panel {
 		float: right;
@@ -2168,8 +2160,21 @@ ul.commentlist {
 ====================================================================== */
 @media only screen and (min-width: 960px) and (max-width: 1599px){
 	.hp-header {
+
 		.slider-wrapper {
 			height: 450px;
+		}
+
+		.anounce {
+				font-size: 30px;
+				line-height: 37px;
+				/*width: 400px;*/
+				.wrapper-sign-in {
+					padding: 30px 0;
+				}
+				.slogan {
+					font-size: 33px;
+				}
 		}
 		.photo-tile {
 				background-size: 220px;
@@ -2246,8 +2251,11 @@ ul.commentlist {
 				font-size: 25px;
 				line-height: 30px;
 				/*width: 400px;*/
-				.sign-in {
-					top: 100px;
+				.wrapper-sign-in {
+					padding: 30px 0;
+				}
+				.slogan {
+					font-size: 27px;
 				}
 		}
 
@@ -2311,18 +2319,27 @@ ul.commentlist {
 
 	.hp-header {
 		.slider-wrapper {
-			height: 350px;
+			height: 300px;
 			
 		}
 
 		.anounce {
-			font-size: 25px;
-			line-height: 30px;
+			font-size: 22px;
+			line-height: 25px;
 			/*width: 220px;*/
-			.sign-in {
-				top: 40px;
+			.wrapper-sign-in {
+				padding: 30px 0;
+				.sign-in {
+					padding: 0;
+				}
+			}
+			
+			.slogan {
+				display: none;
 			}
 		}
+
+		
 	}
 
 	
@@ -2420,6 +2437,17 @@ ul.commentlist {
 	}
 }
 
+@media only screen and (min-width: 480px) and (max-width: 599px) {
+	.hp-header {
+		.anounce { 
+			.wrapper-sign-in {
+				padding: 20px 0;
+			}
+		}
+	}
+
+}
+
 
 @media only screen and (min-width: 331px) and (max-width: 479px) {
 	
@@ -2448,7 +2476,9 @@ ul.commentlist {
 =================================================================== */
 @media only screen and (max-width: 330px) {
 
-
+.navbar-inner {
+	width: 170px;
+}
 .logo-image {
 		width: 90px;
 		background-size: 118px;
@@ -2465,6 +2495,12 @@ ul.commentlist {
 			font-size: 17px;
 			line-height: 22px;
 			/*width: 280px;*/
+			.wrapper-sign-in {
+				padding: 30px 0;
+
+			}
+
+			
 		}
 
 		
