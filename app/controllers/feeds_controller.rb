@@ -29,6 +29,9 @@ class FeedsController < ApplicationController
         session.delete :fire_insta_box
         @connect_instagram=1
       end
+      if current_user
+        @friends = current_user.people_to_follow
+      end
     end
 
 

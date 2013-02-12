@@ -132,6 +132,10 @@ class User < ActiveRecord::Base
     self.admin>0
   end
 
+  def people_to_follow
+    follow = User.where('id NOT IN (?,?)', self.followed_users, self)
+  end
+
   private
 
   def set_invitation_limit

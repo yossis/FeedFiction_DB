@@ -1,5 +1,7 @@
 FeedFiction::Application.routes.draw do
   
+  get "friends/index"
+
   get "oldie/show"
 
   resources :invitations
