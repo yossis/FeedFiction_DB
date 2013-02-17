@@ -1,9 +1,9 @@
-<% if current_user && @friends %>
+<% if current_user && @friends && @friends.size > 0%>
 <div class="span4 portfolio-item" id="friends-to-follow" >
 		<h2>People you may follow</h2>
 		<ul>
 			<%= render :partial => 'users/user' , :collection => @friends, :as => :user %>
 		</ul>
-		<div><%= link_to 'See All' , '#'%></div>
+		<div class="see-all"><%= link_to 'See All' , friends_index_url%></div>
 </div>
 <%end%>
