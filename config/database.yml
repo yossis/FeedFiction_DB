@@ -58,6 +58,6 @@ production:
   adapter: postgresql
   encoding: unicode
   database: FeedFiction_production
-  pool: 5
+  pool: 25
   username: feedfiction
   password: phspheahhi

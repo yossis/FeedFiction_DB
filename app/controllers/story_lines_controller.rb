@@ -48,10 +48,13 @@ class StoryLinesController < ApplicationController
     @story_line.update_attribute(:line, until_55_words(@story_line.story,@story_line.line))
 
     #@story_line.save!
-    current_user.facebook.put_connections("me" , "feedfiction:story" , story: story_url(@story))
     @story = @story_line.story
 
     update_if_complete @story
+    
+    key = @story.is_complete ? "complete" : "continue"
+    FacebookWorker.perform_async(current_user.id , key, story_url(@story))
+    
     #render json: @story_line, status: :created, location: @story_line
   end
 

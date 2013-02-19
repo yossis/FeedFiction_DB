@@ -20,6 +20,7 @@
 #  invitation_id    :integer
 #  invitation_limit :integer          default(10)
 #  admin            :integer          default(0)
+#  status           :integer          default(1)
 #
 
 require 'spec_helper'

@@ -1,4 +1,5 @@
 FeedFiction::Application.routes.draw do
+  require 'sidekiq/web'
   
   get "friends/index"
 
@@ -84,6 +85,7 @@ FeedFiction::Application.routes.draw do
   match '/old' , to: 'oldie#show'
   match '/fb_channel', to: 'misc#fb_channel'
 
+  mount Sidekiq::Web, at: "/sidekiq"
 
   root to: 'feeds#index'
 

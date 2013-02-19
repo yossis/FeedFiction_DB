@@ -33,6 +33,9 @@ gem 'inherited_resources'
 #gem 'turbolinks'
 #gem 'jquery-turbolinks'
 
+gem 'sinatra', require: false
+gem 'slim'
+
 
 
 group :development do

@@ -18,22 +18,22 @@ class ImagesController < ApplicationController
 
 
   def instagram
-    logger.info '================================================>  ENTER TO INSTAGRAM FUNCTION'
+    #logger.info '================================================>  ENTER TO INSTAGRAM FUNCTION'
     
 
     if (current_user.has_instagram? && session[:access_token])
-      logger.info '================================================>   has instagram - going to import photos'
+      #logger.info '================================================>   has instagram - going to import photos'
       @images = Image.get_images(current_user, ImageType.instagram_id)
       respond_to do |format|
         format.html
         format.js { render 'facebook'}
       end
     elsif session[:fire_insta_box] == 1
-      logger.info '================================================>   has no instagram - going to general feed without reurn to instagram'
+      #logger.info '================================================>   has no instagram - going to general feed without reurn to instagram'
       session.delete :fire_insta_box
       redirect_to general_feed_url
     else
-      logger.info '================================================>   has no instagram - going first time to connect_instagram =>(session => connect_instagram)'
+      #logger.info '================================================>   has no instagram - going first time to connect_instagram =>(session => connect_instagram)'
       session[:is_from_ajax]=1 if request.xhr?
       redirect_to :controller => 'sessions', :action => 'connect_instagram' 
     end

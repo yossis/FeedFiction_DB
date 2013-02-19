@@ -23,7 +23,7 @@ class Notification < ActiveRecord::Base
 
 def Notification.notify(item, user)
 	item_name = nil
-	logger.info("Notification::::::::: #{item.class}")
+	#logger.info("Notification::::::::: #{item.class}")
 	case item.class.to_s
 		when 'StoryLine'
 			  notify_story(item,user)

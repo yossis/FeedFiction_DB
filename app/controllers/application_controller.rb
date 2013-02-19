@@ -61,7 +61,8 @@ class ApplicationController < ActionController::Base
     if limit<1
       logger.debug "inside if limit"
       story.is_complete = true
-      story.update_attribute(:is_complete, true)
+      story.assign_attributes({ :is_complete => true })
+      #story.update_attribute(:is_complete, true)
     end
   end
 

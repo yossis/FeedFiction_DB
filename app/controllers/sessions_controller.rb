@@ -18,24 +18,24 @@ class SessionsController < ApplicationController
 
 
   def connect_instagram
-    logger.info '================================================>  in connect_instagram'
+    #logger.info '================================================>  in connect_instagram'
     redirect_to Instagram.authorize_url(:redirect_uri => ENV['INSTAGRAM_CALLBACK'])
   end
 
   def callback_instagram
-    logger.info '================================================>  in callback_instagram'
+    #logger.info '================================================>  in callback_instagram'
     response = Instagram.get_access_token(params[:code], :redirect_uri => ENV['INSTAGRAM_CALLBACK'])
     provider = Provider.set_provider('Instagram', response, current_user.id)
     session[:access_token] = provider.oauth_token
     session[:fire_insta_box]=1
-     logger.info "access-token:#{session[:access_token]}"
+     #logger.info "access-token:#{session[:access_token]}"
 
     if session[:is_from_ajax] == 1
-      logger.info '================================================>  in callback_instagram - has session - going to general feed to continue'
+      #logger.info '================================================>  in callback_instagram - has session - going to general feed to continue'
       session.delete :is_from_ajax
       redirect_to general_feed_url
     else
-      logger.info '================================================>  in callback_instagram - has session - going to get images'
+      #logger.info '================================================>  in callback_instagram - has session - going to get images'
       redirect_to instagram_images_url
     end
 
