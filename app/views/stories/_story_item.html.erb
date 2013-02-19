@@ -43,6 +43,8 @@
 			  							<div>
 			  								<span class="error-message"></span>
 			  								<span class="counter-text"><%= (add_how_many_words_left story)%> words left out of 55</span>
+			  							<%= check_box_tag('facebook')%>	
+			  							<label for='facebook' class="btns fb-icon" title="post activity to facebook"></label>
 			  							<%= f.submit 'Feed It', class: 'btn btn-small', disabled: true ,disable_with: 'Processing...'%>
 			  							
 			  							</div>

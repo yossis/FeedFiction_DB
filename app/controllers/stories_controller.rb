@@ -21,13 +21,13 @@ class StoriesController < ApplicationController
   end
 
   def set_meta_tags_and_title
-    set_meta_tags :title => @story.story_title,
-              :author => @story.author,
-              :description => @story.description,
-              :image => @story.image.image_thumb,
-              :image_thumb => @story_url,
-              :open_graph => { :title => @story.story_title, :url => @story_url, :type => 'text/html' ,
-              :description => @story.description, :image => @story.image.image_thumb} 
+    # set_meta_tags :title => @story.story_title,
+    #           :author => @story.author,
+    #           :description => @story.description,
+    #           :image => @story.image.image_thumb,
+    #           :image_thumb => @story_url,
+    #           :open_graph => { :title => @story.story_title, :url => @story_url, :type => 'text/html' ,
+    #           :description => @story.description, :image => @story.image.image_thumb} 
   end
 
    

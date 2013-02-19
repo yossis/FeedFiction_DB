@@ -1,9 +1,12 @@
 <% provide(:title ,@story.story_title)%>
 <% content_for :head do %>
-	<!--<script type="text/javascript">var switchTo5x=true;</script>
-	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-	<script type="text/javascript">stLight.options({publisher: "2ef12537-8b20-4ac6-926b-15e1351dc861"}); </script>-->
-<% end%>
+  <%= tag :meta, property: "fb:app_id", content: ENV["FACEBOOK_APP_ID"] %>
+  <%= tag :meta, property: "og:site_name", content: "Feedfiction" %>
+  <%= tag :meta, property: "og:type", content: "feedfiction:story" %>
+  <%= tag :meta, property: "og:title", content: @story.story_title %>
+  <%= tag :meta, property: "og:url", content: story_url(@story) %>
+  <%= tag :meta, property: "og:image", content: request.protocol + request.host_with_port + image_path(@story.image) %>
+<% end %>
 
 
 

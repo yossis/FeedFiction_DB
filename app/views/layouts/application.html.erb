@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    
-    <%= display_meta_tags :site => full_title(yield(:title))%>
+   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# feedfiction: http://ogp.me/ns/fb/feedfiction#">
+    <%= csrf_meta_tags %>
+    <%= yield :head %>
+    <%=  full_title(yield(:title))%>
     <%= stylesheet_link_tag "application", media: "all" %>
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lobster' >
     
@@ -14,8 +15,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- end: Mobile Specific -->
 
-    <%= csrf_meta_tags %>
-    <%= yield :head %>
 
     <%= render 'layouts/shim' %>
   </head>
