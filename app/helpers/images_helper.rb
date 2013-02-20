@@ -8,4 +8,9 @@ module ImagesHelper
 			image_tag(image.image_source, height: image.height, width: image.width , style: "height:#{image.height}px;width:#{image.width}")
 		end
 	end
+
+	def image_thumb_url(image)
+		url = image.image_thumb_url(:thumb)
+		url = image.image_source if url.nil?
+	end
 end

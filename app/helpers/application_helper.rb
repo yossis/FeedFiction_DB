@@ -1,7 +1,7 @@
 module ApplicationHelper
 	# Returns the full title on a per-page basis.
 		def full_title(page_title)
-			base_title = "Feedfiction :: Transform photos into great short stories"
+			base_title = "Feedfiction :: Reinventing storytelling in 55 words"
 			if page_title.present?
 				"#{page_title} - FeedFiction.com"
 			else

@@ -5,7 +5,7 @@
   <%= tag :meta, property: "og:type", content: "feedfiction:story" %>
   <%= tag :meta, property: "og:title", content: @story.story_title %>
   <%= tag :meta, property: "og:url", content: story_url(@story) %>
-  <%= tag :meta, property: "og:image", content: request.protocol + request.host_with_port + image_path(@story.image) %>
+  <%= tag :meta, property: "og:image", content: image_thumb_url(@story.image) %>
 <% end %>
 
 

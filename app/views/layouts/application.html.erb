@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# feedfiction: http://ogp.me/ns/fb/feedfiction#">
+   <head>
+    <title> <%=  full_title(yield(:title))%></title>
     <%= csrf_meta_tags %>
     <%= yield :head %>
-    <%=  full_title(yield(:title))%>
+   
     <%= stylesheet_link_tag "application", media: "all" %>
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lobster' >
     

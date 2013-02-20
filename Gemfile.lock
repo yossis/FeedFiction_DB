@@ -45,6 +45,8 @@ GEM
       will_paginate
     browser (0.1.5)
     builder (3.0.4)
+    bullet (4.3.0)
+      uniform_notifier
     capistrano (2.13.5)
       highline
       net-scp (>= 1.0.0)
@@ -306,6 +308,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uniform_notifier (1.1.1)
     uuid (2.3.6)
       macaddr (~> 1.0)
     websocket (1.0.5)
@@ -324,6 +327,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap-will_paginate
   browser
+  bullet
   capistrano
   capybara (= 1.1.2)
   carrierwave
