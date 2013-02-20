@@ -8,13 +8,7 @@
 		
 		
 		<li>
-			<textarea name='story_line[line]' placeholder="Write here..."></textarea>
-			
-		</li>
-		<li>
-			<span class="error-message"></span>
-			<span class="counter-text">55 words left out of 55</span>
-			<%= f.button 'Feed It', :class => 'btn btn-create-story', disabled: true, disable_with: 'Creating story...'%>
+			<%= render 'stories/writer_area' , story: Story.new, f: f%>
 		</li>
 					
 	</ul>		

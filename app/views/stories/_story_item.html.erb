@@ -35,20 +35,7 @@
 						<!-- <div class="continue-story-text-area"> -->
 								
 			              <%= avatar_rounded(current_user)  %>
-			              
-
-			              <div class="textarea-with-button">
-	              			<textarea limit='<%= (add_how_many_words_left story)%>' <%= 'unlogged="t"' unless current_user%> name="story_line[line]"  placeholder='Continue the story...'></textarea>
-			  							
-			  							<div>
-			  								<span class="error-message"></span>
-			  								<span class="counter-text"><%= (add_how_many_words_left story)%> words left out of 55</span>
-			  							<%= check_box_tag('facebook')%>	
-			  							<label for='facebook' class="btns fb-icon" title="post activity to facebook"></label>
-			  							<%= f.submit 'Feed It', class: 'btn btn-small', disabled: true ,disable_with: 'Processing...'%>
-			  							
-			  							</div>
-			              </div>
+			              <%= render 'stories/writer_area' , story: story, f: f%>
 						<!-- </div> -->
 						
 						

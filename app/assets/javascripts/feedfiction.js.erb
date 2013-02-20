@@ -257,12 +257,12 @@ var feedfiction = {
         var counter = $('#StartStoryModal #start-story .counter-text');
         var errorLabel = $('#StartStoryModal #start-story .error-message');
        // $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', enableSubmitAfterNumWords:10 , labelCounter:counter});
-        $('.start-story-form textarea').textareaCounter({submit:'.start-story-form  input[type=submit]', labelCounter:counter ,callback: function(e,words,text){
+        $('.start-story-form textarea').textareaCounter({submit:'.start-story-form .btn-story', labelCounter:counter ,callback: function(e,words,text){
           var re = /[^\u0000-\u0080]/;
           //errorLabel.empty();
           if (text.match(re)) {
               errorLabel.html('Currently, you can only write in English.').effect("highlight", {}, 3000);
-              $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');
+              $('#StartStoryModal .btn-story').removeClass('btn-primary').attr('disabled','disabled');
               
           }
           else
@@ -281,14 +281,14 @@ var feedfiction = {
         }
         if (chars<2){
           //$('#StartStoryModal .counter-announce').show();
-          $('#StartStoryModal .btn-create-story').removeClass('btn-primary').attr('disabled','disabled');    
+          $('#StartStoryModal .btn-story').removeClass('btn-primary').attr('disabled','disabled');    
         }
         else{
           //$('#StartStoryModal .counter-announce').hide();
-          $('#StartStoryModal .btn-create-story').addClass('btn-primary').removeAttr('disabled');
+          $('#StartStoryModal .btn-story').addClass('btn-primary').removeAttr('disabled');
         }
         if (words==55){
-          $('#StartStoryModal .btn-create-story').html('The End');
+          $('#StartStoryModal .btn-story').html('The End');
         }
 
       },

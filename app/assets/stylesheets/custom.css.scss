@@ -1101,7 +1101,8 @@ footer {
 		float:left;
 	}
 	.counter-text {
-		padding-left: 47px;
+		float: left;	
+		padding: 7px 0 0 47px;
 	}
 	.textarea-with-button{
 		textarea {
@@ -1110,15 +1111,20 @@ footer {
 
 		label.fb-icon {
 			position: relative;
-			top: 8px;
+			top: 7px;
+			margin-right: 12px;
 		}
 
-		div{
-			text-align: right;
-			padding: 5px;
-			.counter-text {
-				float: left;
+		div.check-activity{
+			float: right;
+
+			padding: 5px 0;
+			
+			input[type=checkbox] {
+				margin: 0;
 			}
+			
+			
 		}
 	}
 	

@@ -44,6 +44,11 @@ class StoriesController < ApplicationController
     image.enqueue_image if !image.image_processed && image.image_type.id != ImageType.upload_id
 
     update_if_complete story_line.story
+
+    if params[:facebook]
+      key = story_line.story.is_complete ? "complete" : "start"
+      FacebookWorker.perform_async(current_user.id , key, story_url(story_line.story))
+    end
     
     redirect_to general_feed_url
     

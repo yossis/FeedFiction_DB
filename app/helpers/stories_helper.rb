@@ -10,4 +10,11 @@ module StoriesHelper
 
 	end
 
+	def fb_write_activity(word, story_url)
+		if params[:facebook]
+      # key = @story.is_complete ? "complete" : "continue"
+      FacebookWorker.perform_async(current_user.id , word, story_url)
+    end
+	end
+
 end

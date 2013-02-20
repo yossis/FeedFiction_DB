@@ -52,9 +52,10 @@ class StoryLinesController < ApplicationController
 
     update_if_complete @story
     
-    key = @story.is_complete ? "complete" : "continue"
-    FacebookWorker.perform_async(current_user.id , key, story_url(@story))
-    
+    if params[:facebook]
+      key = @story.is_complete ? "complete" : "continue"
+      FacebookWorker.perform_async(current_user.id , key, story_url(@story))
+    end
     #render json: @story_line, status: :created, location: @story_line
   end
 
