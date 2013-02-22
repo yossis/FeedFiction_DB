@@ -9,8 +9,11 @@ module ImagesHelper
 		end
 	end
 
-	def image_thumb_url(image)
-		url = image.image_thumb_url(:thumb)
-		url = image.image_source if url.nil?
+	def image_thumb_or_source_url(image)
+		if image.image_processed?
+			image.image_thumb_url(:thumb)
+		else
+			image.image_source
+		end
 	end
 end

@@ -1,3 +1,13 @@
+<% content_for :head do %>
+  <%= tag :meta, property: "fb:app_id", content: ENV["FACEBOOK_APP_ID"] %>
+  <%= tag :meta, property: "og:site_name", content: "Feedfiction" %>
+  <%= tag :meta, property: "og:title", content: full_title('')%>
+  <%= tag :meta, property: "og:url", content: root_url %>
+  <%= tag :meta, property: "og:image", content: root_url + 'assets/logos/logo-3.png' %>
+  <%= tag :meta, property: "og:description", content: site_description %>
+<% end %>
+
+
 <% unless current_user %>
 <%= render 'hp_header' %>
 <%end%>
