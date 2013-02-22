@@ -1,9 +1,10 @@
-					<div class="post-meta comments-dashboard actions">
+					<div class="post-meta comments-dashboard actions <%= @invisible unless story.is_complete %>">
+						<%= render 'stories/flag_actions' , story: story %>
 						<% if story.is_complete %>
 							<% if story.comments.size>0%>
-							<span><%=link_to pluralize(story.comments.size, 'Comment'), story_url(story) , id: "comment-count-#{story.id}"%></span>
+							<span class="comments-count"><%=link_to pluralize(story.comments.size, 'Comment'), story_url(story) , id: "comment-count-#{story.id}"%></span>
 							<% end%>
 						<%= render 'stories/like_actions' , story: story %>
 						<%end%>
-						<%= render 'stories/flag_actions' , story: story %>
+						
 					</div>

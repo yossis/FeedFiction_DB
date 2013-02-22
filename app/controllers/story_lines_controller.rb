@@ -51,11 +51,11 @@ class StoryLinesController < ApplicationController
     @story = @story_line.story
 
     update_if_complete @story
-    
-    if params[:facebook]
+    @invisible = 'hide_action_hack' unless @story.is_complete
+    #if params[:facebook]
       key = @story.is_complete ? "complete" : "continue"
       FacebookWorker.perform_async(current_user.id , key, story_url(@story))
-    end
+   # end
     #render json: @story_line, status: :created, location: @story_line
   end
 

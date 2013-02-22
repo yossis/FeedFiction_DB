@@ -22,17 +22,19 @@ FeedFiction::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  ENV["SMTP_USERNAME"] = 'yossish73'
-  ENV["SMTP_PASSWORD"] = 'a1a2a3'
+  #ENV["SMTP_USERNAME"] = 'yossish73'
+  #ENV["SMTP_PASSWORD"] = 'a1a2a3'
+  ENV["SMTP_USERNAME"] = 'yossi@feedfiction.com'
+  ENV["SMTP_PASSWORD"] = 'qiL_WrPtlBHpyszuWfZGVA'
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "sout.zahav.net.il",
+    address: "smtp.mandrillapp.com",
     domain: 'feedfiction.com',
-    authentication: "plain",
-    enable_starttls_auto: false,
+    authentication: "login",
+    enable_starttls_auto: true,
     user_name: ENV["SMTP_USERNAME"],
     password: ENV["SMTP_PASSWORD"]
     #openssl_verify_mode => 'none'

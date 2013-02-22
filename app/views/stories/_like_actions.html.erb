@@ -1,14 +1,11 @@
 
 
 <span id="like-<%=story.id%>">
-	<% if story.likes.length>0 %>
-		<span><a href="<%=like_path(story.id)%>" data-toggle="modal" data-target="#like-modal" class="like-link"><%= pluralize(story.likes.length,'Like')%></a></span>
-	<% end %>
 	<span class="likes">
 	<% if current_user %>
 		<% if current_user.like?(story.id) %>
-			<a class="btn btn-small btn-liked" disabled>
-			  	<i class="mini-ico-ok"></i>Likes
+			<a class="btn btn-small btn-liked" title="Liked" disabled>
+			  	<i class="mini-ico-heart"></i>
 			</a>
 		<%else %>
 			<%= render 'stories/like_form' , story: story %>
@@ -19,4 +16,7 @@
 	</span>
 	<% end %>
 	</span>
+	<% if story.likes.length>0 %>
+		<span><a href="<%=like_path(story.id)%>" data-toggle="modal" data-target="#like-modal" class="like-link"><%= pluralize(story.likes.length,'Like')%></a></span>
+	<% end %>
 </span>

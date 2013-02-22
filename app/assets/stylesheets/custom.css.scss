@@ -1230,6 +1230,7 @@ footer {
 
 					}
 				}
+
 			}
 
 		}
@@ -1237,7 +1238,9 @@ footer {
 		.comments-dashboard {
 
 		}
-		
+		.hide_action_hack {
+					display: none;
+				}	
 		
 		.item-description {
 			padding: 0;
@@ -1260,6 +1263,9 @@ footer {
 		.post-meta {
 			margin-top: 0;
 			position: relative;
+			.flag {
+				display: none;
+			}
 		}
 
 
@@ -1347,6 +1353,7 @@ ul.commentlist {
 
 .like-unregistered, .flag  ,.btn-liked {
 	float:right;
+	margin-left: 8px;
 }
 
 .like-link {
@@ -1380,6 +1387,9 @@ ul.commentlist {
 	.writers {
 		.round-avatar ,img {
 			width: 60px; height: 60px;
+		}
+		.feeders {
+			line-height: 59px;
 		}
 
 	}
@@ -1424,6 +1434,12 @@ ul.commentlist {
 		font-size: 25px;
 		line-height: 32px;
 	}
+	.the-end {
+		margin: 20px 0 33px;
+		h5 {
+			font-size: 35px;
+		}
+	}
 
 	.continue-story-text-area .textarea-with-button textarea {
 		width: 88%;
@@ -1446,14 +1462,25 @@ ul.commentlist {
 			    box-shadow: 0px 1px 1px rgba(0,0,0,.35);
 	}
 
+	.post-meta {
+
+		margin: 0 22px 0 22px;
+	}
+
 	ul.commentlist li {
+		padding: 10px;
 		.add-comment {
 			textarea {
-					width: 480px;
+					width: 460px;
 			}
 			.actions {
 				padding: 10px 0;
 			}	
+		}
+		.comment {
+			padding-top: 5px;
+			padding-bottom: 5px;
+			overflow: hidden;
 		}
 	}
 	
@@ -1464,6 +1491,7 @@ ul.commentlist {
 
 	.comments-dashboard {
 		height: 18px;
+		padding: 25px 0 28px 0;
 	}
 }
 
@@ -1874,6 +1902,17 @@ ul.commentlist {
 			visibility: hidden;
 		}
 	}
+
+	.check-activity {
+		float: right;
+		.fb-icon{
+			position: relative;
+			top: 7px;
+		}
+		input[type=checkbox] {
+			margin: 0;
+		}
+	}
 }
 .social-upload {
 	background: url('social-uploads2.png') no-repeat;
@@ -1989,19 +2028,21 @@ ul.commentlist {
 
 /* Friends to follow cube */
 #friends-to-follow {
+	padding-bottom: 10px;
 	h2 {
 		border-bottom: 1px dotted;
-		margin: 0 9px 5px;
+		margin: 10px 20px 15px 20px;
 	}
 	.span1 {
 		width: 50px;
-		margin-left: 5px;
+		margin-left: 20px;
 	}
 	.span3 {
-		width: 350px;
+		width: 345px;
 		margin-left: 0;
+		margin-right: 20px;
 		position: relative;
-		padding-bottom: 5px;
+		padding-bottom: 8px;
 	}
 	li {
 
@@ -2019,8 +2060,8 @@ ul.commentlist {
 	
 	div.see-all {
 		position: absolute;
-		top: 10px;
-		right: 18px;
+		top: 20px;
+		right: 20px;
 	}
 }
   
@@ -2495,6 +2536,35 @@ ul.commentlist {
 		width: 150px;
 	}
 
+	#friends-to-follow {
+		display: none;
+		height: 0;
+	}
+
+	/* Story page */
+	.story-page {
+		.story-area {
+			font-size: 20px;
+			line-height: 27px;
+			padding: 12px;
+		}
+		.the-end {
+			margin: 2px 0 14px;
+			h5 {
+				font-size: 22px;
+			}
+		}
+		.post-meta {
+			margin:0 11px;
+		}
+
+		ul.commentlist {
+			li {
+				padding: 0;
+			}
+		}
+	}
+
 
 	
 }
@@ -2616,11 +2686,11 @@ ul.commentlist {
 		ul.commentlist{
 			li {
 				.comment .comment-des {
-						max-width: 220px;
+						max-width: 200px;
 				}
 
 				.add-comment textarea {
-					width: 205px;
+					width: 188px;
 				}
 			}
 		}
