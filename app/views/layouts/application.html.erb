@@ -4,7 +4,7 @@
     <title> <%=  full_title(yield(:title))%></title>
     <%= csrf_meta_tags %>
     <%= yield :head %>
-   
+    <%= favicon_link_tag %>
     <%= stylesheet_link_tag "application", media: "all" %>
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lobster' >
     

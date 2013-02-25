@@ -159,7 +159,7 @@ class User < ActiveRecord::Base
 
   def people_to_follow
     followed = self.followed_users.size==0 ? 0 : self.followed_users
-    follow = User.where('id NOT IN (?,?)', followed, self)
+    follow = User.where('id NOT IN (?,?)', followed, self).order('random()')
   end
 
   private
