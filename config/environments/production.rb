@@ -88,7 +88,7 @@ FeedFiction::Application.configure do
   ENV["AWS_ACCESS_KEY_ID"] = 'AKIAIKZTOEKGDO6YLPEQ'
   ENV["AWS_SECRET_ACCESS_KEY"] = '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'
   ENV["AWS_S3_BUCKET"] = 'feedfiction-images'
-  ENV["AWS_S3_URL"] = "https://#{ENV["AWS_S3_BUCKET"]}.s3.amazonaws.com"
+  ENV["AWS_S3_URL"] = "http://#{ENV["AWS_S3_BUCKET"]}.s3.amazonaws.com"
   ENV["ROOT_URL"] = "http://feedfiction.com"
   
 end

@@ -5,8 +5,17 @@
   <%= tag :meta, property: "og:type", content: "feedfiction:story" %>
   <%= tag :meta, property: "og:title", content: @story.story_title %>
   <%= tag :meta, property: "og:url", content: story_url(@story) %>
-  <%= tag :meta, property: "og:image", content: image_thumb_or_source_url(@story.image) %>
+  <%= tag :meta, property: "og:image", content: @story.image.image_source %>
   <%= tag :meta, property: "og:description", content: @story.description %>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = '//connect.facebook.net/en_US/all.js#xfbml=1&appId=<%= ENV["FACEBOOK_APP_ID"]%>';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <% end %>
 
 
@@ -28,6 +37,7 @@
 <div class="container">
 
 	<div class="story">
+		
 		<div class="story-wrapper">
 			<div class="picture">
 			  <%=  image_tag(@story.image.image_source)  %>
@@ -47,4 +57,5 @@
 
 <% content_for :footer do %>
 	<%=render 'layouts/footer' %>
+	<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 <% end %>

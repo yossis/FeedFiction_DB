@@ -1383,6 +1383,17 @@ ul.commentlist {
 			line-height: 20px
 		}
 	}
+	.story-with-owners {
+		position: relative;
+		.fb-actions {
+			position: absolute;
+			top: 20px;
+			right: -90px;
+			.pinterest-actions {
+				margin-top: 10px;
+			}
+		}
+	}
 
 	.writers {
 		.round-avatar ,img {
@@ -2162,7 +2173,7 @@ ul.commentlist {
 			color: #fff;
 			font-size: 40px;
 			/*max-width: 590px;*/
-			line-height: 52px;
+			line-height: 62px;
 			text-align: center;
 		
 
@@ -2284,10 +2295,10 @@ ul.commentlist {
 
 		.anounce {
 				font-size: 30px;
-				line-height: 37px;
+				line-height: 50px;
 				/*width: 400px;*/
 				.wrapper-sign-in {
-					padding: 30px 0;
+					padding: 110px 0;
 				}
 				.slogan {
 					font-size: 33px;

@@ -31,6 +31,8 @@ def Notification.notify(item, user)
 			  comment_on_story(item,user)
 		when 'Like'
 			  like_story(item,user)
+		when 'Relationship'
+				following_user(item,user)
 	end
 
 end
@@ -77,6 +79,17 @@ private
     		self.create(:notified_user_id => u.id, :notification_type_id => notification_type.id, :notifier_user_id => current_user.id , :item_id => "st-#{item.story_id}", :story_id => item.story_id)
     		UserMailer.delay.like_story(item.story , u, current_user)
     	end
+		
+	end
+
+	def Notification.following_user(item , user)
+		follower = item.follower
+		notification_type = NotificationType.find_by_name('Follow')
+		# users = item.story.writers.uniq
+		# users.delete_if {|user| user==current_user} 
+		self.create(:notified_user_id => user.id, :notification_type_id => notification_type.id, :notifier_user_id => follower.id)
+    UserMailer.delay.follow(user , follower)
+    	
 		
 	end
   

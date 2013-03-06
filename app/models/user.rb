@@ -108,15 +108,24 @@ class User < ActiveRecord::Base
   end
 
   def following?(other_user)
-    relationships.find_by_followed_id(other_user.id)
+    relation = relationships.find_by_followed_id(other_user.id)
+    relation.status unless relation.nil?
   end
 
   def follow!(other_user)
-    relationships.create!(followed_id: other_user.id)
+    relation = relationships.find_by_followed_id(other_user.id)
+    if relation.nil?
+      r = relationships.create!(followed_id: other_user.id)
+      #TODO: send notification
+      Notification.notify(r , other_user)
+    else
+      relationships.update_column(:status, 1) if relation.status != 1
+    end 
   end
 
   def unfollow!(other_user)
-    relationships.find_by_followed_id(other_user.id).destroy
+    r = relationships.find_by_followed_id(other_user.id)
+    r.update_column(:status, 0) 
   end
 
   def first_time?

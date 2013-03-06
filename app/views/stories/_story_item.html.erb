@@ -11,6 +11,19 @@
 						<% end %>
 						<span class="cs-canvas"></span>
 					</div>
+
+					<% if @in_story_page%>
+					<div class="fb-actions">
+						<div class="fb-like" data-href="<%= story_url(story) %>" data-send="true" data-layout="box_count" data-width="450" data-show-faces="false"></div>
+						<div>
+							<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= story_url(story)%>"  data-count="vertical" data-text="Great FeedFiction story: &quot;<%= story.story_title %>&quot; read here: <%= story_url(story)%>" data-via="Feedfictioncom" data-dnt="true">Tweet</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</div>
+						<div class="pinterest-actions">
+							<a data-pin-config="above" href="//pinterest.com/pin/create/button/?url=<%=u story_url(story)%>&media=<%=u story.image.image_source%>&description=<%=u "Great FeedFiction story:&quot;#{story.story_title}&quot;" %>" data-pin-do="buttonPin" ><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
+						</div>
+					</div>
+					<%end%>
 						
 					
 					<div class="post-meta writers clearfix">

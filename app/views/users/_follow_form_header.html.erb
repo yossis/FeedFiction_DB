@@ -1,6 +1,6 @@
 <% unless current_user?(@user) %>
 	<% if current_user.following?(@user) %>
-    <%= form_for(current_user.relationships.find_by_followed_id(@user), html: { method: :delete }, remote: true) do |f| %>
+	<%= form_for(current_user.relationships.find_by_followed_id(@user), html: { method: :delete }, remote: true) do |f| %>
     	<input type="hidden" name="is_header" value="true"/>
 	  <%= f.submit "Following", class: "btn btn-warning btn-following" %>
 		<% end %>

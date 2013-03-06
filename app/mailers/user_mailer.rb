@@ -47,6 +47,15 @@ class UserMailer < ActionMailer::Base
     
   end
 
+  def follow(user, current_user)
+    @current_user = current_user
+    @user  = user
+
+    subject = "#{current_user.name} is now following you on FeedFiction"
+    #logger.info "============================#{subject}"
+    mail to: user.email, subject: subject
+  end
+
   private
   def story_owner_sentence(story , user)
     senence = story.user_id==user.id ? 'that you started' : 'that you participated in'

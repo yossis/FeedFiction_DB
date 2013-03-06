@@ -7,10 +7,11 @@
 #  followed_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  status      :integer          default(1)
 #
 
 class Relationship < ActiveRecord::Base
-  attr_accessible :followed_id, :follower_id
+  attr_accessible :followed_id, :follower_id , :status
 
   belongs_to :follower, class_name: "User"
   belongs_to :followed, class_name: "User"
