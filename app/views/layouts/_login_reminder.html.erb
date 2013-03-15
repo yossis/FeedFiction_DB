@@ -1,0 +1,11 @@
+<% unless @donot_show_disclaimer %>
+<script type="text/javascript">
+	setTimeout(function() {
+		//feedfiction.validateLogin.call(this,"Hey, you can start or continue a story, It's fun")
+		$('#modal-register .message').text('You can continue or start a story')
+		$('#modal-register').modal('show');
+        $(this).blur();
+	}, 10000);
+
+</script>
+<%end%>

@@ -36,7 +36,7 @@
       
     <%unless current_user%>
       <%= render 'layouts/unregisterd_modals' %>
-      
+      <%= render 'layouts/login_reminder' %>
     <%end%>
     <%= render 'layouts/scroll_to_top' %>
     <%= yield :footer %>

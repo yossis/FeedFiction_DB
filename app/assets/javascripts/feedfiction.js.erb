@@ -12,6 +12,16 @@ var feedfiction = {
     *       Meant to be used in conjunction with the class="userFunction" and data-function="functionName_arguments" style
     */
     actions: {
+      startStoryHomePageWizard: function(){
+        if ($('#StartStoryHomePageWizard').children().length==1){
+          $('#StartStoryHomePageWizard').prepend($('#StartStoryModal').html());
+          $('a').live('click',function() {
+            $('#StartStoryHomePageWizard').modal('hide');
+            feedfiction.validateLogin.call(this,'Please sign up to ')
+          })
+        }
+        $('#StartStoryHomePageWizard').modal('show');
+      },
 
       startRegistrationWizard: function(){
        $('#registration_wizard').modal({

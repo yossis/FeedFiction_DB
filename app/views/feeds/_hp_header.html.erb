@@ -1,5 +1,8 @@
 <!-- start: Slider -->
 <% content_for :home do %>
+<div class="modal hide fade in" id="StartStoryHomePageWizard">
+   <div class="modal-footer"><a class="sign-in">Try it, It's free</a></div>
+</div>
 <div class="hp-header">
   <div class="slider-wrapper">
   	<div class="background"></div>
@@ -37,12 +40,15 @@
 				<div><!-- <span class="brand">Feed<span>Fiction</span></span> is the place to write short stories together with friends.</div> -->
 
 				<div>Turn Photos into Beautiful Stories</div>
-				<div>It’s Fun, Easy and Only 55 Words</div>
+				<!-- <div>It’s Fun, Easy and Only 55 Words</div> -->
 
 					<!-- <div>Sign up with Facebook and start your story.</div> -->
 					<div class="wrapper-sign-in">
-			 			<span class="sign-in btn-signin-large"></span>
+			 			<!-- <span class="sign-in btn-signin-large"></span> -->
+			 			<a href="#" class="btn btn-large btn-primary sign-in" data-function="startStoryHomePageWizard"><i class="social-facebook-hover ico-white"></i><span>Start Here</span></a>
+			 			<div>Try it. It's free</div>
 			 		</div>
+
 				 	
 				 	<!-- <div class="slogan">FeedFiction is reinventing storytelling in 55 words</div> -->
 			 

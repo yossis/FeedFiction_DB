@@ -1,34 +1,6 @@
       <div class="modal hide fade in" id="StartStoryModal">
-              <a class="close-modal" data-dismiss="modal"></a>
-              <div class="preloader hide"></div>
-              <div class="modal-header">
-                <h2>Start a story</h2>
-                <div class="hr"></div>
-                <ul class="row story-bradcrumbs">
-                  <li class="span2 current-crumbs"><span class="circle-color-full-disable">1</span> Choose a photo</li>
-                  <li class="span2"><span class="circle-color-full-disable">2</span> Start writing</li>
-                  
-                </ul> 
-              </div>
-              <div class="modal-body">
-
-                <div id="uploadProviders">
-                  <!-- <p>Start your story by upload a photo</p> -->
-                  <%= render 'layouts/image_provider' %>
-                </div>
-                <div id="imageTiles"></div>
-
-                <div class="hide" id="upload-form">
-                  <%=render template: 'images/upload'%>
-                </div>
-
-                <div class="hide" id="start-story">
-                  <%= render 'stories/start_story'%>
-                </div>
-
-              </div>
-              <div class="modal-footer hide"></div>
-             
+         <%= render 'stories/start_story_wizard' %>
+         <div class="modal-footer hide"></div>
       </div>
       
       

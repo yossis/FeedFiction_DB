@@ -605,7 +605,7 @@
 }
 
 .social-facebook-hover { 
-	background: #3b5998 url('icons/social_big/facebook_white.png') no-repeat;
+	background: #3b5998 url('icons/social_big/facebook_white.png') center center no-repeat;
 }
 
 .social-flickr { 
