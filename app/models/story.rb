@@ -87,6 +87,7 @@ class Story < ActiveRecord::Base
   def update_view
     Story.update_counters self.id, view_count: 1
   end
+  
 
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships

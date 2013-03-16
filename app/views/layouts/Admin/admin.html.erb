@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
   	<%= display_meta_tags :site => full_title(yield(:title))%>
+  	<%= csrf_meta_tags %>
   	<%= stylesheet_link_tag "admin/admin", media: "all" %>
+
+  	<script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+<script src="/assets/jquery-ui.js?body=1" type="text/javascript"></script>
 	</head>
 	<body>
 		<ul>
 			<li><%= link_to 'Dashboard' , admin_root_url%></li>
 			<li><%= link_to 'Users' , admin_users_url%>(<%= User.all.size%>)</li>
 			<li><%= link_to 'Stories' , admin_stories_url%> (<%= Story.all.size%>)</li>
-		</ul>
+
 		</ul>
 		<%= yield %>
 	</body>

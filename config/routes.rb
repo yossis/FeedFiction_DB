@@ -52,6 +52,7 @@ FeedFiction::Application.routes.draw do
   namespace :admin do
     root to: "admin#index"
     resources :users
+    resources :flags
     resources :stories
     resources :fakers
     resources :story_lines

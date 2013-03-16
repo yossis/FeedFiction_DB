@@ -7,10 +7,10 @@
     <th>Title</th>
     <th>Completed</th>
     <th>Inappropriate</th>
+    <th>Deleted</th>
     <th>Duplicated</th>
     <th>Created at</th>
     <th>Views</th>
-    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -28,13 +28,13 @@
     <td><%= link_to story.story_title, story%></td>
     <td><%= story.is_complete ? 'Y' : 'N' %></td>
     <td><%= story.inappropriate ? 'Y' : 'N' %></td>
+    <td><%= story.status==1 ? 'N' : 'Y' %></td>
     <td><%= story.story_source_id %></td>
     <td><%= story.created_at %></td>
     <td><%= story.view_count %></td>
-    <td></td>
     <td><%= link_to 'Show', story %></td>
     <td><%= link_to 'Edit', edit_admin_story_path(story) %></td>
-    <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', [:admin, story], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

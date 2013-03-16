@@ -5,6 +5,7 @@ class StoriesController < ApplicationController
   # GET /stories/1.json
   def show
     @story = Story.find(params[:id])
+    redirect_to root_url if @story.status!=1
     @story.update_view
     @story_line = StoryLine.new
     @comments = @story.comments

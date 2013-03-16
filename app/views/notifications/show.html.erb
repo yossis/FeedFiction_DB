@@ -18,6 +18,8 @@
 	    		left a comment on the story <%= link_to_story_with_owner(notify)%>
     		<% elsif notify.notification_type.name =='Like'%>
     		likes the story <%= link_to_story_with_owner(notify)%>
+    		<% elsif notify.notification_type.name =='Follow'%>
+    		is following you
 
 	    	<% end %>
 	    	<% if notify.is_new?	%>
