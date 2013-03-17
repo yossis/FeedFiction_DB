@@ -95,7 +95,7 @@ class Story < ActiveRecord::Base
     stories_id = "SELECT DISTINCT story_id FROM story_lines WHERE (user_id IN (#{followed_user_ids}) OR user_id = :user_id)"
     #    StoryLine.select('story_id').where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", 
     #     user_id: user.id).uniq
-    where("id IN (#{stories_id})",user_id: user.id).order('last_line_updated_at DESC')
+    where("id IN (#{stories_id}) AND status=1",user_id: user.id).order('last_line_updated_at DESC')
   end
 
 
