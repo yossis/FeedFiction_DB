@@ -19,7 +19,6 @@ FeedFiction::Application.routes.draw do
 
   get "notification/index"
 
-
   resources :image_types
   resources :users do
     member do

@@ -35,4 +35,7 @@ window.fbAsyncInit = ->
       link: "http://feedfiction.com"
     false
 
+jQuery(document).ready ($) ->
+  isInIframe = (if (window.location isnt window.parent.location) then true else false)
+  $(".hide-in-fb-app").hide()  if isInIframe
  

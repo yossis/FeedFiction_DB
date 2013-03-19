@@ -46,9 +46,10 @@
                            <li class="divider"></li>
                           <li><%= link_to "Following",  following_user_path(current_user) %></li>
                           <li><%= link_to "Followers",  followers_user_path(current_user) %></li>
-                          <li class="divider"></li>
-                          <li><%= link_to "Sign out", signout_path %></li>
-                          </li>
+                         
+                          <li class="divider hide-in-fb-app"></li>
+                          <li class="hide-in-fb-app"><%= link_to "Sign out", signout_path %></li>
+                         
                         </ul>
                       </li>
                       

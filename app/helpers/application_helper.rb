@@ -27,4 +27,6 @@ module ApplicationHelper
 			line.html_safe
 			#'line[0]='+line[0]+', other='+line
 		end
+
+		
 end

@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     #raise omniauth.to_yaml
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user._id
+    cookies[:login] = { :value => user._id, :expires => 2.days.from_now }
     
     if user.first_time?
       UserMailer.delay.welcome(user) if user.email.present?
@@ -13,6 +14,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    cookies.delete :login
     redirect_to root_url
   end
 

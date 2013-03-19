@@ -2,10 +2,44 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   #http_basic_authenticate_with :name => "frodo", :password => "thering"
   # before_filter :authenticate 
-  before_filter :ie_disclaimer 
+  before_filter :ie_disclaimer ,:detect_facebook_post!
+
 
   private
 
+  def current_user_was_and_log_out
+    if current_user.nil? && cookies[:login]
+      redirect_to '/auth/facebook'
+    end
+  end
+
+  def detect_facebook_post!
+    if request.params[:fb_source]=='appcenter'
+      if current_user.nil? 
+        redirect_to '/auth/facebook'
+      else
+        reconnect_with_facebook
+      end
+      #if session[:user_id].nil? || 
+      #check if user connect
+
+      #redirect_to '/auth/facebook'
+    end
+    #TODO: check cookie expires and redirect if has
+    true
+  end
+
+  def reconnect_with_facebook
+    if current_user && current_user.fb_token_expired?
+
+      # re-request a token from facebook. Assume that we got a new token so
+      # update it anyhow...
+      session[:return_to] = request.env["REQUEST_URI"] unless request.env["REQUEST_URI"] == facebook_request_path
+      redirect_to(with_canvas(facebook_request_path)) and return false
+    end
+  end
+
+  
   def mobile_device?
     request.user_agent =~ /Mobile|webOS/
   end

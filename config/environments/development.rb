@@ -70,6 +70,6 @@ FeedFiction::Application.configure do
   ENV["AWS_SECRET_ACCESS_KEY"] = 'wKgJSbWoPrb2OFSB4KOvvnsviCUiuYEyTrfkFN5s'
   ENV["AWS_S3_BUCKET"] = 'dev-feedfiction-images'
   ENV["AWS_S3_URL"] = "https://#{ENV["AWS_S3_BUCKET"]}.s3.amazonaws.com"
-  ENV["ROOT_URL"] = "http://localhost:3000"
+  ENV["ROOT_URL"] = "http://4a2t.localtunnel.com"
   
 end

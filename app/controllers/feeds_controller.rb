@@ -32,6 +32,8 @@ class FeedsController < ApplicationController
       end
       if current_user
         @friends = current_user.people_to_follow.limit(3)
+      else
+        current_user_was_and_log_out
       end
     end
 
