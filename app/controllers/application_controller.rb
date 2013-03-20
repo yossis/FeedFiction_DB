@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def detect_facebook_post!
     if request.params['signed_request']
       if current_user.nil? 
-        redirect "/auth/facebook?signed_request=#{request.params['signed_request']}&state=canvas"
+        redirect_to "/auth/facebook?signed_request=#{request.params['signed_request']}&state=canvas"
       else
         reconnect_with_facebook
       end
