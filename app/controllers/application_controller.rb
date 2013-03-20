@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
   end
 
   def detect_facebook_post!
-    if request.params[:fb_source]=='appcenter'
+    if request.params['signed_request']
       if current_user.nil? 
-        redirect_to '/auth/facebook'
+        redirect "/auth/facebook?signed_request=#{request.params['signed_request']}&state=canvas"
       else
         reconnect_with_facebook
       end
