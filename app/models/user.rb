@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :participate_stories, through: :story_lines , source: :story , uniq: true , :conditions => ['stories.status = ?',1]
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_users, through: :relationships, source: :followed
+  has_many :followed_users, through: :relationships, source: :followed , :conditions => ['relationships.status = ?',1]
   has_many :reverse_relationships, foreign_key: "followed_id",
                                    class_name:  "Relationship",
                                    dependent:   :destroy
@@ -108,8 +108,9 @@ class User < ActiveRecord::Base
   end
 
   def following?(other_user)
-    relation = relationships.find_by_followed_id(other_user.id)
-    relation.status unless relation.nil?
+    #relation = relationships.find_by_followed_id(other_user.id)
+    relation = relationships.where(followed_id: other_user.id , status: 1)
+    relation.first.status unless relation.empty?
   end
 
   def follow!(other_user)
@@ -119,13 +120,13 @@ class User < ActiveRecord::Base
       #TODO: send notification
       Notification.notify(r , other_user)
     else
-      relationships.update_column(:status, 1) if relation.status != 1
+      relation.update_column('status', 1) if relation.status != 1
     end 
   end
 
   def unfollow!(other_user)
     r = relationships.find_by_followed_id(other_user.id)
-    r.update_column(:status, 0) 
+    r.update_column('status', 0) 
   end
 
   def first_time?
