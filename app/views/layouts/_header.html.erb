@@ -87,12 +87,10 @@
         <li <%= @my_feed_active%>><%=link_to 'My Feed', root_url %></li>
         <li <%= @everything_active%>><%=link_to 'All Stories', general_feed_url %></li>
         <li><%=link_to 'Invite your friends', '#', class: 'facebook_invitation_link'%></li>
+        <%= render 'layouts/sorting' %>
         
       </ul>
-     <!--  <div class="invite-friends container">
-        <%#=link_to 'Invite your friends', '#', class: 'facebook_invitation_link'%>
-        
-      </div> -->
+      
   </div>
 </div>
 <%end%>
