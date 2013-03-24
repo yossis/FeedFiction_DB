@@ -1180,7 +1180,7 @@ footer {
 	
 .sorting {
 	overflow: hidden;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 	span {
 		font-size: 12px;
 		vertical-align: middle;
@@ -2215,7 +2215,7 @@ ul.commentlist {
 
 			ul {
 				font-size: 27px;
-				padding: 20px;
+				padding: 32px;
 				li {
 					display: inline;
 					padding-right: 40px;
@@ -2231,7 +2231,7 @@ ul.commentlist {
 
 			.wrapper-sign-in {
 					position: relative;
-					padding: 45px 0;
+					padding: 25px 0;
 					display: inline-block;
 					-webkit-border-radius: 10px;
 					-moz-border-radius: 10px;
@@ -2249,11 +2249,15 @@ ul.commentlist {
 							display: inline-block;
 							line-height: 10px;
 							padding-right: 10px;
-							padding-left: 10px;
+							
 						}
 						i{
 							vertical-align: middle;
 						}
+						.ico-edit {
+							background-position: -48px -723px;
+						}
+
 					}
 					div{
 						font-size: 20px;
@@ -2261,7 +2265,6 @@ ul.commentlist {
 			}
 			
 			.slogan {
-				font-family: 'Lobster';
 				text-align: center;
 				font-size: 45px;
 			}
@@ -2362,7 +2365,7 @@ ul.commentlist {
 		}
 
 		.anounce {
-				font-size: 30px;
+				font-size: 34px;
 				line-height: 50px;
 				/*width: 400px;*/
 				/*.wrapper-sign-in {
