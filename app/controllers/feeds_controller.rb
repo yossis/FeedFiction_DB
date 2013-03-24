@@ -2,7 +2,8 @@ class FeedsController < ApplicationController
   before_filter :end_wizard,:init_vars
 
   def general_feed
-    @stories = Story.includes([{story_lines: :user}, :image, :user, :likes , {comments: :user}]).where(status: 1).paginate(page: params[:page]).order('updated_at DESC')
+
+    @stories = Story.includes([{story_lines: :user}, :image, :user, :likes , {comments: :user}]).where("status=1 #{sort_feed}").paginate(page: params[:page]).order('updated_at DESC')
     #Category.includes(:posts => [{:comments => :guest}, :tags])
     @everything_active = 'class=active'
     render 'index'
@@ -12,7 +13,7 @@ class FeedsController < ApplicationController
     if current_user
       @feed_name = 'My Feed'
       @feed_logo_color = 'myfeed-logo'
-      @stories = Story.includes([{:story_lines => :user}, :image, :user, :likes]).from_users_followed_by(current_user).paginate(page: params[:page])
+      @stories = Story.includes([{:story_lines => :user}, :image, :user, :likes]).from_users_followed_by(current_user).where("status=1 #{sort_feed}").paginate(page: params[:page])
       @my_feed_active = 'class=active'
     else
       general_feed
@@ -36,6 +37,8 @@ class FeedsController < ApplicationController
         current_user_was_and_log_out
       end
     end
+
+    
 
 
 end

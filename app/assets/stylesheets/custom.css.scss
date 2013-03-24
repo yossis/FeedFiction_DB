@@ -1175,6 +1175,15 @@ footer {
 
 }
 
+/*Feed */
+.sorting {
+	padding-bottom: 10px;
+	span {
+		font-size: 12px;
+		vertical-align: middle;
+		padding-right: 5px;
+	}
+}
 .portfolio-item {
 	/*overflow: hidden;*/
 	background-color: #fff;
@@ -2124,7 +2133,7 @@ ul.commentlist {
 	position: relative;
 	.slider-wrapper {
 		background: url('slider/slider4.jpg') no-repeat;
-		height: 350px;
+		height: 400px;
 		width: 100%;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
@@ -2194,10 +2203,25 @@ ul.commentlist {
 			font-family: "Sanchez", serif;
 			/*background: rgba(0,0,0,0.65);*/
 			color: #fff;
-			font-size: 45px;
+			font-size: 35px;
 			/*max-width: 590px;*/
 			line-height: 62px;
 			text-align: center;
+
+			ul {
+				font-size: 27px;
+				padding: 20px;
+				li {
+					display: inline;
+					padding-right: 40px;
+					vertical-align: middle;
+					span {
+						display: inline-block;
+						padding: 10px;
+						
+					}
+				}
+			}
 		
 
 			.wrapper-sign-in {
@@ -2329,16 +2353,16 @@ ul.commentlist {
 	.hp-header {
 
 		.slider-wrapper {
-			height: 350px;
+			height: 400px;
 		}
 
 		.anounce {
-				font-size: 38px;
+				font-size: 30px;
 				line-height: 50px;
 				/*width: 400px;*/
-				.wrapper-sign-in {
+				/*.wrapper-sign-in {
 					padding: 100px 0;
-				}
+				}*/
 				.slogan {
 					font-size: 33px;
 				}
@@ -2404,7 +2428,7 @@ ul.commentlist {
 
 	.hp-header {
 		.slider-wrapper {
-			height: 320px;
+			height: 380px;
 		}
 		.photo-tile {
 				background-size: 192px;
@@ -2498,7 +2522,7 @@ ul.commentlist {
 
 	.hp-header {
 		.slider-wrapper {
-			height: 250px;
+			height: 300px;
 			
 		}
 
@@ -2511,6 +2535,10 @@ ul.commentlist {
 				.sign-in {
 					padding: 0;
 				}
+			}
+
+			.hp-instructions {
+				display: none;
 			}
 			
 			.slogan {
@@ -2698,7 +2726,7 @@ ul.commentlist {
 	}
 	.hp-header {
 		.slider-wrapper {
-			height: 250px;
+			height: 300px;
 			
 		}
 

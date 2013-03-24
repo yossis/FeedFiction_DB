@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @active_stories = 'class=active'
   	@story_line = StoryLine.new()
   	@new_comment = Comment.new
-  	@stories = @user.participate_stories.paginate(page: params[:page]).order('created_at DESC')
+  	@stories = @user.participate_stories.where("status=1 #{sort_feed}").paginate(page: params[:page]).order('created_at DESC')
     if @user==current_user
       @empty_disclaimer = 'You have no stories yet'
     else

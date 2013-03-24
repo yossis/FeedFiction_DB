@@ -7,6 +7,21 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def sort_feed
+    
+    if params[:sort]=='uncompleted'
+      name = "AND is_complete is null" 
+      @uncompleted = "active"
+    elsif params[:sort]=='completed'
+      name = "AND is_complete=true"
+      @completed = "active"
+    else
+      name = ''
+      @most = "active"
+    end
+    name
+  end
+
   def current_user_was_and_log_out
     if current_user.nil? && cookies[:login]
       redirect_to '/auth/facebook'
