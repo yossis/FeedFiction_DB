@@ -916,6 +916,7 @@ footer {
 
 .logo-feed-temp {
 	padding: 15px 0;
+	display: none;
 	.logo-feed {
 		background: url("background.png");
 		color: rgba(180,180,180,.8);
@@ -2208,7 +2209,7 @@ ul.commentlist {
 			font-family: "Sanchez", serif;
 			/*background: rgba(0,0,0,0.65);*/
 			color: #fff;
-			font-size: 35px;
+			font-size: 37px;
 			/*max-width: 590px;*/
 			line-height: 62px;
 			text-align: center;
@@ -2367,7 +2368,7 @@ ul.commentlist {
 		}
 
 		.anounce {
-				font-size: 34px;
+				font-size: 35px;
 				line-height: 50px;
 				/*width: 400px;*/
 				/*.wrapper-sign-in {

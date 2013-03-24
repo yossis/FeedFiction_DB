@@ -52,7 +52,11 @@ class UsersController < ApplicationController
     else
       @empty_disclaimer = "#{@user.name} hasn't liked any stories yet"
     end
-    render 'show_likes'
+   
+    respond_to do |format|
+      format.html { render 'show_likes'}
+      format.js { render 'feeds/index' }
+    end
   end
 
   def set_common_vars
