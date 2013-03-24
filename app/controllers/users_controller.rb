@@ -18,6 +18,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/edit
+  def edit
+    @user=current_user
+  end
+
   def following
     @active_following = 'class=active'
     @title = 'Following'
