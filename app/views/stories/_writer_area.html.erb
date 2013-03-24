@@ -5,10 +5,10 @@
 			  								<span class="error-message"></span>
 			  								<span class="counter-text"><%= (add_how_many_words_left story)%> words left out of 55</span>
 				  							<div class="check-activity">
-				  								<% if current_user%>
-					  							<%= check_box_tag('facebook' )%>	
-					  							<label for='facebook' class="btns fb-icon" title="post activity to facebook"></label>
-					  							<%end%>
+				  								<%# if current_user%>
+					  							<%#= check_box_tag('facebook' )%>	
+					  							<!-- <label for='facebook' class="btns fb-icon" title="post activity to facebook"></label> -->
+					  							<%#end%>
 					  						
 				  							<%= f.submit 'Feed It', class: 'btn btn-story btn-small', disabled: true ,disable_with: 'Processing...'%>
 			  								</div>
