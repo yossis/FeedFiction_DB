@@ -35,7 +35,7 @@ class Story < ActiveRecord::Base
   after_save :play_with_image
 
   validates :image_id, presence: true 
-  validates :slug, uniqueness: true, presence: true
+  
 
   self.per_page = 10
 
