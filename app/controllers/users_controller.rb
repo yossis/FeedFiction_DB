@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :set_common_vars
+  before_filter :set_common_vars,:find_page
+
 
   def show
     @active_stories = 'class=active'
@@ -65,8 +66,14 @@ class UsersController < ApplicationController
   end
 
   def set_common_vars
-    @user = User.find(params[:id])
     @is_user_page = true
     
   end
+
+  private
+
+
+    def find_page
+      @user ||= User.find_by_slug!(params[:id])
+    end
 end

@@ -1,0 +1,27 @@
+<h1>Listing invite_texts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Story type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @invite_texts.each do |invite_text| %>
+  <tr>
+    <td><%= invite_text.title %></td>
+    <td><%= invite_text.content %></td>
+    <td><%= invite_text.story_type %></td>
+    <td><%= link_to 'Show', invite_text %></td>
+    <td><%= link_to 'Edit', edit_invite_text_path(invite_text) %></td>
+    <td><%= link_to 'Destroy', invite_text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Invite text', new_invite_text_path %>

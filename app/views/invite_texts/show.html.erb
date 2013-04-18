@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @invite_text.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @invite_text.content %>
+</p>
+
+<p>
+  <b>Story type:</b>
+  <%= @invite_text.story_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_invite_text_path(@invite_text) %> |
+<%= link_to 'Back', invite_texts_path %>

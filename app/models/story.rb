@@ -18,13 +18,13 @@
 #
 
 class Story < ActiveRecord::Base
-  attr_accessible :category_id, :image_id, :inappropriate, :is_complete, :quality, :story_source_id, :user_id, :last_line_updated_at ,:view_count ,:status
+  attr_accessible :category_id, :image_id, :inappropriate, :is_complete, :quality, :story_source_id, :user_id, :last_line_updated_at ,:view_count ,:status, :slug
   has_many :story_lines, :order => 'id ASC'
   accepts_nested_attributes_for :story_lines
   
   has_many :likes , dependent: :destroy
   has_many :users , through: :likes, source: :users
-  has_many :comments
+  has_many :comments, :order => 'id DESC'
   has_many :commenters, through: :comments, source: :user
   has_many :writers, through: :story_lines, source: :user
   has_many :flags
@@ -35,6 +35,7 @@ class Story < ActiveRecord::Base
   after_save :play_with_image
 
   validates :image_id, presence: true 
+  validates :slug, uniqueness: true, presence: true
 
   self.per_page = 10
 
@@ -47,6 +48,14 @@ class Story < ActiveRecord::Base
     
 
     # lines.line.split(' ')[0..3].join(' ').capitalize
+  end
+
+  def to_param
+    "#{id}-#{story_title}".parameterize
+  end
+
+  def generate_slug
+    self.slug ||= name.parameterize
   end
 
   def description
@@ -77,7 +86,7 @@ class Story < ActiveRecord::Base
 
   def last_comments
     how_many = 3
-    self.comments.order('id DESC').limit(how_many).reverse
+    self.comments.limit(how_many).reverse
   end
 
   def user_count

@@ -23,32 +23,9 @@
 #  status           :integer          default(1)
 #
 
-# == Schema Information
-#
-# Table name: users
-#
-#  id               :integer          not null, primary key
-#  provider         :string(255)
-#  uid              :string(255)
-#  name             :string(255)
-#  nick_name        :string(255)
-#  avatar           :string(255)
-#  email            :string(255)
-#  gender           :string(255)
-#  oauth_token      :string(255)
-#  oauth_expires_at :datetime
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  login_count      :integer          default(0)
-#  big_avatar       :string(255)
-#  cover            :string(255)
-#  invitation_id    :integer
-#  invitation_limit :integer          default(10)
-#  admin            :integer          default(0)
-#
 require 'admin/faker'
 class User < ActiveRecord::Base
-  attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count, :invitation_token, :invitation_limit, :admin ,:status
+  attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count, :invitation_token, :invitation_limit, :admin ,:status, :slug
 
   has_many :stories
   has_many :liked_stories, through: :likes , source: :story
@@ -69,6 +46,18 @@ class User < ActiveRecord::Base
   belongs_to :invitation
 
   before_create :set_invitation_limit
+
+  validates :slug, uniqueness: true, presence: true
+
+  before_validation :generate_slug
+  
+  def to_param
+    slug
+  end
+
+  def generate_slug
+    self.slug ||= name.parameterize
+  end
 
 
 

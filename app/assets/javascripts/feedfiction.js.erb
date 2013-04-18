@@ -141,6 +141,30 @@ var feedfiction = {
          
       },
 
+      gritter: function(element){
+        var unique_id = $.gritter.add({
+          position: 'absolute',
+          // (string | mandatory) the heading of the notification
+          title: feedfiction.constants.messages.title,
+          // (string | mandatory) the text inside the notification
+          text: feedfiction.constants.messages.content,
+          // (string | optional) the image to display on the left
+          image: feedfiction.constants.messages.image,
+          // (bool | optional) if you want it to fade out on its own or just sit there
+          sticky: false,
+          // (int | optional) the time you want it to be alive for before fading out
+          time: 3000,
+          // (string | optional) the class name you want to apply to that specific message
+          class_name: 'my-sticky-class',
+          add_in_element: element
+        });
+      },
+
+      inviteFacebook: function(id, complete){
+
+        $('#popup-chooser').friendChooser('open', {message: 'dfdf' , story: id});
+      },
+
       fireInstagram: function(){
         feedfiction.actions.startStoryModal();
         $('#start-instagram').trigger('click');
@@ -529,6 +553,30 @@ var feedfiction = {
             $("html, body").animate({ scrollTop: 0 }, 600);
             return false;
         });
+    },
+
+    loadPopupChooser: function(){
+      $('#popup-chooser').friendChooser({
+          display: "popup",
+          max: 3,             //max selected friends
+          returnData: "id",   //data to return (id, name, all)
+          lang: {
+            title: "I am inviting you to continue my story",
+            requestTitle: "I am inviting you to continue my story",
+            labelMessage: 'Message' ,
+            message: 'Please come to see'
+              
+          },
+          onSubmit: function(users) { 
+              if(users.length) {
+                  var text = "You selected following friends: \n";
+                  for(i in users) text += users[i] + "\n";
+                  alert(text);
+              } else {
+                  alert("No friends selected");    
+              }
+          }
+      });    
     },
 
 

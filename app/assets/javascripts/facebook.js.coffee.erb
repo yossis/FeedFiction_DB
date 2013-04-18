@@ -1,5 +1,4 @@
-jQuery ->
-  
+jQuery(document).ready ($) ->
 
   $.ajax
     url: "#{window.location.protocol}//connect.facebook.net/en_US/all.js"
@@ -7,35 +6,34 @@ jQuery ->
     cache: true
 
 
-window.fbAsyncInit = ->
-  FB.init(appId: '<%= ENV["FACEBOOK_APP_ID"] %>', cookie: true, xfbml: true)
+  window.fbAsyncInit = ->
+    FB.init(appId: '<%= ENV["FACEBOOK_APP_ID"] %>', cookie: true, xfbml: true)
+    feedfiction.loadPopupChooser()
 
-  $('.sign-in').click (e) ->
-    e.preventDefault()
-    $('#modal-register').modal('hide')
-    FB.login (response) ->
-      window.location = '/auth/facebook' if response.authResponse
-    , scope: "user_photos,friends_photos,email,publish_stream"
-    
-    FB.Event.subscribe "auth.login", (r) ->
-      console.log r.status
-      $("#loginPreloader").modal "show"  if r.status is "connected"
+    $('.sign-in').click (e) ->
+      e.preventDefault()
+      $('#modal-register').modal('hide')
+      FB.login (response) ->
+        window.location = '/auth/facebook' if response.authResponse
+      , scope: "user_photos,friends_photos,email,publish_stream"
+      
+      FB.Event.subscribe "auth.login", (r) ->
+        console.log r.status
+        $("#loginPreloader").modal "show"  if r.status is "connected"
 
-  $('#sign_out').click (e) ->
-    FB.getLoginStatus (response) ->
-      FB.logout() if response.authResponse
-    true
+    $('#sign_out').click (e) ->
+      FB.getLoginStatus (response) ->
+        FB.logout() if response.authResponse
+      true
 
-  $(".facebook_invitation_link").click ->
-    FB.ui
-      method: "send"
-      name: "Check out Feedficton!"
-      picture: '<%= ENV["ROOT_URL"] %>/assets/logo.png'
-      description: "Connect with friends and family to transform your photos into great short stories. Create, Inspire, Share. Have fun. Together."
-      link: "http://feedfiction.com"
-    false
-
-jQuery(document).ready ($) ->
-  isInIframe = (if (window.location isnt window.parent.location) then true else false)
-  $(".hide-in-fb-app").hide()  if isInIframe
- 
+    $(".facebook_invitation_link").click ->
+      FB.ui
+        method: "send"
+        name: "Check out Feedficton!"
+        picture: '<%= ENV["ROOT_URL"] %>/assets/logo.png'
+        description: "Connect with friends and family to transform your photos into great short stories. Create, Inspire, Share. Have fun. Together."
+        link: "http://feedfiction.com"
+      false
+    isInIframe = (if (window.location isnt window.parent.location) then true else false)
+    $(".hide-in-fb-app").hide()  if isInIframe
+   

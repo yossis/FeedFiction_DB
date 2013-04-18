@@ -51,7 +51,14 @@ class StoryLinesController < ApplicationController
     @story = @story_line.story
 
     update_if_complete @story
-    @invisible = 'hide_action_hack' unless @story.is_complete
+
+    if @story.is_complete
+      @invite_message = InviteText.rand_complete
+    else
+      @invite_message = InviteText.rand_continue
+      @invisible = 'hide_action_hack'
+    end
+     
     #if params[:facebook]
       key = @story.is_complete ? "complete" : "continue"
       FacebookWorker.perform_async(current_user.id , key, story_url(@story))

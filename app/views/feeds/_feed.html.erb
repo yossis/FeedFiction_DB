@@ -7,10 +7,16 @@
 
 <%= render 'layouts/sorting' %>
 
+<div id="popup-chooser"></div>
+
 <div id="story-container" >
 	<div id="portfolio-wrapper" class="row">
 	<%= render 'users/friends' %>
 	<%= render :partial => 'stories/story' ,:collection => @stories%>
 	</div>
 </div>
+
+<script type="text/javascript">
+	// feedfiction.loadPopupChooser();
+</script>
 <%= will_paginate @stories%>

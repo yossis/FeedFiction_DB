@@ -3,7 +3,8 @@ if ($('#story-<%=@story.id%>').length >0){
 		
 }
 
-$("#story-item-<%=@story.id%>").html("<%= escape_javascript(render('stories/story_item' , :story => @story ))%>");
+
+$("#story-item-<%=@story.id%>").replaceWith("<%= escape_javascript(render('stories/story_item' , :story => @story ))%>");
 <% if @story.is_complete %>
 	$('#comments-<%=@story.id%>').html("<%= j render 'comments/comments_list' , story: @story %>");
 
@@ -11,5 +12,17 @@ $("#story-item-<%=@story.id%>").html("<%= escape_javascript(render('stories/stor
 		$('#portfolio-wrapper').isotope('reLayout');
 <%end%>
 
+// $('#gritter-notice-wrapper').html('');
 
+// gritterElement = "#story-item-<%=@story.id%> .writers";
+
+// if(feedfiction == null) feedfiction = {};
+//     if(feedfiction.constants == null) feedfiction.constants = {};
+//     feedfiction.constants.messages={
+//         title: "<%#= current_user.name%>, <%#= @invite_message.title %>",
+//         content: "<%#= @invite_message.content %><br/><a class=\"userFunction\" data-function=\"inviteFacebook#<%#@story.id%>#<%#= @story.is_complete.to_s%>\">Invite here</a>" ,
+//         image: "<%#= current_user.avatar%>"
+//     }
+
+// feedfiction.actions.gritter(gritterElement);
 //feedfiction.actions.continueStory("<%=@story.id%>");

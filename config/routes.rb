@@ -1,4 +1,7 @@
 FeedFiction::Application.routes.draw do
+  resources :invite_texts
+
+
   require 'sidekiq/web'
   
   get "friends/index"

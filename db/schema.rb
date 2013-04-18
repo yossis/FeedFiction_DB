@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130227164852) do
+ActiveRecord::Schema.define(:version => 20130418124435) do
 
   create_table "accounts", :force => true do |t|
     t.string   "username"
@@ -121,6 +121,14 @@ ActiveRecord::Schema.define(:version => 20130227164852) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "invite_texts", :force => true do |t|
+    t.string   "title"
+    t.string   "content"
+    t.integer  "story_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "last_imports", :force => true do |t|
     t.integer  "user_id"
     t.integer  "image_type_id"
@@ -206,8 +214,10 @@ ActiveRecord::Schema.define(:version => 20130227164852) do
     t.datetime "last_line_updated_at"
     t.integer  "view_count",           :default => 0
     t.integer  "status",               :default => 1
+    t.string   "slug"
   end
 
+  add_index "stories", ["slug"], :name => "index_stories_on_slug"
   add_index "stories", ["status"], :name => "index_stories_on_status"
 
   create_table "story_lines", :force => true do |t|
@@ -247,8 +257,10 @@ ActiveRecord::Schema.define(:version => 20130227164852) do
     t.integer  "invitation_limit", :default => 10
     t.integer  "admin",            :default => 0
     t.integer  "status",           :default => 1
+    t.string   "slug"
   end
 
+  add_index "users", ["slug"], :name => "index_users_on_slug"
   add_index "users", ["status"], :name => "index_users_on_status"
 
   add_foreign_key "comments", "stories", :name => "comments_story_id_fk"
