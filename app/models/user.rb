@@ -75,6 +75,7 @@ class User < ActiveRecord::Base
 	    user.oauth_token = auth.credentials.token
 	    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
 	    user.login_count +=1
+      user.slug = user.name.parameterize if user.login_count==1
 	    user.save!
 	    user
 	 end

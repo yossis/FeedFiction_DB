@@ -2209,10 +2209,12 @@ ul.commentlist {
 			font-family: "Sanchez", serif;
 			/*background: rgba(0,0,0,0.65);*/
 			color: #fff;
-			font-size: 37px;
+			font-size: 32px;
 			/*max-width: 590px;*/
-			line-height: 62px;
+			line-height: 56px;
 			text-align: center;
+			width: 80%;
+			margin: 0 auto;
 
 			ul {
 				font-size: 27px;
@@ -2234,7 +2236,7 @@ ul.commentlist {
 
 			.wrapper-sign-in {
 					position: relative;
-					padding: 25px 0;
+					padding: 40px 0;
 					display: inline-block;
 					-webkit-border-radius: 10px;
 					-moz-border-radius: 10px;
@@ -2398,14 +2400,14 @@ ul.commentlist {
 		}
 
 		.anounce {
-				font-size: 35px;
+				font-size: 28px;
 				line-height: 50px;
 				/*width: 400px;*/
 				/*.wrapper-sign-in {
 					padding: 100px 0;
 				}*/
 				.slogan {
-					font-size: 33px;
+					font-size: 25px;
 				}
 		}
 		.photo-tile {
@@ -2480,14 +2482,14 @@ ul.commentlist {
 		}
 
 		.anounce {
-				font-size: 25px;
+				font-size: 22px;
 				line-height: 30px;
 				/*width: 400px;*/
 				.wrapper-sign-in {
 					padding: 30px 0;
 				}
 				.slogan {
-					font-size: 27px;
+					font-size: 20px;
 				}
 		}
 
