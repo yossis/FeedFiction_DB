@@ -19,7 +19,7 @@ role :db,  "198.74.61.35", :primary => true # This is where Rails migrations wil
 role :sidekiq, "198.74.61.35"
 
 set :rvm_type, :system
-set :rvm_ruby_string,   "1.9.3-p327"
+set :rvm_ruby_string,   :local
 
 set :rake, "bundle exec rake"
 
