@@ -20,7 +20,7 @@ role :sidekiq, "198.74.61.35"
 
 set :rvm_type, :system
 set :rvm_ruby_string, "1.9.3-turbo"
-set :rvm_bin_path, "/usr/local"
+set :rvm_bin_path, "$HOME/bin"
 
 set :rake, "bundle exec rake"
 
