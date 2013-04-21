@@ -83,7 +83,7 @@ GEM
     coffee-script-source (1.6.2)
     connection_pool (1.0.0)
     debug_inspector (0.0.2)
-    diff-lcs (1.2.3)
+    diff-lcs (1.2.4)
     erubis (2.7.0)
     excon (0.20.1)
     execjs (1.4.0)
@@ -167,7 +167,7 @@ GEM
       rack-contrib
       rails
     method_source (0.8.1)
-    mime-types (1.22)
+    mime-types (1.23)
     multi_json (1.7.2)
     multipart-post (1.2.0)
     net-scp (1.1.0)
@@ -226,7 +226,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    raindrops (0.10.0)
+    raindrops (0.11.0)
     rake (10.0.4)
     rb-inotify (0.8.8)
       ffi (>= 0.5.0)
