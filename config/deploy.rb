@@ -9,6 +9,7 @@ set :branch, :master
 
 set :use_sudo, false
 set :user, "deploy"
+set :sidekiq_processes, 10
 
 set :deploy_to, "/home/deploy/feed_fiction"
 set :current_path, "/home/deploy/feed_fiction/current"
@@ -18,10 +19,11 @@ role :app, "198.74.61.35"                          # This may be the same as you
 role :db,  "198.74.61.35", :primary => true # This is where Rails migrations will run
 role :sidekiq, "198.74.61.35"
 
+
 set :rvm_type, :system
 set :rvm_ruby_string, "1.9.3-turbo"
 
-#set :rvm_bin_path, "/usr/local/rvm/bin"
+set :rvm_path, "/usr/local/rvm"
 
 set :rake, "bundle exec rake"
 
