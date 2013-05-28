@@ -15,6 +15,7 @@
 			<li><%= link_to 'Dashboard' , admin_root_url%></li>
 			<li><%= link_to 'Users' , admin_users_url%>(<%= User.all.size%>)</li>
 			<li><%= link_to 'Stories' , admin_stories_url%> (<%= Story.all.size%>)</li>
+			<li><%= link_to 'HP Texts' , admin_text_pages_url%> (<%= TextPage.all.size%>)</li>
 
 		</ul>
 		<%= yield %>
