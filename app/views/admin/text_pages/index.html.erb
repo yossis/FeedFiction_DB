@@ -1,0 +1,25 @@
+<h1>Listing admin_text_pages</h1>
+
+<table>
+  <tr>
+    <th>Page type</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @text_pages.each do |text_page| %>
+  <tr>
+    <td><%= text_page.page_type %></td>
+    <td><%= text_page.name %></td>
+    <td><%= link_to 'Show', admin_text_page_path(text_page) %></td>
+    <td><%= link_to 'Edit', edit_admin_text_page_path(text_page) %></td>
+    <td><%= link_to 'Destroy', admin_text_page_path(text_page), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Text page', new_admin_text_page_path %>

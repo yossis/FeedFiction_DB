@@ -6,6 +6,7 @@ class FeedsController < ApplicationController
     @stories = Story.includes([{story_lines: :user}, :image, :user, :likes , {comments: :user}]).where("status=1 #{sort_feed}").paginate(page: params[:page]).order('updated_at DESC')
     #Category.includes(:posts => [{:comments => :guest}, :tags])
     @everything_active = 'class=active'
+    @home_page_texts = TextPage.all
     render 'index'
   end
   

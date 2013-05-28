@@ -1,0 +1,25 @@
+<%= form_for [ :admin, @text_page ] do |f| %>
+  <% if @text_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@text_page.errors.count, "error") %> prohibited this admin_text_page from being saved:</h2>
+
+      <ul>
+      <% @text_page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :page_type %><br />
+    <%= f.number_field :page_type %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

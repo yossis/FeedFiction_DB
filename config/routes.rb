@@ -1,4 +1,9 @@
 FeedFiction::Application.routes.draw do
+  namespace :admin do
+    resources :text_pages
+  end
+
+
   resources :invite_texts
 
 

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Page type:</b>
+  <%= @text_page.page_type %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @text_page.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_text_page_path(@text_page) %> |
+<%= link_to 'Back', admin_text_pages_path %>

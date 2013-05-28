@@ -1,0 +1,2 @@
+module Admin::TextPagesHelper
+end
