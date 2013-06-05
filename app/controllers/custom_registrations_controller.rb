@@ -4,7 +4,7 @@ class CustomRegistrationsController < ApplicationController
 
     guest = User.get_guest(params[:user])
     if guest.login_count==0
-    	UserMailer.delay.welcome(guest) if guest.email.present?
+    	UserMailer.delay.welcome_custom_registration(guest) if guest.email.present?
     end
     @story_line = StoryLine.create!(params[:story_line].merge user_id: guest.id , ip: request.remote_ip)
     
