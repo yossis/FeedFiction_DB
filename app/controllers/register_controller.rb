@@ -1,5 +1,6 @@
 class RegisterController < ApplicationController
-  before_filter :set_common_vars, :can_access
+  before_filter :set_common_vars
+  before_filter :can_access , except: [:can_access]
 
   def start
     redirect_to root_url unless has_permission 
@@ -37,6 +38,10 @@ class RegisterController < ApplicationController
     @skip_next_text = 'Skip this step'
     @next_step = find_friends_wizard_url
     @story = Story.new
+  end
+
+  def story
+    
   end
 
   private

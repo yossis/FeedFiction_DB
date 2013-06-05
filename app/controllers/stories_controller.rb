@@ -46,10 +46,12 @@ class StoriesController < ApplicationController
 
     update_if_complete story_line.story
 
-    #if params[:facebook]
+    if current_user.is_facebooker?
       key = story_line.story.is_complete ? "complete" : "start"
-      FacebookWorker.perform_async(current_user.id , key, story_url(story_line.story))
-    #end
+      
+      FacebookWorker.perform_async(current_user.id , key, story_url(story_line.story)) if (current_user.is_facebooker?)
+    
+    end
     
     redirect_to general_feed_url
     

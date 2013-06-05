@@ -1,0 +1,40 @@
+<section class="story-page">
+
+	<div class="started-by">
+		<!-- <h2>The Feeders:</h2> -->
+		
+		<h2 class="custom-regitartion-question">How would you continue this story?</h2>
+		<div class="story-header-hr-wrapper">
+			<%= render 'layouts/title_hr' , :@hr_name => @story.story_title%>
+		</div>
+
+	</div>
+	
+<div id="popup-chooser"></div>
+<div class="container">
+
+	<div class="story">
+		
+		<div class="story-wrapper">
+			<div class="picture">
+			  <%=  image_tag(@story.image.image_source)  %>
+			</div>
+	  			<%#= render 'stories/started_by' , :story => @story%>
+			  
+			  <%= render 'continue_story_registration' , :story => @story%>
+		</div>
+	  
+	</div>
+
+	
+	<!-- Side bar -->
+	<%#= render 'stories/side_bar' %>
+</div>
+
+
+</section>
+
+<% content_for :footer do %>
+	<%=render 'layouts/footer' %>
+	<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+<% end %>

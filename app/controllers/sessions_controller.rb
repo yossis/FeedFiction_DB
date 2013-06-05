@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
-  	#omniauth = request.env["omniauth.auth"]
-    #raise omniauth.to_yaml
+  	omniauth = request.env["omniauth.auth"]
+    raise omniauth.to_yaml
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user._id
     cookies[:login] = { :value => user._id, :expires => 2.days.from_now }

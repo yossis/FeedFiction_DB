@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 gem 'koala'
 gem 'instagram'
 gem 'foreigner'
@@ -19,6 +20,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
+gem 'devise'
 #gem 'sidekiq_mailer'
 gem 'capistrano'
 gem 'rvm-capistrano'
@@ -56,7 +58,7 @@ group :development, :test do
   gem 'guard-rspec', '0.5.5'
   gem 'guard-spork', '0.3.2'
   gem 'spork', '0.9.0'
-  #gem 'debugger' use binding.pry instead
+  gem 'debugger'# use binding.pry instead
   gem 'factory_girl_rails'
   gem 'faker'
 end

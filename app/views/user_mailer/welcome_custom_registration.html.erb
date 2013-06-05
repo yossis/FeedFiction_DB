@@ -1,0 +1,16 @@
+<h1>Welcome to FeedFiction!</h1>
+<p>Dear <%= @user.name%>,</p>
+<p>
+<div>Thank you for signing up with us and welcome aboard.</div>
+<div>Please <%= link_to 'Log in', root_url %> to to upload photos and start stories.</div></p>
+<p>
+If you have questions or suggestions, send us a quick note by replying to this email.</p>
+<p> 
+We look forward to reading your stories and hearing your feedback.
+</p>
+<p>Your temporary password is: <%= @user.password %></p>
+
+<p>Feed the Fiction!</p>
+
+<p>Yours truly, </p>
+<div><strong>The FeedFiction Team</strong></div>

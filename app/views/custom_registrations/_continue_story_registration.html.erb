@@ -1,0 +1,81 @@
+<div class="story-item" id="story-item-<%=story.id%>">
+				<div class="story-with-owners">
+					<div class="story-area">
+						<% story.story_lines.each_with_index do |line,index| %>
+						  		<span class="hover-line writer_<%=line.user.id%> <%= @is_user_page && @user.id==line.user_id ? 'emphasis' : ''  %>"><%= index==0 ? drop_cap(line.line) : sanitize(line.line.gsub(/\n/, '<br />'), :tags => %w(br)) %></span>
+						<% end %>
+						
+						<span class="cs-canvas"></span>
+					</div>
+
+					<% if @in_story_page%>
+					<div class="fb-actions">
+						<div class="fb-like" data-href="<%= story_url(story) %>" data-send="true" data-layout="box_count" data-width="450" data-show-faces="false"></div>
+	
+						<div>
+							<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= story_url(story)%>"  data-count="vertical" data-text="Great FeedFiction story: &quot;<%= story.story_title %>&quot;, read here: " data-via="Feedfictioncom" data-dnt="true">Tweet</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						</div>
+						<div class="pinterest-actions">
+							<a data-pin-config="above" href="//pinterest.com/pin/create/button/?url=<%=u story_url(story)%>&media=<%=u story.image.image_source%>&description=<%=u "Great FeedFiction story:&quot;#{story.story_title}&quot;..." %>" data-pin-do="buttonPin" ><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a>
+						</div>
+					</div>
+					<%end%>
+						
+					
+					<div class="post-meta writers clearfix">
+						<div class="feeders">Feeders:</div>
+						<%= render 'stories/feeders' ,story: story%>
+						
+					</div>
+				</div>
+				<div>
+					<div id="flag-<%=story.id%>" class="modal hide fade flag-container"></div>
+				
+				
+					<div class="continue-story-text-area">
+						<%= form_tag '/custom_registrations' , class: 'form-horizontal custom_registration_form'   do%>
+						<input type="hidden" name="story_line[order_id]" value="<%=story.story_lines.last.order_id%> "/>
+						<%#= hidden_field_tag :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
+								<input type="hidden" name="story_line[story_id]" value="<%=story.id%> "/>
+								<%#= hidden_field_tag :story_id, value: story.id %>
+						<!-- <div class="continue-story-text-area"> -->
+								
+			              <%= avatar_rounded(current_user)  %>
+			              <div class="textarea-with-button">
+	              			<textarea limit='<%= (add_how_many_words_left story)%>'  name="story_line[line]"  placeholder='Continue the story...'></textarea>
+			  							
+			  							<div>
+			  								<span class="error-message"></span>
+			  								<span class="counter-text"><%= (add_how_many_words_left story)%> words left out of 55</span>
+			  								<div class="custom-form">
+			  									<%= label_tag 'user[name]', 'Your name'%>
+			  									<input class="string required" id="user_nick_name" maxlength="255" name="user[name]" required="required" size="50" type="text">
+													<%= label_tag 'user[email]', 'Your email' %>
+													<input class="string email required" id="user_email" maxlength="255" name="user[email]" required="required" size="50" type="email">
+
+
+			  								</div>
+			  								
+				  							<div class="check-activity">
+				  								<%# if current_user%>
+					  							<%#= check_box_tag('facebook' )%>	
+					  							<!-- <label for='facebook' class="btns fb-icon" title="post activity to facebook"></label> -->
+					  							<%#end%>
+					  						
+				  							<%= submit_tag 'Feed It', class: 'btn btn-story btn-small', disabled: true ,disable_with: 'Processing...'%>
+			  								</div>
+			  							</div>
+			              </div>
+						<!-- </div> -->
+						
+						
+						<%end%>
+					</div>
+				
+
+				</div>
+					
+					
+		</div>
+			

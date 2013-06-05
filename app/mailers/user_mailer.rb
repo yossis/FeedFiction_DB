@@ -12,6 +12,11 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: "Welcome to FeedFiction"
   end
 
+  def welcome_custom_registration(user)
+    @user = user
+    mail to: user.email, subject: "Welcome to FeedFiction"
+  end
+
   def continue_story(story , user, current_user)
     @story = story
     @current_user = current_user

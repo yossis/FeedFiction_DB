@@ -42,7 +42,6 @@ class StoryLinesController < ApplicationController
   # POST /story_lines.json
   def create
     #raise params[:story_line].to_yaml
-
     @story_line = StoryLine.create(params[:story_line].merge user_id: current_user.id , ip: request.remote_ip)
     
     @story_line.update_attribute(:line, until_55_words(@story_line.story,@story_line.line))
@@ -59,11 +58,10 @@ class StoryLinesController < ApplicationController
       @invisible = 'hide_action_hack'
     end
      
-    #if params[:facebook]
+    if current_user.is_facebooker?
       key = @story.is_complete ? "complete" : "continue"
-      FacebookWorker.perform_async(current_user.id , key, story_url(@story))
-    #end
-    #render json: @story_line, status: :created, location: @story_line
+      FacebookWorker.perform_async(current_user.id , key, story_url(@story)) 
+    end
   end
 
   # PUT /story_lines/1

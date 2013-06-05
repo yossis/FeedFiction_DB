@@ -31,7 +31,7 @@
                   </a>
                   <div class="nav-collapse collapse">
                     <ul class="nav">
-                    <% if current_user %>
+                    <% if user_signed_in? %>
                       <% if current_user.has_notification? %>
                         <li><a href='<%= notifications_show_url%>'>
                             <%if current_user.new_notifications_count==0%>
@@ -53,15 +53,16 @@
                            <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-<li><%=link_to 'My Feed', root_url if current_user%></li>
+<li><%=link_to 'My Feed', root_url if user_signed_in?%></li>
         <li><%=link_to 'Invite friends', '#', class: 'facebook_invitation_link'%></li>
 
                            <li class="divider"></li>
                           <li><%= link_to "Following",  following_user_path(current_user) %></li>
                           <li><%= link_to "Followers",  followers_user_path(current_user) %></li>
-                         
+                         <li class="divider"></li>
+                          <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
                           <li class="divider hide-in-fb-app"></li>
-                          <li class="hide-in-fb-app"><%= link_to "Sign out", signout_path %></li>
+                          <li class="hide-in-fb-app"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
                          
                         </ul>
                       </li>
@@ -70,7 +71,9 @@
                     <% else %>
                       <%= render 'layouts/about_dd_menu' %>
                       <li class="divider-vertical"></li>
-                      <li><a href class="sign-in"><b class="btns fb-icon"></b> Sign in with Facebook</a>
+                      <li><%= link_to "Sign up", new_user_registration_path %></li>
+                      <li class="divider"></li>        
+                      <li><%= link_to "Login", new_user_session_path %></li>
 
                     <% end %>
 

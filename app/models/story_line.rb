@@ -18,7 +18,8 @@ class StoryLine < ActiveRecord::Base
   belongs_to :story
   belongs_to :user 
 
-  before_create :duplicate_story_if_needed
+  #before_create :duplicate_story_if_needed
+  #after_create :send_notification
   after_save :update_story
   
   validates :line, presence: true
@@ -35,12 +36,13 @@ class StoryLine < ActiveRecord::Base
     end
 
     def duplicate_story_if_needed
+      
       if should_duplicate?
         duplicate_story
       else
           self.order_id +=1
           #notification
-          Notification.notify(self, user)
+          
           #UserMailer.continue_story(@story_line.story , current_user).deliver 
       end
     end
@@ -75,6 +77,10 @@ class StoryLine < ActiveRecord::Base
       hash.delete("created_at")
       hash.delete("updated_at")
       hash
+    end
+
+    def send_notification
+      Notification.notify(self, user)
     end
 
 end

@@ -1,10 +1,21 @@
 FeedFiction::Application.routes.draw do
+  get "custom_registrations/create"
+
+  get "custom_registrations/story"
+
+  get "authentications/create"
+
+  get "authentications/destroy"
+
+  devise_for :users ,path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "authentications" } 
+
   namespace :admin do
     resources :text_pages
   end
 
 
   resources :invite_texts
+  resources :custom_registrations
 
 
   require 'sidekiq/web'
@@ -77,7 +88,7 @@ FeedFiction::Application.routes.draw do
   match '/contact' => 'contacts#new', :as => 'contacts', :via => :get
   match '/contact' => 'contacts#create', :as => 'contacts', :via => :post
 
-  match 'auth/:provider/callback', to: 'sessions#create'
+  #match 'auth/:provider/callback', to: 'sessions#create'
   match 'oauth/instagram/callback', to: 'sessions#callback_instagram'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
@@ -88,6 +99,7 @@ FeedFiction::Application.routes.draw do
   match 'register/follow-friends', to: 'register#friends' , as: 'find_friends_wizard'
   match 'register/facebook', to: 'register#facebook' , as: 'import_facebook_wizard'
   match 'register/instagram', to: 'register#instagram' , as: 'import_instagram_wizard'
+  match 'tau/story', to: 'custom_registrations#story'
   match '/all', to: 'feeds#general_feed' , as: 'general_feed'
   match "/testform" , to: 'stories#testform'
   match '/old' , to: 'oldie#show'

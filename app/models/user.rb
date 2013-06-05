@@ -2,31 +2,50 @@
 #
 # Table name: users
 #
-#  id               :integer          not null, primary key
-#  provider         :string(255)
-#  uid              :string(255)
-#  name             :string(255)
-#  nick_name        :string(255)
-#  avatar           :string(255)
-#  email            :string(255)
-#  gender           :string(255)
-#  oauth_token      :string(255)
-#  oauth_expires_at :datetime
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  login_count      :integer          default(0)
-#  big_avatar       :string(255)
-#  cover            :string(255)
-#  invitation_id    :integer
-#  invitation_limit :integer          default(10)
-#  admin            :integer          default(0)
-#  status           :integer          default(1)
+#  id                     :integer          not null, primary key
+#  provider               :string(255)
+#  uid                    :string(255)
+#  name                   :string(255)
+#  nick_name              :string(255)
+#  avatar                 :string(255)
+#  email                  :string(255)
+#  gender                 :string(255)
+#  oauth_token            :string(255)
+#  oauth_expires_at       :datetime
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  login_count            :integer          default(0)
+#  big_avatar             :string(255)
+#  cover                  :string(255)
+#  invitation_id          :integer
+#  invitation_limit       :integer          default(10)
+#  admin                  :integer          default(0)
+#  status                 :integer          default(1)
+#  slug                   :string(255)
+#  encrypted_password     :string(255)      default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0)
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
 #
 
 require 'admin/faker'
 class User < ActiveRecord::Base
-  attr_accessible :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count, :invitation_token, :invitation_limit, :admin ,:status, :slug
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :omniauthable,
+         :recoverable, :rememberable, :trackable, :validatable
 
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :password, :password_confirmation, :remember_me ,
+  :avatar, :email, :gender, :name, :nick_name, :oauth_expires_at, :oauth_token, :provider, :uid, :login_count, :invitation_token, :invitation_limit, :admin ,:status, :slug
+
+  has_many :authentications
   has_many :stories
   has_many :liked_stories, through: :likes , source: :story
   has_many :story_lines
@@ -51,6 +70,10 @@ class User < ActiveRecord::Base
 
   before_validation :generate_slug
   
+  def password_required?
+    super && provider.blank?
+  end
+
   def to_param
     slug
   end
@@ -59,12 +82,15 @@ class User < ActiveRecord::Base
     self.slug ||= name.parameterize
   end
 
-
+  def confirm!
+    UserMailer.delay.welcome(self) if self.email.present?
+    super
+  end
 
   def self.from_omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
 	  	#logger.debug { "user: #{user}" }
-	    user.provider = auth.provider
+      user.provider = auth.provider
 	    #logger.debug { "user.provider: #{auth.provider}" }
 	    user.uid = auth.uid
 	    user.name = auth.info.name
@@ -73,16 +99,35 @@ class User < ActiveRecord::Base
 	    user.email = auth.info.email
 	    user.gender = auth.extra.raw_info.gender
 	    user.oauth_token = auth.credentials.token
-	    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+	    user.oauth_expires_at = Time.at(auth.credentials.expires_at) if auth.credentials.expires_at.present?
 	    user.login_count +=1
-      user.slug = user.name.parameterize if user.login_count==1
-	    user.save!
-	    user
-	 end
+      user.slug = user.name.parameterize
+      #user.save!
+      #user.authentications.build(provider:  auth.provider, uid: auth.uid, token: auth.credentials.token, token_secret: auth.credentials.secret)
+      user
+    end
+	    #
+	    #user
+  end
+
+  def self.get_guest(guest)
+    where(guest.slice(:email)).first_or_create do |user|
+      user.name = guest['name']
+      user.nick_name = user.name.delete(' ')+'_'+('a'..'z').to_a.shuffle[0..7].join
+      user.email = guest['email']
+      user.slug = user.name.parameterize
+      user.password = ('0'..'z').to_a.shuffle.first(8).join
+      user
+    end
+    
   end
 
   def facebook
 	  @facebook ||= Koala::Facebook::API.new(oauth_token)
+  end
+
+  def is_facebooker?
+    self.provider=="facebook"
   end
 
   def like?(story_id)
@@ -160,6 +205,25 @@ class User < ActiveRecord::Base
   def people_to_follow
     followed = self.followed_users.size==0 ? 0 : self.followed_users
     follow = User.where('id NOT IN (?,?)', followed, self).order('random()')
+  end
+
+  def update_with_password(params, *options)
+    if encrypted_password.blank?
+      update_attributes(params, *options)
+    else
+      super
+    end
+  end
+
+  def self.new_with_session(params, session)
+    if session["devise.user_attributes"]
+      new(session["devise.user_attributes"], without_protection: true) do |user|
+        user.attributes = params
+        user.valid?
+      end
+    else
+      super
+    end    
   end
 
   private

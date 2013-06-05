@@ -73,6 +73,7 @@ class ApplicationController < ActionController::Base
 
 
   def ie_disclaimer
+    @donot_show_disclaimer = true
     if Rails.env.production? 
         if params[:debug]=='true'
           session[:ie] = 1
@@ -84,10 +85,10 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-  helper_method :current_user
+  # def current_user
+  #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  # end
+  # helper_method :current_user
 
   def add_how_many_words_left(story)
     count ||= story.story_lines.map {|i| i.line}.join(' ').squish.strip.split(' ').count

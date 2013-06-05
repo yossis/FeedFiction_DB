@@ -15,6 +15,7 @@
 #  last_line_updated_at :datetime
 #  view_count           :integer          default(0)
 #  status               :integer          default(1)
+#  slug                 :string(255)
 #
 
 require 'spec_helper'

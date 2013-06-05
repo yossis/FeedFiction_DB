@@ -1411,6 +1411,10 @@ ul.commentlist {
 	font-size: 14px;
 	.started-by {
 		text-align: center;
+		.custom-regitartion-question {
+			font-size: 40px;
+			padding: 40px;
+		}
 		div{
 			margin:0 auto;
 		}
@@ -1494,6 +1498,11 @@ ul.commentlist {
 		width: 87%;
 	}
 
+	.custom-form {
+		clear:both;
+		padding-left: 50px;
+	}
+
 
 	.widget {
 		padding: 10px;
@@ -1542,6 +1551,24 @@ ul.commentlist {
 		height: 18px;
 		padding: 25px 0 28px 0;
 	}
+
+
+	/* Custom registration page*/
+
+
+
+	.continue-story-text-area {
+		 .custom_registration_form{
+			.counter-text {
+				float:right;
+			}
+
+		}
+
+	}
+
+
+
 }
 
 /* Static Pages */
@@ -1621,6 +1648,8 @@ ul.commentlist {
 		float: left;
 	}
 }
+
+
 
 
 /* Modal Validation registraion */
@@ -2138,7 +2167,7 @@ ul.commentlist {
 .hp-header {
 	position: relative;
 	.slider-wrapper {
-		background: url('slider/slider4.jpg') no-repeat;
+		/*background: url('slider/slider4.jpg') no-repeat;*/
 		height: 400px;
 		width: 100%;
 		-webkit-background-size: cover;
@@ -2675,6 +2704,7 @@ ul.commentlist {
 
 	/* Story page */
 	.story-page {
+
 		.story-area {
 			font-size: 20px;
 			line-height: 27px;

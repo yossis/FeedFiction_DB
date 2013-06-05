@@ -71,5 +71,7 @@ FeedFiction::Application.configure do
   ENV["AWS_S3_BUCKET"] = 'dev-feedfiction-images'
   ENV["AWS_S3_URL"] = "https://#{ENV["AWS_S3_BUCKET"]}.s3.amazonaws.com"
   ENV["ROOT_URL"] = "http://4qpc.localtunnel.com"
+  ENV["TWITTER_CONSUMER_KEY"] = '3ouVsjKMQVqQTT3JcmD58w'
+  ENV["TWITTER_CONSUMER_SECRET"] = 'ZBjEYQKylbQemuF8YVI8CJyNIwrBwiQpbBlW1G6Y'
   
 end
