@@ -2,13 +2,13 @@
 <p>Dear <%= @user.name%>,</p>
 <p>
 <div>Thank you for signing up with us and welcome aboard.</div>
-<div>Please <%= link_to 'Log in', root_url %> to to upload photos and start stories.</div></p>
+</p>
+<h2>You received a temporary password and you need to change it here <%= link_to "Change password", edit_user_registration_url %></h2>
 <p>
 If you have questions or suggestions, send us a quick note by replying to this email.</p>
 <p> 
 We look forward to reading your stories and hearing your feedback.
 </p>
-<p>Your temporary password is: <%= @user.password %></p>
 
 <p>Feed the Fiction!</p>
 
