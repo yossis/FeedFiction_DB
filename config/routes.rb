@@ -9,6 +9,10 @@ FeedFiction::Application.routes.draw do
 
   devise_for :users ,path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "authentications" } 
 
+  devise_scope :user do
+    get "/signout" => "devise/sessions#destroy"
+  end
+
   namespace :admin do
     resources :text_pages
   end
@@ -91,7 +95,7 @@ FeedFiction::Application.routes.draw do
   #match 'auth/:provider/callback', to: 'sessions#create'
   match 'oauth/instagram/callback', to: 'sessions#callback_instagram'
   match 'auth/failure', to: redirect('/')
-  match 'signout', to: 'sessions#destroy', as: 'signout'
+  
 
   match '/facebook', to: 'images#facebook' 
   match '/instagram', to: 'images#instagram' 
