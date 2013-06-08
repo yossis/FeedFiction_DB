@@ -18,8 +18,8 @@ class StoryLine < ActiveRecord::Base
   belongs_to :story
   belongs_to :user 
 
-  #before_create :duplicate_story_if_needed
-  #after_create :send_notification
+  before_create :duplicate_story_if_needed
+  after_create :send_notification
   after_save :update_story
   
   validates :line, presence: true
