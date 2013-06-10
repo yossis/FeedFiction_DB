@@ -1,27 +1,39 @@
-<div class="container">
+<div class="login-box">
+  
+  <h1>Sign up</h1>
+    <%= render 'devise/shared/social_links' %>
 
-<h2>Sign up</h2>
+    <!-- <div class="header-hr">
+            <h1>OR</h1>
+          </div>
+ -->
+ 
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), defaults: { input_html: { class: 'form-horizontal' } }) do |f| %>
+    <%= f.error_notification %>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <div class="form-inputs">
+    	<ul>
+    		<li><%= f.input_field :name , required: true, placeholder: 'Full Name'%></li>
+    		<li><label class="user-name">http://feedfictin.com/users/</label>
+          <%= f.input_field :nick_name , required: true, placeholder: 'User Name' , class: 'username-field'%></li>
+        <li> <%= f.input_field :email, :required => true, :autofocus => true , placeholder: 'Email'%></li>
+        <% if f.object.password_required? %>
+          <li><%= f.input_field :password, required: true, placeholder: 'Password'%></li>
+          <li><%= f.input_field :password_confirmation, required: true, placeholder: 'Password Confirmation' %></li>
+        <% end%>
+    	</ul>
+     </div>
 
-  <div class="form-inputs">
-  	<ul>
-  		<li><%= f.input :name , required: true%></li>
-  		<li><%= f.input :nick_name , required: true%></li>
-  	</ul>
-    <%= f.input :email, :required => true, :autofocus => true %>
+    <div >
+      <%= f.button :submit, "Sign up" , class: 'btn-primary btn-large'%>
+    </div>
+  <% end %>
 
-    <% if f.object.password_required? %>
-      <%= f.input :password, :required => true %>
-      <%= f.input :password_confirmation, :required => true %>
-    <% end%>
+  <div >
+      <span>Already have an account?</span>
+      <%= link_to "Sign in", new_session_path(resource_name) %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+  
 
-<%= render "devise/shared/links" %>
 </div>

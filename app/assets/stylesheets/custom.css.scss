@@ -2146,12 +2146,60 @@ ul.commentlist {
   
 
 
+/* Login + Registraion page*/
+.login-box {
+	width: 500px;
+	margin:0 auto;
+	text-align: center;
+	background: url(grid_noise.png);
+	padding: 10px 0;
+
+ .division {
+ 		position: relative;
+ 		width: 70%;
+ 		margin: 0 auto;
+	 	.line {
+			border-top: 1px solid #68A7C4;
+			width: 34%;
+			top: 10px;
+			position: absolute;
+		}
+		.l {
+			left: 0;
+		}
+		.r {
+			right: 0;
+		}
+	}
+
+	.form-inputs {
+		ul{
+			li{
+				input {
+					width: 70%;
+					height: 28px;
+				}
+				input.username-field {
+					width:35%;
+				}
+				label.user-name {
+					display: inline-block;
+				}
+				input[type=checkbox] {
+					width: auto;
+					height: auto;
+					margin: 0;
+				}
+				.remember-me {
+					display: inline-block;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
 
 
-
-
-
-
+}
 
 
 

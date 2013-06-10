@@ -530,12 +530,12 @@
 }
 
 .social-info .social-info-back {
-	-webkit-transform: rotate3d(0,1,0,180deg);
-	-moz-transform: rotate3d(0,1,0,180deg);
-	-o-transform: rotate3d(0,1,0,180deg);
-	-ms-transform: rotate3d(0,1,0,180deg);
-	transform: rotate3d(0,1,0,180deg);
-	margin-left: -2px;
+	/*-webkit-transform: rotate3d(0,1,0,-180deg);
+	-moz-transform: rotate3d(0,1,0,-180deg);
+	-o-transform: rotate3d(0,1,0,-180deg);
+	-ms-transform: rotate3d(0,1,0,-180deg);
+	transform: rotate3d(0,1,0,-180deg);*/
+/*	margin-left: -2px;*/
 }
 
 .social-item:hover .social-info-wrap {
@@ -545,11 +545,11 @@
 }
 
 .social-item:hover .social-info {
-	-webkit-transform: rotate3d(0,1,0,-180deg);
-	-moz-transform: rotate3d(0,1,0,-180deg);
-	-o-transform: rotate3d(0,1,0,-180deg);
-	-ms-transform: rotate3d(0,1,0,-180deg);
-	transform: rotate3d(0,1,0,-180deg);
+	/*-webkit-transform: rotate3d(0,1,0,180deg);
+	-moz-transform: rotate3d(0,1,0,180deg);
+	-o-transform: rotate3d(0,1,0,180deg);
+	-ms-transform: rotate3d(0,1,0,180deg);
+	transform: rotate3d(0,1,0,180deg);*/
 }
 
 .social-amazon { 
