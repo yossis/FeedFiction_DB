@@ -12,8 +12,8 @@
     <div class="message">To check this out you need to sign in to FeedFiction</div>
     <div>Try it. It's Free.</div>
     <hr/>
-    <span class="sign-in btn-signin-large"></span>
-    <div class="link-login">Been here before? <%= link_to 'Log In' ,'#', class: 'sign-in'%></div>
+    <%= link_to '', new_user_registration_path , class: 'btn-signin-large'%>
+    
+    <div class="link-login">Been here before? <%= link_to "Login", new_user_session_path %></div>
   </div>
 </div>
-
