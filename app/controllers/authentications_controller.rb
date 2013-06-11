@@ -19,6 +19,7 @@ class AuthenticationsController < Devise::OmniauthCallbacksController
       if user.first_time?
         UserMailer.delay.welcome(user) if user.email.present?
       end
+      session["devise.user_attributes"] = nil
       sign_in_and_redirect user
     else
       session["devise.user_attributes"] = user.attributes

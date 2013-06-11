@@ -1,7 +1,13 @@
 <div class="login-box">
   
-  <h1>Sign up</h1>
+  
+  <% if @user.nil? %>
+    <h1>Sign up</h1>  
     <%= render 'devise/shared/social_links' %>
+    <% elsif @user.id.nil? %>
+      <h1>Complete your registration</h1>
+      <h3>Please fill your email below</h3>
+    <% end %>
 
     <!-- <div class="header-hr">
             <h1>OR</h1>
@@ -16,7 +22,7 @@
     		<li><%= f.input_field :name , required: true, placeholder: 'Full Name'%></li>
     		<li><label class="user-name">http://feedfictin.com/users/</label>
           <%= f.input_field :nick_name , required: true, placeholder: 'User Name' , class: 'username-field'%></li>
-        <li> <%= f.input_field :email, :required => true, :autofocus => true , placeholder: 'Email'%></li>
+        <li> <%= f.input :email, :required => true, :autofocus => true , placeholder: 'Email', label: false%></li>
         <% if f.object.password_required? %>
           <li><%= f.input_field :password, required: true, placeholder: 'Password'%></li>
           <li><%= f.input_field :password_confirmation, required: true, placeholder: 'Password Confirmation' %></li>
