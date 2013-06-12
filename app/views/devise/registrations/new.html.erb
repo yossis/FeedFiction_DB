@@ -1,7 +1,6 @@
 <div class="login-box">
   
-  
-  <% if @user.nil? %>
+  <% if @user.provider.nil? %>
     <h1>Sign up</h1>  
     <%= render 'devise/shared/social_links' %>
     <% elsif @user.id.nil? %>
