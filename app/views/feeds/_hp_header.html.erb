@@ -45,7 +45,8 @@
 					
 					<div class="wrapper-sign-in">
 			 			<!-- <span class="sign-in btn-signin-large"></span> -->
-			 			<a href="/tau/story" class="btn btn-large btn-primary" data-function="startStoryHomePageWizard"><i class="ico-circle-plus ico-white"></i><span>Start Here</span></a>
+			 			<%= link_to "Sign up", new_user_registration_path , class: 'btn btn-large btn-primary'%> or 
+             <%= link_to "Login", new_user_session_path , class: 'btn btn-large btn-primary'%>
 			 			
 			 		</div>
 
