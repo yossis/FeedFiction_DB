@@ -36,11 +36,10 @@ class StoryLine < ActiveRecord::Base
     end
 
     def duplicate_story_if_needed
-      
       if should_duplicate?
         duplicate_story
-      else
-          self.order_id +=1
+      # else
+      #     self.order_id +=1
           #notification
           
           #UserMailer.continue_story(@story_line.story , current_user).deliver 
@@ -48,13 +47,16 @@ class StoryLine < ActiveRecord::Base
     end
 
     def should_duplicate?
+      
       last_line = StoryLine.last_by_order(self.story_id)
       return false if last_line.blank?
 
-      last_line.order_id != order_id.to_i
+      last_line.order_id == order_id.to_i
     end
 
     def duplicate_story
+     
+      story.story_source_id = story.id
       story_attributes = clean_attributes story.attributes
       new_story = Story.create(story_attributes)
       duplicate_story_lines new_story
@@ -63,12 +65,11 @@ class StoryLine < ActiveRecord::Base
 
     def duplicate_story_lines(new_story)
       story.story_lines.each_with_index do |line, i|
-
         line_attributes = clean_attributes line.attributes
         line_attributes.delete "story_id"
         new_story.story_lines.create(line_attributes)
 
-        break if self.order_id == (i+1)
+        break if self.order_id == line.order_id+1
       end
     end
 

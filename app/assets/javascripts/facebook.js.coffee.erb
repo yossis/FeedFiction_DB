@@ -14,7 +14,7 @@ jQuery(document).ready ($) ->
       e.preventDefault()
       $('#modal-register').modal('hide')
       FB.login (response) ->
-        window.location = '/auth/facebook' if response.authResponse
+        window.location = '/users/auth/facebook' if response.authResponse
       , scope: "user_photos,friends_photos,email,publish_stream"
       
       FB.Event.subscribe "auth.login", (r) ->

@@ -44,7 +44,7 @@
 					<div class="continue-story-text-area">
 						<%= simple_form_for StoryLine.new , html: {class: 'form-horizontal'}, remote: true  do |f| %>
 						
-						<%= f.hidden_field :order_id, value: story.story_lines.last.order_id if story.story_lines.present?%>
+						<%= f.hidden_field :order_id, value: story.story_lines.last.order_id+1 if story.story_lines.present?%>
 						<%= f.hidden_field :story_id, value: story.id %>
 						<!-- <div class="continue-story-text-area"> -->
 								
