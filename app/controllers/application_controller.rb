@@ -24,14 +24,14 @@ class ApplicationController < ActionController::Base
 
   def current_user_was_and_log_out
     if current_user.nil? && cookies[:login]
-      redirect_to '/auth/facebook'
+      redirect_to '/users/auth/facebook'
     end
   end
 
   def detect_facebook_post!
     if request.params['signed_request']
       if current_user.nil? 
-        redirect_to "/auth/facebook"
+        redirect_to "/users/auth/facebook"
       else
         reconnect_with_facebook
       end
