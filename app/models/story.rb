@@ -97,6 +97,11 @@ class Story < ActiveRecord::Base
   def update_view
     Story.update_counters self.id, view_count: 1
   end
+
+  def self.most_popular
+    #stories_id = select("stories.id, count(likes.id) AS likes_count").joins(:likes).order("likes_count DESC")
+    self.joins(:likes).select('stories.id ,count(likes.id) as likes_count').group('stories.id').order('likes_count DESC')
+  end
   
 
   def self.from_users_followed_by(user)

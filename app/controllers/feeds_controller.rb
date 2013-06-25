@@ -22,6 +22,14 @@ class FeedsController < ApplicationController
     
   end
 
+  #This method should be under sort and not here.
+  def most_popular
+    @feed_name = 'Most Popular'
+    @stories = Story.most_popular.where("status=1 ").paginate(page: params[:page])
+    @most_popular_active = 'class=active'
+    render 'index'
+  end
+
   private
 
     def init_vars

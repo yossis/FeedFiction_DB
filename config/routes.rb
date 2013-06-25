@@ -105,6 +105,7 @@ FeedFiction::Application.routes.draw do
   match 'register/instagram', to: 'register#instagram' , as: 'import_instagram_wizard'
   match 'tau/story', to: 'custom_registrations#story'
   match '/all', to: 'feeds#general_feed' , as: 'general_feed'
+  match '/most_popular', to: 'feeds#most_popular' , as: 'most_popular'
   match "/testform" , to: 'stories#testform'
   match '/old' , to: 'oldie#show'
   match '/fb_channel', to: 'misc#fb_channel'
