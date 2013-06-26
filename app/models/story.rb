@@ -100,7 +100,7 @@ class Story < ActiveRecord::Base
 
   def self.most_popular
     #stories_id = select("stories.id, count(likes.id) AS likes_count").joins(:likes).order("likes_count DESC")
-    stories_id  = self.joins(:likes).select('stories.* ,count(likes.id) as likes_count').group('stories.id').order('likes_count DESC')
+    stories_id  = self.joins(:likes).select('stories.* ,count(likes.id) as likes_count').group('stories.id').uniq.order('likes_count DESC')
     #where("id IN (#{stories_id}) AND status=1")
   end
   
